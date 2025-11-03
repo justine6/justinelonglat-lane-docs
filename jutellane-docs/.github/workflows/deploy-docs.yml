@@ -1,0 +1,103 @@
+name: Deploy Jutellane Docs to Vercel
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # <-- this enables “Run workflow” and gh CLI
+
+env:
+  NODE_VERSION: "22"
+  PNPM_VERSION: "9"
+  ROOT_DIR: "."   # repo root
+
+concurrency:
+  group: vercel-docs-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.ROOT_DIR }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: pnpm-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: pnpm-${{ runner.os }}-
+
+      - name: Vercel pull (preview)
+        run: npx vercel pull --yes --environment=preview --token ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Build (Nuxt → .output)
+        run: npx vercel build
+
+      - name: Deploy preview (prebuilt)
+        id: deploy
+        run: |
+          url=$(npx vercel deploy --prebuilt --token ${{ secrets.VERCEL_TOKEN }})
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: PR summary
+        if: ${{ steps.deploy.outputs.url }}
+        run: |
+          echo "### ✅ Preview" >> "$GITHUB_STEP_SUMMARY"
+          echo "${{ steps.deploy.outputs.url }}" >> "$GITHUB_STEP_SUMMARY"
+
+  production:
+    if: ${{ github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.ROOT_DIR }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: pnpm-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: pnpm-${{ runner.os }}-
+
+      - name: Vercel pull (prod)
+        run: npx vercel pull --yes --environment=production --token ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Build (Nuxt → .output)
+        run: npx vercel build
+
+      - name: Deploy prod (prebuilt)
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: npx vercel deploy --prebuilt --prod --token ${{ secrets.VERCEL_TOKEN }}

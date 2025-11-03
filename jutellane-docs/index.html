@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jutellane Docs</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Jutellane Docs</h1>
+  </header>
+
+  <nav aria-label="Primary">
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./getting-started.html">Getting Started</a></li>
+      <li><a href="./tooling-setup.html">Tooling Setup</a></li>
+      <li><a href="./cicd-pipelines.html">CI/CD Pipelines</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Welcome to Jutellane Docs</h2>
+      <p>
+        This site documents our <strong>tooling</strong>, <strong>pipelines</strong>, and
+        <strong>practices</strong> for reliable delivery.
+      </p>
+      <p>Ready to ship with confidence? Start here:</p>
+      <p><a href="./getting-started.html">Getting Started →</a></p>
+    </section>
+
+    <section>
+      <h2>Quick Links</h2>
+      <ul>
+        <li><a href="./tooling-setup.html">Local Tooling Setup</a></li>
+        <li><a href="./cicd-pipelines.html">CI/CD Pipelines</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Example: Run a Local Preview</h2>
+      <p>From the project root, run:</p>
+      <pre><code>npm install
+npm run dev</code></pre>
+      <p>
+        Visit <code>http://localhost:3000</code> (or your configured port) to
+        verify that everything compiles and the docs render correctly.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Jutellane. All rights reserved.
+  </footer>
+
+  <script>
+    // year stamp
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

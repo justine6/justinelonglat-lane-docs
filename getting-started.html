@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Getting Started · Jutellane Docs</title>
+  <link rel="icon" href="public/favicon.ico">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <img src="public/Logo.png" alt="Jutellane logo" />
+      <div class="brand">Jutellane Docs</div>
+    </header>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="getting-started.html">Getting Started</a>
+      <a href="tooling-setup.html">Tooling Setup</a>
+      <a href="cicd-pipelines.html">CI/CD Pipelines</a>
+    </nav>
+
+    <main>
+      <h1>Getting Started</h1>
+      <p>Welcome to the <strong>Jutellane Docs</strong> guide. Here you’ll find everything you need to set up, configure, and extend your environment.</p>
+
+      <h2>Local Development</h2>
+      <pre><code>pnpm install
+pnpm dev</code></pre>
+
+      <h2>Build for Production</h2>
+      <pre><code>pnpm build
+pnpm preview</code></pre>
+
+      <p>Return to <a href="index.html">Home</a>.</p>
+    </main>
+
+    <footer class="footer">
+      © <span id="y"></span> Jutellane — DevSecOps · Cloud · Sustainability
+    </footer>
+  </div>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

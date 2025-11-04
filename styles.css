@@ -116,3 +116,18 @@ ul { padding-left: 1.25rem; }
 .updates-list a:hover { text-decoration: underline; }
 .updated-on { color:#475569; font-size:.9rem; margin-left:.5rem; }
 /* ------------------------------------------------------------------------- */
+
+/* --- Latest updates polish ---------------------------------------------- */
+.updates { background:#f8fafc; border-top:1px solid rgba(2,6,23,.06); border-bottom:1px solid rgba(2,6,23,.06); padding:1.25rem 0; }
+.updates-head { display:flex; align-items:center; justify-content:space-between; gap:.75rem; margin-bottom:.5rem; }
+.updates-title { margin:0; font-size:clamp(1.1rem,2.2vw,1.35rem); }
+.updates-more { text-decoration:none; font-weight:600; color:#334155; }
+.updates-more:hover { text-decoration:underline; }
+.updates-list { list-style:none; padding:0; margin:0; display:grid; gap:.35rem; }
+.updates-list a { text-decoration:none; font-weight:600; color:#0f172a; }
+.updates-list a:hover { text-decoration:underline; }
+.updated-on { color:#64748b; font-size:.85rem; margin-left:.45rem; }
+@media (min-width: 900px) {
+  .updates-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* ------------------------------------------------------------------------ */

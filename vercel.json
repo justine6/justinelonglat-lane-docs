@@ -5,21 +5,11 @@
     { "src": "**/*.css",  "use": "@vercel/static" },
     { "src": "public/**", "use": "@vercel/static" }
   ],
-
-  "redirects": [
-    { "source": "/",                 "destination": "/index.html",            "permanent": false },
-    { "source": "/getting-started",  "destination": "/getting-started.html",  "permanent": false },
-    { "source": "/tooling-setup",    "destination": "/tooling-setup.html",    "permanent": false },
-    { "source": "/cicd-pipelines",   "destination": "/cicd-pipelines.html",   "permanent": false },
-    { "source": "/architecture",     "destination": "/architecture.html",     "permanent": false }
-  ],
-
   "headers": [
     {
       "source": "/(.*)\\.(css|js|png|jpg|jpeg|gif|svg|ico|woff2?)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     }
   ],
-
   "cleanUrls": true
 }

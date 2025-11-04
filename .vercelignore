@@ -1,0 +1,26 @@
+node_modules/
+.next/
+.nuxt/
+dist/
+build/
+out/
+functions/
+api/
+server/
+.vercel/output/
+
+# prevent framework/package detection
+package.json
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+tsconfig.json
+jsconfig.json
+next.config.*
+nuxt.config.*
+astro.config.*
+svelte.config.*
+vite.config.*
+angular.json
+remix.config.*
+gatsby-config.*

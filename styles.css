@@ -1,0 +1,17 @@
+:root {
+  --bg: #ffffff;
+  --fg: #111827;
+  --link: #1d4ed8;
+  --muted: #6b7280;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: ui-sans-serif, system-ui, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; line-height: 1.6; }
+header { padding: 1.25rem 1rem; border-bottom: 1px solid #e5e7eb; }
+header .brand { display:flex; align-items:center; gap:.75rem; font-weight:700; font-size: 1.5rem; }
+header img { width:40px; height:40px; }
+nav a { margin-right: 1rem; color: var(--link); text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+.main { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+footer { margin-top: 4rem; padding: 1.25rem 1rem; border-top: 1px solid #e5e7eb; color: var(--muted); font-size: .9rem; }
+h1 { font-size: clamp(1.8rem, 2.2vw + 1rem, 2.6rem); margin: 1rem 0; }
+ul { padding-left: 1.25rem; }

@@ -9,6 +9,49 @@
   <link rel="stylesheet" href="/styles.css"/>
 </head>
 <body>
+<header class="container">
+  <a href="/index.html" style="display:flex;gap:.5rem;align-items:center;text-decoration:none;">
+    <img class="logo" src="/public/logo.png" alt="Jutellane logo" />
+    <strong>Jutellane Docs</strong>
+  </a>
+  <nav style="float:right">
+    <a href="/index.html">Home</a>
+    <a href="/getting-started.html">Getting Started</a>
+    <a href="/tooling-setup.html">Tooling Setup</a>
+    <a href="/cicd-pipelines.html">CI/CD Pipelines</a>
+    <a href="/architecture.html">Architecture</a>
+  <button id="themeToggle" style="margin-left:1rem">🌓</button>`n</nav>
+<!-- Active link highlighter -->
+<script>
+(function () {
+  var p = location.pathname.replace(/^\\/?|\\.html$/g, "");
+  document.querySelectorAll("nav a").forEach(function(a){
+    var t = (a.getAttribute("href")||"").replace(/^\\/?|\\.html$/g, "");
+    if (t && t === p) { a.style.fontWeight="600"; a.style.textDecoration="underline"; }
+  });
+}());
+</script>
+</header>
+<section class="hero">
+  <div class="hero-inner container">
+    <img class="hero-logo" src="/public/logo.png" alt="Jutellane logo" />
+    <div class="hero-text">
+      <h1 class="hero-title">Jutellane Docs</h1>
+      <p class="hero-subtitle">
+        Practical, production-ready guidance for DevSecOps, cloud reliability, and sustainable engineering.
+      </p>
+      <nav class="hero-cta">
+        <a href="/getting-started.html" class="btn">Getting Started</a>
+        <a href="/tooling-setup.html" class="btn ghost">Tooling Setup</a>
+        <a href="/cicd-pipelines.html" class="btn ghost">CI/CD Pipelines</a>
+        <a href="/architecture.html" class="btn ghost">Architecture</a>
+      </nav>
+    </div>
+  </div>
+</section>
+
+
+
 <main class="container">
 <h1>Welcome to Jutellane Docs</h1>
 <p>This site is the single source of truth for how we ship at Jutellane—our standards for DevSecOps, cloud reliability, and sustainable engineering. You’ll find concise, practical guidance that mirrors the way we actually work in projects.</p>
@@ -21,6 +64,7 @@
 </main>
 </body>
 </html>
+
 
 
 

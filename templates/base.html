@@ -1,6 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!-- theme-prepaint -->
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('theme');
+    if (!t) {
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      t = prefersDark ? 'dark' : 'light';
+    }
+    if (t === 'dark') document.documentElement.classList.add('dark');
+  } catch(e) {}
+})();
+</script>
+<!-- /theme-prepaint -->
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>{{TITLE}}</title>
@@ -15,3 +29,4 @@
   {{FOOTER}}
 </body>
 </html>
+

@@ -54,3 +54,29 @@
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+<section aria-labelledby="diagram-gallery" class="diagram-gallery">
+  <h2 id="diagram-gallery">🔹 Architecture Diagram Gallery</h2>
+  <p class="muted">
+    Visual snapshots of the system—high level to service-level detail. Click an image to open the full size.
+  </p>
+
+  <div class="diagram-grid">
+    <!-- Example item (ships with sample SVG below) -->
+    <figure>
+      <a href="/public/diagrams/high-level.svg" target="_blank" rel="noopener">
+        <img src="/public/diagrams/high-level.svg" alt="High-level system architecture" />
+      </a>
+      <figcaption>High-level system architecture (cloud, app, data, security)</figcaption>
+    </figure>
+
+    <!-- Placeholder slots for future diagrams -->
+    <figure class="placeholder">
+      <div class="ph">Add diagram_02.svg</div>
+      <figcaption>Service interactions / request flow</figcaption>
+    </figure>
+    <figure class="placeholder">
+      <div class="ph">Add diagram_03.svg</div>
+      <figcaption>Data pipeline & storage tiers</figcaption>
+    </figure>
+  </div>
+</section>

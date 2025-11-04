@@ -3,7 +3,8 @@
   "builds": [
     { "src": "**/*.html", "use": "@vercel/static" },
     { "src": "**/*.css",  "use": "@vercel/static" },
-    { "src": "public/**", "use": "@vercel/static" }
+    { "src": "public/**", "use": "@vercel/static" },
+    { "src": "^/architecture$", "dest": "/architecture.html" }
   ],
   "redirects": [
     { "source": "/",                "destination": "/index.html",           "permanent": false },

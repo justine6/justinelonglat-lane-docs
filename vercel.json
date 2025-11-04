@@ -2,17 +2,15 @@
   "cleanUrls": true,
   "trailingSlash": false,
 
-  // 🔒 Force static builders (no framework build at all)
   "builds": [
-    { "src": "index.html",             "use": "@vercel/static" },
-    { "src": "getting-started.html",   "use": "@vercel/static" },
-    { "src": "tooling-setup.html",     "use": "@vercel/static" },
-    { "src": "cicd-pipelines.html",    "use": "@vercel/static" },
-    { "src": "styles.css",             "use": "@vercel/static" },
-    { "src": "public/**",              "use": "@vercel/static" }
+    { "src": "index.html",           "use": "@vercel/static" },
+    { "src": "getting-started.html", "use": "@vercel/static" },
+    { "src": "tooling-setup.html",   "use": "@vercel/static" },
+    { "src": "cicd-pipelines.html",  "use": "@vercel/static" },
+    { "src": "styles.css",           "use": "@vercel/static" },
+    { "src": "public/**",            "use": "@vercel/static" }
   ],
 
-  // Clean URL entries (so /page serves /page.html)
   "routes": [
     { "src": "/getting-started", "dest": "/getting-started.html" },
     { "src": "/tooling-setup",   "dest": "/tooling-setup.html" },

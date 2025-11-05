@@ -196,3 +196,35 @@ pre {
 .mb-1 { margin-bottom: 0.25rem; }
 .mb-2 { margin-bottom: 0.5rem; }
 .center { text-align: center; }
+/* --- header polish --- */
+.brand { display:inline-flex; align-items:center; gap:.5rem; }
+.brand-logo { height: 24px; width:auto; display:block; }
+
+.nav { display:flex; align-items:center; gap:.75rem; margin-left:auto; flex-wrap:wrap; }
+
+.theme-btn {
+  background: transparent;
+  color: var(--link);
+  border: 1px solid transparent;
+  border-radius: .5rem;
+  padding: .3rem .5rem;
+  font-size: 1.05rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.theme-btn:hover { background: var(--surface); }
+.navbar { display: flex; align-items: center; gap: 1rem; }
+.brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+.brand img { display: block; }
+
+.nav-right { margin-left: auto; display: flex; align-items: center; gap: .75rem; }
+
+/* Theme toggle button */
+#themeToggle {
+  padding: .35rem .6rem;
+  border-radius: .6rem;
+  border: 1px solid var(--card-border);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  cursor: pointer;
+}

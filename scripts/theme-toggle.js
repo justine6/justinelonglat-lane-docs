@@ -1,53 +1,41 @@
 // /scripts/theme-toggle.js
 (function () {
-  var KEY = "theme";
-  var root = document.documentElement;
+  var KEY = "jutellane-theme";
 
   function prefersDark() {
     return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   }
-  function current() { return root.getAttribute("data-theme"); }
-  function apply(theme) {
-    root.setAttribute("data-theme", theme);
-    var b = document.getElementById("themeToggle");
-    if (b) b.textContent = theme === "dark" ? "☀️" : "🌙";
-    try { localStorage.setItem(KEY, theme); } catch (_) {}
-  }
-  function initial() {
-    try {
-      var saved = localStorage.getItem(KEY);
-      if (saved === "light" || saved === "dark") return saved;
-    } catch (_) {}
-    return prefersDark() ? "dark" : "light";
-  }
 
-  function ensureButton() {
+  function applyTheme(t) {
+    document.documentElement.setAttribute("data-theme", t);
+    // Update button glyph if present
     var btn = document.getElementById("themeToggle");
-    if (btn) return btn;
-    var nav = document.querySelector(".nav");
-    if (!nav) return null;
-
-    btn = document.createElement("button");
-    btn.id = "themeToggle";
-    btn.title = "Toggle theme";
-    btn.setAttribute("style",
-      "margin-left:.25rem;background:transparent;border:none;font-size:1.1rem;cursor:pointer;color:var(--link)");
-    nav.appendChild(btn);
-    return btn;
+    if (btn) btn.textContent = (t === "dark" ? "☀️" : "🌙");
   }
 
-  function wire() {
-    var btn = ensureButton();
-    if (!btn) return;
+  function initTheme() {
+    var saved = localStorage.getItem(KEY);
+    var theme = saved || (prefersDark() ? "dark" : "light");
+    applyTheme(theme);
+  }
+
+  function wireButton() {
+    // header may be injected later; retry until we find the button
+    var btn = document.getElementById("themeToggle");
+    if (!btn) { setTimeout(wireButton, 100); return; }
     btn.addEventListener("click", function () {
-      apply(current() === "dark" ? "light" : "dark");
+      var current = document.documentElement.getAttribute("data-theme") || "light";
+      var next = current === "light" ? "dark" : "light";
+      localStorage.setItem(KEY, next);
+      applyTheme(next);
     });
-    apply(initial());
   }
 
+  initTheme();
+  // Run once DOM is ready, but also cope with dynamic partials
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", wire);
+    document.addEventListener("DOMContentLoaded", wireButton);
   } else {
-    wire();
+    wireButton();
   }
 })();

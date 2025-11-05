@@ -3,17 +3,20 @@
     <p class="small mb-0">
       © <span id="year"></span> Jutellane Solutions — Cloud Confidence. Delivered.
     </p>
+    <p class="small mt-1" id="latest-updates"></p>
+
     <script>
-      // Ensure the year renders even when this partial is injected dynamically
+      // Keep the year current even when this partial is injected dynamically
       (function () {
         try {
-          var n = new Date().getFullYear();
-          var slot = document.currentScript && document.currentScript.previousElementSibling;
-          var span = slot && slot.querySelector && slot.querySelector('#year');
-          if (!span) span = document.getElementById('year');
-          if (span) span.textContent = String(n);
+          var yearSpan = document.getElementById('year');
+          if (yearSpan) yearSpan.textContent = String(new Date().getFullYear());
         } catch (_) {}
       })();
     </script>
+
+    <!-- Shared widgets -->
+    <script src="/assets/latest-updates.js"></script>
+    <script src="/assets/back-to-top.js"></script>
   </div>
 </footer>

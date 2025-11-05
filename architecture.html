@@ -1,13 +1,54 @@
-<h1>Architecture</h1>
-<p>High-level view of the system.</p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Architecture — Jutellane Docs</title>
+    <meta name="description" content="High-level view of the Jutellane Solutions system architecture." />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <!-- Shared header -->
+    <div id="header-include" data-include="/_partials/header.html"></div>
 
-<h2>Diagrams</h2>
-<ul>
-  <li><a href="/public/diagrams/high-level.svg" target="_blank">High-level</a></li>
-  <li><a href="/public/diagrams/service-flow.svg" target="_blank">Service Flow</a></li>
-  <li><a href="/public/diagrams/data-pipeline.svg" target="_blank">Data Pipeline</a></li>
-</ul>
+    <main class="container">
+      <h1 class="mt-0">Architecture</h1>
+      <p class="lead">High-level view of the system.</p>
 
-<!-- Inline preview (optional) -->
-<p><img src="/public/diagrams/high-level.svg" alt="High level diagram" style="max-width:100%"></p>
+      <h2>Diagrams</h2>
+      <ul>
+        <li><a href="/diagrams/high-level.svg" target="_blank" rel="noopener">High-level</a></li>
+        <li><a href="/diagrams/service-flow.svg" target="_blank" rel="noopener">Service Flow</a></li>
+        <li><a href="/diagrams/data-pipeline.svg" target="_blank" rel="noopener">Data Pipeline</a></li>
+      </ul>
 
+      <!-- Inline preview (optional) -->
+      <div class="card mt-2">
+        <img src="/diagrams/high-level.svg" alt="High-level architecture diagram" style="max-width:100%;height:auto" />
+      </div>
+    </main>
+
+    <!-- Shared footer -->
+    <div id="footer-include" data-include="/_partials/footer.html"></div>
+
+    <!-- Partial loader (re-runs scripts so theme toggle works) -->
+    <script>
+      (function loadPartials() {
+        function inject(target, html) {
+          target.innerHTML = html;
+          Array.from(target.querySelectorAll('script')).forEach(function (old) {
+            var s = document.createElement('script');
+            if (old.src) { s.src = old.src; s.async = false; }
+            else { s.text = old.textContent || ''; }
+            old.replaceWith(s);
+          });
+        }
+        document.querySelectorAll('[data-include]').forEach(function (el) {
+          var path = el.getAttribute('data-include');
+          fetch(path).then(function (r) { return r.text(); })
+                     .then(function (html) { inject(el, html); });
+        });
+      })();
+    </script>
+  </body>
+</html>

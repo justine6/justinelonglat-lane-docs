@@ -1,41 +1,21 @@
 <header class="site-header" role="banner">
-  <div class="container navbar">
-    <!-- Brand (logo + text) on the left -->
-    <a class="brand" href="/" aria-label="Jutellane Docs — Home">
-      <img src="/diagrams/logo.png" alt="Jutellane" class="brand-logo">
+  <div class="container navbar" style="justify-content:space-between; gap:1rem">
+    <a class="brand" href="/" aria-label="Jutellane Docs — Home"
+       style="display:flex;align-items:center;gap:.6rem;text-decoration:none">
+      <img src="/logo.png" alt="Jutellane logo" width="28" height="28" style="display:block"/>
       <span>Jutellane Docs</span>
     </a>
 
-    <!-- Nav lives on the right -->
-    <nav class="nav" aria-label="Primary">
-      <a href="/index.html">Home</a>
+    <nav class="nav" aria-label="Primary" style="margin-left:auto">
+      <a href="/">Home</a>
       <a href="/getting-started.html">Getting started</a>
       <a href="/tooling-setup.html">Tooling setup</a>
       <a href="/cicd-pipelines.html">CI/CD pipelines</a>
       <a href="/architecture.html">Architecture</a>
-
-      <!-- Explicit toggle button so it’s always visible -->
-      <button id="themeToggle" class="theme-btn" title="Toggle theme" aria-label="Toggle theme">🌙</button>
     </nav>
-  </div>
 
-  <script>
-    // Highlight the current page link
-    (function () {
-      var path = location.pathname.replace(/\/+$/, '') || '/';
-      var map = {
-        '/': '/index.html',
-        '/index.html': '/index.html',
-        '/getting-started.html': '/getting-started.html',
-        '/tooling-setup.html': '/tooling-setup.html',
-        '/cicd-pipelines.html': '/cicd-pipelines.html',
-        '/architecture.html': '/architecture.html'
-      };
-      var current = map[path] || path;
-      document.querySelectorAll('.nav a').forEach(function (a) {
-        var href = a.getAttribute('href');
-        if (href === current) a.setAttribute('aria-current', 'page');
-      });
-    })();
-  </script>
+    <button id="themeToggle" title="Toggle theme" aria-label="Toggle theme" aria-pressed="false" style="margin-left:.75rem">
+      🌙
+    </button>
+  </div>
 </header>

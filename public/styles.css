@@ -228,3 +228,30 @@ pre {
   color: var(--btn-fg);
   cursor: pointer;
 }
+
+  
+/* === Home hero/logo + CTA (Jutellane Docs) === */
+.home-hero { display:flex; align-items:center; gap:.75rem; }
+.home-hero img { height:56px; width:auto; opacity:.95; }
+.home-hero .btn {
+  background: var(--accent);
+  color: #fff;
+  padding: .6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform .15s ease, box-shadow .15s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+}
+.home-hero .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+}
+
+/* === Header layout === */
+.site-header .navbar{display:flex;align-items:center;gap:.75rem}
+.site-header .brand{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.site-header .brand img{display:block}
+.site-header .nav{display:flex;gap:1rem;margin-left:auto}
+#themeToggle{margin-left:.75rem}

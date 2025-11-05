@@ -1,25 +1,12 @@
-<header class="container">
-  <a href="/index.html" style="display:flex;gap:.5rem;align-items:center;text-decoration:none;">
-    <img class="logo" src="/public/logo.png" alt="Jutellane logo" />
-    <strong>Jutellane Docs</strong>
-  </a>
-  <nav style="float:right">
-    <a href="/index.html">Home</a>
-    <a href="/getting-started.html">Getting Started</a>
-    <a href="/tooling-setup.html">Tooling Setup</a>
-    <a href="/cicd-pipelines.html">CI/CD Pipelines</a>
-    <a href="/architecture.html">Architecture</a>
-  <button id="themeToggle" style="margin-left:1rem">🌓</button>`n</nav>
-<!-- Active link highlighter -->
-<script>
-(function () {
-  var p = location.pathname.replace(/^\\/?|\\.html$/g, "");
-  document.querySelectorAll("nav a").forEach(function(a){
-    var t = (a.getAttribute("href")||"").replace(/^\\/?|\\.html$/g, "");
-    if (t && t === p) { a.style.fontWeight="600"; a.style.textDecoration="underline"; }
-  });
-}());
-</script>
+<header class="site-header" role="banner">
+  <div class="container navbar">
+    <a class="brand" href="/" aria-label="Jutellane Docs — Home">Jutellane Docs</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/getting-started.html">Getting started</a>
+      <a href="/tooling-setup.html">Tooling setup</a>
+      <a href="/cicd-pipelines.html">CI/CD pipelines</a>
+      <a href="/architecture.html">Architecture</a>
+    </nav>
+  </div>
 </header>
-
-

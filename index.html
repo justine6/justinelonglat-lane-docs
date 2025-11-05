@@ -1,41 +1,107 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Practical, production-ready guidance for DevSecOps, cloud reliability, and sustainable engineering." />
-  <title>Home · Jutellane Docs</title>
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="/styles.css" />
-</head>
-<body>
-  <!-- Site header (matches other pages) -->
-  <header class="container" style="display:flex;align-items:center;gap:.75rem;justify-content:space-between;">
-    <div style="display:flex;align-items:center;gap:.75rem;">
-      <a href="/index.html" style="display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;">
-        <img class="logo" src="/logo.png" alt="Jutellane logo" style="height:32px;width:auto;" />
-        <strong>Jutellane Docs</strong>
-      </a>
-    </div>
-    <nav style="display:flex;gap:1rem;">
-      <a href="/index.html">Home</a>
-      <a href="/getting-started.html">Getting Started</a>
-      <a href="/tooling-setup.html">Tooling Setup</a>
-      <a href="/cicd-pipelines.html">CI/CD Pipelines</a>
-      <a href="/architecture.html">Architecture</a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jutellane Docs — Home</title>
+    <meta name="description" content="Technical documentation for Jutellane Solutions: quick starts, tooling, CI/CD, and reference architecture." />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 24 24'%3E%3Cpath fill='%232563eb' d='M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2m4.94 6.94l-6.36 6.36a1.5 1.5 0 0 1-2.12 0l-1.44-1.44a1.5 1.5 0 1 1 2.12-2.12l.38.38l5.3-5.3a1.5 1.5 0 0 1 2.12 2.12'/%3E%3C/svg%3E" />
+    <meta name="theme-color" content="#2563eb" />
+  </head>
+  <body>
+    <!-- Header partial mount -->
+    <div id="header-include" data-include="/_partials/header.html"></div>
 
-  C:\Users\justi
+    <main class="container" id="main-content">
+      <h1 class="mt-0">Jutellane Docs</h1>
+      <p class="lead">
+        Concise, production-ready documentation for Jutellane Solutions:
+        start quickly, standardize tooling, ship with robust CI/CD,
+        and understand the reference architecture behind the stack.
+      </p>
 
-  <footer class="container" style="margin:28px 0 18px 0;">
-    <small>© <span id="y"></span> Jutellane — DevSecOps · Cloud · Sustainability</small>
-  </footer>
+      <div class="grid cols-2 mt-3">
+        <section class="card">
+          <h2 class="mt-0">What’s inside</h2>
+          <ul class="mt-2">
+            <li>Getting started — local environment and first run</li>
+            <li>Tooling setup — formatting, linting, and quality gates</li>
+            <li>CI/CD pipelines — preview, main, and production flows</li>
+            <li>Architecture — high-level diagram and key decisions</li>
+          </ul>
+          <p class="mt-2">
+            Each section is designed to be readable in under five minutes,
+            with exact commands and copy-paste blocks.
+          </p>
+        </section>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-</body>
+        <section class="card">
+          <h2 class="mt-0">Next steps</h2>
+          <p class="mt-1">We’ll add the core pages in this order:</p>
+          <ol class="mt-1">
+            <li><a href="/getting-started.html">Getting started</a></li>
+            <li><a href="/tooling-setup.html">Tooling setup</a></li>
+            <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
+            <li><a href="/architecture.html">Architecture</a></li>
+          </ol>
+          <p class="mt-2">
+            After that, we’ll wire optional scripts: “Latest updates,”
+            sitemap/robots, dark mode, and Back-to-Top.
+          </p>
+          <p class="mt-2">
+            <a class="btn" href="/getting-started.html">Begin setup</a>
+            <a class="btn ghost" href="#why">Learn more</a>
+          </p>
+        </section>
+      </div>
+
+      <section id="why" class="mt-4">
+        <h2 class="mt-0">Why this docs site exists</h2>
+        <p>
+          Consistency and speed. This site codifies battle-tested defaults so new
+          projects stand up fast and existing ones stay healthy. Keep pull requests
+          small, pipelines green, and architecture intentional.
+        </p>
+      </section>
+    </main>
+
+    <!-- Footer partial mount -->
+    <div id="footer-include" data-include="/_partials/footer.html"></div>
+
+    <!-- Minimal partial loader: fetches header/footer and executes any inline scripts they contain -->
+    <script>
+      (function loadPartials() {
+        function inject(target, html) {
+          target.innerHTML = html;
+          // Execute any scripts contained in the injected HTML
+          var scripts = Array.from(target.querySelectorAll('script'));
+          scripts.forEach(function (old) {
+            var s = document.createElement('script');
+            if (old.src) {
+              s.src = old.src;
+              s.defer = old.defer || false;
+              s.async = old.async || false;
+            } else {
+              s.text = old.textContent || '';
+            }
+            old.replaceWith(s);
+          });
+        }
+
+        document.querySelectorAll('[data-include]').forEach(function (el) {
+          var path = el.getAttribute('data-include');
+          if (!path) return;
+          fetch(path, { cache: 'no-store' })
+            .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+            .then(function (html) { inject(el, html); })
+            .catch(function (err) {
+              console.error('Include failed:', path, err);
+              el.innerHTML = '<div class="container"><div class="card">Failed to load '
+                + path + '</div></div>';
+            });
+        });
+      })();
+    </script>
+  </body>
 </html>
-
-

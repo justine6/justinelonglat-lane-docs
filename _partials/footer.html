@@ -1,25 +1,19 @@
-<footer class="container">
-  <small>© <span id="y"></span> Jutellane — DevSecOps · Cloud · Sustainability</small>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
-<!-- Theme toggle script + minimal CSS vars -->
-<script>
-  var KEY = "jutellane-theme";
-  function setTheme(t){ document.documentElement.dataset.theme=t; localStorage.setItem(KEY,t); }
-  setTheme(localStorage.getItem(KEY)||"light");
-  document.getElementById("themeToggle")?.addEventListener("click", function () {
-    setTheme(document.documentElement.dataset.theme === "light" ? "dark" : "light");
-  });
-</script>
-<style>
-  :root[data-theme="dark"] { color-scheme: dark; --bg:#0b1220; --fg:#e6eefc; --link:#8ab4ff; --muted:#93a4c0; }
-  :root[data-theme="light"]{ color-scheme: light; --bg:#ffffff; --fg:#0f172a; --link:#1a56db; --muted:#475569; }
-  body{ background:var(--bg); color:var(--fg); }
-  a{ color:var(--link); }
-  small{ color:var(--muted); }
-</style>
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <p class="small mb-0">
+      © <span id="year"></span> Jutellane Solutions — Cloud Confidence. Delivered.
+    </p>
+    <script>
+      // Ensure the year renders even when this partial is injected dynamically
+      (function () {
+        try {
+          var n = new Date().getFullYear();
+          var slot = document.currentScript && document.currentScript.previousElementSibling;
+          var span = slot && slot.querySelector && slot.querySelector('#year');
+          if (!span) span = document.getElementById('year');
+          if (span) span.textContent = String(n);
+        } catch (_) {}
+      })();
+    </script>
+  </div>
 </footer>
-
-
-
-
-

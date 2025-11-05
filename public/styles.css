@@ -1,7 +1,163 @@
-:root{--bg:#ffffff;--fg:#111827;--muted:#6b7280}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,""Apple Color Emoji"",""Segoe UI Emoji"";line-height:1.6}
-header{padding:1rem;border-bottom:1px solid #e5e7eb}
-nav a{margin-right:1rem;text-decoration:none}
-.container{max-width:860px;margin:0 auto;padding:1rem}
-h1{font-size:clamp(1.8rem,2.2vw+1rem,2.6rem);margin:1rem 0}
-.logo{height:40px;vertical-align:middle;margin-right:.5rem}
+/* Jutellane Docs — minimal base styles (no frameworks) */
+
+:root {
+  --bg: #ffffff;
+  --fg: #0f172a;         /* slate-900 */
+  --muted: #475569;      /* slate-600 */
+  --accent: #2563eb;     /* blue-600 */
+  --accent-ink: #ffffff;
+  --border: #e2e8f0;     /* slate-200 */
+  --surface: #f8fafc;    /* slate-50 */
+  --code-bg: #0b1020;
+  --code-fg: #e6edf3;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 980px;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+/* Header / nav */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: saturate(150%) blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0;
+}
+.brand {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: 1.05rem;
+  color: var(--fg);
+  text-decoration: none;
+}
+.nav {
+  display: flex;
+  gap: 0.75rem;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.35rem 0.55rem;
+  border-radius: 0.5rem;
+  transition: background-color .2s, color .2s;
+}
+.nav a:hover,
+.nav a[aria-current="page"] {
+  color: var(--fg);
+  background: var(--surface);
+}
+
+/* Main */
+main {
+  padding: 2.25rem 0 3rem;
+}
+h1, h2, h3 {
+  line-height: 1.25;
+  margin: 1.25rem 0 0.5rem;
+}
+h1 { font-size: clamp(1.75rem, 2.4vw + 1rem, 2.25rem); }
+h2 { font-size: clamp(1.25rem, 1.2vw + 1rem, 1.5rem); }
+h3 { font-size: 1.125rem; }
+
+.lead {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
+  max-width: 72ch;
+}
+
+.card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 0.75rem;
+}
+.grid.cols-2 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media (min-width: 768px) {
+  .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Buttons/links */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform .06s ease;
+  border: 1px solid transparent;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn.ghost {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.25rem 0 2rem;
+  color: var(--muted);
+  background: #fff;
+  font-size: 0.95rem;
+}
+.small {
+  font-size: 0.9rem;
+}
+
+/* Code block (for later pages) */
+pre, code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+pre {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  padding: 1rem;
+  border-radius: 0.6rem;
+  overflow-x: auto;
+  border: 1px solid #121a33;
+}
+
+/* Utility */
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.center { text-align: center; }

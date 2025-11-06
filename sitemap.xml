@@ -1,104 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jutellane-docs.vercel.app/</loc>
-    <lastmod>2025-11-05T02:59:31Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/</loc>
+    <lastmod>2025-11-05T20:58:20Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://jutellane-docs.vercel.app/_vercel_output_backup_20251104-083657/static/cicd-pipelines.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/_vercel_output_backup_20251104-083657/static/cicd-pipelines.html</loc>
+    <lastmod>2025-11-05T20:58:19Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jutellane-docs.vercel.app/_vercel_output_backup_20251104-083657/static/getting-started.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/_vercel_output_backup_20251104-083657/static/getting-started.html</loc>
+    <lastmod>2025-11-05T20:58:19Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jutellane-docs.vercel.app/_vercel_output_backup_20251104-083657/static/index.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/_vercel_output_backup_20251104-083657/static/index.html</loc>
+    <lastmod>2025-11-05T20:58:19Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jutellane-docs.vercel.app/_vercel_output_backup_20251104-083657/static/tooling-setup.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/_vercel_output_backup_20251104-083657/static/tooling-setup.html</loc>
+    <lastmod>2025-11-05T20:58:19Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jutellane-docs.vercel.app/architecture.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/architecture.html</loc>
+    <lastmod>2025-11-05T20:58:19Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jutellane-docs.vercel.app/cicd-pipelines.html</loc>
-    <lastmod>2025-11-05T03:31:01Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/cicd-pipelines.html</loc>
+    <lastmod>2025-11-05T20:58:20Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jutellane-docs.vercel.app/docs.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/docs.html</loc>
+    <lastmod>2025-11-05T20:58:20Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jutellane-docs.vercel.app/footer.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/getting-started.html</loc>
+    <lastmod>2025-11-05T20:58:20Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jutellane-docs.vercel.app/getting-started.html</loc>
-    <lastmod>2025-11-05T03:05:30Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/pages/architecture.html</loc>
+    <lastmod>2025-11-05T20:58:19Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jutellane-docs.vercel.app/header.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/pages/cicd-pipelines.html</loc>
+    <lastmod>2025-11-05T20:58:19Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jutellane-docs.vercel.app/pages/architecture.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/pages/getting-started.html</loc>
+    <lastmod>2025-11-05T20:58:19Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jutellane-docs.vercel.app/pages/cicd-pipelines.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/pages/index.html</loc>
+    <lastmod>2025-11-05T20:58:19Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jutellane-docs.vercel.app/pages/getting-started.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/pages/tooling-setup.html</loc>
+    <lastmod>2025-11-05T20:58:19Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jutellane-docs.vercel.app/pages/index.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jutellane-docs.vercel.app/pages/tooling-setup.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jutellane-docs.vercel.app/tooling-setup.html</loc>
-    <lastmod>2025-11-05T03:43:52Z</lastmod>
+    <loc>https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/tooling-setup.html</loc>
+    <lastmod>2025-11-05T20:58:20Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

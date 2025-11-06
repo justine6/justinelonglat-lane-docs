@@ -336,3 +336,24 @@ pre {
   text-decoration: underline;
 }
 /* Theme toggle button */
+.site-footer {
+  margin-top: 2rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid rgba(0,0,0,.08);
+}
+.footer-grid {
+  display: grid;
+  gap: .75rem 1rem;
+  grid-template-columns: 1fr;
+}
+.footer-grid nav a {
+  display: inline-block;
+  margin-right: .75rem;
+  margin-bottom: .35rem;
+  text-decoration: none;
+  opacity: .9;
+}
+.footer-brand .muted { opacity: .7; font-size: .95rem; }
+@media (min-width: 720px){
+  .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; align-items: start; }
+}

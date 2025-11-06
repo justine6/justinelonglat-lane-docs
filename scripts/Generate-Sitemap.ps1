@@ -138,3 +138,37 @@ Sitemap: $BaseUrl/sitemap.xml
 Good "Wrote robots.txt → $robotsPath"
 
 Good "Done. Entries: $($entries.Count)."
+
+# Changelog
+
+All notable changes to this project will be documented in this file.  
+This project follows [Semantic Versioning](https://semver.org/).
+
+# ---
+
+## [v1.0.0] — 2025-11-05
+### Added
+# - Deployed on [Vercel](https://jutellane-docs-30wyt8xu8-jutellane.vercel.app)
+# - Pages: Home, Getting Started, Tooling Setup, CI/CD Pipelines, Architecture
+
+### Improved
+# - Header alignment (brand left, nav right)
+# - Sticky translucent header with blur
+# - Updated light/dark theme toggle styles
+
+### Fixed
+# - CSS cache busting with timestamp versioning
+# - Corrected `.vercel/output` static copy pipeline
+# - Verified production build in both PowerShell and Bash
+
+### Known Issues
+# - Architecture diagrams (`.svg`) may not render due to relative path references.
+  Will update to use absolute `/static/diagrams/...` URLs in v1.0.1.
+
+# ---
+
+## [Unreleased]
+# - Add build badge and version info footer
+# - Add downloadable PDF of docs
+# - Add open-graph meta tags and sitemap automation
+

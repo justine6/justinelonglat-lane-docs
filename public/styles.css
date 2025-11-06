@@ -134,7 +134,7 @@ body {
   height: 2px;
   background: var(--link);
   transform: scaleX(0);
-  transform-origin: leftr;
+  transform-origin: left;
   transition: transform .25s ease;
 }
 .nav a:hover::after,

@@ -1,22 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://jutellane-docs-<your-id>.vercel.app/static/diagrams/data-pipeline.svg</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://jutellane-docs-<your-id>.vercel.app/static/diagrams/high-level.svg</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://jutellane-docs-<your-id>.vercel.app/static/diagrams/service-flow.svg</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
-  </url>
-</urlset>
 
+  <!-- Home -->
+  <url>
+    <loc>https://docs.jutellane.com/</loc>
+    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Core docs pages -->
+  <url>
+    <loc>https://docs.jutellane.com/readme.html</loc>
+    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://docs.jutellane.com/getting-started.html</loc>
+    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://docs.jutellane.com/tooling-setup.html</loc>
+    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://docs.jutellane.com/cicd-pipelines.html</loc>
+    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://docs.jutellane.com/architecture.html</loc>
+    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Diagrams -->
+  <url>
+    <loc>https://docs.jutellane.com/diagrams/data-pipeline.svg</loc>
+    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://docs.jutellane.com/diagrams/high-level.svg</loc>
+    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://docs.jutellane.com/diagrams/service-flow.svg</loc>
+    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+  <loc>https://docs.jutellane.com/toolkit.html</loc>
+  <lastmod>2025-11-15T00:00:00Z</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+</urlset>

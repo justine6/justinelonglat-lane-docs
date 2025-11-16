@@ -1,5 +1,5 @@
-# robots.txt for https://jutellane-docs-30wyt8xu8-jutellane.vercel.app
+# robots.txt for https://docs.jutellane.com
 User-agent: *
 Allow: /
 
-Sitemap: https://jutellane-docs-30wyt8xu8-jutellane.vercel.app/sitemap.xml
+Sitemap: https://docs.jutellane.com/sitemap.xml

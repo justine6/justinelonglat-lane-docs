@@ -1,81 +1,94 @@
-<header class="container">
-<meta name="description" content="Sitemap">
-<title>Jutellane\ Docs\ ·\ Sitemap</title>
-  <a href="/index.html" style="display:flex;gap:.5rem;align-items:center;text-decoration:none;">
-    <img class="logo" src="/logo.png" alt="Jutellane logo" />
-    <strong>Jutellane Docs</strong>
-  </a>
-  <nav style="float:right">
-    <a href="/index.html">Home</a>
-    <a href="/getting-started.html">Getting Started</a>
-    <a href="/tooling-setup.html">Tooling Setup</a>
-    <a href="/cicd-pipelines.html">CI/CD Pipelines</a>
-    <a href="/architecture.html">Architecture</a>
-  <button id="themeToggle" style="margin-left:1rem">🌓</button>`n</nav>
-<!-- Active link highlighter -->
-<script>
-(function () {
-  var p = location.pathname.replace(/^\\/?|\\.html$/g, "");
-  document.querySelectorAll("nav a").forEach(function(a){
-    var t = (a.getAttribute("href")||"").replace(/^\\/?|\\.html$/g, "");
-    if (t && t === p) { a.style.fontWeight="600"; a.style.textDecoration="underline"; }
-  });
-}());
-</script>
-</header>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sitemap — Jutellane Docs</title>
 
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css?v=20251106-144839" />
 
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  <meta name="theme-color" content="#0ea5e9" />
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<main class="container">
-  <h1>Sitemap</h1>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/architecture">Architecture</a></li>
-    <li><a href="/cicd-pipelines">CI/CD Pipelines</a></li>
-    <li><a href="/getting-started">Getting Started</a></li>
-    <li><a href="/index">Welcome to Jutellane Docs</a></li>
-    <li><a href="/tooling-setup">Tooling Setup</a></li>
-  </ul>
-</main>
-<footer class="container">
-  <small>© <span id="y"></span> Jutellane — DevSecOps · Cloud · Sustainability</small>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
-<!-- Theme toggle script + minimal CSS vars -->
-<script>
-  var KEY = "jutellane-theme";
-  function setTheme(t){ document.documentElement.dataset.theme=t; localStorage.setItem(KEY,t); }
-  setTheme(localStorage.getItem(KEY)||"light");
-  document.getElementById("themeToggle")?.addEventListener("click", function () {
-    setTheme(document.documentElement.dataset.theme === "light" ? "dark" : "light");
-  });
-</script>
-<style>
-  :root[data-theme="dark"] { color-scheme: dark; --bg:#0b1220; --fg:#e6eefc; --link:#8ab4ff; --muted:#93a4c0; }
-  :root[data-theme="light"]{ color-scheme: light; --bg:#ffffff; --fg:#0f172a; --link:#1a56db; --muted:#475569; }
-  body{ background:var(--bg); color:var(--fg); }
-  a{ color:var(--link); }
-  small{ color:var(--muted); }
-</style>
-</footer>
+  <!-- Shared header -->
+  <header class="site-header" role="banner">
+    <div class="container navbar">
 
+      <!-- Brand -->
+      <a class="brand" href="/" aria-label="Jutellane Docs — Home">
+        <img src="/favicon.ico" alt="Jutellane mark" width="28" height="28" class="brand-mark" />
+        <span>Jutellane Docs</span>
+      </a>
 
+      <!-- Navigation -->
+      <nav class="nav-right" aria-label="Primary">
+        <a href="/readme.html">README</a>
+        <a href="/">Home</a>
+        <a href="/getting-started.html">Getting started</a>
+        <a href="/tooling-setup.html">Tooling setup</a>
+        <a href="/cicd-pipelines.html">CI/CD pipelines</a>
+        <a href="/architecture.html">Architecture</a>
+        <a href="/toolkit.html">Automation toolkit</a>
+        <button id="themeToggle" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+      </nav>
 
+    </div>
+  </header>
 
+  <main id="main" class="container">
+    <h1>Sitemap</h1>
+    <p class="lead">
+      Quick overview of the key pages in Jutellane Docs.
+    </p>
 
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/readme.html">README</a></li>
+      <li><a href="/getting-started.html">Getting started</a></li>
+      <li><a href="/tooling-setup.html">Tooling setup</a></li>
+      <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
+      <li><a href="/architecture.html">Architecture</a></li>
+      <li><a href="/toolkit.html">Automation toolkit</a></li>
+      <li><a href="/sitemap.xml">XML sitemap</a></li>
+    </ul>
+  </main>
 
+  <!-- Use the same footer as your home page -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <strong>Jutellane Docs</strong>
+        <div class="muted">Cloud Confidence. Delivered.</div>
+      </div>
 
+      <nav aria-label="Docs">
+        <a href="/readme.html">README</a>
+        <a href="/">Home</a>
+        <a href="/getting-started.html">Getting started</a>
+        <a href="/tooling-setup.html">Tooling setup</a>
+        <a href="/cicd-pipelines.html">CI/CD pipelines</a>
+        <a href="/architecture.html">Architecture</a>
+        <a href="/toolkit.html">Automation toolkit</a>
+        <a href="/sitemap.html" aria-current="page">All docs</a>
+      </nav>
 
+      <nav aria-label="Network">
+        <a href="https://jutellane.com" target="_blank" rel="noopener">Jutellane Solutions</a>
+        <a href="https://nouvoayiti2075.com" target="_blank" rel="noopener">Nouvo Ayiti 2075</a>
+        <a href="https://foundation.nouvoayiti2075.com" target="_blank" rel="noopener">Foundation</a>
+        <a href="https://blogs.jutellane.com" target="_blank" rel="noopener">Blogs</a>
+      </nav>
+    </div>
+  </footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <!-- Shared theme toggle logic -->
+  <script defer src="/assets/theme-toggle.js"></script>
+</body>
+</html>

@@ -1,118 +1,233 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JustineLonglaT-Lane Docs</title>
-  <link rel="stylesheet" href="/styles.css" />
-</head>
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <title>JustineLonglaT-Lane Docs — Cloud Confidence. Delivered.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="JustineLonglaT-Lane Docs is the operational manual for the four-site DevSecOps ecosystem — from local dev and Git hygiene to CI/CD, Vercel & GitHub Pages deploys, and the automation guardrails that keep everything healthy."
+    />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/scripts/theme-toggle.js" defer></script>
+    <script src="/scripts/back-to-top.js" defer></script>
+  </head>
 
-<body>
+  <body>
+    <!-- ================= Header / Nav ================= -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="navbar" aria-label="Primary">
+          <a href="/index.html" class="brand" aria-label="JustineLonglaT-Lane Docs home">
+            <img src="/logo.png" alt="" />
+            <span>JustineLonglaT-Lane Docs</span>
+          </a>
 
-  <!-- =======================
-       NAVIGATION
-       ======================= -->
-  <header class="site-header">
-    <nav class="nav">
-      <a class="logo" href="/">JustineLonglaT-Lane <span class="badge">Docs</span></a>
+          <div class="nav-right">
+            <a href="/docs.html">README</a>
+            <a href="/index.html" aria-current="page">Home</a>
+            <a href="/getting-started.html">Getting started</a>
+            <a href="/tooling-setup.html">Tooling setup</a>
+            <a href="/cicd-pipelines.html">CI/CD pipelines</a>
+            <a href="/architecture.html">Architecture</a>
+            <a href="/system-design-part-d.html">System Design (Part D)</a>
+            <a href="/automation-toolkit.html">Automation toolkit</a>
+          </div>
 
-      <div class="nav-links">
-        <a href="/index.html">Home</a>
-        <a href="/README.html">README</a>
-        <a href="/getting-started.html">Getting started</a>
-        <a href="/tooling-setup.html">Tooling setup</a>
-        <a href="/cicd-pipelines.html">CI/CD pipelines</a>
-        <a href="/architecture.html">Architecture</a>
-        <a href="/system-design-part-d.html">System Design (Part D)</a>
-        <a href="/automation-toolkit.html">Automation Toolkit</a>
+          <button id="themeToggle" type="button" aria-label="Toggle dark mode">
+            ☾
+          </button>
+        </nav>
       </div>
+    </header>
 
-      <button class="theme-toggle" id="theme-toggle">🌓</button>
-    </nav>
-  </header>
+    <!-- ================= Hero ================= -->
+    <main>
+          <!-- Work with Justine – profile hero band -->
+    <section class="docs-profile-hero" id="work-with-justine">
+      <div class="container docs-profile-grid">
+        <div class="docs-profile-photo">
+          <img
+            src="/assets/img/justine-profile.jpg"
+            alt="Justine Longla T."
+            loading="lazy"
+          />
+        </div>
 
-  <!-- =======================
-       HERO SECTION
-       ======================= -->
-  <section class="hero">
-    <h1>Cloud Confidence. Delivered.</h1>
-    <p class="lead">
-      Production-ready documentation for the JustineLonglaT-Lane ecosystem —
-      tooling, pipelines, site architecture, and automation guardrails powering your
-      multi-site platform.
-    </p>
+        <div class="docs-profile-copy">
+          <p class="docs-eyebrow">WORK WITH JUSTINE</p>
 
-    <div class="cta-row">
-      <a class="btn btn-primary" href="/README.html">View Technical README</a>
-      <a class="btn btn-secondary" href="/automation-toolkit.html">Automation Toolkit</a>
-      <a class="btn btn-outline" href="/system-design-part-d.html">System Design — Part D</a>
-    </div>
-  </section>
+          <h1>Bring this DevSecOps playbook into your systems.</h1>
 
-  <!-- =======================
-       WHAT’S INSIDE
-       ======================= -->
-  <main class="content">
-    <h2>What’s inside</h2>
+          <p class="docs-profile-lede">
+            If you’re looking to level-up reliability, security, and observability
+            in real projects, these docs show how the ecosystem actually runs:
+            from local dev and Git hygiene to CI/CD, Vercel deploys, GitHub Pages,
+            and the automation guardrails that keep all four sites healthy.
+          </p>
 
-    <ul>
-      <li><a href="/README.html">README</a> — platform overview and quick reference</li>
-      <li><a href="/getting-started.html">Getting started</a> — local environment setup</li>
-      <li><a href="/tooling-setup.html">Tooling setup</a> — formatting, linting, quality gates</li>
-      <li><a href="/cicd-pipelines.html">CI/CD pipelines</a> — preview, main, and production flows</li>
-      <li><a href="/architecture.html">Architecture</a> — high-level diagrams and decisions</li>
-      <li><a href="/system-design-part-d.html">System Design – Part D</a> — four-site ecosystem operations</li>
-      <li><a href="/automation-toolkit.html">Automation Toolkit</a> — CI snippets & scripts</li>
-    </ul>
+          <p class="docs-profile-lede docs-profile-lede--muted">
+            From intro calls to hands-on consulting, everything here comes from
+            production-grade experience — pipelines that self-heal, migrations
+            that land safely, and platforms that stay calm under load.
+          </p>
 
-    <!-- Next Steps -->
-    <h2 style="margin-top: 3rem;">Next steps</h2>
-    <ol>
-      <li><a href="/README.html">README</a></li>
-      <li><a href="/getting-started.html">Getting started</a></li>
-      <li><a href="/tooling-setup.html">Tooling setup</a></li>
-      <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
-      <li><a href="/architecture.html">Architecture</a></li>
-      <li><a href="/system-design-part-d.html">System Design – Part D</a></li>
-    </ol>
-  </main>
+          <div class="docs-profile-buttons">
+            <a
+              href="https://consulting.justinelonglat-lane.com/booking"
+              class="btn btn-gradient"
+            >
+              Intro call
+            </a>
 
-  <!-- =======================
-       FOOTER
-       ======================= -->
-  <footer class="footer">
-    <p>
-      © 2025 Justine Longla T. — DevSecOps • Cloud • Sustainability <br />
-      Operating under <strong>JustineLonglaT-Lane Consulting</strong>.
-    </p>
+            <a
+              href="https://consulting.justinelonglat-lane.com/readme"
+              class="btn btn-outline"
+              target="_blank"
+              rel="noopener"
+            >
+              Resume (PDF)
+            </a>
 
-    <nav class="footer-links">
-      <a href="/">Main Site</a>
-      <a href="/projects">Projects</a>
-      <a href="/blogs">Blog</a>
-      <a href="/automation-toolkit.html">Automation Toolkit</a>
-    </nav>
-  </footer>
+            <a
+              href="https://consulting.justinelonglat-lane.com/docs/brochure-2025-11.pdf"
+              class="btn btn-outline"
+              target="_blank"
+              rel="noopener"
+            >
+              Brochure (PDF)
+            </a>
 
-  <script src="/theme-toggle.js"></script>
-</body>
+            <a href="/toolkit.html" class="btn btn-outline">
+              Automation toolkit
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <section class="hero hero--docs">
+        <div class="container hero-grid">
+          <div class="hero-text">
+            <p class="eyebrow">Work with Justine • Real stack, not slideware</p>
+            <h1>Bring this DevSecOps playbook into your systems.</h1>
+            <p class="lead">
+              JustineLonglaT-Lane Docs is the source of truth for how this ecosystem runs in real
+              life: from local dev and Git hygiene to CI/CD, Vercel deploys, GitHub Pages, and the
+              automation guardrails that keep all four sites healthy.
+            </p>
+
+            <div class="cta-row">
+              <a href="#whats-inside" class="btn btn-gradient">
+                Get all docs
+              </a>
+
+              <a href="/docs.html" class="btn btn-outline">
+                <span class="btn-icon" aria-hidden="true">📄</span>
+                View technical README
+              </a>
+
+              <a href="/automation-toolkit.html" class="btn btn-outline">
+                <span class="btn-icon" aria-hidden="true">⚙️</span>
+                Automation toolkit
+              </a>
+            </div>
+
+            <p class="muted mt-2 small">
+              Everything here is wired to the same four-site platform:
+              <strong>consulting main site, docs, blogs, and GitHub Pages</strong> – so every
+              example is battle-tested and reproducible.
+            </p>
+          </div>
+
+          <div class="hero-logo">
+            <div class="hero-logo-inner">
+              <img src="/logo.png" alt="JustineLonglaT-Lane Consulting crest logo" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= Main content ================= -->
+      <section id="whats-inside" class="container mt-4">
+        <h2>What’s inside</h2>
+        <p class="lead">
+          Start quickly, standardize tooling, ship with robust CI/CD, and understand the reference
+          architecture and system design behind your DevSecOps ecosystem.
+        </p>
+
+        <ul>
+          <li>
+            <a href="/getting-started.html"><strong>Getting started</strong></a> — local environment
+            setup, first run, and how to work with this docs repo.
+          </li>
+          <li>
+            <a href="/tooling-setup.html"><strong>Tooling setup</strong></a> — editors, formatting,
+            linting, and quality gates.
+          </li>
+          <li>
+            <a href="/cicd-pipelines.html"><strong>CI/CD pipelines</strong></a> — preview, main, and
+            production flows wired to Vercel and GitHub Actions.
+          </li>
+          <li>
+            <a href="/architecture.html"><strong>Architecture</strong></a> — high-level diagrams and
+            platform decisions.
+          </li>
+          <li>
+            <a href="/system-design-part-d.html"><strong>System Design — Part D</strong></a> — how
+            the four sites (consulting, docs, blog, and Nouvo Ayiti 2075) coordinate through DNS,
+            repos, and automation.
+          </li>
+          <li>
+            <a href="/automation-toolkit.html"><strong>Automation Toolkit</strong></a> — reusable CI
+            snippets, PowerShell helpers, and guardrails.
+          </li>
+        </ul>
+
+        <h2 class="mt-4">Next steps</h2>
+        <ol>
+          <li><a href="/docs.html">README</a></li>
+          <li><a href="/getting-started.html">Getting started</a></li>
+          <li><a href="/tooling-setup.html">Tooling setup</a></li>
+          <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
+          <li><a href="/architecture.html">Architecture</a></li>
+          <li><a href="/system-design-part-d.html">System Design — Part D</a></li>
+          <li><a href="/automation-toolkit.html">Automation Toolkit</a></li>
+        </ol>
+      </section>
+    </main>
+
+    <!-- ================= Footer ================= -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <strong>© 2025 Justine Longla T.</strong><br />
+          DevSecOps • Cloud • Sustainability<br />
+          <span class="muted">
+            Operating under <strong>JustineLonglaT-Lane Consulting.</strong>
+          </span>
+        </div>
+
+        <div>
+          <div class="muted mb-0"><strong>Platform links</strong></div>
+          <nav aria-label="Platform links">
+            <a href="https://justinelonglat-lane.com/">Main site</a>
+            <a href="https://blogs.justinelonglat-lane.com/">Blog</a>
+            <a href="https://docs.justinelonglat-lane.com/">Docs</a>
+            <a href="https://github.com/justine6">GitHub</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="muted mb-0"><strong>Docs shortcuts</strong></div>
+          <nav aria-label="Docs shortcuts">
+            <a href="/system-design-part-d.html">System Design (Part D)</a>
+            <a href="/automation-toolkit.html">Automation toolkit</a>
+            <a href="/cicd-pipelines.html">CI/CD pipelines</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
-etting Started</a> guide.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

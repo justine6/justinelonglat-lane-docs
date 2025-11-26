@@ -1,27 +1,41 @@
 
 ---
 
-### `partials/header.html`
-
-```html
 <header class="site-header" role="banner">
   <div class="container navbar">
-    <!-- left: brand -->
+
+    <!-- Brand (left) -->
     <a class="brand" href="/" aria-label="JustineLonglaT-Lane Docs — Home">
-      <img src="/favicon.svg" alt="JustineLonglaT-Lane mark" class="logo">
+      <img src="/logo.png" alt="JustineLonglaT-Lane crest" class="logo" />
       <span class="brand-name">JustineLonglaT-Lane Docs</span>
     </a>
 
-    <!-- right: links + toggle -->
-    <nav class="nav-right" aria-label="Primary">
-      <a href="/">Home</a>
+    <!-- Navigation (right) -->
+    <nav class="nav-right" aria-label="Primary Navigation">
+      <a href="/index.html">Home</a>
       <a href="/getting-started.html">Getting started</a>
-      <a href="/readme.html">README</a>
       <a href="/tooling-setup.html">Tooling setup</a>
       <a href="/cicd-pipelines.html">CI/CD pipelines</a>
       <a href="/architecture.html">Architecture</a>
-      <button id="themeToggle" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+      <a href="/system-design-part-d.html">System Design (Part D)</a>
+      <a href="/toolkit.html">Automation toolkit</a>
+
+      <!-- Theme toggle button -->
+      <button id="themeToggle"
+              class="theme-toggle"
+              title="Toggle theme"
+              aria-label="Toggle theme">
+        🌙
+      </button>
     </nav>
   </div>
 </header>
-<script defer src="/assets/theme-toggle.js"></script>
+
+<!-- Load the CORRECT stylesheet for your docs site -->
+<link rel="stylesheet" href="/styles.css" />
+
+<!-- Theme toggle script -->
+<script defer src="/scripts/theme-toggle.js"></script>
+
+<!-- Back to top script (safe, optional) -->
+<script defer src="/scripts/back-to-top.js"></script>

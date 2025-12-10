@@ -730,7 +730,13 @@ html[data-theme="dark"] .btn-outline:hover { background: var(--accent); color: #
   padding: 1.25rem 0 2rem;
   font-size: 0.9rem;
 }
-
+.site-footer {
+  margin-top: 3rem;
+  padding: 1.75rem 0 1.5rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.35);
+  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.06), transparent);
+  font-size: 0.78rem;
+}
 .footer-copy span {
   font-weight: 600;
 }

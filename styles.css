@@ -648,6 +648,14 @@ html[data-theme="dark"] .btn-outline:hover { background: var(--accent); color: #
     transparent
   );
 }
+/* Balance author portrait size on docs homepage */
+.docs-hero img,
+.author-portrait {
+  max-height: 360px;
+  width: auto;
+  object-fit: contain;
+  margin-inline: auto;
+}
 
 /* Stack nicely on small screens */
 @media (max-width: 640px) {
@@ -658,6 +666,12 @@ html[data-theme="dark"] .btn-outline:hover { background: var(--accent); color: #
 
   .hero-ctas .logo-banner__cta {
     width: 100%;
+  }
+}
+@media (min-width: 1280px) {
+  .docs-hero img,
+  .author-portrait {
+    max-height: 320px;
   }
 }
 /* ===== Footer ============================================================= */

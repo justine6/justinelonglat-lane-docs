@@ -788,3 +788,104 @@ pre {
 .mb-2 { margin-bottom: 0.5rem; }
 .center { text-align: center; }
 
+/* AUTO-DOCS-HOMEPAGE-STYLES */
+.docs-hero {
+  padding: 3.5rem 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 64rem;
+}
+
+.docs-hero-eyebrow {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.docs-hero-title {
+  font-size: clamp(2.25rem, 3vw + 1rem, 3.25rem);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.docs-hero-tagline {
+  margin: 0;
+  max-width: 46rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.docs-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pill-success {
+  color: #16a34a;
+}
+
+.pill-accent {
+  color: #0ea5e9;
+}
+
+/* Grid of entry cards */
+.docs-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .docs-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.doc-card {
+  padding: 1.15rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+}
+
+.doc-card:hover {
+  transform: translateY(-3px);
+}
+
+.doc-card-title {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.doc-card-body {
+  margin: 0 0 0.75rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  opacity: 0.92;
+}
+
+.doc-card-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}

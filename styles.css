@@ -629,6 +629,25 @@ html[data-theme="dark"] .btn-outline:hover { background: var(--accent); color: #
   text-align: center;
   justify-content: center;
 }
+/* Ultra-wide screens: soften hero image dominance */
+@media (min-width: 1280px) {
+  .docs-hero img,
+  .hero img,
+  .author-portrait {
+    max-height: 420px;
+    object-fit: cover;
+  }
+}
+.docs-hero-divider {
+  margin: 2.5rem 0 2rem;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(148, 163, 184, 0.35),
+    transparent
+  );
+}
 
 /* Stack nicely on small screens */
 @media (max-width: 640px) {

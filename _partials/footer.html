@@ -1,26 +1,51 @@
 <footer class="site-footer" role="contentinfo">
-  <div class="container">
-    <p class="small mb-0">
-      © <span id="year"></span> JustineLonglaT-Lane Consulting — Cloud Confidence. Delivered.
-    </p>
-    <p class="small mt-1" id="latest-updates"></p>
-    <p class="small mt-1">
-  JustineLonglaT-Lane Docs — operating under JustineLonglaT-Lane Consulting.
-</p>
+  <div class="container footer-grid">
+    <!-- Brand / identity -->
+    <div class="footer-brand">
+      <p class="small mb-0">
+        © <span id="year"></span> Justine Longla T. — DevSecOps • Cloud • Sustainability
+      </p>
+      <p class="small mt-1">
+        Operating under <strong>JustineLonglaT-Lane Consulting.</strong><br />
+        <span class="muted">Cloud Confidence. Delivered.</span>
+      </p>
+      <p class="small mt-1 muted" id="latest-updates"></p>
+    </div>
 
-    <script>
-      // Keep the year current even when this partial is injected dynamically
-      (function () {
-        try {
-          const yearSpan = document.getElementById('year');
-          if (yearSpan) yearSpan.textContent = String(new Date().getFullYear());
-        } catch (_) {}
-      })();
-    </script>
+    <!-- Cross-site / platform links -->
+    <div>
+      <p class="small mb-0"><strong>Platform links</strong></p>
+      <nav class="footer-nav" aria-label="Cross-site">
+        <a href="https://justinelonglat-lane.com" target="_blank" rel="noreferrer">Main site</a>
+        <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noreferrer">Blog</a>
+        <a href="https://projects.justinelonglat-lane.com" target="_blank" rel="noreferrer">Projects</a>
+        <a href="/" aria-current="page">Docs</a>
+        <a href="/toolkit.html">Automation Toolkit</a>
+      </nav>
+    </div>
 
-    <!-- Shared scripts -->
-    <script src="/scripts/latest-updates.js"></script>
-    <script src="/scripts/back-to-top.js"></script>
-    <script src="/scripts/theme-toggle.js"></script>
+    <!-- Docs shortcuts -->
+    <div>
+      <p class="small mb-0"><strong>Docs shortcuts</strong></p>
+      <nav class="footer-nav" aria-label="Docs shortcuts">
+        <a href="/README.html">Technical README</a>
+        <a href="/system-design-part-d.html">System Design — Part D</a>
+        <a href="/architecture.html">Architecture</a>
+        <a href="/cicd-pipelines.html">CI/CD pipelines</a>
+      </nav>
+    </div>
   </div>
+
+  <script>
+    // Keep the year current even when this partial is injected dynamically
+    (function () {
+      try {
+        const yearSpan = document.getElementById("year");
+        if (yearSpan) yearSpan.textContent = String(new Date().getFullYear());
+      } catch (_) {}
+    })();
+  </script>
+
+  <!-- Shared footer-specific script -->
+  <script src="/scripts/latest-updates.js"></script>
 </footer>

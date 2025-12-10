@@ -17,6 +17,7 @@
   <!-- Theme + back-to-top behaviour -->
   <script src="/scripts/theme-toggle.js" defer></script>
   <script src="/scripts/back-to-top.js" defer></script>
+  <script src="/scripts/scroll-reveal.js" defer></script>
 </head>
 
 <body>
@@ -70,7 +71,7 @@
   <main class="page-main">
     <!-- ========== Hero / Top Section ========== -->
     <section class="logo-banner hero-section" aria-labelledby="hero-title">
-      <div class="container logo-banner-inner">
+      <div class="container logo-banner-inner docs-hero-shell">
         <!-- Left: crest -->
         <div class="logo-banner-visual">
           <img
@@ -101,7 +102,8 @@
             <img
               src="/assets/img/justine-profile.jpg"
               alt="Justine Longla T."
-              class="home-author-photo"
+              class="docs-hero-portrait"
+              loading="lazy"
             />
             <span class="author-inline-text">
               Docs authored by <strong>Justine Longla T.</strong>
@@ -109,9 +111,13 @@
           </div>
         </div>
       </div>
-    <!-- Docs quick entry grid -->
-    <section class="docs-grid docs-grid-featured" aria-label="Documentation entry points">
+    </section>
 
+    <!-- Divider between hero and content -->
+    <div class="docs-hero-divider" aria-hidden="true"></div>
+
+    <!-- ========== Featured entry cards ========== -->
+    <section class="docs-grid docs-grid-featured" aria-label="Documentation entry points">
       <article class="doc-card">
         <h2 class="doc-card-title">Getting Started</h2>
         <p class="doc-card-body">
@@ -141,10 +147,10 @@
           <li><a href="/toolkit.html">Explore tools</a></li>
         </ul>
       </article>
-
     </section>
 
-      <!-- CTAs under the row -->
+    <!-- ========== CTAs row ========== -->
+    <section aria-label="Docs calls to action">
       <div class="container">
         <div class="cta-row cta-row--center">
           <a class="btn btn-gradient" href="/docs.html">

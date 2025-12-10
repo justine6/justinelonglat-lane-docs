@@ -656,6 +656,24 @@ html[data-theme="dark"] .btn-outline:hover { background: var(--accent); color: #
   object-fit: contain;
   margin-inline: auto;
 }
+/* Clamp author portrait height on docs homepage */
+.docs-hero-portrait {
+  display: block;
+  margin: 1.25rem auto 0.75rem;
+  max-height: 260px;   /* main clamp */
+  max-width: 220px;    /* so it never stretches too wide */
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+/* On larger screens, make it a bit smaller */
+@media (min-width: 1024px) {
+  .docs-hero-portrait {
+    max-height: 220px;
+    max-width: 200px;
+  }
+}
 
 /* Stack nicely on small screens */
 @media (max-width: 640px) {
@@ -921,4 +939,107 @@ pre {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+}
+.doc-card {
+  position: relative;
+  padding: 1.15rem 1.15rem 1.1rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.14), rgba(15, 23, 42, 1));
+  box-shadow:
+    0 18px 30px rgba(15, 23, 42, 0.6),
+    0 0 0 1px rgba(15, 23, 42, 1) inset;
+  transform: translateY(8px);
+  opacity: 0;
+  transition:
+    opacity 200ms ease-out,
+    transform 200ms ease-out,
+    box-shadow 200ms ease-out,
+    border-color 200ms ease-out,
+    background 200ms ease-out;
+}
+
+.doc-card:hover {
+  transform: translateY(0) scale(1.01);
+  border-color: rgba(56, 189, 248, 0.8);
+  box-shadow:
+    0 20px 35px rgba(15, 23, 42, 0.8),
+    0 0 0 1px rgba(8, 47, 73, 0.9) inset;
+}
+
+/* When revealed via JS */
+.doc-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Reusable docs hero shell */
+.docs-hero-shell {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+}
+
+/* Clamp author portrait height */
+.docs-hero-portrait {
+  display: block;
+  margin: 1.25rem auto 0.75rem;
+  max-height: 240px;
+  max-width: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+/* On larger screens, make it a bit smaller */
+@media (min-width: 1024px) {
+  .docs-hero-portrait {
+    max-height: 220px;
+    max-width: 190px;
+  }
+}
+
+/* Divider under hero */
+.docs-hero-divider {
+  margin: 2.5rem auto 2rem;
+  max-width: 720px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(148, 163, 184, 0.35),
+    transparent
+  );
+}
+
+/* Scroll reveal base for cards */
+.doc-card {
+  position: relative;
+  padding: 1.15rem 1.15rem 1.1rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.14), rgba(15, 23, 42, 1));
+  box-shadow:
+    0 18px 30px rgba(15, 23, 42, 0.6),
+    0 0 0 1px rgba(15, 23, 42, 1) inset;
+  transform: translateY(8px);
+  opacity: 0;
+  transition:
+    opacity 200ms ease-out,
+    transform 200ms ease-out,
+    box-shadow 200ms ease-out,
+    border-color 200ms ease-out,
+    background 200ms ease-out;
+}
+
+.doc-card:hover {
+  transform: translateY(0) scale(1.01);
+  border-color: rgba(56, 189, 248, 0.8);
+  box-shadow:
+    0 20px 35px rgba(15, 23, 42, 0.8),
+    0 0 0 1px rgba(8, 47, 73, 0.9) inset;
+}
+
+/* When scroll-reveal marks them visible */
+.doc-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

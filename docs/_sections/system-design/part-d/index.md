@@ -39,3 +39,10 @@ angles:
 Together, these pages document **how one engineer can sustainably run a
 professional-grade ecosystem** by combining good design, small tools, and
 strong habits.
+## Featured Writing & Thought Leadership
+
+In addition to this documentation hub, I maintain a public engineering blog focused on **DevSecOps, CI/CD, observability, and production reliability**.
+
+You can browse a curated index of key articles here:
+
+👉 [Featured Writing & Thought Leadership](knowledge/featured-writing.md)

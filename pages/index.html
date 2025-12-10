@@ -1,153 +1,129 @@
 <!doctype html>
-<html lang="en" data-theme="light">
-  <head>
-    <meta charset="utf-8" />
-    <title>JustineLonglaT-Lane Docs — Cloud Confidence. Delivered.</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="JustineLonglaT-Lane Docs is the operational manual for the four-site DevSecOps ecosystem — from local dev and Git hygiene to CI/CD, Vercel & GitHub Pages deploys, and the automation guardrails that keep everything healthy."
-    />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/styles.css" />
-    <script src="/scripts/theme-toggle.js" defer></script>
-    <script src="/scripts/back-to-top.js" defer></script>
-  </head>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>JustineLonglaT-Lane Docs — Cloud Confidence. Delivered.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <body>
-    <!-- ================= Header / Nav ================= -->
-    <header class="site-header">
-      <div class="container">
-        <nav class="navbar" aria-label="Primary">
-          <a href="/index.html" class="brand" aria-label="JustineLonglaT-Lane Docs home">
-            <img src="/logo.png" alt="" />
-            <span>JustineLonglaT-Lane Docs</span>
-          </a>
+  <!-- SEO -->
+  <meta name="description"
+        content="JustineLonglaT-Lane Docs — concise, production-ready documentation for the JustineLonglaT-Lane ecosystem: tooling, CI/CD pipelines, multi-site architecture, and automation guardrails." />
 
-          <div class="nav-right">
-            <a href="/docs.html">README</a>
-            <a href="/index.html" aria-current="page">Home</a>
-            <a href="/getting-started.html">Getting started</a>
-            <a href="/tooling-setup.html">Tooling setup</a>
-            <a href="/cicd-pipelines.html">CI/CD pipelines</a>
-            <a href="/architecture.html">Architecture</a>
-            <a href="/system-design-part-d.html">System Design (Part D)</a>
-            <a href="/automation-toolkit.html">Automation toolkit</a>
-          </div>
+  <!-- Global styles (your root stylesheet) -->
+  <link rel="stylesheet" href="/styles.css" />
 
-          <button id="themeToggle" type="button" aria-label="Toggle dark mode">
-            ☾
-          </button>
-        </nav>
+  <!-- Theme + back-to-top behaviour -->
+  <script src="/scripts/theme-toggle.js" defer></script>
+  <script src="/scripts/back-to-top.js" defer></script>
+</head>
+
+<body>
+  <!-- ================= Header / Nav ================= -->
+<header class="site-header">
+  <div class="container navbar">
+    <!-- Brand / logo -->
+    <a class="brand" href="/">
+      <img src="/logo.png" alt="JustineLonglaT-Lane crest" class="brand-logo" />
+      <div class="brand-text">
+        <span class="brand-title">JustineLonglaT-Lane Docs</span>
+        <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
       </div>
-    </header>
+    </a>
 
-    <!-- ================= Hero ================= -->
-    <main>
-          <!-- Work with Justine – profile hero band -->
-    <section class="docs-profile-hero" id="work-with-justine">
-      <div class="container docs-profile-grid">
-        <div class="docs-profile-photo">
-          <img
-            src="/assets/img/justine-profile.jpg"
-            alt="Justine Longla T."
-            loading="lazy"
-          />
+    <!-- Nav + profile + theme toggle -->
+    <div class="nav-shell">
+      <nav class="nav-right" aria-label="Primary">
+        <a href="/README.html">README</a>
+        <a href="/docs.html">Docs index</a>
+        <a href="https://justinelonglat-lane.com" target="_blank" rel="noreferrer">Consulting site</a>
+        <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noreferrer">Blog</a>
+        <a href="https://nouvoayiti2075.com" target="_blank" rel="noreferrer">Nouvo Ayiti 2075</a>
+      </nav>
+
+      <div class="nav-profile">
+        <img
+          src="/assets/img/justine-profile.jpg"
+          alt="Justine Longla T."
+          class="nav-profile-avatar"
+        />
+        <div class="nav-profile-text">
+          <span class="nav-profile-eyebrow">Docs by</span>
+          <span class="nav-profile-name">Justine Longla T.</span>
         </div>
 
-        <div class="docs-profile-copy">
-          <p class="docs-eyebrow">WORK WITH JUSTINE</p>
-
-          <h1>Bring this DevSecOps playbook into your systems.</h1>
-
-          <p class="docs-profile-lede">
-            If you’re looking to level-up reliability, security, and observability
-            in real projects, these docs show how the ecosystem actually runs:
-            from local dev and Git hygiene to CI/CD, Vercel deploys, GitHub Pages,
-            and the automation guardrails that keep all four sites healthy.
-          </p>
-
-          <p class="docs-profile-lede docs-profile-lede--muted">
-            From intro calls to hands-on consulting, everything here comes from
-            production-grade experience — pipelines that self-heal, migrations
-            that land safely, and platforms that stay calm under load.
-          </p>
-
-          <div class="docs-profile-buttons">
-            <a
-              href="https://consulting.justinelonglat-lane.com/booking"
-              class="btn btn-gradient"
-            >
-              Intro call
-            </a>
-
-            <a
-              href="https://consulting.justinelonglat-lane.com/readme"
-              class="btn btn-outline"
-              target="_blank"
-              rel="noopener"
-            >
-              Resume (PDF)
-            </a>
-
-            <a
-              href="https://consulting.justinelonglat-lane.com/docs/brochure-2025-11.pdf"
-              class="btn btn-outline"
-              target="_blank"
-              rel="noopener"
-            >
-              Brochure (PDF)
-            </a>
-
-            <a href="/toolkit.html" class="btn btn-outline">
-              Automation toolkit
-            </a>
-          </div>
-        </div>
+        <button
+          id="themeToggle"
+          class="nav-theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+        >
+          🌙
+        </button>
       </div>
-    </section>
+    </div>
+  </div>
+</header>
 
-      <section class="hero hero--docs">
-        <div class="container hero-grid">
-          <div class="hero-text">
-            <p class="eyebrow">Work with Justine • Real stack, not slideware</p>
-            <h1>Bring this DevSecOps playbook into your systems.</h1>
-            <p class="lead">
-              JustineLonglaT-Lane Docs is the source of truth for how this ecosystem runs in real
-              life: from local dev and Git hygiene to CI/CD, Vercel deploys, GitHub Pages, and the
-              automation guardrails that keep all four sites healthy.
-            </p>
 
-            <div class="cta-row">
-              <a href="#whats-inside" class="btn btn-gradient">
-                Get all docs
-              </a>
+  <!-- ================= Hero / Top Section ================= -->
+<main>
+  <section class="logo-banner">
+    <div class="container center">
+      <!-- Crest -->
+      <img
+        src="/logo.png"
+        alt="JustineLonglaT-Lane crest"
+        class="logo-banner__img"
+      />
 
-              <a href="/docs.html" class="btn btn-outline">
-                <span class="btn-icon" aria-hidden="true">📄</span>
-                View technical README
-              </a>
+      <!-- Tagline -->
+      <p class="logo-banner__tagline">
+        Cloud Confidence. Delivered.
+      </p>
 
-              <a href="/automation-toolkit.html" class="btn btn-outline">
-                <span class="btn-icon" aria-hidden="true">⚙️</span>
-                Automation toolkit
-              </a>
-            </div>
+      <!-- Supporting copy -->
+      <p class="lead">
+        JustineLonglaT-Lane Docs is the source of truth for how this ecosystem
+        runs in real life: from local dev and Git hygiene to CI/CD, Vercel
+        deploys, GitHub Pages, and the automation guardrails that keep all four
+        sites healthy.
+      </p>
 
-            <p class="muted mt-2 small">
-              Everything here is wired to the same four-site platform:
-              <strong>consulting main site, docs, blogs, and GitHub Pages</strong> – so every
-              example is battle-tested and reproducible.
-            </p>
-          </div>
+      <!-- Author chip (only place where profile appears) -->
+      <div class="author-block">
+        <img
+          src="/assets/img/justine-profile.jpg"
+          alt="Justine Longla T."
+        />
+        <p>
+          <strong>Docs authored by Justine Longla T.</strong>
+        </p>
+      </div>
 
-          <div class="hero-logo">
-            <div class="hero-logo-inner">
-              <img src="/logo.png" alt="JustineLonglaT-Lane Consulting crest logo" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- CTAs -->
+      <div class="cta-row">
+        <a class="btn btn-gradient" href="/docs.html">
+          Get All Docs
+        </a>
+
+        <a class="btn btn-outline" href="/README.html">
+          <span class="btn-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 20 20">
+              <path d="M4 4.75A2.75 2.75 0 0 1 6.75 2h6.5A2.75 2.75 0 0 1 16 4.75v10.5A1.75 1.75 0 0 1 14.25 17H6.75A2.75 2.75 0 0 1 4 14.25v-9.5Zm2-.75a.75.75 0 0 0-.75.75v9.5c0 1.138.924 2.062 2.062 2.062H14.25a.25.25 0 0 0 .25-.25v-11c0-.966-.784-1.75-1.75-1.75h-6.5Z" />
+            </svg>
+          </span>
+          View Technical README
+        </a>
+
+        <a class="btn btn-outline" href="/toolkit.html">
+          Automation Toolkit
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ...rest of the page... -->
+</main>
 
       <!-- ================= Main content ================= -->
       <section id="whats-inside" class="container mt-4">
@@ -231,3 +207,4 @@
     </footer>
   </body>
 </html>
+

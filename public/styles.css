@@ -246,32 +246,116 @@ a:focus-visible {
   }
 }
 
-/* ================= Hero / Logo Banner ================================= */
+/* Desktop layout */
+@media (min-width: 900px) {
+  .logo-banner-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hero-right {
+    text-align: left;
+    max-width: 480px;
+  }
+
+  .logo-banner__img {
+    max-width: 420px;
+  }
+}
+/* ===== Hero layout with logo + tagline + author chip ===== */
+
 .logo-banner {
+  padding: 4rem 1.5rem 3.25rem;
+  text-align: center;
+}
+
+.hero-main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 0.9rem;
-  padding: 2.75rem 1rem 2rem;
-  max-width: 980px;
-  margin: 0 auto;
+  gap: 2.5rem;
+  max-width: 960px;
+  margin: 0 auto 2.25rem;
 }
-.logo-banner__img {
-  width: clamp(160px, 22vw, 256px);
-  height: auto;
-  opacity: .98;
-  user-select: none;
-  animation: fadeUp .5s ease-out .05s both;
+
+.hero-main-logo {
+  flex: 0 0 auto;
 }
-.logo-banner__tagline {
-  font-size: clamp(1.25rem, 1.4vw + 1rem, 2rem);
-  line-height: 1.2;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--fg);
-  margin: 0.25rem 0 0.25rem;
-  animation: fadeUp .6s ease-out .15s both;
+
+.hero-logo-img {
+  width: 260px;
+  max-width: 60vw;
+}
+
+.hero-main-copy {
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.hero-kicker {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #6b7280;
+  margin: 0 0 0.4rem;
+}
+
+.hero-title {
+  font-size: 2.4rem;
+  line-height: 1.1;
+  margin: 0 0 0.75rem;
+}
+
+.hero-profile-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: #f3f4ff;
+  margin-top: 1.25rem;
+}
+
+.hero-profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  object-fit: cover;
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+.hero-profile-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-profile-eyebrow {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #6b7280;
+}
+
+.hero-profile-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Desktop: logo + text side by side, CTAs left aligned */
+@media (min-width: 900px) {
+  .logo-banner {
+    text-align: left;
+  }
+
+  .hero-main {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .cta-row {
+    justify-content: flex-start;
+  }
 }
 
 /* CTA row (Get All Docs + README) */
@@ -294,6 +378,12 @@ a:focus-visible {
   font-weight: 700;
   border: 1px solid transparent;
   transition: transform .12s ease, box-shadow .12s ease, background .2s ease, color .2s ease;
+}
+
+@media (max-width: 768px) {
+  .nav-author {
+    display: none;
+  }
 }
 
 /* Gradient primary */
@@ -580,4 +670,274 @@ pre {
   .docs-profile-buttons {
     justify-content: center;
   }
+}
+/* ===== Logo + Profile Chip in Hero ================================== */
+
+.hero-logo-stack {
+  position: relative;
+  display: inline-block;
+  margin: 2.5rem auto 1.75rem;
+}
+
+.hero-logo {
+  display: block;
+  width: 220px;
+  max-width: 60vw;
+  height: auto;
+  margin: 0 auto;
+}
+/* --- Hero crest sizing + spacing tweaks --- */
+
+/* Base size for small / medium screens */
+.logo-banner__img,
+.hero-logo-inner img {
+  max-width: 230px;
+}
+
+/* Larger, more confident crest on wider screens */
+@media (min-width: 900px) {
+  .logo-banner__img,
+  .hero-logo-inner img {
+    max-width: 280px;
+  }
+}
+
+/* Bring the headline a bit closer to the crest */
+.logo-banner {
+  margin-top: 2.5rem;
+}
+
+.logo-banner__tagline {
+  margin-top: 1.5rem;
+}
+
+/* === Hero Logo Sizing Improvements === */
+
+.logo-banner__img.hero-logo {
+  width: 260px;         /* increase from ~160px to a premium large size */
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto 1rem auto;
+  display: block;
+  transform: translateY(0);
+}
+
+/* For large screens, bump even more */
+@media (min-width: 900px) {
+  .logo-banner__img.hero-logo {
+    width: 320px;
+  }
+}
+
+/* === Profile chip visual balance === */
+.hero-profile-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface-2);
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin: 0.5rem auto 0 auto;
+  width: max-content;
+}
+
+.hero-profile-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--surface-3);
+}
+
+.hero-profile-eyebrow {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.hero-profile-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* Little badge that sits on the crest */
+.hero-profile-chip {
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.92); /* slate-900-ish */
+  color: #e5e7eb;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
+}
+.logo-banner {
+  padding-top: 4rem;
+}
+
+.hero-profile-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid #22c55e; /* small accent ring */
+}
+
+.hero-profile-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.hero-profile-eyebrow {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  opacity: 0.8;
+}
+
+.hero-profile-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Make sure it doesn't overflow on tiny screens */
+@media (max-width: 480px) {
+  .hero-profile-chip {
+    right: -4px;
+    bottom: -4px;
+    padding: 0.35rem 0.55rem;
+  }
+
+  .hero-profile-avatar {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Brand tweaks (optional, but looks sharper) */
+.brand-logo {
+  height: 32px;
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+.brand-text {
+  font-weight: 500;
+}
+
+/* Profile chip */
+.nav-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  white-space: nowrap;
+}
+
+.nav-profile-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  object-fit: cover;
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+.nav-profile-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.nav-profile-eyebrow {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+}
+
+.nav-profile-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Theme button alignment inside nav */
+.nav-theme-toggle {
+  margin-left: 1rem;
+}
+
+/* Dark mode tweaks if your theme toggle switches a class on <body> */
+body.dark .nav-profile {
+  background: rgba(15, 23, 42, 0.96);
+  border-color: rgba(51, 65, 85, 0.9);
+}
+
+body.dark .nav-profile-eyebrow {
+  color: #cbd5f5;
+}
+
+body.dark .nav-profile-name {
+  color: #e2e8f0;
+}
+
+/* Mobile: keep it classy, not crowded */
+@media (max-width: 900px) {
+  .nav-shell {
+    gap: 1rem;
+  }
+
+  .nav-profile-text {
+    display: none; /* keep avatar, hide text on small screens */
+  }
+
+  .nav-profile {
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+  }
+
+  .nav-profile-avatar {
+    width: 28px;
+    height: 28px;
+    box-shadow: none;
+  }
+}
+/* --- Hero crest sizing --- */
+.logo-banner__img {
+  max-width: 260px;
+}
+
+@media (min-width: 900px) {
+  .logo-banner__img {
+    max-width: 320px;
+  }
+}
+
+/* --- Author block styling --- */
+.author-block {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.author-block img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.author-block p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
 }

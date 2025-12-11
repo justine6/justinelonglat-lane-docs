@@ -1,0 +1,14 @@
+# From repo root: C:\Users\justi\projects\justinelonglat-lane-docs
+
+Write-Host "`n== Wiring docs entry pages to root ==" -ForegroundColor Cyan
+
+# 1) System Design — Part D HTML
+$sysSrc = "docs/pages/system-design-part-d.html"
+$sysDest = "system-design-part-d.html"
+
+if (Test-Path $sysSrc) {
+    Copy-Item $sysSrc $sysDest -Force
+    Write-Host "✓ system-design-part-d.html copied to repo root." -ForegroundColor Green
+} else {
+    Write-Host "⚠ Could not find $sysSrc (no System Design HTML yet)." -ForegroundColor Yellow
+}

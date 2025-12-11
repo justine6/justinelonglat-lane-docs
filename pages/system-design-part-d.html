@@ -2,531 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>System Design — Part D · JustineLonglaT-Lane Docs</title>
+  <title>System Design — Part D | JustineLonglaT-Lane Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="How the JustineLonglaT-Lane ecosystem keeps four sites in sync — consulting site, docs, blog, and GitHub Pages — using CI/CD, shared tooling, and automation guardrails."
-  />
+
+  <!-- Global styles -->
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <!-- ========= Site Header ========= -->
-<header class="site-header" role="banner">
-  <div class="container">
-    <div class="navbar">
-      <!-- Left: brand -->
-      <a class="brand" href="/" aria-label="JustineLonglaT-Lane Docs — Home">
-        <img
-          src="/logo.png"
-          alt="JustineLonglaT-Lane logo"
-          class="brand-logo"
-        />
-        <span class="brand-text">
-          JustineLonglaT-Lane <strong>Docs</strong>
-        </span>
-      </a>
-
-      <!-- Right: profile chip + main nav -->
-      <div class="nav-shell">
-        <!-- Profile chip in navbar -->
-        <div class="nav-profile" aria-label="Docs authored by Justine Longla T.">
-          <img
-            src="/assets/img/justine-profile.jpg"
-            alt="Justine Longla T."
-            class="nav-profile-avatar"
-          />
-          <div class="nav-profile-text">
-            <span class="nav-profile-eyebrow">Docs by</span>
-            <span class="nav-profile-name">Justine Longla T.</span>
-          </div>
+  <!-- Simple header (you can upgrade later to reuse the main header) -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="/index.html">
+        <img src="/logo.png" alt="JustineLonglaT-Lane crest" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">JustineLonglaT-Lane Docs</span>
+          <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
         </div>
-
-        <!-- Main navigation -->
-        <nav class="nav-right" aria-label="Primary">
-          <a href="/README.html">README</a>
-          <a href="/" aria-current="page">Home</a>
-          <a href="/getting-started.html">Getting started</a>
-          <a href="/tooling-setup.html">Tooling setup</a>
-          <a href="/cicd-pipelines.html">CI/CD pipelines</a>
-          <a href="/architecture.html">Architecture</a>
-          <a href="/system-design-part-d.html">System Design (Part D)</a>
-          <a href="/toolkit.html">Automation toolkit</a>
-
-          <button
-            id="themeToggle"
-            type="button"
-            class="nav-theme-toggle"
-            aria-label="Toggle theme"
-          >
-            🌙
-          </button>
-        </nav>
-      </div>
+      </a>
     </div>
-  </div>
-</header>
+  </header>
 
-  <!-- ========= Hero / Intro ========= -->
-  <main>
-<section class="logo-banner">
-  <div class="container logo-banner-inner">
-    <!-- Left: crest -->
-    <div class="logo-banner-visual">
-      <img
-        src="/logo.png"
-        alt="JustineLonglaT-Lane badge"
-        class="logo-banner__img"
-      />
-    </div>
-
-    <!-- Right: headline + note + author -->
-    <div class="logo-banner-copy">
-      <p class="eyebrow logo-banner-eyebrow">
-        JustineLonglaT-Lane Docs
-      </p>
-
-      <h1 class="hero-title">
-        Cloud Confidence. Delivered.
-      </h1>
-
+  <main class="page-main container">
+    <header class="section-header">
+      <p class="eyebrow">System Design · Part D</p>
+      <h1>Platform Ecosystem — System Design, Part D</h1>
       <p class="lead">
-        JustineLonglaT-Lane Docs is the source of truth for how this ecosystem
-        runs in real life: from local dev and Git hygiene to CI/CD, Vercel
-        deploys, GitHub Pages, and the automation guardrails that keep all four
-        sites healthy.
+        This page is the anchor for your Part D system design content
+        (architecture, operations, automation toolkit, multi-site coordination, and reliability guardrails).
       </p>
+    </header>
 
-      <div class="author-inline">
-        <img
-          src="/assets/img/justine-profile.jpg"
-          alt="Justine Longla T."
-          class="author-inline-avatar"
-        />
-        <span class="author-inline-text">
-          Docs authored by <strong>Justine Longla T.</strong>
-        </span>
-      </div>
-    </div>
-  </div>
+    <section>
+      <h2>Sections inside Part D</h2>
+      <ul>
+        <li><strong>Architecture:</strong> how the four sites fit together.</li>
+        <li><strong>Automation Toolkit:</strong> the scripts and guardrails that keep everything shippable.</li>
+        <li><strong>Operations:</strong> day-2 operations, monitoring, and incident handling.</li>
+        <li><strong>Multi-Site Coordination:</strong> rules for keeping consulting, docs, blog, and Nouvo Ayiti 2075 aligned.</li>
+        <li><strong>Reliability Guardrails:</strong> patterns that protect uptime and user experience.</li>
+      </ul>
+    </section>
 
-  <!-- CTAs under the row -->
-  <div class="container">
-    <div class="cta-row cta-row--center">
-      <a class="btn btn-gradient" href="/docs.html">
-        Get All Docs
-      </a>
-
-      <a class="btn btn-outline" href="/README.html">
-        <span class="btn-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 20 20">
-            <path d="M4 4.75A2.75 2.75 0 0 1 6.75 2h6.5A2.75 2.75 0 0 1 16 4.75v10.5A1.75 1.75 0 0 1 14.25 17H6.75A2.75 2.75 0 0 1 4 14.25v-9.5Zm2-.75a.75.75 0 0 0-.75.75v9.5c0 1.138.924 2.062 2.062 2.062H14.25a.25.25 0 0 0 .25-.25v-11c0-.966-.784-1.75-1.75-1.75h-6.5Z" />
-          </svg>
-        </span>
-        View Technical README
-      </a>
-
-      <a class="btn btn-outline" href="/toolkit.html">
-        Automation Toolkit
-      </a>
-    </div>
-  </div>
-</section>
-
-    <!-- ========= Page Body ========= -->
-    <div class="container">
-      <!-- Mini table of contents -->
-      <nav aria-label="On this page" class="mt-3">
-        <strong>On this page</strong>
-        <ul>
-          <li><a href="#overview">Overview</a></li>
-          <li><a href="#sites">The four sites at a glance</a></li>
-          <li><a href="#repos-hosting">Repos, hosting & routing</a></li>
-          <li><a href="#cicd">CI/CD orchestration</a></li>
-          <li><a href="#guardrails">Operational guardrails</a></li>
-          <li><a href="#runbook">Day-to-day runbook</a></li>
-          <li><a href="#future">Future evolution</a></li>
-        </ul>
-      </nav>
-
-      <!-- ======= Overview ======= -->
-      <section id="overview" class="mt-4">
-        <h1>System Design — Part D: Operating the Four-Site Ecosystem</h1>
-        <p class="lead">
-          Parts A–C told the architecture story from different angles. Part D
-          is the operator’s view: how four public surfaces stay coordinated
-          using shared tooling, repeatable pipelines, and simple guardrails
-          instead of manual heroics.
-        </p>
-
-        <p>
-          Everything starts from a small set of Git repos and automation
-          scripts. From there, the platform fans out into:
-          <strong>the consulting site</strong>,
-          <strong>this docs site</strong>,
-          <strong>the blog</strong>, and a
-          <strong>GitHub Pages footprint</strong> that makes static content
-          easy to mirror, archive, and reuse.
-        </p>
-      </section>
-
-      <!-- ======= Sites at a glance ======= -->
-      <section id="sites" class="mt-4">
-        <h2>The four sites at a glance</h2>
-
-        <p>
-          The goal is not “four random websites,” but
-          <strong>one brand, many entry points</strong>. Each site has a clear
-          job:
-        </p>
-
-        <ul>
-          <li>
-            <strong>Consulting site</strong> —
-            <code>justinelonglaT-lane.com</code>. The main marketing and
-            portfolio surface, built with Next.js and deployed on Vercel. This
-            is where clients land, book intro calls, and browse projects.
-          </li>
-          <li>
-            <strong>Docs site</strong> —
-            <code>docs.justinelonglaT-lane.com</code>. The operational source
-            of truth for how the ecosystem runs: tooling, CI/CD, reference
-            architecture, and system-design series (Parts A–D).
-          </li>
-          <li>
-            <strong>Blog site</strong> —
-            <code>blogs.justinelonglaT-lane.com</code>. Long-form deep dives,
-            case studies, and technical storytelling that point back to both
-            the consulting site and the docs.
-          </li>
-          <li>
-            <strong>GitHub Pages presence</strong> —
-            static mirrors and documentation exported straight from Git. This
-            gives a low-friction way to host documentation where engineers
-            already live, and doubles as a backup surface if a primary domain
-            is under maintenance.
-          </li>
-        </ul>
-
-        <p>
-          Part D focuses on how those four surfaces stay aligned without
-          turning releases into “website whack-a-mole”.
-        </p>
-      </section>
-
-      <!-- ======= Repos, hosting & routing ======= -->
-      <section id="repos-hosting" class="mt-4">
-        <h2>Repos, hosting & routing</h2>
-
-        <p>
-          Under the hood, the system is intentionally simple: each major
-          surface has a dedicated repo, but they share
-          <strong>conventions, scripts, and guardrails</strong>.
-        </p>
-
-        <h3>Repository layout</h3>
-        <ul>
-          <li>
-            <strong><code>justinelonglaT-lane</code></strong> —
-            Next.js consulting site (projects grid, videos, contact funnel).
-          </li>
-          <li>
-            <strong><code>jutellane-docs</code></strong> —
-            this documentation site, written in plain HTML + a light CSS
-            layer, with PowerShell scripts for releases.
-          </li>
-          <li>
-            <strong><code>jutellane-blogs</code></strong> —
-            static blog engine with posts stored in a clean
-            <code>posts/YYYY/MM/slug/</code> structure and small scripts to
-            generate indexes.
-          </li>
-          <li>
-            <strong>GitHub Pages export repos</strong> —
-            where selected docs and blog content are pushed as already-built
-            HTML for GitHub Pages to serve.
-          </li>
-        </ul>
-
-        <h3>Hosting & DNS</h3>
-        <p>
-          DNS is managed centrally (IONOS), but all records follow a
-          repeatable pattern:
-        </p>
-
-        <ul>
-          <li>
-            <code>A</code> / <code>CNAME</code> records point
-            <code>justinelonglaT-lane.com</code>,
-            <code>docs.justinelonglaT-lane.com</code>, and
-            <code>blogs.justinelonglaT-lane.com</code> to Vercel.
-          </li>
-          <li>
-            GitHub Pages sites use the classic
-            <code>username.github.io</code> pattern with CNAME files so they
-            can sit behind friendly sub-domains if needed later.
-          </li>
-          <li>
-            SPF, DKIM, and MX records are kept in the same place so email
-            (intro-call confirmations, contact forms) is routed consistently.
-          </li>
-        </ul>
-
-        <p>
-          The key design decision: <strong>no snowflake DNS entries</strong>.
-          Every new surface either follows the existing pattern or doesn’t
-          ship.
-        </p>
-      </section>
-
-      <!-- ======= CI/CD orchestration ======= -->
-      <section id="cicd" class="mt-4">
-        <h2>CI/CD orchestration across sites</h2>
-
-        <p>
-          Each site has its own pipeline, but they share the same mental
-          model:
-          <strong>feature branches for work, main for production</strong>, and
-          <strong>automation for deploys</strong>.
-        </p>
-
-        <h3>Consulting site pipeline</h3>
-        <ul>
-          <li>Hosted on Vercel with <code>main</code> → production deploys.</li>
-          <li>
-            Preview deployments for feature branches so visual changes can be
-            reviewed before going live.
-          </li>
-          <li>
-            Quality checks (TypeScript, lint, basic tests) are run locally and
-            in CI GitHub Actions before merges.
-          </li>
-        </ul>
-
-        <h3>Docs pipeline</h3>
-        <ul>
-          <li>
-            A simple <code>main</code>-only deploy on Vercel. Docs are plain
-            HTML + CSS, so the pipeline focuses more on
-            <strong>structure and consistency</strong> than heavy builds.
-          </li>
-          <li>
-            PowerShell helpers (for example
-            <code>Tag-Release.ps1</code>, <code>build-styles.ps1</code>) keep
-            releases repeatable and tagged.
-          </li>
-          <li>
-            Selected docs can be exported to a GitHub Pages repo as
-            pre-built HTML, so the same content can be served from two places
-            without re-implementing logic.
-          </li>
-        </ul>
-
-        <h3>Blog pipeline</h3>
-        <ul>
-          <li>
-            Content is written in structured HTML/Markdown under
-            <code>posts/</code>, with indexes generated by a small Node
-            script.
-          </li>
-          <li>
-            GitHub Actions builds and publishes to GitHub Pages, while Vercel
-            can also serve the same built assets for faster global delivery.
-          </li>
-          <li>
-            New posts follow a lightweight check: front-matter,
-            metadata, and basic HTML validation before publish.
-          </li>
-        </ul>
-
-        <h3>Why this design works</h3>
-        <p>
-          Even though each pipeline is small, the ecosystem behaves like a
-          single platform: push to the right branch, and the correct surface
-          updates. There’s no “SSH into a server” step hiding behind the
-          scenes.
-        </p>
-      </section>
-
-      <!-- ======= Operational guardrails ======= -->
-      <section id="guardrails" class="mt-4">
-        <h2>Operational guardrails</h2>
-
-        <p>
-          The same philosophy behind the Lambda rescue patterns shows up here:
-          <strong>codify what works, then reuse it</strong>.
-        </p>
-
-        <ul>
-          <li>
-            <strong>Branch protection</strong> —
-            <code>main</code> is protected across repos. Changes flow through
-            pull requests so history stays clean.
-          </li>
-          <li>
-            <strong>Quality checks</strong> — shared scripts enforce formatting
-            and basic linting before code lands on main.
-          </li>
-          <li>
-            <strong>Release tagging</strong> — important milestones (like the
-            consulting rebrand or the launch of System Design Parts A–D) are
-            tagged so you can roll back or audit easily.
-          </li>
-          <li>
-            <strong>Documentation first</strong> — any new pattern (for
-            example, a new CI helper script or DNS change) is written up here
-            in the docs before it is used in production.
-          </li>
-        </ul>
-      </section>
-
-      <!-- ======= Day-to-day runbook ======= -->
-      <section id="runbook" class="mt-4">
-        <h2>Day-to-day runbook</h2>
-
-        <p>
-          In practice, operating the four sites comes down to a small number
-          of repeatable flows:
-        </p>
-
-        <h3>Shipping a new case study</h3>
-        <ol>
-          <li>
-            Draft the long-form version in the blog repo (deep technical
-            story, diagrams, code samples).
-          </li>
-          <li>
-            Add a concise project card and project page to the consulting site
-            (outcomes, role, stack).
-          </li>
-          <li>
-            Capture the “how we ran it” details here in the docs (tooling,
-            pipelines, and patterns).
-          </li>
-          <li>
-            Tag the release so future readers can see which version of the
-            platform was used.
-          </li>
-        </ol>
-
-        <h3>Updating shared tooling</h3>
-        <ol>
-          <li>
-            Change the script or configuration in a single repo (for example,
-            a new PowerShell helper in the docs toolkit).
-          </li>
-          <li>
-            Propagate the same pattern to other repos via small, focused PRs.
-          </li>
-          <li>
-            Update this System Design section so the change is documented in
-            one place.
-          </li>
-        </ol>
-
-        <h3>Handling incidents</h3>
-        <p>
-          If a deploy misbehaves, the recovery path is straightforward:
-        </p>
-        <ul>
-          <li>Roll back to the previous tag or commit on main.</li>
-          <li>Open an incident note in the docs repo under System Design.</li>
-          <li>
-            Extract any new patterns and promote them into automation or
-            guardrail scripts, not just tribal memory.
-          </li>
-        </ul>
-      </section>
-
-      <!-- ======= Future evolution ======= -->
-      <section id="future" class="mt-4 mb-0">
-        <h2>Future evolution</h2>
-
-        <p>
-          The four-site model is intentionally modest: it proves that a
-          single engineer can run a professional-grade ecosystem by combining
-          <strong>good design, small tools, and strong habits</strong>.
-        </p>
-
-        <p>
-          As the practice grows, this Part D chapter becomes the baseline
-          for:
-        </p>
-
-        <ul>
-          <li>Adding new microsites or landing pages without chaos.</li>
-          <li>
-            Onboarding collaborators quickly — “read Part D, then follow the
-            runbook”.
-          </li>
-          <li>
-            Extending the same patterns to client platforms, not just the
-            personal ecosystem.
-          </li>
-        </ul>
-
-        <p>
-          In other words, the platform is not just a portfolio&mdash;it is a
-          live demonstration of <strong>DevSecOps, system design, and
-          reliability thinking</strong> applied to your own work.
-        </p>
-      </section>
-    </div>
+    <section>
+      <h2>Next steps</h2>
+      <ol>
+        <li><a href="/getting-started.html">Getting started</a></li>
+        <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
+        <li><a href="/architecture.html">Architecture</a></li>
+        <li><a href="/toolkit.html">Automation Toolkit</a></li>
+      </ol>
+    </section>
   </main>
 
-  <!-- ========= Footer ========= -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <div class="mb-0">
-          <strong>JustineLonglaT-Lane Docs</strong>
+        <div class="muted">
+          © 2025 Justine Longla T. — DevSecOps • Cloud • Sustainability
         </div>
         <div class="muted">
-          Operating under <strong>JustineLonglaT-Lane Consulting</strong>.
+          Operating under <strong>JustineLonglaT-Lane Consulting.</strong>
         </div>
-      </div>
-
-      <div>
-        <div class="muted mb-0"><strong>Platform links</strong></div>
-        <nav>
-          <a href="https://justinelonglaT-lane.com" target="_blank" rel="noreferrer">
-            Main Site
-          </a>
-          <a href="https://blogs.justinelonglaT-lane.com" target="_blank" rel="noreferrer">
-            Blog
-          </a>
-          <a href="https://docs.justinelonglaT-lane.com" target="_blank" rel="noreferrer">
-            Docs
-          </a>
-          <a href="/toolkit.html">Automation Toolkit</a>
-        </nav>
-      </div>
-
-      <div class="muted">
-        © 2025 Justine Longla T. — DevSecOps • Cloud • Sustainability
       </div>
     </div>
   </footer>
-
-  <script src="/js/theme-toggle.js" type="module"></script>
-  <script src="/js/back-to-top.js" type="module"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

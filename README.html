@@ -1,16 +1,122 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Docs README — JustineLonglaT-Lane Docs</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/styles.css" />
-</head>
-<body>
-  <main class="container">
-    <h1>Docs README</h1>
-    <p>This is a temporary README entry page for the JustineLonglaT-Lane Docs site.</p>
-    <p>For the full documentation index, visit <a href="/docs.html">/docs.html</a>.</p>
-  </main>
-</body>
-</html>
+<main class="page-main">
+  <article class="content-shell">
+    <header>
+      <h1>Docs README</h1>
+      <p class="lead">
+        Welcome to <strong>JustineLonglaT-Lane Docs</strong> — the source of truth for how this
+        ecosystem runs in real life: from local dev and Git hygiene to CI/CD, Vercel deploys,
+        GitHub Pages, and the automation guardrails that keep all four sites healthy.
+      </p>
+    </header>
+
+    <section aria-labelledby="section-why-docs">
+      <h2 id="section-why-docs">Why these docs exist</h2>
+      <p>
+        This documentation exists to make the platform <strong>predictable, repeatable,
+        and teachable</strong>. Instead of carrying everything in my head, this site captures
+        the decisions, patterns, and workflows that keep:
+      </p>
+      <ul>
+        <li>the <strong>consulting site</strong> running smoothly,</li>
+        <li>the <strong>docs site</strong> deployable and maintainable,</li>
+        <li>the <strong>blog + content</strong> pipelines shippable, and</li>
+        <li>the <strong>Nouvo Ayiti 2075</strong> ecosystem aligned with the rest.</li>
+      </ul>
+      <p>
+        If something breaks, changes, or needs to scale, this is where I come back first.
+      </p>
+    </section>
+
+    <section aria-labelledby="section-structure">
+      <h2 id="section-structure">What you’ll find here</h2>
+      <p>
+        The docs are intentionally concise and grouped by how you actually work on the
+        platform:
+      </p>
+      <ul>
+        <li>
+          <strong><a href="/getting-started.html">Getting Started</a></strong> –
+          cloning the repos, basic tooling, and how to run things locally.
+        </li>
+        <li>
+          <strong><a href="/tooling-setup.html">Tooling Setup</a></strong> –
+          editor settings, formatting rules, and guardrails so every repo behaves the same.
+        </li>
+        <li>
+          <strong><a href="/cicd-pipelines.html">CI/CD Pipelines</a></strong> –
+          how code gets from branch to production, including GitHub Actions and Vercel hooks.
+        </li>
+        <li>
+          <strong><a href="/architecture.html">Architecture</a></strong> –
+          high-level diagrams that show how the services, deployments, and observability fit together.
+        </li>
+        <li>
+          <strong><a href="/system-design-part-d.html">System Design – Part D</a></strong> –
+          the “platform ecosystem” view, with deep dives into automation toolkit, operations,
+          multi-site coordination, and reliability guardrails.
+        </li>
+      </ul>
+      <p>
+        For a simple list of every page, use the
+        <a href="/docs.html">Docs index</a>.
+      </p>
+    </section>
+
+    <section aria-labelledby="section-how-to-use">
+      <h2 id="section-how-to-use">How to use these docs</h2>
+      <p>
+        Treat this site like a <strong>runbook plus design record</strong>:
+      </p>
+      <ul>
+        <li><strong>New work:</strong> Start with <em>Getting Started</em> and the architecture diagrams, then follow the CI/CD guidance before creating new flows.</li>
+        <li><strong>Troubleshooting:</strong> Check CI/CD and operations sections first to confirm the current expected workflow.</li>
+        <li><strong>Explaining the platform:</strong> Use the architecture and Part&nbsp;D pages when speaking with clients, collaborators, or recruiters.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="section-related">
+      <h2 id="section-related">Related sites</h2>
+      <p>
+        The docs live alongside the other pillars of the ecosystem:
+      </p>
+      <ul>
+        <li>
+          <a href="https://www.justinelonglat-lane.com" target="_blank" rel="noopener">
+            Consulting site
+          </a> – services, portfolio, and case studies.
+        </li>
+        <li>
+          <a href="https://www.justinelonglat-lane.com/booking" target="_blank" rel="noopener">
+            Booking / Intro call
+          </a> – schedule conversations directly.
+        </li>
+        <li>
+          <a href="https://www.justinelonglat-lane.com/mesh" target="_blank" rel="noopener">
+            Engineering Mesh Hub
+          </a> – experiments, playgrounds, and deeper technical dives.
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="section-keeping-fresh">
+      <h2 id="section-keeping-fresh">Keeping things fresh</h2>
+      <p>
+        This site is version-controlled alongside the rest of the platform. When a workflow,
+        script, or architecture decision changes, the goal is simple:
+        <strong>update the docs as part of the same change</strong>.
+      </p>
+      <p>
+        If a page feels out of date, I capture the gap, open a task or PR, and treat the docs
+        update as a first-class deliverable — not an afterthought.
+      </p>
+    </section>
+
+    <footer>
+      <p>
+        Ready to explore? Head to the
+        <a href="/docs.html">Docs index</a> or jump straight into
+        <a href="/getting-started.html">Getting Started</a>.
+      </p>
+    </footer>
+  </article>
+</main>

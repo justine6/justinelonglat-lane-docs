@@ -1,14 +1,70 @@
-# From repo root: C:\Users\justi\projects\justinelonglat-lane-docs
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>System Design — Part D | JustineLonglaT-Lane Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-Write-Host "`n== Wiring docs entry pages to root ==" -ForegroundColor Cyan
+  <!-- Global styles -->
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <!-- Simple header (you can upgrade later to reuse the main header) -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="/index.html">
+        <img src="/logo.png" alt="JustineLonglaT-Lane crest" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">JustineLonglaT-Lane Docs</span>
+          <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
+        </div>
+      </a>
+    </div>
+  </header>
 
-# 1) System Design — Part D HTML
-$sysSrc = "docs/pages/system-design-part-d.html"
-$sysDest = "system-design-part-d.html"
+  <main class="page-main container">
+    <header class="section-header">
+      <p class="eyebrow">System Design · Part D</p>
+      <h1>Platform Ecosystem — System Design, Part D</h1>
+      <p class="lead">
+        This page is the anchor for your Part D system design content
+        (architecture, operations, automation toolkit, multi-site coordination, and reliability guardrails).
+      </p>
+    </header>
 
-if (Test-Path $sysSrc) {
-    Copy-Item $sysSrc $sysDest -Force
-    Write-Host "✓ system-design-part-d.html copied to repo root." -ForegroundColor Green
-} else {
-    Write-Host "⚠ Could not find $sysSrc (no System Design HTML yet)." -ForegroundColor Yellow
-}
+    <section>
+      <h2>Sections inside Part D</h2>
+      <ul>
+        <li><strong>Architecture:</strong> how the four sites fit together.</li>
+        <li><strong>Automation Toolkit:</strong> the scripts and guardrails that keep everything shippable.</li>
+        <li><strong>Operations:</strong> day-2 operations, monitoring, and incident handling.</li>
+        <li><strong>Multi-Site Coordination:</strong> rules for keeping consulting, docs, blog, and Nouvo Ayiti 2075 aligned.</li>
+        <li><strong>Reliability Guardrails:</strong> patterns that protect uptime and user experience.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Next steps</h2>
+      <ol>
+        <li><a href="/getting-started.html">Getting started</a></li>
+        <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
+        <li><a href="/architecture.html">Architecture</a></li>
+        <li><a href="/toolkit.html">Automation Toolkit</a></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="muted">
+          © 2025 Justine Longla T. — DevSecOps • Cloud • Sustainability
+        </div>
+        <div class="muted">
+          Operating under <strong>JustineLonglaT-Lane Consulting.</strong>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,51 +1,153 @@
-# Automation Toolkit — The Engine Behind the Ecosystem
+---
+title: Automation Toolkit
+description: Shared scripts and helpers that enforce consistency, safety, and efficiency across the platform.
+---
 
-Every Part D page is powered by your growing automation toolkit:
-a set of PowerShell scripts, Node utilities, and helpers that make the
-JustineLonglaT-Lane platform predictable and safe.
+# Automation Toolkit
+
+The Automation Toolkit is a collection of reusable scripts, helpers, and patterns that power the JustineLonglaT-Lane platform.
+
+Its purpose is simple:  
+**remove human error, reduce repetition, and enforce operational discipline.**
 
 ---
 
-## PowerShell Modules
+## Why automation matters
 
-- `Add-Project.ps1`  
-- `New-Post.ps1`  
-- `Generate-Metadata.ps1`  
-- `Build-Serve.ps1`  
-- `Cut-Release.ps1`  
-- `Fix-Routing.ps1`  
-- `Sync-Blogs.ps1`  
-- `Verify-Docs.ps1`  
+Manual processes do not scale.
 
-These scripts automate:
-- Metadata generation  
-- Index creation  
-- Static site syncing  
-- Release tagging  
-- Routing validation  
-- Markdown transformations  
-- Asset fingerprinting  
+Automation ensures:
+
+- Consistency across repositories
+- Faster onboarding
+- Lower cognitive load
+- Fewer production incidents
+- Easier recovery when things go wrong
+
+Every script in this toolkit exists because a manual step was either risky, slow, or forgotten.
 
 ---
 
-## Node/JS Utilities
+## Toolkit scope
 
-- Slug generator  
-- Router mapper  
-- JSON indexer  
-- Thumbnail generator  
-- Sitemap builder  
+The toolkit supports:
+
+- Local development workflows
+- CI/CD pipelines
+- Documentation publishing
+- Validation and integrity checks
+- Release safety and version control
 
 ---
 
-## Reusability
+## Script categories
 
-All scripts follow:
-- Standard naming  
-- Dry-run mode  
-- Safety checks  
-- Verbose logging  
-- Modular composition  
+### 1. Local development helpers
 
-You can reuse this toolkit across all future projects.
+Scripts that standardize developer workflows:
 
+- Environment checks
+- Safe cleanups
+- Build and serve commands
+- File structure validation
+
+These ensure every contributor starts from a known-good baseline.
+
+---
+
+### 2. CI/CD guardrails
+
+Used inside GitHub Actions:
+
+- Pre-deploy validation
+- Semantic version checks
+- Branch safety rules
+- Release readiness checks
+
+These scripts prevent broken or incomplete deployments.
+
+---
+
+### 3. Documentation automation
+
+Purpose-built for the docs platform:
+
+- Homepage patching
+- Navigation consistency checks
+- Sitemap updates
+- Content presence verification
+
+This allows the documentation site to scale without manual edits.
+
+---
+
+### 4. Release tooling
+
+Scripts that support clean releases:
+
+- Tag verification
+- Change detection
+- Release note preparation
+- Deployment locking
+
+This ensures every release is intentional and traceable.
+
+---
+
+## PowerShell as a design choice
+
+PowerShell is used deliberately because it:
+
+- Works cross-platform
+- Integrates well with CI systems
+- Is expressive but controlled
+- Can act as both tooling and documentation
+
+Scripts are written to be **readable first**, not clever.
+
+---
+
+## Safety principles
+
+All automation follows these rules:
+
+- **No destructive actions without confirmation**
+- **Fail loudly, not silently**
+- **Prefer prevention over recovery**
+- **Log intent and outcome clearly**
+
+If a script can do damage, it is treated as production code.
+
+---
+
+## Reuse over reinvention
+
+The toolkit is shared across:
+
+- Docs
+- Consulting site
+- Blog platform
+- Nouvo Ayiti 2075 ecosystem
+
+This avoids divergence and ensures improvements benefit everything.
+
+---
+
+## Living system
+
+The Automation Toolkit is not finished.
+
+It evolves with:
+- New failure modes
+- Platform growth
+- Lessons learned in production
+
+Every addition must justify itself by removing risk or friction.
+
+---
+
+## Related documentation
+
+- [CI/CD Architecture](./cicd-pipelines.md)
+- [Operations](./operations.md)
+- [Reliability Guardrails](./reliability-guardrails.md)

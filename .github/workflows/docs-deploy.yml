@@ -1,82 +1,41 @@
-name: Docs • Build & Deploy (Vercel CLI)
+name: Deploy Docs
 
 on:
   push:
     branches: [ main ]
-    paths:
-      - "**/*.html"
-      - "**/*.css"
-      - "public/**"
-      - "templates/**"
-      - "_partials/**"
-      - "build-Docs.ps1"
-      - "vercel.json"
-  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
-
-      - name: Verify PowerShell availability
-        run: pwsh --version
-
-      - name: Build static docs (partials → pages)
-        shell: pwsh
-        run: ./build-Docs.ps1
-
-      - name: Upload built site (artifact) for debugging (optional)
-        uses: actions/upload-artifact@v4
-        if: ${{ always() }}
         with:
-          name: built-site
-          path: |
-            *.html
-            public/**
-            styles.css
-            vercel.json
-            !_partials/**
-            !templates/**
-            !.git/**
+          fetch-depth: 0
 
-      - name: Setup Node (for Vercel CLI)
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-            node-version: 20
+          node-version: 20
+
+      # (optional) Build HTML if needed
+      # - name: Build site
+      #   run: npm run build
+
+      - name: Generate sitemap + robots.txt
+        shell: pwsh
+        run: >
+          ./scripts/Invoke-Tool.ps1 -Name gen-sitemap
+          -ToolArgs @(
+            '-BaseUrl', 'https://docs.justinelonglat-lane.com',
+            '-Source',  'docs'
+          )
 
       - name: Install Vercel CLI
-        run: npm i -g vercel@latest
+        run: npm install -g vercel
 
-      - name: Pull Vercel project settings
+      - name: Deploy to Vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        run: |
-          vercel pull --yes --environment=production \
-            --token "$VERCEL_TOKEN"
-
-      - name: Deploy (prebuilt static)
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          # no build step on Vercel: we're deploying the files we just built
-          vercel deploy --prebuilt --prod --token "$VERCEL_TOKEN"
-          name: Deploy on push (Vercel Hook)
-          on:
-            push:
-              branches: [ "main" ]
-
-          jobs:
-            deploy:
-              runs-on: ubuntu-latest
-              steps:
-                - name: Call Vercel Deploy Hook
-                  run: |
-                    curl -fsSL -X POST "$VERCEL_DEPLOY_HOOK_URL"
-                  env:
-                    VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
-
+        run: vercel --prod --yes --token "$VERCEL_TOKEN"

@@ -1,78 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Home -->
   <url>
-    <loc>https://docs.justinelonglat-lane.com/</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Core docs pages -->
-  <url>
-    <loc>https://docs.justinelonglat-lane.com/readme.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
+    <loc>https://docs.justinelonglat-lane.com/docs/pages/system-design-part-d.html</loc>
+    <lastmod>2025-12-11T01:43:41Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <url>
-    <loc>https://docs.justinelonglat-lane.com/getting-started.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://docs.justinelonglat-lane.com/tooling-setup.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://docs.justinelonglat-lane.com/cicd-pipelines.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://docs.justinelonglat-lane.com/architecture.html</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Diagrams -->
-  <url>
-    <loc>https://docs.justinelonglat-lane.com/diagrams/data-pipeline.svg</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <url>
-    <loc>https://docs.justinelonglat-lane.com/diagrams/high-level.svg</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <url>
-    <loc>https://docs.justinelonglat-lane.com/diagrams/service-flow.svg</loc>
-    <lastmod>2025-11-05T02:59:30Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <url>
-    <loc>https://docs.justinelonglat-lane.com/toolkit.html</loc>
-    <lastmod>2025-11-15T02:59:30Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
 </urlset>
-

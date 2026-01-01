@@ -3,7 +3,7 @@
 ![JustineLonglaT-Lane Logo](public/logo.png)
 
 ## **Cloud Confidence. Delivered.**
-Production‑ready documentation for **JustineLonglaT-Lane Consulting**, built with clarity, precision, and engineering excellence.
+Production-ready documentation for **JustineLonglaT-Lane Consulting**, built with clarity, precision, and engineering excellence.
 
 ---
 
@@ -26,7 +26,7 @@ The documentation is designed to be:
 
 ### **Logo**
 Located at:  
-```
+```text
 public/logo.png
 ```
 

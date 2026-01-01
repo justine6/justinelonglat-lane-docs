@@ -43,17 +43,18 @@ This is the **first official reference build** of **JustineLonglaT-Lane Docs**, 
 ---
 
 ## [Unreleased]
-### 🚧 Planned Improvements
+### 🚧 Planned / In-Progress Improvements
+- Add **GitHub Actions npm cache** to speed up deploy workflows.
 - Add **search functionality** for quick doc access.
 - Introduce **dark mode** favicon variant.
 - Add **meta tags** for OpenGraph and social previews.
-- Automate **build-sitemap.ps1** into CI for each release.
+- Automate additional docs health checks as part of CI.
 
 ---
 
 ### 🧾 Version Summary
 | Version | Date | Type | Description |
-|----------|------|------|-------------|
+|--------|------|------|-------------|
 | v1.0-docs-reference | 2025-11-05 | 🎯 Reference | Centered hero, gradient CTA, favicon update, verified diagrams |
 
 ---
@@ -61,4 +62,3 @@ This is the **first official reference build** of **JustineLonglaT-Lane Docs**, 
 **Maintainer:** Fnu Longla Justine Tekang  
 **Brand Motto:** *Cloud Confidence. Delivered.*  
 **Powered by:** JustineLonglaT-Lane Consulting × Vercel
-

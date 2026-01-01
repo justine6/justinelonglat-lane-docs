@@ -19,23 +19,25 @@ jobs:
         with:
           node-version: 20
 
+      # 🔹 Cache npm packages to speed up `npm install -g vercel`
+      - name: Cache npm cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
       # (optional) Build HTML if needed
       # - name: Build site
       #   run: npm run build
 
       - name: Generate sitemap + robots.txt
         shell: pwsh
-        run: >
-          ./scripts/Invoke-Tool.ps1 -Name gen-sitemap
-          -ToolArgs @(
-            '-BaseUrl', 'https://docs.justinelonglat-lane.com',
-            '-Source',  'docs'
-          )
+        run: ./scripts/Invoke-Tool.ps1 -Name gen-sitemap
 
       - name: Install Vercel CLI
         run: npm install -g vercel
 
       - name: Deploy to Vercel
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: vercel --prod --yes --token "$VERCEL_TOKEN"
+        run: vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}

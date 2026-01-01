@@ -1,94 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/</loc>
-    <lastmod>2025-11-05T20:58:20Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/</loc>
+    <lastmod>2025-12-11T03:59:11Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/_vercel_output_backup_20251104-083657/static/cicd-pipelines.html</loc>
-    <lastmod>2025-11-05T20:58:19Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/_vercel_output_backup_20251104-083657/static/cicd-pipelines.html</loc>
+    <lastmod>2025-11-24T01:06:36Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/_vercel_output_backup_20251104-083657/static/getting-started.html</loc>
-    <lastmod>2025-11-05T20:58:19Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/_vercel_output_backup_20251104-083657/static/getting-started.html</loc>
+    <lastmod>2025-11-24T01:06:36Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/_vercel_output_backup_20251104-083657/static/index.html</loc>
-    <lastmod>2025-11-05T20:58:19Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/_vercel_output_backup_20251104-083657/static/index.html</loc>
+    <lastmod>2025-11-24T01:06:36Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/_vercel_output_backup_20251104-083657/static/tooling-setup.html</loc>
-    <lastmod>2025-11-05T20:58:19Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/_vercel_output_backup_20251104-083657/static/tooling-setup.html</loc>
+    <lastmod>2025-11-24T01:06:36Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/architecture.html</loc>
-    <lastmod>2025-11-05T20:58:19Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/architecture.html</loc>
+    <lastmod>2025-11-24T01:06:37Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/cicd-pipelines.html</loc>
-    <lastmod>2025-11-05T20:58:20Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/automation-toolkit.html</loc>
+    <lastmod>2025-12-11T02:42:52Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/docs.html</loc>
-    <lastmod>2025-11-05T20:58:20Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/cicd-pipelines.html</loc>
+    <lastmod>2025-11-24T01:24:52Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/getting-started.html</loc>
-    <lastmod>2025-11-05T20:58:20Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/content-engine.html</loc>
+    <lastmod>2025-12-11T02:42:52Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/pages/architecture.html</loc>
-    <lastmod>2025-11-05T20:58:19Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/docs.html</loc>
+    <lastmod>2025-12-11T05:52:38Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/pages/cicd-pipelines.html</loc>
-    <lastmod>2025-11-05T20:58:19Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/docs/pages/system-design-part-d.html</loc>
+    <lastmod>2025-12-11T01:43:41Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/pages/getting-started.html</loc>
-    <lastmod>2025-11-05T20:58:19Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/getting-started.html</loc>
+    <lastmod>2025-11-24T01:24:52Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/pages/index.html</loc>
-    <lastmod>2025-11-05T20:58:19Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/knowledge/featured-writing.html</loc>
+    <lastmod>2025-12-11T01:44:27Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/pages/tooling-setup.html</loc>
-    <lastmod>2025-11-05T20:58:19Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/multi-site-coordination.html</loc>
+    <lastmod>2025-12-11T02:42:52Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://justinelonglat-lane-docs-30wyt8xu8-jutellane.vercel.app/tooling-setup.html</loc>
-    <lastmod>2025-11-05T20:58:20Z</lastmod>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/operations.html</loc>
+    <lastmod>2025-12-11T02:42:52Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/pages/architecture.html</loc>
+    <lastmod>2025-11-05T23:06:09Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/pages/automation-toolkit.html</loc>
+    <lastmod>2025-12-11T01:29:13Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/pages/cicd-pipelines.html</loc>
+    <lastmod>2025-11-05T23:06:09Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/pages/content-engine.html</loc>
+    <lastmod>2025-12-11T01:29:13Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/pages/getting-started.html</loc>
+    <lastmod>2025-11-05T23:06:09Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/pages/index.html</loc>
+    <lastmod>2025-11-27T03:26:31Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/pages/knowledge/featured-writing.html</loc>
+    <lastmod>2025-12-10T19:13:01Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/pages/multi-site-coordination.html</loc>
+    <lastmod>2025-12-11T01:29:13Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/pages/operations.html</loc>
+    <lastmod>2025-12-11T01:29:13Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/pages/pages/featured-writing.html</loc>
+    <lastmod>2025-12-10T19:32:31Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/pages/reliability-guardrails.html</loc>
+    <lastmod>2025-12-11T01:29:13Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/pages/tooling-setup.html</loc>
+    <lastmod>2025-11-05T23:06:09Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/README.html</loc>
+    <lastmod>2025-12-11T05:54:37Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/reliability-guardrails.html</loc>
+    <lastmod>2025-12-11T02:42:52Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/system-design-part-d.html</loc>
+    <lastmod>2025-12-11T02:24:49Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/tooling-setup.html</loc>
+    <lastmod>2025-11-24T01:06:37Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/toolkit.html</loc>
+    <lastmod>2025-11-24T01:06:37Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 </urlset>
-

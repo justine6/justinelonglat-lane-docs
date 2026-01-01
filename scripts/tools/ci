@@ -1,0 +1,22 @@
+# Run from repo root
+$repoRoot   = Get-Location
+$scriptsDir = Join-Path $repoRoot "scripts"
+$toolsDir   = Join-Path $scriptsDir "tools"
+$ciDir      = Join-Path $scriptsDir "ci"
+
+# Ensure scripts/ exists
+if (-not (Test-Path $scriptsDir)) {
+    New-Item -ItemType Directory -Path $scriptsDir | Out-Null
+}
+
+# Ensure scripts/tools and scripts/ci exist
+foreach ($dir in @($toolsDir, $ciDir)) {
+    if (-not (Test-Path $dir)) {
+        New-Item -ItemType Directory -Path $dir | Out-Null
+    }
+}
+
+Write-Host "✅ Standard folders ready:" -ForegroundColor Green
+Write-Host " - $scriptsDir"
+Write-Host " - $toolsDir"
+Write-Host " - $ciDir"

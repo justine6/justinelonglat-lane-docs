@@ -1,6 +1,5 @@
-# robots.txt for https://docs.justinelonglat-lane.com
+# robots.txt for Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full
 User-agent: *
 Allow: /
 
-Sitemap: https://docs.justinelonglat-lane.com/sitemap.xml
-
+Sitemap: Get-Help .\scripts\tools\Generate-Sitemap.ps1 -Full/sitemap.xml

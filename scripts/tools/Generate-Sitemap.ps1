@@ -3,11 +3,10 @@
   Generate sitemap.xml and robots.txt for a static site.
 
 .PARAMETER BaseUrl
-  The canonical site origin, e.g. https://justinelonglat-lane-docs.vercel.app
-  or https://docs.justinelonglat-lane.com
+  The canonical site origin, e.g. https://docs.justinelonglat-lane.com
 
 .PARAMETER Source
-  Directory containing the built HTML site (relative to current directory or absolute).
+  Directory containing the built HTML site (relative to repo root or absolute).
 
 .EXAMPLE
   pwsh -NoProfile -ExecutionPolicy Bypass -File .\scripts\tools\Generate-Sitemap.ps1 `
@@ -21,8 +20,8 @@ param(
   [Parameter(Mandatory = $true)]
   [string]$BaseUrl,
 
-  # Where to scan for HTML (relative to *current* directory, or absolute)
-  [string]$Source = ".",
+  # Where to scan for HTML (relative to repo root, or absolute)
+  [string]$Source = "docs",
 
   # Optional: file patterns to include (HTML pages)
   [string[]]$Include = @("*.html"),
@@ -37,9 +36,11 @@ param(
   ),
 
   # Optional: changefreq for non-root pages
+  [ValidateSet("always","hourly","daily","weekly","monthly","yearly","never")]
   [string]$ChangeFreq = "weekly",
 
   # Optional: priority for non-root pages
+  [ValidateRange(0.0,1.0)]
   [double]$Priority = 0.7
 )
 
@@ -49,54 +50,50 @@ function Say($msg)  { Write-Host "› $msg" -ForegroundColor Cyan }
 function Good($msg) { Write-Host "✓ $msg" -ForegroundColor Green }
 function Bad($msg)  { Write-Host "✗ $msg" -ForegroundColor Red }
 
-# --- Debug: show what parameters we actually received ---
-Write-Host "DEBUG BaseUrl = [$BaseUrl]" -ForegroundColor Yellow
-Write-Host "DEBUG Source  = [$Source]"  -ForegroundColor Yellow
-
 # Normalize base URL (no trailing slash)
 if ($BaseUrl.EndsWith('/')) { $BaseUrl = $BaseUrl.TrimEnd('/') }
 
-# --------- Resolve Source folder in a very explicit way ---------
-try {
-    $resolved = Resolve-Path -Path $Source -ErrorAction Stop
-    $scanRoot = $resolved.ProviderPath
-} catch {
-    Bad "Source path not found: $Source"
-    exit 1
+# Repo root = current directory when script is invoked
+$root = Get-Location
+
+# Resolve Source to an absolute folder
+if ([System.IO.Path]::IsPathRooted($Source)) {
+  $scanRoot = $Source
+} else {
+  $scanRoot = Join-Path $root $Source
 }
 
-Write-Host "DEBUG scanRoot = [$scanRoot]" -ForegroundColor Yellow
+if (-not (Test-Path $scanRoot)) {
+  Bad "Source path not found: $scanRoot"
+  exit 1
+}
+
 Say "Scanning for HTML under: $scanRoot"
 
-# Gather HTML pages under scanRoot
+# Gather HTML pages
 $allHtml = Get-ChildItem -Path $scanRoot -Recurse -File -Include $Include
 
-# Compute relative path from scanRoot and apply excludes
-$pages = $allHtml | ForEach-Object {
-    $full = $_.FullName
-    $rel  = $full.Substring($scanRoot.Length).TrimStart('\','/')
+# Exclude anything under excluded directories or matching excluded filenames
+$pages = $allHtml | Where-Object {
+  $rel = Resolve-Path -LiteralPath $_.FullName -Relative
+  if ($rel -like ".\*") { $rel = $rel.Substring(2) }
 
-    $isExcluded = $false
-    foreach ($ex in $Exclude) {
-        if ($rel -like "$ex" -or
-            $rel -like "*\$ex" -or
-            $rel -like "$ex\*" -or
-            $rel -like "*\$ex\*") {
-            $isExcluded = $true; break
-        }
+  $isExcluded = $false
+  foreach ($ex in $Exclude) {
+    if ($rel -like "$ex" -or
+        $rel -like "*\$ex" -or
+        $rel -like "$ex\*" -or
+        $rel -like "*\$ex\*") {
+      $isExcluded = $true
+      break
     }
-
-    if (-not $isExcluded) {
-        [pscustomobject]@{
-            File    = $_
-            RelPath = $rel
-        }
-    }
+  }
+  -not $isExcluded
 }
 
-if (-not $pages -or $pages.Count -eq 0) {
-    Bad "No HTML pages found to include under: $scanRoot"
-    exit 1
+if (-not $pages) {
+  Bad "No HTML pages found to include."
+  exit 1
 }
 
 Say "Discovered $($pages.Count) HTML page(s)."
@@ -104,58 +101,63 @@ Say "Discovered $($pages.Count) HTML page(s)."
 # Build URL entries
 $entries = @()
 
-# Root index.html (relative path == 'index.html')
-$index = $pages | Where-Object { $_.RelPath -ieq "index.html" }
+# Always include site root "/" if there's an index.html directly under $scanRoot
+$index = $pages | Where-Object {
+  $_.Name -ieq "index.html" -and $_.DirectoryName -eq $scanRoot
+}
 if ($index) {
-    $file = $index.File
-    $entries += [pscustomobject]@{
-        loc        = "$BaseUrl/"
-        lastmod    = $file.LastWriteTimeUtc.ToString("yyyy-MM-ddTHH:mm:ssZ")
-        changefreq = "weekly"
-        priority   = 1.0
-    }
+  $entries += [pscustomobject]@{
+    loc        = "$BaseUrl/"
+    lastmod    = $index.LastWriteTimeUtc.ToString("yyyy-MM-ddTHH:mm:ssZ")
+    changefreq = "weekly"
+    priority   = 1.0
+  }
 }
 
-# All other pages
 foreach ($p in $pages) {
-    if ($p.RelPath -ieq "index.html") { continue }
+  $relPath = Resolve-Path -LiteralPath $p.FullName -Relative
+  if ($relPath -like ".\*") { $relPath = $relPath.Substring(2) }
 
-    $urlPath = $p.RelPath -replace '\\','/'
-    $entries += [pscustomobject]@{
-        loc        = "$BaseUrl/$urlPath"
-        lastmod    = $p.File.LastWriteTimeUtc.ToString("yyyy-MM-ddTHH:mm:ssZ")
-        changefreq = $ChangeFreq
-        priority   = $Priority
-    }
+  # Skip the root index we already added
+  if ($index -and $p.FullName -eq $index.FullName) { continue }
+
+  $urlPath = $relPath -replace '\\','/'
+
+  $entries += [pscustomobject]@{
+    loc        = "$BaseUrl/$urlPath"
+    lastmod    = $p.LastWriteTimeUtc.ToString("yyyy-MM-ddTHH:mm:ssZ")
+    changefreq = $ChangeFreq
+    priority   = $Priority
+  }
 }
 
-# Write sitemap.xml next to scanRoot
-$sitemapPath = Join-Path $scanRoot "sitemap.xml"
+# 👉 IMPORTANT: write outputs at repo root (which is your deployed site root)
+$sitemapPath = Join-Path $root "sitemap.xml"
+$robotsPath  = Join-Path $root "robots.txt"
+
+# Write sitemap.xml
 $sb = New-Object System.Text.StringBuilder
 [void]$sb.AppendLine('<?xml version="1.0" encoding="UTF-8"?>')
 [void]$sb.AppendLine('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
 
 foreach ($e in ($entries | Sort-Object loc)) {
-    [void]$sb.AppendLine('  <url>')
-    [void]$sb.AppendLine("    <loc>$($e.loc)</loc>")
-    [void]$sb.AppendLine("    <lastmod>$($e.lastmod)</lastmod>")
-    if ($e.changefreq) {
-        [void]$sb.AppendLine("    <changefreq>$($e.changefreq)</changefreq>")
-    }
-    if ($e.priority -ne $null) {
-        [void]$sb.AppendLine(
-            "    <priority>$([string]::Format('{0:0.0}', $e.priority))</priority>"
-        )
-    }
-    [void]$sb.AppendLine('  </url>')
+  [void]$sb.AppendLine('  <url>')
+  [void]$sb.AppendLine("    <loc>$($e.loc)</loc>")
+  [void]$sb.AppendLine("    <lastmod>$($e.lastmod)</lastmod>")
+  if ($e.changefreq) {
+    [void]$sb.AppendLine("    <changefreq>$($e.changefreq)</changefreq>")
+  }
+  if ($e.priority -ne $null) {
+    [void]$sb.AppendLine("    <priority>$([string]::Format('{0:0.0}', $e.priority))</priority>")
+  }
+  [void]$sb.AppendLine('  </url>')
 }
 
 [void]$sb.AppendLine('</urlset>')
 $sb.ToString() | Set-Content -Encoding UTF8 -NoNewline $sitemapPath
 Good "Wrote sitemap.xml  → $sitemapPath"
 
-# Write robots.txt next to scanRoot
-$robotsPath = Join-Path $scanRoot "robots.txt"
+# Write robots.txt
 @"
 # robots.txt for $BaseUrl
 User-agent: *
@@ -166,8 +168,3 @@ Sitemap: $BaseUrl/sitemap.xml
 Good "Wrote robots.txt → $robotsPath"
 
 Good "Done. Entries: $($entries.Count)."
-
-<#
-Changelog (for humans only; ignored by PowerShell)
-- v1.0.0 — initial docs deployment and sitemap automation.
-#>

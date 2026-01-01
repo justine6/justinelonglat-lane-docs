@@ -1,0 +1,35 @@
+name: Docs CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build docs
+        run: npm run build
+
+      - name: Generate sitemap
+        shell: pwsh
+        run: ./scripts/Invoke-Tool.ps1 -Name gen-sitemap
+
+      # If this workflow also deploys your docs, keep this block:
+      - name: Deploy to Vercel
+        run: npm run deploy
+        # or call your existing deploy command/action here

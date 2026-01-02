@@ -1,6 +1,7 @@
 # JustineLonglaT-Lane Docs
 
 ![JustineLonglaT-Lane Logo](public/logo.png)
+![Deploy Docs](https://github.com/justine6/justinelonglat-lane-docs/actions/workflows/docs-deploy.yml/badge.svg)
 
 ## **Cloud Confidence. Delivered.**
 Production-ready documentation for **JustineLonglaT-Lane Consulting**, built with clarity, precision, and engineering excellence.

@@ -26,6 +26,7 @@ The documentation is designed to be:
 
 ### **Logo**
 Located at:  
+
 ```text
 public/logo.png
 ```
@@ -213,7 +214,9 @@ Founder — **JustineLonglaT-Lane Consulting**
 MIT License ( replace with proprietary license if needed.)
 
 ---
-
+---
+<!-- chore: trigger CI visibility setup -->
+---
 # ⭐ Support
 If this documentation helps you, star the repo and share JustineLonglaT-Lane Consulting!
 

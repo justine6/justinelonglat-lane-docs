@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0   # always good practice for tooling & versioning
 
       - name: Setup Node (if needed for docs build)
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 20
 

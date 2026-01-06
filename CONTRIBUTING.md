@@ -15,10 +15,13 @@ All changes should go through a Pull Request:
 5. A reviewer approves before merge
 
 ## 🔐 Security & Secrets
+
 🚫 Do not commit secrets, private keys, tokens, or credentials.
 
 ## 🧪 Testing
+
 Please test changes locally before opening a PR.
 
 ## 🙏 Thanks
+
 Your contributions help make this project better!

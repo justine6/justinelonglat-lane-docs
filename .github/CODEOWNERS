@@ -1,0 +1,12 @@
+# Default owner for everything in this repo
+* @justine6
+
+# GitHub configuration & workflows
+.github/ @justine6
+
+# Static docs + HTML/CSS
+/docs/ @justine6
+/knowledge/ @justine6
+/pages/ @justine6
+/static/ @justine6
+/public/ @justine6

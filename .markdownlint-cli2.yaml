@@ -1,0 +1,25 @@
+globs:
+  - "**/*.md"
+
+ignores:
+  - "node_modules"
+  - "dist"
+  - ".vercel"
+  - ".vercel/output"
+  - "CHANGELOG.md"   # optional — we can lint softer later if needed
+
+config:
+  MD013: false   # line length — OFF
+  MD033: false   # allow inline HTML
+  MD041: false   # first line must be H1 — OFF
+  MD022: false   # blank lines around headings — OFF
+  MD032: false   # blank lines around lists — OFF
+  MD031: false   # fenced code blocks need blank lines — OFF
+  MD036: false   # emphasis as heading — OFF
+  MD040: false   # fenced code blocks should specify language — OFF
+  MD046: false   # code fence style — OFF
+
+  MD025: false   # ⛔ allow multiple H1 per page
+  MD001: false   # ⛔ allow jumping heading levels (h2 → h4 etc.)
+  MD026: false   # ⛔ allow punctuation in headings (e.g., “What’s new?”)
+  MD034: false   # ⛔ allow bare URLs like http://example.com

@@ -2,7 +2,7 @@ name: Build Docs
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # always good practice for tooling & versioning
+          fetch-depth: 0 # always good practice for tooling & versioning
 
       - name: Setup Node (if needed for docs build)
         uses: actions/setup-node@v4

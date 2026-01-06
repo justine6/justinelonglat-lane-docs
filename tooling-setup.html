@@ -4,8 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tooling Setup — JustineLonglaT-Lane Docs</title>
-    <meta name="description" content="Formatting, linting, and quality gates used across JustineLonglaT-Lane Consulting projects." />
-    <link rel="stylesheet" href='/styles.css?v=20251106-144839' />
+    <meta
+      name="description"
+      content="Formatting, linting, and quality gates used across JustineLonglaT-Lane Consulting projects."
+    />
+    <link rel="stylesheet" href="/styles.css?v=20251106-144839" />
   </head>
   <body>
     <div id="header-include" data-include="/_partials/header.html"></div>
@@ -13,14 +16,15 @@
     <main class="container">
       <h1 class="mt-0">Tooling Setup</h1>
       <p class="lead">
-        Standardize editors, formatting, and checks so every repo behaves the same.
-        Copy these snippets into new projects to get consistent results locally and in CI.
+        Standardize editors, formatting, and checks so every repo behaves the
+        same. Copy these snippets into new projects to get consistent results
+        locally and in CI.
       </p>
 
       <section class="mt-3">
         <h2>1) Editor baseline</h2>
         <div class="card">
-<pre><code>.editorconfig
+          <pre><code>.editorconfig
 # EditorConfig helps IDEs use the same defaults
 root = true
 
@@ -33,13 +37,16 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 </code></pre>
         </div>
-        <p class="mt-2">Install the official “EditorConfig for VS Code” extension so these rules apply automatically.</p>
+        <p class="mt-2">
+          Install the official “EditorConfig for VS Code” extension so these
+          rules apply automatically.
+        </p>
       </section>
 
       <section class="mt-3">
         <h2>2) Prettier (formatting)</h2>
         <div class="card">
-<pre><code>package.json (excerpt)
+          <pre><code>package.json (excerpt)
 {
   "private": true,
   "devDependencies": {
@@ -52,23 +59,29 @@ trim_trailing_whitespace = true
 }
 </code></pre>
         </div>
-        <p class="mt-2">Run <code>npm run fmt</code> (or <code>pnpm fmt</code>) to format everything. Run <code>fmt:check</code> in CI.</p>
+        <p class="mt-2">
+          Run <code>npm run fmt</code> (or <code>pnpm fmt</code>) to format
+          everything. Run <code>fmt:check</code> in CI.
+        </p>
       </section>
 
       <section class="mt-3">
         <h2>3) ESLint (when using JS/TS projects)</h2>
         <div class="card">
-<pre><code>npm i -D eslint @eslint/js typescript
+          <pre><code>npm i -D eslint @eslint/js typescript
 npx eslint --init
 </code></pre>
         </div>
-        <p class="mt-2">For pure static HTML like this docs site, ESLint isn’t necessary. Use it in app repos.</p>
+        <p class="mt-2">
+          For pure static HTML like this docs site, ESLint isn’t necessary. Use
+          it in app repos.
+        </p>
       </section>
 
       <section class="mt-3">
         <h2>4) Git hooks (fast pre-commit hygiene)</h2>
         <div class="card">
-<pre><code>npm i -D husky lint-staged
+          <pre><code>npm i -D husky lint-staged
 npx husky init
 # add to package.json
 "lint-staged": {
@@ -78,13 +91,15 @@ npx husky init
 echo "npx lint-staged" > .husky/pre-commit
 </code></pre>
         </div>
-        <p class="mt-2">This keeps diffs clean and consistent across contributors.</p>
+        <p class="mt-2">
+          This keeps diffs clean and consistent across contributors.
+        </p>
       </section>
 
       <section class="mt-3">
         <h2>5) CI quality gates (reusable)</h2>
         <div class="card">
-<pre><code>.github/workflows/quality.yml
+          <pre><code>.github/workflows/quality.yml
 name: Quality
 on:
   pull_request:
@@ -102,14 +117,24 @@ jobs:
       - run: npm run fmt:check || pnpm fmt:check
 </code></pre>
         </div>
-        <p class="mt-2">For app repos, extend this with lint, type-check, and tests.</p>
+        <p class="mt-2">
+          For app repos, extend this with lint, type-check, and tests.
+        </p>
       </section>
 
       <section class="mt-3">
         <h2>Next step</h2>
-        <p>Proceed to the CI/CD pages to wire preview and production deployments.</p>
-        <p><a class="btn" href="/cicd-pipelines.html">Next: CI/CD Pipelines →</a></p>
-        <p class="mt-2"><a class="btn ghost" href="/getting-started.html">← Back: Getting Started</a></p>
+        <p>
+          Proceed to the CI/CD pages to wire preview and production deployments.
+        </p>
+        <p>
+          <a class="btn" href="/cicd-pipelines.html">Next: CI/CD Pipelines →</a>
+        </p>
+        <p class="mt-2">
+          <a class="btn ghost" href="/getting-started.html"
+            >← Back: Getting Started</a
+          >
+        </p>
       </section>
     </main>
 
@@ -119,36 +144,20 @@ jobs:
       (function loadPartials() {
         function inject(target, html) {
           target.innerHTML = html;
-          var scripts = Array.from(target.querySelectorAll('script'));
+          var scripts = Array.from(target.querySelectorAll("script"));
           scripts.forEach(function (old) {
-            var s = document.createElement('script');
-            s.text = old.textContent || '';
+            var s = document.createElement("script");
+            s.text = old.textContent || "";
             old.replaceWith(s);
           });
         }
-        document.querySelectorAll('[data-include]').forEach(function (el) {
-          var path = el.getAttribute('data-include');
-          fetch(path).then(r => r.text()).then(html => inject(el, html));
+        document.querySelectorAll("[data-include]").forEach(function (el) {
+          var path = el.getAttribute("data-include");
+          fetch(path)
+            .then((r) => r.text())
+            .then((html) => inject(el, html));
         });
       })();
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

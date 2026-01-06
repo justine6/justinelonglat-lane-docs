@@ -1,0 +1,33 @@
+{
+  "name": "justinelonglat-lane-docs",
+  "version": "1.0.0",
+  "description": "![JustineLonglaT-Lane Logo](public/logo.png)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:docs": "markdownlint-cli2 \"**/*.md\" \"!node_modules\"",
+    "lint:links": "linkinator ./ --recurse --silent --skip \"mailto:|localhost|^scripts/|\\.js$|\\.zip$|\\.pdf$|mesh-hub\\.justinelonglat-lane\\.com|generator\\.justinelonglat-lane\\.com\"",
+    "format": "prettier -w \"**/*.{md,html,css,js,json,yml,yaml}\"",
+    "format:check": "prettier -c \"**/*.{md,html,css,js,json,yml,yaml}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justine6/justinelonglat-lane-docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/justine6/justinelonglat-lane-docs/issues"
+  },
+  "homepage": "https://github.com/justine6/justinelonglat-lane-docs#readme",
+  "devDependencies": {
+    "linkinator": "^7.5.3",
+    "markdownlint-cli2": "^0.20.0",
+    "prettier": "^3.7.4"
+  }
+}

@@ -3,14 +3,17 @@
   var KEY = "jutellane-theme";
 
   function prefersDark() {
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    );
   }
 
   function applyTheme(t) {
     document.documentElement.setAttribute("data-theme", t);
     // Update button glyph if present
     var btn = document.getElementById("themeToggle");
-    if (btn) btn.textContent = (t === "dark" ? "☀️" : "🌙");
+    if (btn) btn.textContent = t === "dark" ? "☀️" : "🌙";
   }
 
   function initTheme() {
@@ -22,9 +25,13 @@
   function wireButton() {
     // header may be injected later; retry until we find the button
     var btn = document.getElementById("themeToggle");
-    if (!btn) { setTimeout(wireButton, 100); return; }
+    if (!btn) {
+      setTimeout(wireButton, 100);
+      return;
+    }
     btn.addEventListener("click", function () {
-      var current = document.documentElement.getAttribute("data-theme") || "light";
+      var current =
+        document.documentElement.getAttribute("data-theme") || "light";
       var next = current === "light" ? "dark" : "light";
       localStorage.setItem(KEY, next);
       applyTheme(next);

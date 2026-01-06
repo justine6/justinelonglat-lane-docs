@@ -138,6 +138,7 @@ This avoids divergence and ensures improvements benefit everything.
 The Automation Toolkit is not finished.
 
 It evolves with:
+
 - New failure modes
 - Platform growth
 - Lessons learned in production

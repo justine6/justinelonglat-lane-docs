@@ -3,21 +3,21 @@ version: 2
 updates:
   # Keep GitHub Actions up to date
   - package-ecosystem: "github-actions"
-    directory: "/"            # Where your workflow files live
+    directory: "/" # Where your workflow files live
     schedule:
-      interval: "weekly"      # Check once per week
+      interval: "weekly" # Check once per week
     open-pull-requests-limit: 5
     labels:
       - "dependencies"
       - "github-actions"
     reviewers:
-      - "justine6"            # your GitHub handle
+      - "justine6" # your GitHub handle
 
   # Keep any npm tooling up to date (if/when you add it)
   - package-ecosystem: "npm"
-    directory: "/"            # Root package.json (when you add it)
+    directory: "/" # Root package.json (when you add it)
     schedule:
-      interval: "monthly"     # Docs site, so relaxed cadence
+      interval: "monthly" # Docs site, so relaxed cadence
     open-pull-requests-limit: 5
     labels:
       - "dependencies"

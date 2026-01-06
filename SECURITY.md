@@ -38,8 +38,22 @@ I will acknowledge your report as soon as possible and work on a fix or mitigati
 ## Infrastructure Scope
 
 This repo is primarily documentation and automation glue around:
+
 - Vercel deploys
 - GitHub Actions workflows
 - Static docs site and diagrams
 
 No production customer data is stored in this repository.
+
+### In `SECURITY.md`
+
+```md
+## Automated Security Scanning
+
+This repository uses GitHub CodeQL and `npm audit`:
+
+- CodeQL runs on every push and pull request to `main`
+- A scheduled weekly scan runs on Mondays at 03:00 UTC
+- Dependency audits are run in CI for production dependencies
+
+Please avoid committing any secrets (API keys, tokens, passwords).

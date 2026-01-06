@@ -31,6 +31,7 @@ Operations is not a phase — it is a continuous responsibility.
 Every part of the system has a clear owner.
 
 Ownership includes:
+
 - Understanding system behavior
 - Responding to failures
 - Improving reliability over time
@@ -116,6 +117,7 @@ Fast change without control is considered operational debt.
 Documentation is not optional — it is an operational dependency.
 
 Docs:
+
 - Explain intent
 - Reduce response time
 - Prevent repeated mistakes
@@ -157,6 +159,7 @@ The system is designed to grow without becoming fragile.
 Operations never reach a final state.
 
 The platform evolves through:
+
 - Incident reviews
 - Pipeline improvements
 - Documentation refinement

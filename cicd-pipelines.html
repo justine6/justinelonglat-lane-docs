@@ -4,8 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CI/CD Pipelines — JustineLonglaT-Lane Docs</title>
-    <meta name="description" content="Reliable preview and production deployments for the JustineLonglaT-Lane Docs site using Vercel and GitHub Actions." />
-    <link rel="stylesheet" href='/styles.css?v=20251106-144839' />
+    <meta
+      name="description"
+      content="Reliable preview and production deployments for the JustineLonglaT-Lane Docs site using Vercel and GitHub Actions."
+    />
+    <link rel="stylesheet" href="/styles.css?v=20251106-144839" />
   </head>
   <body>
     <div id="header-include" data-include="/_partials/header.html"></div>
@@ -13,9 +16,9 @@
     <main class="container">
       <h1 class="mt-0">CI/CD Pipelines</h1>
       <p class="lead">
-        Ship confidently with zero-drama deploys. We use Vercel for hosting,
-        Git for source-of-truth, and a small GitHub Action to guarantee a deploy
-        on every push to <code>main</code>.
+        Ship confidently with zero-drama deploys. We use Vercel for hosting, Git
+        for source-of-truth, and a small GitHub Action to guarantee a deploy on
+        every push to <code>main</code>.
       </p>
 
       <section class="mt-3">
@@ -32,11 +35,12 @@
       <section class="mt-3">
         <h2>Production deploys (push to <code>main</code>)</h2>
         <p>
-          Vercel should auto-build on push to <code>main</code>. To guarantee a deploy
-          even if a webhook flakes, we also call a <em>Deploy Hook</em> via GitHub Actions.
+          Vercel should auto-build on push to <code>main</code>. To guarantee a
+          deploy even if a webhook flakes, we also call a
+          <em>Deploy Hook</em> via GitHub Actions.
         </p>
         <div class="card mt-2">
-<pre><code>.github/workflows/deploy.yml
+          <pre><code>.github/workflows/deploy.yml
 name: Deploy on push (Vercel Hook)
 on:
   push:
@@ -61,21 +65,22 @@ jobs:
       <section class="mt-3">
         <h2>Preview deploys (optional)</h2>
         <p>
-          Open a PR or push a feature branch; Vercel creates a unique preview URL.
-          Use these for reviews, link checks, and content sign-off.
+          Open a PR or push a feature branch; Vercel creates a unique preview
+          URL. Use these for reviews, link checks, and content sign-off.
         </p>
       </section>
 
       <section class="mt-3">
         <h2>Manual production deploy (CLI)</h2>
         <div class="card">
-<pre><code># from repo root
+          <pre><code># from repo root
 npx vercel link --project justinelonglat-lane-docs
 npx vercel --prod
 </code></pre>
         </div>
         <p class="mt-1">
-          Useful when testing or if you’ve temporarily disabled automatic deploys.
+          Useful when testing or if you’ve temporarily disabled automatic
+          deploys.
         </p>
       </section>
 
@@ -91,11 +96,11 @@ npx vercel --prod
       <section class="mt-3">
         <h2>Quality gate (format check)</h2>
         <p>
-          Lightweight formatting check to keep diffs small and consistent.
-          (From <em>Tooling Setup</em>.)
+          Lightweight formatting check to keep diffs small and consistent. (From
+          <em>Tooling Setup</em>.)
         </p>
         <div class="card mt-2">
-<pre><code>.github/workflows/quality.yml
+          <pre><code>.github/workflows/quality.yml
 name: Quality
 on:
   pull_request:
@@ -119,7 +124,11 @@ jobs:
         <h2>Next step</h2>
         <p>Review the big picture and decisions behind the stack:</p>
         <p><a class="btn" href="/architecture.html">Next: Architecture →</a></p>
-        <p class="mt-2"><a class="btn ghost" href="/tooling-setup.html">← Back: Tooling Setup</a></p>
+        <p class="mt-2">
+          <a class="btn ghost" href="/tooling-setup.html"
+            >← Back: Tooling Setup</a
+          >
+        </p>
       </section>
     </main>
 
@@ -129,37 +138,20 @@ jobs:
       (function loadPartials() {
         function inject(target, html) {
           target.innerHTML = html;
-          var scripts = Array.from(target.querySelectorAll('script'));
+          var scripts = Array.from(target.querySelectorAll("script"));
           scripts.forEach(function (old) {
-            var s = document.createElement('script');
-            s.text = old.textContent || '';
+            var s = document.createElement("script");
+            s.text = old.textContent || "";
             old.replaceWith(s);
           });
         }
-        document.querySelectorAll('[data-include]').forEach(function (el) {
-          var path = el.getAttribute('data-include');
-          fetch(path).then(r => r.text()).then(html => inject(el, html));
+        document.querySelectorAll("[data-include]").forEach(function (el) {
+          var path = el.getAttribute("data-include");
+          fetch(path)
+            .then((r) => r.text())
+            .then((html) => inject(el, html));
         });
       })();
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

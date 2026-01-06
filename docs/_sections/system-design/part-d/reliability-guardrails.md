@@ -16,6 +16,7 @@ They exist to prevent avoidable failures, surface risks early, and ensure the pl
 Guardrails are **constraints by design**.
 
 They do not slow teams down — they:
+
 - Prevent unsafe actions
 - Reduce uncertainty
 - Create predictable outcomes
@@ -72,11 +73,11 @@ Production cannot be reached without passing automated checks.
 
 Each environment serves a specific purpose:
 
-| Environment | Purpose |
-|------------|--------|
-| Preview | Safe experimentation |
-| Main | Integration and validation |
-| Production | Stable, public-facing |
+| Environment | Purpose                    |
+| ----------- | -------------------------- |
+| Preview     | Safe experimentation       |
+| Main        | Integration and validation |
+| Production  | Stable, public-facing      |
 
 This isolation prevents test failures from impacting real users.
 

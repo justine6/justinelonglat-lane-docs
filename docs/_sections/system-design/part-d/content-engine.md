@@ -31,6 +31,7 @@ The content engine exists to ensure that **growth does not equal chaos**.
 > Documentation should scale **predictably**, not organically.
 
 Every new document must:
+
 - Fit into an existing structure
 - Have a clear purpose
 - Be maintainable over time
@@ -61,6 +62,7 @@ Each document knows where it belongs.
 System Design — Part D exists as a **contained knowledge unit**.
 
 Its files:
+
 - Share a consistent structure
 - Cross-reference intentionally
 - Avoid duplication
@@ -112,6 +114,7 @@ Content versioning follows semantic principles:
 This allows readers to understand **what changed and why**.
 
 Example:
+
 - v1.0.0 → UI baseline
 - v1.1.0 → content rollout
 - v1.2.0 → expanded operational guides
@@ -136,6 +139,7 @@ This prevents silent regressions in knowledge.
 Navigation is curated, not automatic.
 
 Rules:
+
 - Not every page appears in primary navigation
 - Important pages are reachable within two clicks
 - New entries are added deliberately

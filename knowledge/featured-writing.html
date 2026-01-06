@@ -1,80 +1,110 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Featured Writing — JustineLonglaT-Lane Docs</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-        content="Selected articles and long-form writing by Justine Longla T. on DevSecOps, cloud, and sustainable systems." />
+  <head>
+    <meta charset="utf-8" />
+    <title>Featured Writing — JustineLonglaT-Lane Docs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Selected articles and long-form writing by Justine Longla T. on DevSecOps, cloud, and sustainable systems."
+    />
 
-  <link rel="stylesheet" href="/styles.css" />
-  <script src="/scripts/theme-toggle.js" defer></script>
-  <script src="/scripts/back-to-top.js" defer></script>
-</head>
-<body>
-  <header class="site-header">
-    <div class="container navbar">
-      <a class="brand" href="/">
-        <img src="/logo.png" alt="JustineLonglaT-Lane crest" class="brand-logo" />
-        <div class="brand-text">
-          <span class="brand-title">JustineLonglaT-Lane Docs</span>
-          <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/scripts/theme-toggle.js" defer></script>
+    <script src="/scripts/back-to-top.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a class="brand" href="/">
+          <img
+            src="/logo.png"
+            alt="JustineLonglaT-Lane crest"
+            class="brand-logo"
+          />
+          <div class="brand-text">
+            <span class="brand-title">JustineLonglaT-Lane Docs</span>
+            <span class="brand-subtitle"
+              >DevSecOps · Cloud · Sustainability</span
+            >
+          </div>
+        </a>
+
+        <div class="nav-shell">
+          <nav class="nav-right" aria-label="Primary">
+            <a href="/README.html">README</a>
+            <a href="/docs.html">Docs index</a>
+            <a
+              href="https://justinelonglat-lane.com"
+              target="_blank"
+              rel="noreferrer"
+              >Consulting site</a
+            >
+            <a
+              href="https://blogs.justinelonglat-lane.com"
+              target="_blank"
+              rel="noreferrer"
+              >Blog</a
+            >
+            <a href="/knowledge/featured-writing.html" aria-current="page"
+              >Featured writing</a
+            >
+          </nav>
         </div>
-      </a>
-
-      <div class="nav-shell">
-        <nav class="nav-right" aria-label="Primary">
-          <a href="/README.html">README</a>
-          <a href="/docs.html">Docs index</a>
-          <a href="https://justinelonglat-lane.com" target="_blank" rel="noreferrer">Consulting site</a>
-          <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noreferrer">Blog</a>
-          <a href="/knowledge/featured-writing.html" aria-current="page">Featured writing</a>
-        </nav>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main class="page-main container">
-    <section aria-labelledby="featured-heading">
-      <h1 id="featured-heading">Featured Writing</h1>
-      <p class="lead">
-        A small selection of long-form pieces that explain how I think about DevSecOps,
-        platform engineering, and sustainable cloud systems.
-      </p>
+    <main class="page-main container">
+      <section aria-labelledby="featured-heading">
+        <h1 id="featured-heading">Featured Writing</h1>
+        <p class="lead">
+          A small selection of long-form pieces that explain how I think about
+          DevSecOps, platform engineering, and sustainable cloud systems.
+        </p>
 
-      <ul>
-        <li>
-          <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noreferrer">
-            Visit the blog for essays and deep dives
-          </a>
-        </li>
-        <li>
-          <a href="https://justinelonglat-lane.com" target="_blank" rel="noreferrer">
-            Explore case studies on the consulting site
-          </a>
-        </li>
-      </ul>
-    </section>
-  </main>
+        <ul>
+          <li>
+            <a
+              href="https://blogs.justinelonglat-lane.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Visit the blog for essays and deep dives
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://justinelonglat-lane.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Explore case studies on the consulting site
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <p class="small mb-0">
-        © <span id="year"></span> Justine Longla T. — DevSecOps · Cloud · Sustainability
-      </p>
-      <p class="small mt-1">
-        Operating under <strong>JustineLonglaT-Lane Consulting.</strong>
-      </p>
-    </div>
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <p class="small mb-0">
+          © <span id="year"></span> Justine Longla T. — DevSecOps · Cloud ·
+          Sustainability
+        </p>
+        <p class="small mt-1">
+          Operating under <strong>JustineLonglaT-Lane Consulting.</strong>
+        </p>
+      </div>
 
-    <script>
-      (function () {
-        try {
-          const yearSpan = document.getElementById('year');
-          if (yearSpan) yearSpan.textContent = String(new Date().getFullYear());
-        } catch (_) {}
-      })();
-    </script>
-  </footer>
-</body>
+      <script>
+        (function () {
+          try {
+            const yearSpan = document.getElementById("year");
+            if (yearSpan)
+              yearSpan.textContent = String(new Date().getFullYear());
+          } catch (_) {}
+        })();
+      </script>
+    </footer>
+  </body>
 </html>

@@ -21,6 +21,7 @@ The platform currently consists of four primary sites:
 - **Nouvo Ayiti 2075** — mission-driven public initiative
 
 Each site:
+
 - Has its own repository
 - Is deployed independently
 - Can evolve on its own timeline
@@ -34,12 +35,14 @@ Coordination does not mean coupling.
 The core principle is **loose coupling, strong alignment**.
 
 Sites share:
+
 - Identity
 - Operational standards
 - Deployment discipline
 - Documentation philosophy
 
 They do not share:
+
 - Runtime dependencies
 - Build pipelines
 - Release schedules
@@ -59,6 +62,7 @@ Each site lives in its own repository with:
 - Site-specific automation
 
 Cross-site changes happen through:
+
 - Explicit pull requests
 - Coordinated releases
 - Documentation updates in the Docs repo
@@ -72,12 +76,14 @@ No hidden dependencies are allowed.
 DNS acts as the **public contract** between sites.
 
 Principles:
+
 - Each site has its own subdomain
 - DNS records are intentional and documented
 - Changes are infrequent and controlled
 - Rollback paths are understood
 
 Examples:
+
 - `justinelonglat-lane.com`
 - `docs.justinelonglat-lane.com`
 - `blogs.justinelonglat-lane.com`
@@ -107,6 +113,7 @@ This dramatically reduces operational risk.
 Sites reference one another via **stable public URLs**.
 
 Rules:
+
 - Links always use canonical domains
 - No cross-site imports or shared runtime assets
 - Navigation changes are documented before rollout
@@ -120,6 +127,7 @@ The Docs site acts as the map — not the glue.
 Each site follows semantic versioning independently.
 
 Examples:
+
 - Docs v1.0.0 = UI baseline
 - Docs v1.1.0 = content rollout
 - Blog releases may not align numerically
@@ -140,6 +148,7 @@ Some changes affect multiple sites:
 - Cross-platform initiatives
 
 These are handled via:
+
 - Written coordination plans
 - Tracked tasks
 - Sequential rollouts

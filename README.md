@@ -3,6 +3,7 @@
 ![JustineLonglaT-Lane Logo](public/logo.png)
 
 ## **Cloud Confidence. Delivered.**
+
 Production-ready documentation for **JustineLonglaT-Lane Consulting**, built with clarity, precision, and engineering excellence.
 
 ---
@@ -14,35 +15,40 @@ It captures the architecture, tooling, CI/CD pipelines, diagrams, standards, pro
 
 The documentation is designed to be:
 
-- ✅ **Fast** — static HTML served on Vercel  
-- ✅ **Simple** — no frameworks, fully portable  
-- ✅ **Robust** — includes diagrams, scripts, tooling guides  
-- ✅ **Automated** — powered by `Tag-Release.ps1` and versioned releases  
-- ✅ **Professional** — aligned with Justine Longla T.’s engineering brand  
+- ✅ **Fast** — static HTML served on Vercel
+- ✅ **Simple** — no frameworks, fully portable
+- ✅ **Robust** — includes diagrams, scripts, tooling guides
+- ✅ **Automated** — powered by `Tag-Release.ps1` and versioned releases
+- ✅ **Professional** — aligned with Justine Longla T.’s engineering brand
 
 ---
 
 # 🟦 Brand Identity
 
 ### **Logo**
-Located at:  
+
+Located at:
 
 ```text
 public/logo.png
 ```
 
 ### **Color Palette**
-| Purpose | Color |
-|--------|-------|
-| Primary Brand Blue | `#1E40AF` |
-| Teal Gradient End | `#14B8A6` |
-| CTA Gradient | Blue → Teal |
+
+| Purpose            | Color       |
+| ------------------ | ----------- |
+| Primary Brand Blue | `#1E40AF`   |
+| Teal Gradient End  | `#14B8A6`   |
+| CTA Gradient       | Blue → Teal |
 
 ### **Tagline**
+
 > **Cloud Confidence. Delivered.**
 
 ### **Favicon**
+
 Located at:
+
 ```
 public/favicon.ico
 ```
@@ -83,26 +89,33 @@ justinelonglat-lane-docs/
 # ✔️ Key Features
 
 ### ✅ **Centered Hero Section**
-- Updated layout  
-- Proper vertical spacing  
-- Branding‑aligned typography  
+
+- Updated layout
+- Proper vertical spacing
+- Branding‑aligned typography
 - Logo enhanced & fully visible
 
 ### ✅ **Gradient CTA button**
-Blue → Teal brand gradient:  
+
+Blue → Teal brand gradient:
+
 ```
 background: linear-gradient(90deg, #1E40AF, #14B8A6);
 ```
 
 ### ✅ **Favicon Fully Fixed**
+
 Works on:
-- Chrome  
-- Edge  
-- Firefox  
-- Vercel preview + production  
+
+- Chrome
+- Edge
+- Firefox
+- Vercel preview + production
 
 ### ✅ **Full diagram support**
+
 All diagrams load from:
+
 ```
 /public/diagrams/*.svg
 ```
@@ -112,6 +125,7 @@ All diagrams load from:
 # 🔧 Development
 
 ### Run locally:
+
 No build tools needed:
 
 ```
@@ -119,16 +133,19 @@ No build tools needed:
 ```
 
 ### Update diagrams:
+
 ```
 public/diagrams/*.svg
 ```
 
 ### Update hero logo:
+
 ```
 public/logo.png
 ```
 
 ### Adjust styling:
+
 ```
 styles.css
 ```
@@ -140,8 +157,9 @@ styles.css
 The project deploys automatically on push to `main`.
 
 Deployment URL:
-- ✅ Preview URLs per commit  
-- ✅ Production: `https://justinelonglat-lane-docs.vercel.app`  
+
+- ✅ Preview URLs per commit
+- ✅ Production: `https://justinelonglat-lane-docs.vercel.app`
 
 No framework = instant builds.
 
@@ -156,11 +174,12 @@ pwsh ./Tag-Release.ps1 -Version "<tag>" -Message "<notes>"
 ```
 
 ### What the script does:
-- ✅ Ensures working tree is clean  
-- ✅ Increments version (patch/minor/major)  
-- ✅ Generates annotated tag  
-- ✅ Pushes tag + main branch  
-- ✅ Updates CHANGELOG.md  
+
+- ✅ Ensures working tree is clean
+- ✅ Increments version (patch/minor/major)
+- ✅ Generates annotated tag
+- ✅ Pushes tag + main branch
+- ✅ Updates CHANGELOG.md
 
 Sample run:
 
@@ -172,10 +191,12 @@ Sample run:
 
 # 🖼️ Screenshots (placeholders)
 
-### Homepage Hero  
+### Homepage Hero
+
 `/screenshots/homepage.png`
 
-### Architecture Diagrams  
+### Architecture Diagrams
+
 `/screenshots/architecture.png`
 
 (Add screenshots later into `/public/screenshots/` if desired.)
@@ -184,20 +205,22 @@ Sample run:
 
 # 📈 Roadmap
 
-✅ Completed  
-- Centered hero  
-- CTA gradient button  
-- Favicon fix  
-- Logo enhancement  
-- Diagram loading fixes  
-- Tech documentation polish  
+✅ Completed
+
+- Centered hero
+- CTA gradient button
+- Favicon fix
+- Logo enhancement
+- Diagram loading fixes
+- Tech documentation polish
 - Release automation v2
 
-🟦 Coming Enhancements  
-- Dark mode refinement  
-- CLI utilities section  
-- Architecture deep‑dives  
-- Multi‑language support  
+🟦 Coming Enhancements
+
+- Dark mode refinement
+- CLI utilities section
+- Architecture deep‑dives
+- Multi‑language support
 - Version history pages
 
 ---
@@ -211,14 +234,15 @@ Founder — **JustineLonglaT-Lane Consulting**
 ---
 
 # 📜 License
+
 MIT License ( replace with proprietary license if needed.)
 
 ---
+
 ---
-<!-- chore: trigger CI visibility setup -->
----
+
+## <!-- chore: trigger CI visibility setup -->
+
 # ⭐ Support
+
 If this documentation helps you, star the repo and share JustineLonglaT-Lane Consulting!
-
-
-

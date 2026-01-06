@@ -1,4 +1,5 @@
-# System Design — Part D  
+# System Design — Part D
+
 Four Sites, One Sustainable Platform
 
 Part D is the operator’s view of the JustineLonglaT-Lane ecosystem.
@@ -25,20 +26,21 @@ The goal is not “four random websites”, but **one sustainable platform**:
 The remaining sections of Part D walk through this ecosystem from different
 angles:
 
-1. [Architecture](architecture.md) — how repos, hosting, and DNS fit together.  
-2. [Operations](operations.md) — day-to-day runbook for shipping changes.  
+1. [Architecture](architecture.md) — how repos, hosting, and DNS fit together.
+2. [Operations](operations.md) — day-to-day runbook for shipping changes.
 3. [Multi-site coordination](multi-site-coordination.md) — how the four
-   surfaces stay aligned.  
+   surfaces stay aligned.
 4. [Content engine](content-engine.md) — how stories, case studies, and docs
-   flow through the system.  
+   flow through the system.
 5. [Automation toolkit](automation-toolkit.md) — scripts and pipelines powering
-   the whole platform.  
+   the whole platform.
 6. [Reliability guardrails](reliability-guardrails.md) — the safety rails that
    keep everything boring and predictable.
 
 Together, these pages document **how one engineer can sustainably run a
 professional-grade ecosystem** by combining good design, small tools, and
 strong habits.
+
 ## Featured Writing & Thought Leadership
 
 In addition to this documentation hub, I maintain a public engineering blog focused on **DevSecOps, CI/CD, observability, and production reliability**.

@@ -45,12 +45,12 @@ The CI/CD pipeline is built using:
 
 A consistent branching strategy is used across repositories:
 
-| Branch | Purpose |
-|------|--------|
-| `main` | Stable integration branch |
-| `production` (where applicable) | Production releases |
-| Feature branches | Isolated development work |
-| PR previews | Automatically deployed test environments |
+| Branch                          | Purpose                                  |
+| ------------------------------- | ---------------------------------------- |
+| `main`                          | Stable integration branch                |
+| `production` (where applicable) | Production releases                      |
+| Feature branches                | Isolated development work                |
+| PR previews                     | Automatically deployed test environments |
 
 All production changes originate from `main` via verified workflows.
 
@@ -61,15 +61,18 @@ All production changes originate from `main` via verified workflows.
 ### 1. Pull Request / Preview pipeline
 
 Triggered on:
+
 - Pull request creation or update
 
 Actions:
+
 - Install dependencies
 - Run validation scripts
 - Build the site
 - Deploy a **preview environment**
 
 Outcome:
+
 - Isolated, shareable preview URL
 - No production impact
 
@@ -78,15 +81,18 @@ Outcome:
 ### 2. Main branch pipeline
 
 Triggered on:
+
 - Merge into `main`
 
 Actions:
+
 - Re-run validations
 - Build release artifacts
 - Deploy to the main environment
 - Prepare release metadata
 
 Outcome:
+
 - Stable, production-ready build
 - Awaiting release tagging
 
@@ -95,15 +101,18 @@ Outcome:
 ### 3. Production release pipeline
 
 Triggered on:
+
 - Git tag (e.g. `v1.0.0`)
 
 Actions:
+
 - Lock versioned artifacts
 - Deploy to production
 - Update sitemap and metadata
 - Publish GitHub Release notes
 
 Outcome:
+
 - Immutable production deployment
 - Traceable version history
 
@@ -113,14 +122,14 @@ Outcome:
 
 All releases follow **semantic versioning**:
 
-- **MAJOR** — breaking structural changes  
-- **MINOR** — new features or documentation additions  
-- **PATCH** — fixes and refinements  
+- **MAJOR** — breaking structural changes
+- **MINOR** — new features or documentation additions
+- **PATCH** — fixes and refinements
 
 Example:
 
-- `v1.0.0` → UI and platform baseline  
-- `v1.1.0` → CI/CD and automation documentation  
+- `v1.0.0` → UI and platform baseline
+- `v1.1.0` → CI/CD and automation documentation
 - `v1.2.0` → system design expansions
 
 This ensures **human-readable meaning** behind every release.

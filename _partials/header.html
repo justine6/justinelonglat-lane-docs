@@ -4,8 +4,7 @@
     <a class="brand" href="/">
       <img src="/logo.png" alt="JustineLonglaT-Lane crest" class="brand-logo" />
       <div class="brand-text">
-        <span class="brand-title">JustineLonglaT-Lane Docs</span>
-        <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
+        <p class="brand-subtitle">DevSecOps &amp; Cloud &amp; Sustainability</p>
       </div>
     </a>
 
@@ -14,11 +13,59 @@
       <nav class="nav-right" aria-label="Primary">
         <a href="/README.html">README</a>
         <a href="/docs.html">Docs index</a>
-        <a href="https://justinelonglat-lane.com" target="_blank" rel="noreferrer">Consulting site</a>
-        <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noreferrer">Blog</a>
         <a href="/knowledge/featured-writing.html">Featured Writing</a>
+
+        <!-- 🔁 Ecosystem dropdown (shared across Main / Docs / Blog) -->
+        <div class="eco">
+          <button
+            class="eco__btn"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Ecosystem <span aria-hidden="true">▾</span>
+          </button>
+
+          <div
+            class="eco__menu"
+            role="menu"
+            aria-label="JustineLonglaT-Lane ecosystem"
+            aria-hidden="true"
+          >
+            <a
+              class="eco__item"
+              role="menuitem"
+              href="https://justinelonglat-lane.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Main <span aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="eco__item"
+              role="menuitem"
+              href="https://docs.justinelonglat-lane.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Docs <span aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="eco__item"
+              role="menuitem"
+              href="https://blogs.justinelonglat-lane.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Blog <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
       </nav>
 
+      <!-- Profile + theme toggle -->
       <div class="nav-profile">
         <img
           src="/assets/img/justine-profile.jpg"
@@ -42,4 +89,3 @@
     </div>
   </div>
 </header>
-

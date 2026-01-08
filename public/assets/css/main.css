@@ -137,3 +137,77 @@
   .logo-banner-visual { max-width: 92vw; padding: 1.8rem 1.25rem 1.25rem; }
   .hero-logo-actions { grid-template-columns: 1fr; }
 }
+/* =========================
+   Ecosystem Hero (shared pattern)
+   ========================= */
+
+.ecosystem-hero {
+  display: flex;
+  justify-content: center;
+  padding: 3.25rem 1rem 2.25rem;
+}
+
+.ecosystem-hero-card {
+  width: 100%;
+  max-width: 860px;
+  text-align: center;
+  padding: 2.25rem 2rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(2, 132, 199, 0.18);
+  box-shadow: 0 18px 50px rgba(2, 8, 23, 0.18);
+}
+
+.ecosystem-hero-logo {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 1.25rem;
+}
+
+.ecosystem-hero-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+  justify-content: center;
+}
+
+.ecosystem-pill {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.72rem 1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  color: #0b1220;
+  background: rgba(255, 255, 255, 0.96);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.ecosystem-pill:hover {
+  transform: translateY(-1px);
+  border-color: rgba(56, 189, 248, 0.95);
+  box-shadow: 0 16px 32px rgba(2, 8, 23, 0.18);
+}
+
+.ecosystem-pill--primary {
+  border: none;
+  color: #071224;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.95), rgba(129, 140, 248, 0.95));
+}
+
+.ecosystem-pill--ghost {
+  background: transparent;
+  border-style: dashed;
+}
+
+@media (max-width: 720px) {
+  .ecosystem-hero-card { padding: 1.6rem 1.15rem; }
+  .ecosystem-hero-actions { grid-template-columns: 1fr; }
+  .ecosystem-pill { width: 100%; }
+}

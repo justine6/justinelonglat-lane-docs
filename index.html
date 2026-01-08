@@ -14,112 +14,84 @@
   <!-- Global styles (root stylesheet) -->
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Theme + back-to-top behaviour -->
-  <script src="/scripts/theme-toggle.js" defer></script>
-  <script src="/scripts/back-to-top.js" defer></script>
-  <script src="/scripts/scroll-reveal.js" defer></script>
-</head>
+    <!-- Theme + back-to-top behaviour -->
+    <script src="/scripts/theme-toggle.js" defer></script>
+    <script src="/scripts/back-to-top.js" defer></script>
+    <script src="/scripts/scroll-reveal.js" defer></script>
+  </head>
 
-<body>
-  <!-- ================= Header / Nav ================= -->
-  <header class="site-header">
-    <div class="container navbar">
-      <!-- Brand / logo -->
-      <a class="brand" href="/">
-        <img src="/logo.png" alt="JustineLonglaT-Lane crest" class="brand-logo" />
-        <div class="brand-text">
-          <span class="brand-title">JustineLonglaT-Lane Docs</span>
-          <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
-        </div>
-      </a>
-
-      <!-- Nav + profile + theme toggle -->
-      <div class="nav-shell">
-        <nav class="nav-right" aria-label="Primary">
-          <a href="/README.html">README</a>
-          <a href="/docs.html">Docs index</a>
-          <a href="https://justinelonglat-lane.com" target="_blank" rel="noreferrer">Consulting site</a>
-          <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noreferrer">Blog</a>
-          <a href="/knowledge/featured-writing.html">Featured writing</a>
-        </nav>
-
-        <div class="nav-profile">
-          <img
-            src="/assets/img/justine-profile.jpg"
-            alt="Justine Longla T."
-            class="nav-profile-avatar"
-          />
-          <div class="nav-profile-text">
-            <span class="nav-profile-eyebrow">Docs by</span>
-            <span class="nav-profile-name">Justine Longla T.</span>
+  <body>
+    <!-- ================= Header / Nav ================= -->
+    <header class="site-header">
+      <div class="container navbar">
+        <!-- Brand / logo -->
+        <a class="brand" href="/">
+          <img src="/logo.png" alt="JustineLonglaT-Lane crest" class="brand-logo" />
+          <div class="brand-text">
+            <span class="brand-title">JustineLonglaT-Lane Docs</span>
+            <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
           </div>
+        </a>
 
-          <button
-            id="themeToggle"
-            class="nav-theme-toggle"
-            type="button"
-            aria-label="Toggle theme"
-          >
-            🌙
-          </button>
+        <!-- Nav + profile + theme toggle -->
+        <div class="nav-shell">
+          <nav class="nav-right" aria-label="Primary">
+            <a href="/README.html">README</a>
+            <a href="/docs.html">Docs index</a>
+            <a href="https://justinelonglat-lane.com" target="_blank" rel="noreferrer">Consulting site</a>
+            <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noreferrer">Blog</a>
+            <a href="/knowledge/featured-writing.html">Featured writing</a>
+          </nav>
+
+          <div class="nav-profile">
+            <img
+              src="/assets/img/justine-profile.jpg"
+              alt="Justine Longla T."
+              class="nav-profile-avatar"
+            />
+            <div class="nav-profile-text">
+              <span class="nav-profile-eyebrow">Docs by</span>
+              <span class="nav-profile-name">Justine Longla T.</span>
+            </div>
+
+            <button
+              id="themeToggle"
+              class="nav-theme-toggle"
+              type="button"
+              aria-label="Toggle theme"
+            >
+              🌙
+            </button>
+          </div>
         </div>
       </div>
+    </header>
+
+        <main class="page-main">
+          <!-- ========== Hero / Top Section ========== -->
+  <section class="ecosystem-hero" aria-labelledby="hero-title">
+    <div class="ecosystem-hero-card">
+      <img class="ecosystem-hero-logo" src="/logo.png" alt="JustineLonglaT-Lane badge" />
+
+      <div class="ecosystem-hero-actions">
+        <a class="ecosystem-pill ecosystem-pill--primary" href="https://www.justinelonglat-lane.com/intro-call">
+          Book Intro Call
+        </a>
+
+        <a class="ecosystem-pill" href="https://www.justinelonglat-lane.com/files/JLT-Consulting-Brochure.pdf" target="_blank" rel="noopener">
+          Download Brochure
+        </a>
+
+        <a class="ecosystem-pill" href="https://www.justinelonglat-lane.com/files/justine-longla-resume-2025.pdf" target="_blank" rel="noopener">
+          View Résumé
+        </a>
+
+        <a class="ecosystem-pill ecosystem-pill--ghost" href="https://www.justinelonglat-lane.com/mesh-hub">
+          ✈ Engineering Mesh Hub
+        </a>
+      </div>
     </div>
-  </header>
-
-      <main class="page-main">
-        <!-- ========== Hero / Top Section ========== -->
-        <section class="logo-banner hero-section" aria-labelledby="hero-title">
-          <div class="container logo-banner-inner docs-hero-shell">
-            <div class="docs-hero-card">
-              <div class="docs-hero-badge">
-                <img
-                  src="/logo.png"
-                  alt="JustineLonglaT-Lane badge"
-                  class="docs-hero-badge__img"
-                />
-
-                <div class="hero-logo-actions" role="navigation" aria-label="Quick links">
-                  <a
-                    class="hero-pill hero-pill--primary"
-                    href="https://www.justinelonglat-lane.com/intro-call"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Book Intro Call ↗
-                  </a>
-
-                  <a
-                    class="hero-pill"
-                    href="https://www.justinelonglat-lane.com/files/JLT-Consulting-Brochure.pdf"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Download Brochure ↗
-                  </a>
-
-                  <a
-                    class="hero-pill"
-                    href="https://www.justinelonglat-lane.com/files/justine-longla-resume-2025.pdf"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    View Résumé ↗
-                  </a>
-
-                  <a
-                    class="hero-pill hero-pill--ghost"
-                    href="https://www.justinelonglat-lane.com/mesh-hub"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    ✈ Engineering Mesh Hub ↗
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+  </section>
       </main>
 
 

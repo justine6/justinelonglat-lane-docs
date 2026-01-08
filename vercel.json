@@ -1,38 +1,8 @@
 {
   "version": 2,
-  "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-
-    { "source": "/getting-started", "destination": "/pages/getting-started.html" },
-    { "source": "/getting-started/", "destination": "/pages/getting-started.html" },
-    { "source": "/getting-started.html", "destination": "/pages/getting-started.html" },
-
-    { "source": "/tooling-setup", "destination": "/pages/tooling-setup.html" },
-    { "source": "/tooling-setup/", "destination": "/pages/tooling-setup.html" },
-    { "source": "/tooling-setup.html", "destination": "/pages/tooling-setup.html" },
-
-    { "source": "/cicd-pipelines", "destination": "/pages/cicd-pipelines.html" },
-    { "source": "/cicd-pipelines/", "destination": "/pages/cicd-pipelines.html" },
-    { "source": "/cicd-pipelines.html", "destination": "/pages/cicd-pipelines.html" },
-
-    { "source": "/architecture", "destination": "/pages/architecture.html" },
-    { "source": "/architecture/", "destination": "/pages/architecture.html" },
-    { "source": "/architecture.html", "destination": "/pages/architecture.html" }
-  ],
-  "headers": [
-    {
-      "source": "/favicon.ico",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, immutable" },
-        { "key": "Content-Type", "value": "image/x-icon" }
-      ]
-    },
-    {
-      "source": "/favicon-:stamp.ico",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, immutable" },
-        { "key": "Content-Type", "value": "image/x-icon" }
-      ]
-    }
+  "builds": [{ "src": "public/**", "use": "@vercel/static" }],
+  "routes": [
+    { "src": "/", "dest": "/public/index.html" },
+    { "src": "/(.*)", "dest": "/public/$1" }
   ]
 }

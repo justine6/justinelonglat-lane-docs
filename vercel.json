@@ -3,6 +3,7 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
+
     { "source": "/getting-started", "destination": "/pages/getting-started.html" },
     { "source": "/tooling-setup", "destination": "/pages/tooling-setup.html" },
     { "source": "/cicd-pipelines", "destination": "/pages/cicd-pipelines.html" },

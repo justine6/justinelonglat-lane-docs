@@ -1,5 +1,0 @@
-# robots.txt for https://docs.justinelonglat-lane.com
-User-agent: *
-Allow: /
-
-Sitemap: https://docs.justinelonglat-lane.com/sitemap.xml

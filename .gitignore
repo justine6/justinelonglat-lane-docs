@@ -105,3 +105,7 @@ drafts/
 # ---------------------------------
 # End of file
 # ---------------------------------
+.vercel/
+.vercel_output_backup_*/
+_site-backup*/
+_css-backups*/

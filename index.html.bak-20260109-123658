@@ -11,20 +11,24 @@
     content="JustineLonglaT-Lane Docs — concise, production-ready documentation for the JustineLonglaT-Lane ecosystem: tooling, CI/CD pipelines, multi-site architecture, and automation guardrails."
   />
 
-  <link rel="icon" href="/favicon.ico" />
+  <!-- Global styles (root stylesheet) -->
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Behaviour -->
+  <!-- Theme + back-to-top behaviour -->
   <script src="/scripts/theme-toggle.js" defer></script>
   <script src="/scripts/back-to-top.js" defer></script>
+  <script src="/scripts/scroll-reveal.js" defer></script>
+  <script src="/scripts/partials.js" defer></script>
 </head>
 
 <body>
+  <div id="siteHeader"></div>
+
   <!-- ================= Header / Nav ================= -->
-  <header class="site-header">
+  <section class="site-header">
     <div class="container navbar">
       <!-- Brand / logo -->
-      <a class="brand" href="/index.html">
+      <a class="brand" href="/">
         <img src="/logo.png" alt="JustineLonglaT-Lane crest" class="brand-logo" />
         <div class="brand-text">
           <span class="brand-title">JustineLonglaT-Lane Docs</span>
@@ -47,7 +51,6 @@
             src="/assets/img/justine-profile.jpg"
             alt="Justine Longla T."
             class="nav-profile-avatar"
-            loading="lazy"
           />
           <div class="nav-profile-text">
             <span class="nav-profile-eyebrow">Docs by</span>
@@ -65,27 +68,55 @@
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
   <!-- ================= Main ================= -->
   <main class="page-main">
-    <!-- ========== Single Hero ========== -->
+    <!-- ========== Hero / Top Section ========== -->
     <section class="logo-banner hero-section" aria-labelledby="hero-title">
-      <div class="container logo-banner-inner">
+      <div class="container logo-banner-inner docs-hero-shell">
         <!-- Left: crest -->
-        <div class="logo-banner-visual">
-          <img
-            src="/logo.png"
-            alt="JustineLonglaT-Lane badge"
-            class="logo-banner__img"
-          />
-        </div>
+      <div class="logo-banner-visual">
+        <img
+          src="/logo.png"
+          alt="JustineLonglaT-Lane badge"
+          class="logo-banner__img"
+        />
 
+        <!-- === Hero Action Buttons (same actions as your main site) === -->
+        <div class="hero-logo-actions">
+          <a class="hero-pill hero-pill--primary"
+            href="https://www.justinelonglat-lane.com/intro-call">
+            Book Intro Call
+          </a>
+
+          <a class="hero-pill"
+            href="https://www.justinelonglat-lane.com/files/JLT-Consulting-Brochure.pdf"
+            target="_blank" rel="noopener">
+            Download Brochure
+          </a>
+
+          <a class="hero-pill"
+            href="https://www.justinelonglat-lane.com/files/justine-longla-resume-2025.pdf"
+            target="_blank" rel="noopener">
+            View Résumé
+          </a>
+
+          <a class="hero-pill hero-pill--ghost"
+            href="https://www.justinelonglat-lane.com/mesh-hub">
+            ✈ Engineering Mesh Hub
+          </a>
+        </div>
+      </div>
         <!-- Right: headline + note + author -->
         <div class="logo-banner-copy">
-          <p class="eyebrow logo-banner-eyebrow">JustineLonglaT-Lane Docs</p>
+          <p class="eyebrow logo-banner-eyebrow">
+            JustineLonglaT-Lane Docs
+          </p>
 
-          <h1 id="hero-title" class="hero-title">Cloud Confidence. Delivered.</h1>
+          <h1 id="hero-title" class="hero-title">
+            Cloud Confidence. Delivered.
+          </h1>
 
           <p class="lead">
             JustineLonglaT-Lane Docs is the source of truth for how this ecosystem
@@ -98,7 +129,7 @@
             <img
               src="/assets/img/justine-profile.jpg"
               alt="Justine Longla T."
-              class="home-author-photo"
+              class="docs-hero-portrait"
               loading="lazy"
             />
             <span class="author-inline-text">
@@ -107,11 +138,51 @@
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- CTAs under the row -->
+    <!-- Divider between hero and content -->
+    <div class="docs-hero-divider" aria-hidden="true"></div>
+
+    <!-- ========== Featured entry cards ========== -->
+    <section class="docs-grid docs-grid-featured" aria-label="Documentation entry points">
+      <article class="doc-card">
+        <h2 class="doc-card-title">Getting Started</h2>
+        <p class="doc-card-body">
+          Local setup, repo structure, conventions, and how everything fits together.
+        </p>
+        <ul class="doc-card-links">
+          <li><a href="/getting-started.html">Read guide</a></li>
+        </ul>
+      </article>
+
+      <article class="doc-card">
+        <h2 class="doc-card-title">CI/CD Architecture</h2>
+        <p class="doc-card-body">
+          Pipelines, branching strategy, environments, and deployment guardrails.
+        </p>
+        <ul class="doc-card-links">
+          <li><a href="/cicd-pipelines.html">View pipelines</a></li>
+        </ul>
+      </article>
+
+      <article class="doc-card">
+        <h2 class="doc-card-title">Automation Toolkit</h2>
+        <p class="doc-card-body">
+          Scripts, helpers, and reusable automation patterns powering the platform.
+        </p>
+        <ul class="doc-card-links">
+          <li><a href="/toolkit.html">Explore tools</a></li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ========== CTAs row ========== -->
+    <section aria-label="Docs calls to action">
       <div class="container">
         <div class="cta-row cta-row--center">
-          <a class="btn btn-gradient" href="/docs.html">Get All Docs</a>
+          <a class="btn btn-gradient" href="/docs.html">
+            Get All Docs
+          </a>
 
           <a class="btn btn-outline" href="/README.html">
             <span class="btn-icon" aria-hidden="true">
@@ -124,21 +195,25 @@
             View Technical README
           </a>
 
-          <a class="btn btn-outline" href="/toolkit.html">Automation Toolkit</a>
+          <a class="btn btn-outline" href="/toolkit.html">
+            Automation Toolkit
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- ========== Overview ========== -->
+    <!-- ========== What's inside / Overview ========== -->
     <section class="container" aria-labelledby="whats-inside-heading">
-      <header class="section-header">
-        <h2 id="whats-inside-heading" class="mt-0">JustineLonglaT-Lane Docs</h2>
+      <section class="section-header">
+        <h2 id="whats-inside-heading" class="mt-0">
+          JustineLonglaT-Lane Docs
+        </h2>
         <p class="lead">
           Concise, production-ready documentation for the JustineLonglaT-Lane
           ecosystem: start quickly, standardize tooling, ship with robust CI/CD,
           and understand the multi-site architecture behind the stack.
         </p>
-      </header>
+      </section>
 
       <h3>What’s inside</h3>
       <ul>
@@ -152,7 +227,8 @@
         </li>
         <li>
           <strong><a href="/cicd-pipelines.html">CI/CD pipelines</a></strong>
-          — preview, main, and production flows wired to Vercel and GitHub Actions.
+          — preview, main, and production flows wired to Vercel and GitHub
+          Actions.
         </li>
         <li>
           <strong><a href="/architecture.html">Architecture</a></strong>
@@ -182,46 +258,16 @@
     </section>
   </main>
 
-  <!-- ================= Footer (self-contained) ================= -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <div class="muted">
-          © <span id="year"></span> Justine Longla T. — DevSecOps • Cloud • Sustainability
-        </div>
-        <div class="muted">
-          Operating under <strong>JustineLonglaT-Lane Consulting.</strong>
-        </div>
-      </div>
-
-      <div>
-        <div class="muted mb-0"><strong>Platform links</strong></div>
-        <nav aria-label="Cross-site">
-          <a href="https://justinelonglat-lane.com" target="_blank" rel="noreferrer">Main Site</a>
-          <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noreferrer">Blog</a>
-          <a href="https://projects.justinelonglat-lane.com" target="_blank" rel="noreferrer">Projects</a>
-          <a href="/index.html" aria-current="page">Docs</a>
-          <a href="/toolkit.html">Automation Toolkit</a>
-        </nav>
-      </div>
-
-      <div>
-        <div class="muted mb-0"><strong>Docs shortcuts</strong></div>
-        <nav aria-label="Docs shortcuts">
-          <a href="/README.html">Technical README</a>
-          <a href="/system-design-part-d.html">System Design — Part D</a>
-          <a href="/architecture.html">Architecture</a>
-          <a href="/cicd-pipelines.html">CI/CD pipelines</a>
-        </nav>
-      </div>
-    </div>
-
-    <script>
-      (function () {
-        var y = document.getElementById("year");
-        if (y) y.textContent = new Date().getFullYear();
-      })();
-    </script>
-  </footer>
+  <!-- ================= Footer ================= -->
+  
 </body>
 </html>
+
+
+
+
+
+
+
+
+

@@ -21,28 +21,33 @@
               window.matchMedia("(prefers-color-scheme: dark)").matches;
             t = prefersDark ? "dark" : "light";
           }
-          if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
-          else document.documentElement.setAttribute("data-theme", "light");
+          if (t === "dark") {
+            document.documentElement.classList.add("dark");
+          }
         } catch (e) {}
       })();
     </script>
     <!-- /theme-prepaint -->
 
     <link rel="stylesheet" href="/styles.css?v=20251105-145507" />
-
-    <!-- IMPORTANT: keep paths consistent with your repo -->
-    <script src="/scripts/theme-toggle.js" defer></script>
+    <script src="/assets/theme-toggle.js" defer></script>
     <script src="/scripts/partials.js" defer></script>
-    <script src="/scripts/scroll-reveal.js" defer></script>
-    <script src="/scripts/back-to-top.js" defer></script>
-  </head>
-
+</head>
   <body>
-    <div id="siteHeader"></div>
+  <div id="siteHeader"></div>
 
-    <main class="page-main">
-      {{CONTENT}}
-    </main>
-  
-  </body>
+    <main class="container">{{CONTENT}}</main>
+
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

@@ -81,29 +81,3 @@ h1,h2,h3{line-height:1.25;margin:1.25rem 0 .5rem}
   font-size:.9rem;
 }
 .footer-simple{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;justify-content:space-between}
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.nav-shell {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.site-footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-.footer-grid {
-  gap: 2.5rem;
-}
-
-@media (max-width: 900px) {
-  .nav-right {
-    display: none; /* later replace with menu */
-  }
-}

@@ -1,0 +1,18 @@
+<!-- _partials/footer.html -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Justine Longla T.</p>
+    <nav class="footer-nav">
+      <a href="/docs.html">Docs</a>
+      <a href="/automation-toolkit.html">Automation Toolkit</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </nav>
+  </div>
+
+  <script>
+    (function () {
+      var y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+  </script>
+</footer>

@@ -109,3 +109,5 @@ drafts/
 .vercel_output_backup_*/
 _site-backup*/
 _css-backups*/
+_legacy_templates/
+_orphaned_runtime/

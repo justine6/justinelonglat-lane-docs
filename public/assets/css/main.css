@@ -1321,3 +1321,281 @@ pre {
     max-width: 320px;
   }
 }
+/* =====================================
+   Docs Signature Pill
+   Contextual, non-interactive identity
+===================================== */
+
+.docs-signature-pill {
+  padding: 4px 8px;
+  gap: 6px;
+}
+
+.docs-signature-avatar {
+  width: 18px;
+  height: 18px;
+}
+
+.docs-signature-text {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+}
+/* Docs Signature Pill — size normalization (override-safe) */
+header .signature-pill,
+header .profile-pill,
+header .docs-signature-pill {
+  padding: 4px 8px !important;
+  border-radius: 999px;
+}
+
+header .signature-pill img,
+header .profile-pill img,
+header .docs-signature-pill img {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+header .signature-pill .name,
+header .profile-pill .name,
+header .docs-signature-pill .name,
+header .signature-pill strong,
+header .profile-pill strong,
+header .docs-signature-pill strong {
+  font-size: 0.75rem !important; /* 12px */
+  font-weight: 600 !important;   /* calmer than bold-heavy */
+  line-height: 1 !important;
+}
+
+header .signature-pill .label,
+header .profile-pill .label,
+header .docs-signature-pill .label {
+  font-size: 0.70rem !important;
+  letter-spacing: 0.08em !important;
+}
+/* =========================================
+   Docs Signature Pill — shrink (Phase 1)
+   Scope: header only
+   ========================================= */
+.site-header .nav-shell > :is(div, a, section, nav):has(button[aria-label="Toggle theme"]) {
+  padding: 8px 14px !important;
+  border-radius: 999px;
+}
+
+/* “DOCS BY” line */
+.site-header .nav-shell > :is(div, a, section, nav):has(button[aria-label="Toggle theme"])
+  :is(span, p, small):first-child {
+  font-size: 0.70rem !important;
+  letter-spacing: 0.10em !important;
+}
+
+/* Name line */
+.site-header .nav-shell > :is(div, a, section, nav):has(button[aria-label="Toggle theme"])
+  :is(strong, b, span, p):not(:first-child) {
+  font-size: 0.95rem !important;
+  line-height: 1.05 !important;
+}
+
+/* Moon icon button itself */
+.site-header .nav-shell > :is(div, a, section, nav):has(button[aria-label="Toggle theme"])
+  button[aria-label="Toggle theme"] {
+  transform: scale(0.85);
+}
+/* =========================================================
+   Header v2 (single source of truth)
+   Paste at the VERY BOTTOM of main.css
+   ========================================================= */
+
+.site-header .navbar{
+  display:flex !important;
+  align-items:center !important;
+  gap:16px !important;
+}
+
+/* Keep nav centered-ish; pill stays right */
+.site-header .nav-right{
+  margin-left:auto !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:16px !important;
+  flex-wrap:wrap !important;
+}
+
+/* Right actions wrapper */
+.site-header .nav-shell{
+  display:flex !important;
+  align-items:center !important;
+  margin-left:12px !important;
+}
+
+/* The peel/pill */
+.site-header .signature-pill{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  padding:10px 14px !important;
+  border-radius:999px !important;
+  background: rgba(255,255,255,.92) !important;
+  border:1px solid rgba(148,163,184,.35) !important;
+  box-shadow: 0 10px 26px rgba(15,23,42,.14) !important;
+  white-space:nowrap !important;
+}
+
+html[data-theme="dark"] .site-header .signature-pill{
+  background: rgba(15,23,42,.55) !important;
+  border-color: rgba(148,163,184,.22) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.35) !important;
+}
+
+/* Avatar */
+.site-header .signature-pill__avatar{
+  width:28px !important;
+  height:28px !important;
+  border-radius:999px !important;
+  object-fit:cover !important;
+  flex:0 0 auto !important;
+}
+
+/* Text */
+.site-header .signature-pill__text{
+  display:flex !important;
+  flex-direction:column !important;
+  line-height:1.05 !important;
+  margin-right:2px !important;
+}
+
+.site-header .signature-pill__label{
+  font-size:11px !important;
+  letter-spacing:.12em !important;
+  text-transform:uppercase !important;
+  color: color-mix(in srgb, var(--muted) 85%, transparent) !important;
+}
+
+.site-header .signature-pill__name{
+  font-size:14px !important;
+  font-weight:700 !important;
+  color: var(--fg) !important;
+}
+
+/* Toggle inside the pill */
+.site-header .signature-pill__toggle{
+  width:34px !important;
+  height:34px !important;
+  border-radius:10px !important;
+  border:1px solid rgba(148,163,184,.35) !important;
+  background: rgba(37,99,235,.10) !important;
+  color: var(--fg) !important;
+  cursor:pointer !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  line-height:1 !important;
+}
+
+html[data-theme="dark"] .site-header .signature-pill__toggle{
+  background: rgba(147,197,253,.12) !important;
+  border-color: rgba(148,163,184,.22) !important;
+}
+
+.site-header .signature-pill__toggle:hover{
+  transform: translateY(-1px);
+}
+
+/* Mobile: hide text, keep avatar + toggle */
+@media (max-width: 860px){
+  .site-header .signature-pill__text{ display:none !important; }
+  .site-header .nav-right{ justify-content:center !important; }
+  .site-header .nav-shell{ margin-left:auto !important; }
+}
+/* =========================================================
+   FINAL OVERRIDE — Signature pill (matches YOUR HTML)
+   Put this at the VERY BOTTOM of the file
+   ========================================================= */
+
+.site-header .signature-pill{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  padding:10px 14px !important;
+  border-radius:999px !important;
+  white-space:nowrap !important;
+
+  background: rgba(255,255,255,.92) !important;
+  border:1px solid rgba(148,163,184,.35) !important;
+  box-shadow: 0 10px 26px rgba(15,23,42,.14) !important;
+}
+
+html[data-theme="dark"] .site-header .signature-pill{
+  background: rgba(15,23,42,.55) !important;
+  border-color: rgba(148,163,184,.22) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.35) !important;
+}
+
+/* ✅ THIS is your actual avatar class */
+.site-header .signature-avatar{
+  display:block !important;
+  width:28px !important;
+  height:28px !important;
+  min-width:28px !important;
+
+  border-radius:999px !important;
+  object-fit:cover !important;
+
+  opacity:1 !important;
+  visibility:visible !important;
+  transform:none !important;
+  filter:none !important;
+
+  box-shadow: 0 0 0 2px rgba(255,255,255,.95) !important;
+}
+
+html[data-theme="dark"] .site-header .signature-avatar{
+  box-shadow: 0 0 0 2px rgba(255,255,255,.10) !important;
+}
+
+.site-header .signature-text{
+  display:flex !important;
+  flex-direction:column !important;
+  line-height:1.05 !important;
+}
+
+.site-header .signature-eyebrow{
+  font-size:11px !important;
+  letter-spacing:.12em !important;
+  text-transform:uppercase !important;
+  color: rgba(100,116,139,.95) !important;
+}
+
+html[data-theme="dark"] .site-header .signature-eyebrow{
+  color: rgba(148,163,184,.95) !important;
+}
+
+.site-header .signature-name{
+  font-size:14px !important;
+  font-weight:700 !important;
+  color: var(--fg) !important;
+}
+
+/* your actual toggle class */
+.site-header .signature-toggle{
+  width:34px !important;
+  height:34px !important;
+  border-radius:10px !important;
+  border:1px solid rgba(148,163,184,.35) !important;
+  background: rgba(37,99,235,.10) !important;
+  color: var(--fg) !important;
+  cursor:pointer !important;
+
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+html[data-theme="dark"] .site-header .signature-toggle{
+  background: rgba(147,197,253,.12) !important;
+  border-color: rgba(148,163,184,.22) !important;
+}
+
+@media (max-width: 860px){
+  .site-header .signature-text{ display:none !important; }
+}

@@ -1,83 +1,365 @@
-/* styles.css — Foundation (shared across the docs site) */
+/* =========================================================
+   JustineLonglaT-Lane Docs — styles.css (CLEAN)
+   Single source of truth: tokens + layout + header peel
+   ========================================================= */
+
+/* ===============================
+   THEME TOKENS
+   Toggle uses: <html data-theme="dark|light">
+   =============================== */
+
 :root{
-  --bg:#fff; --fg:#0f172a; --muted:#475569;
-  --link:#2563eb; --border:#e2e8f0; --surface:#f8fafc;
-  --card:#fff; --card-border:#e2e8f0;
+  /* Canvas */
+  --bg0:#050a14;
+  --bg1:#070f1f;
+
+  /* Text */
+  --ink:#eaf0ff;
+  --muted: rgba(234,240,255,.75);
+  --fg: var(--ink);
+
+  /* Surfaces */
+  --surface: rgba(255,255,255,.06);
+  --surface2: rgba(255,255,255,.04);
+  --line: rgba(255,255,255,.14);
+
+  /* Links */
+  --link:#8db3ff;
+  --linkHover:#cfe0ff;
+
+  /* Header/Footer glass */
+  --headerBg: rgba(2,6,15,.55);
+  --footerBg: rgba(2,6,15,.45);
+
+  /* Geometry */
+  --shadow: 0 16px 40px rgba(0,0,0,.35);
+  --radius: 16px;
 }
 
-html[data-theme="dark"]{
-  --bg:#0b1220; --fg:#e5e7eb; --muted:#94a3b8;
-  --link:#93c5fd; --border:#1f2937; --surface:#0f172a;
-  --card:#0f172a; --card-border:#1f2937;
+html[data-theme="light"]{
+  --bg0:#eef3ff;
+  --bg1:#f7f9ff;
+
+  --ink:#0a1020;
+  --muted: rgba(10,16,32,.72);
+  --fg: var(--ink);
+
+  --surface: rgba(255,255,255,.92);
+  --surface2: rgba(255,255,255,.70);
+  --line: rgba(10,16,32,.14);
+
+  --link:#2d6cff;
+  --linkHover:#0b53ff;
+
+  --headerBg: rgba(255,255,255,.75);
+  --footerBg: rgba(255,255,255,.72);
+
+  --shadow: 0 16px 40px rgba(10,16,32,.16);
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+/* ===============================
+   BASE
+   =============================== */
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
 body{
-  margin:0; background:var(--bg); color:var(--fg);
-  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  line-height:1.6;
+  margin:0;
+  font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(
+      900px 600px at 50% -10%,
+      color-mix(in srgb, var(--ink) 10%, transparent),
+      transparent 55%
+    ),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
 }
-a{color:var(--link)}
-.container{max-width:980px;margin:0 auto;padding:0 1rem}
-main{padding:2rem 0 3rem}
-h1,h2,h3{line-height:1.25;margin:1.25rem 0 .5rem}
+
+a{ color: var(--link); text-decoration:none; }
+a:hover{
+  color: var(--linkHover);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+/* Page container */
+.page,
+.page-main{
+  max-width:1100px;
+  margin:0 auto;
+  padding:26px 16px 60px;
+}
+
+/* IMPORTANT: keep header/footer transparent; canvas is on body */
+.page-main,
+.home-hero,
+.site-header,
+.site-footer{
+  background: transparent;
+}
+
+/* ===============================
+   HEADER / NAVBAR
+   =============================== */
 
 .site-header{
-  position:sticky;top:0;z-index:50;
-  background:color-mix(in srgb, var(--bg) 80%, transparent);
-  border-bottom:1px solid var(--border);
-  backdrop-filter:saturate(150%) blur(8px);
-}
-.navbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0}
-.brand{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--fg);font-weight:700}
-/* styles.css (add near top or in layout section) */
-.container {
-  width: min(1100px, calc(100% - 2rem));
-  margin: 0 auto;
-}
-
-.site-header {
   position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: saturate(150%) blur(8px);
-  background: color-mix(in srgb, var(--bg, #0b1220) 80%, transparent);
-  border-bottom: 1px solid var(--border, #1f2937);
+  top:0;
+  z-index:50;
+
+  backdrop-filter: blur(10px);
+  background: var(--headerBg);
+  border-bottom: 1px solid var(--line);
 }
 
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.site-header .container.navbar{
+  max-width:1100px;
+  margin:0 auto;
+  padding:10px 16px;
+
+  display:flex;
+  align-items:center;
   gap: 1rem;
-  padding: 0.75rem 0;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
+/* Brand */
+.brand,
+a.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color: var(--ink);
+  text-decoration:none;
 }
 
-.brand-logo {
-  width: 36px;
-  height: 36px;
+.brand-logo{
+  width:22px;
+  height:22px;
+  border-radius:6px;
 }
 
-.nav a {
-  margin-left: 0.75rem;
-  text-decoration: none;
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+.brand-title{ font-weight:650; font-size:13px; }
+.brand-subtitle{ font-size:11px; color: var(--muted); }
+
+/* Right shell */
+.nav-shell{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:14px;
 }
 
-.page-main {
-  padding: 2rem 0 3rem;
+/* Primary links */
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
+
+.nav-right a{
+  color: var(--muted);
+  text-decoration:none;
+  padding: .35rem .55rem;
+  border-radius: .55rem;
+}
+
+.nav-right a:hover{
+  color: var(--fg);
+  text-decoration:none;
+}
+
+/* ===============================
+   SIGNATURE PEEL (avatar + label + name + toggle inside)
+   =============================== */
+
+.signature-pill{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+
+  background: rgba(255,255,255,.96);
+  border: 1px solid rgba(148,163,184,0.45);
+  box-shadow: 0 10px 28px rgba(15,23,42,0.14);
+}
+
+html[data-theme="dark"] .signature-pill{
+  background: rgba(255,255,255,.06);
+  border-color: rgba(148,163,184,0.22);
+  box-shadow: 0 14px 34px rgba(0,0,0,.35);
+}
+
+/* ✅ HARD FIX: avatar must render no matter what older rules exist */
+.signature-avatar{
+  display:block !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+
+  border-radius: 999px !important;
+  object-fit: cover !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  filter: none !important;
+
+  box-shadow: 0 0 0 2px rgba(255,255,255,.95);
+}
+
+html[data-theme="dark"] .signature-avatar{
+  box-shadow: 0 0 0 2px rgba(255,255,255,.10);
+}
+
+/* Text */
+.signature-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.05;
+}
+
+.signature-eyebrow{
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(100,116,139,.95);
+}
+
+html[data-theme="dark"] .signature-eyebrow{
+  color: rgba(148,163,184,.95);
+}
+
+.signature-name{
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+html[data-theme="dark"] .signature-name{
+  color: rgba(255,255,255,.92);
+}
+
+/* Toggle INSIDE pill */
+.signature-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  width: 40px;
+  height: 32px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(148,163,184,0.35);
+  background: rgba(255,255,255,.08);
+  color: inherit;
+  cursor:pointer;
+  line-height:1;
+}
+
+.signature-toggle:hover{
+  filter: brightness(1.06);
+}
+
+/* ===============================
+   HERO / CARDS (safe defaults)
+   =============================== */
+
+/* Kill any legacy injected hero artwork (double logos) */
+.hero-section::before,
+.hero-section::after,
+.logo-banner::before,
+.logo-banner::after{
+  content:none !important;
+  display:none !important;
+}
+.hero-section,
+.logo-banner{
+  background-image:none !important;
+}
+
+.hero-card,
+.home-feature-card{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow:
+    0 20px 40px rgba(10,16,32,.12),
+    inset 0 1px 0 rgba(255,255,255,.20);
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+
 .site-footer{
-  margin-top:3rem;padding:1.5rem 0;
-  border-top:1px solid var(--border);
-  background:var(--surface); color:var(--muted);
-  font-size:.9rem;
+  border-top: 1px solid var(--line);
+  background: var(--footerBg);
 }
-.footer-simple{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;justify-content:space-between}
+
+.footer__inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:16px;
+
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:space-between;
+
+  color: var(--muted);
+  font-size:11px;
+}
+
+.footer__links{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.footer__links a{
+  color: var(--muted);
+  text-decoration:none;
+}
+.footer__links a:hover{
+  color: var(--fg);
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+
+@media (max-width: 900px){
+  .site-header .container.navbar{
+    flex-wrap: wrap;
+    justify-content:center;
+  }
+
+  .nav-shell{
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .nav-right{
+    width:100%;
+    justify-content:center;
+  }
+}
+
+@media (max-width: 560px){
+  .signature-text{ display:none; } /* avatar + moon only */
+  .signature-pill{ padding: 8px 10px; gap: 8px; }
+  .signature-avatar{ width: 26px !important; height: 26px !important; min-width: 26px !important; }
+  .signature-toggle{ width: 38px; height: 30px; }
+}

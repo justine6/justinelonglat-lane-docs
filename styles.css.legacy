@@ -1,3 +1,11 @@
+/* 
+ * DEPRECATED
+ * This file is no longer used.
+ * Docs site uses /public/styles.css
+ * Kept temporarily for reference.
+ */
+
+
 /* styles.css — Foundation (shared across the docs site) */
 :root{
   --bg:#fff; --fg:#0f172a; --muted:#475569;

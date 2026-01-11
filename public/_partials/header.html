@@ -1,22 +1,50 @@
-<!-- _partials/header.html -->
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="/">
-      <img class="brand-logo" src="/assets/img/logo.png" alt="Justine Longla T." />
+<header class="site-header" role="banner">
+  <div class="container navbar">
+    <!-- Brand -->
+    <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
+      <img class="brand-logo" src="/assets/img/crest.png" alt="JustineLonglaT-Lane crest" />
       <span class="brand-text">
-        <strong>JustineLonglaT-Lane Docs</strong>
-        <span class="brand-sub">DevSecOps · Cloud · Sustainability</span>
+        <span class="brand-title">JustineLonglaT-Lane Docs</span>
+        <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
       </span>
     </a>
 
-    <nav class="nav">
-      <a href="/README.html">README</a>
-      <a href="/docs.html">Docs index</a>
-      <a href="/tooling-setup.html">Tooling</a>
-      <a href="/cicd-pipelines.html">CI/CD</a>
-      <a href="/automation-toolkit.html">Automation Toolkit</a>
-    </nav>
+    <!-- Right side -->
+    <div class="nav-shell">
+      <!-- Primary links -->
+      <nav class="nav-right" aria-label="Primary">
+        <a href="/README.html">README</a>
+        <a href="/docs.html">Docs index</a>
+        <a href="https://justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Consulting site</a>
+        <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog</a>
+        <a href="/knowledge/featured-writing.html">Featured writing</a>
+      </nav>
 
-    <button class="theme-toggle" type="button" data-theme-toggle>Theme</button>
+      <!-- Signature peel (avatar + label + name + toggle INSIDE) -->
+      <div class="signature-pill" aria-label="Docs signature">
+        <img
+          class="signature-avatar"
+          src="/img/profile.jpg"
+          alt="Justine Longla T."
+          loading="lazy"
+          decoding="async"
+        />
+
+        <div class="signature-text">
+          <span class="signature-eyebrow">DOCS BY</span>
+          <span class="signature-name">Justine Longla T.</span>
+        </div>
+
+        <button
+          id="themeToggle"
+          class="signature-toggle"
+          type="button"
+          aria-label="Toggle theme"
+          title="Toggle theme"
+        >
+          🌙
+        </button>
+      </div>
+    </div>
   </div>
 </header>

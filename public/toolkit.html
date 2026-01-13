@@ -17,7 +17,7 @@
   <header class="site-header" role="banner">
     <div class="container navbar">
       <a class="brand" href="/" aria-label="JustineLonglaT-Lane Docs home">
-        <img class="brand-mark" src="/assets/img/logo.png" alt="Justine Longla T." />
+        <img class="brand-logo" src="/assets/img/logo.png" alt="Justine Longla T." />
         <span class="brand-text">
           <strong>JustineLonglaT-Lane Docs</strong>
           <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
@@ -32,7 +32,7 @@
         <a href="/automation-toolkit.html">Automation Toolkit</a>
 
         <div class="nav-profile" aria-label="Docs signature">
-          <img src="/img/profile.jpg" alt="Justine Longla T." class="nav-profile-avatar" />
+          <img src="/assets/img/profile.jpg" alt="Justine Longla T." class="nav-profile-avatar" />
           <div class="nav-profile-text">
             <div class="nav-profile-eyebrow">DOCS BY</div>
             <div class="nav-profile-name">Justine Longla T.</div>
@@ -44,40 +44,147 @@
     </div>
   </header>
 
-  <main id="main" class="container">
+<main id="main" class="container">
+  <header>
     <h1>Automation Toolkit</h1>
-    <p class="lead"
-      Curated scripts, templates, and reference docs to accelerate secure,
-      production-grade automation for JustineLonglaT-Lane Consulting and your client environments.
+    <p class="lead">
+      Curated scripts, templates, and reference docs to accelerate secure, production-grade automation
+      across JustineLonglaT-Lane projects and client environments — with guardrails built in.
     </p>
 
-    <h2>What's included</h2>
+    <p class="muted">
+      This page is intentionally “printable” and practical: it’s the living index for the commands,
+      checks, and repeatable workflows I use to ship with confidence.
+    </p>
+  </header>
+
+  <hr />
+
+  <!-- Narrative + TOC (depth without changing route/structure) -->
+  <section aria-labelledby="why">
+    <h2 id="why">Why this toolkit exists</h2>
+    <p>
+      As a repo grows, the biggest risks aren’t the features — it’s drift: broken links, inconsistent slugs,
+      missing tags, duplicated pages, and last-minute surprises where preview and production don’t match.
+      This toolkit is the safety layer that turns those risks into repeatable checks and safe workflows.
+    </p>
+
     <ul>
-      <li>PowerShell helpers for local environment hygiene and repo setup.</li>
-      <li>CI/CD snippets for GitHub Actions and Vercel workflows.</li>
-      <li>Infrastructure templates (IaC, YAML, and config samples).</li>
-      <li>Operational runbooks and sanity-check playbooks.</li>
+      <li><strong>Fast:</strong> small commands you can run daily.</li>
+      <li><strong>Safe:</strong> guardrails for risky operations (release prep, rewrites, restores).</li>
+      <li><strong>Reproducible:</strong> the same steps work across projects.</li>
+      <li><strong>Explainable:</strong> every script has a “when to use” and “what it changes.”</li>
     </ul>
 
-    <h2>Downloads</h2>
-    <p>
-      Link your published packs here (for example under <code>/docs/</code>
-      or <code>/downloads/</code>):
+    <p class="muted">
+      Use this page as your checklist: create → validate → preview → release → deploy → recover.
     </p>
+
+    <p>
+      <strong>Jump to:</strong>
+      <a href="#included">What’s included</a> ·
+      <a href="#workflow">Workflow</a> ·
+      <a href="#guardrails">Guardrails</a> ·
+      <a href="#downloads">Downloads</a> ·
+      <a href="#related">Related docs</a>
+    </p>
+  </section>
+
+  <hr />
+
+  <section aria-labelledby="included">
+    <h2 id="included">What's included</h2>
+    <ul>
+      <li><strong>PowerShell helpers</strong> for local environment hygiene, repo setup, and repeatable actions.</li>
+      <li><strong>CI/CD snippets</strong> for GitHub Actions + Vercel workflows (checks, caching, safe deploys).</li>
+      <li><strong>Templates</strong> for YAML/config patterns you can reuse across projects.</li>
+      <li><strong>Operational runbooks</strong> and sanity-check playbooks for calm shipping.</li>
+    </ul>
+
+    <p class="muted">
+      Tip: keep scripts under <code>/tools</code> or <code>/scripts</code>, and treat them like product code:
+      versioned, documented, and used through named actions.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Workflow: adds the missing “story + depth” layer -->
+  <section aria-labelledby="workflow">
+    <h2 id="workflow">The daily workflow (boring-but-powerful)</h2>
+    <p>
+      Here’s the repeatable loop I use for content, docs, and automation updates — the same logic applies
+      whether you’re writing a post, adding a page, or shipping a release.
+    </p>
+
+    <ol>
+      <li><strong>Create</strong> the change (page/post/script) in a clean, predictable folder path.</li>
+      <li><strong>Validate</strong> structure and metadata (links, slugs, tags, indexes) before you ship.</li>
+      <li><strong>Preview</strong> locally so you catch issues before they hit production.</li>
+      <li><strong>Release</strong> in a batch when it’s ready (changelog, versioning, clean history).</li>
+      <li><strong>Deploy</strong> with the correct environment settings and a known-good baseline.</li>
+    </ol>
+
+    <p class="muted">
+      The goal is not “more automation.” The goal is fewer surprises.
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Guardrails: the “favorite page” feel -->
+  <section aria-labelledby="guardrails">
+    <h2 id="guardrails">Guardrails (when mistakes are expensive)</h2>
+    <p>
+      These are the safety patterns that keep production stable and recovery fast. If something goes wrong,
+      you should be able to return to a known-good state quickly.
+    </p>
+
+    <ul>
+      <li><strong>Pre-ship checks:</strong> catch broken links, collisions, and missing metadata early.</li>
+      <li><strong>Point-in-time restore:</strong> maintain a reference build/tag you can always revert to.</li>
+      <li><strong>Safe history operations:</strong> avoid unrecoverable mistakes when rebasing or rewriting.</li>
+      <li><strong>Release discipline:</strong> ship in clean batches with a changelog and predictable diffs.</li>
+    </ul>
+  </section>
+
+  <hr />
+
+  <section aria-labelledby="downloads">
+    <h2 id="downloads">Downloads</h2>
+    <p>
+      Publish packs here (for example under <code>/docs/</code> or <code>/downloads/</code>) so the toolkit stays
+      easy to share with collaborators.
+    </p>
+
     <ul>
       <li><a href="/docs/automation-toolkit-overview.pdf">Automation Toolkit Overview (PDF)</a></li>
       <li><a href="/docs/powershell-starter-pack.zip">PowerShell Starter Pack (ZIP)</a></li>
       <!-- Add/change links as you publish real artifacts -->
     </ul>
 
-    <h2>Related documentation</h2>
+    <p class="muted">
+      Optional: add checksums (SHA256) next to each artifact if you want integrity verification.
+    </p>
+  </section>
+
+  <hr />
+
+  <section aria-labelledby="related">
+    <h2 id="related">Related documentation</h2>
     <ul>
       <li><a href="/getting-started.html">Getting started</a></li>
       <li><a href="/tooling-setup.html">Tooling setup</a></li>
       <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
       <li><a href="/architecture.html">Architecture</a></li>
     </ul>
-  </main>
+
+    <p class="muted">
+      Next upgrade: I can convert this page into a true “tool index” by listing your real scripts
+      (name → purpose → when to use → path) once you paste your current <code>/tools</code> folder list.
+    </p>
+  </section>
+</main>
 
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-grid">
@@ -109,6 +216,9 @@
   <script defer src="/scripts/theme-toggle.js"></script>
 </body>
 </html>
+
+
+
 
 
 

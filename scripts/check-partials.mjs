@@ -2,19 +2,13 @@
  * check-partials.mjs
  * ------------------
  * Guardrail script to verify that required HTML partials exist
- * before running injection or publishing static pages.
+ * AND that target HTML files contain the correct injection markers.
  *
  * WHY THIS EXISTS
  * ---------------
  * This repository treats header/footer partials as shared,
- * canonical layout fragments. Missing or renamed partials can
- * silently break multiple pages at once.
- *
- * This script fails fast when expected partials are missing,
- * preventing:
- *  - broken builds
- *  - half-injected HTML
- *  - preview/production drift
+ * canonical layout fragments. Missing/empty partials or missing
+ * injection markers can silently break multiple pages at once.
  *
  * WHEN TO USE
  * -----------
@@ -39,11 +33,15 @@ import process from "process";
 // Configuration
 // ---------------------------------------------------------------------------
 
-const PARTIALS_DIR = path.resolve(process.cwd(), "partials");
+const ROOT = process.cwd();
+const PARTIALS_DIR = path.resolve(ROOT, "partials");
+const PUBLIC_DIR = path.resolve(ROOT, "public");
 
-const REQUIRED_PARTIALS = [
-  "header.html",
-  "footer.html",
+const REQUIRED_PARTIALS = ["header.html", "footer.html"];
+
+const MARKERS = [
+  { name: "HEADER", open: "<!-- PARTIAL:HEADER -->", close: "<!-- /PARTIAL:HEADER -->" },
+  { name: "FOOTER", open: "<!-- PARTIAL:FOOTER -->", close: "<!-- /PARTIAL:FOOTER -->" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -55,12 +53,48 @@ function fail(message) {
   process.exit(1);
 }
 
+function warn(message) {
+  console.warn(`⚠ ${message}`);
+}
+
 function ok(message) {
   console.log(`✓ ${message}`);
 }
 
+function readUtf8(p) {
+  return fs.readFileSync(p, "utf8");
+}
+
+function listPublicHtmlFiles() {
+  if (!fs.existsSync(PUBLIC_DIR)) return [];
+  return fs
+    .readdirSync(PUBLIC_DIR)
+    .filter((f) => f.toLowerCase().endsWith(".html"))
+    .map((f) => path.join(PUBLIC_DIR, f));
+}
+
+function hasMarkerBlock(html, open, close) {
+  const start = html.indexOf(open);
+  const end = html.indexOf(close);
+  return start !== -1 && end !== -1 && end > start;
+}
+
+function extractMain(html) {
+  const lower = html.toLowerCase();
+  const start = lower.indexOf("<main");
+  if (start === -1) return null;
+
+  const startClose = lower.indexOf(">", start);
+  if (startClose === -1) return null;
+
+  const end = lower.indexOf("</main>", startClose);
+  if (end === -1) return null;
+
+  return html.slice(startClose + 1, end);
+}
+
 // ---------------------------------------------------------------------------
-// Checks
+// Checks: partials existence + non-empty
 // ---------------------------------------------------------------------------
 
 if (!fs.existsSync(PARTIALS_DIR)) {
@@ -76,13 +110,10 @@ for (const file of REQUIRED_PARTIALS) {
   const fullPath = path.join(PARTIALS_DIR, file);
 
   if (!fs.existsSync(fullPath)) {
-    fail(
-      `Missing required partial: ${file}\n` +
-      `Expected at: ${fullPath}`
-    );
+    fail(`Missing required partial: ${file}\nExpected at: ${fullPath}`);
   }
 
-  const contents = fs.readFileSync(fullPath, "utf8").trim();
+  const contents = readUtf8(fullPath).trim();
 
   if (!contents) {
     fail(
@@ -95,7 +126,70 @@ for (const file of REQUIRED_PARTIALS) {
 }
 
 // ---------------------------------------------------------------------------
+// Checks: PARTIAL markers + layout regressions
+// ---------------------------------------------------------------------------
+
+const targets = listPublicHtmlFiles();
+
+if (targets.length === 0) {
+  warn("No public HTML files found to validate markers.");
+} else {
+  ok(`Found ${targets.length} public HTML file(s) to validate markers`);
+
+  let markerFailures = 0;
+
+  for (const file of targets) {
+    const html = readUtf8(file);
+    const rel = path.relative(ROOT, file);
+
+    // Marker presence
+    for (const m of MARKERS) {
+      if (!hasMarkerBlock(html, m.open, m.close)) {
+        markerFailures++;
+        console.error(
+          `✗ Missing marker block in ${rel}: ${m.open} ... ${m.close}\n` +
+          `  Fix: add both marker lines where you want ${m.name.toLowerCase()} injected.`
+        );
+      }
+    }
+
+    // Detect *layout* header/footer incorrectly placed inside <main>
+    const main = extractMain(html);
+    if (main) {
+      const hasSiteHeaderInMain =
+        /<header\b[^>]*\bclass=["'][^"']*\bsite-header\b[^"']*["'][^>]*>/i.test(main);
+
+      const hasSiteFooterInMain =
+        /<footer\b[^>]*\bclass=["'][^"']*\bsite-footer\b[^"']*["'][^>]*>/i.test(main);
+
+      if (hasSiteHeaderInMain) {
+        warn(
+          `Rogue layout <header class="site-header"> detected inside <main> in ${rel} ` +
+          `(can cause "header below hero").`
+        );
+      }
+
+      if (hasSiteFooterInMain) {
+        warn(
+          `Rogue layout <footer class="site-footer"> detected inside <main> in ${rel} ` +
+          `(can cause missing or duplicated footer).`
+        );
+      }
+    }
+  }
+
+  if (markerFailures > 0) {
+    fail(
+      `Marker validation failed: ${markerFailures} issue(s).\n` +
+      `Add missing PARTIAL markers before injection.`
+    );
+  }
+
+  ok("All required PARTIAL markers are present");
+}
+
+// ---------------------------------------------------------------------------
 // Success
 // ---------------------------------------------------------------------------
 
-ok("All required partials are present and non-empty");
+ok("All required partials are present and non-empty (and markers validated)");

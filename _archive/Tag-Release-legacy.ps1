@@ -22,8 +22,10 @@ param(
   [string]$Version,
 
   [Parameter(Mandatory=$true)]
+  [ValidateNotNullOrEmpty()]
   [string]$Message,
 
+  [ValidateNotNullOrEmpty()]
   [string]$Branch = 'main',
 
   [switch]$AppendDate,
@@ -38,6 +40,29 @@ function Say($m){ Write-Host "› $m" -ForegroundColor Cyan }
 function Good($m){ Write-Host "✓ $m" -ForegroundColor Green }
 function Warn($m){ Write-Host "⚠ $m" -ForegroundColor Yellow }
 function Bad($m){ Write-Host "✗ $m" -ForegroundColor Red }
+
+function Ensure-Git {
+  try { git --version | Out-Null } catch {
+    Bad "Git is not available in PATH."
+    exit 1
+  }
+}
+
+function Ensure-Origin {
+  $originUrl = (git remote get-url origin 2>$null)
+  if (-not $originUrl) {
+    Bad "Remote 'origin' not found. Add it first: git remote add origin <url>"
+    exit 1
+  }
+}
+
+function Ensure-Branch([string]$expected) {
+  $current = (git rev-parse --abbrev-ref HEAD).Trim()
+  if ($current -ne $expected) {
+    Bad "You are on '$current' but this release is configured to push '$expected'. Switch branch or pass -Branch."
+    exit 1
+  }
+}
 
 function Get-LatestTag {
   try {
@@ -77,18 +102,30 @@ function Build-Tag([string]$base,[switch]$AppendDate,[switch]$AppendHash){
   return $tag
 }
 
+function Tag-ExistsRemote([string]$tag){
+  # returns $true if tag exists on origin
+  try {
+    $out = (git ls-remote --tags origin $tag) 2>$null
+    return [bool]$out
+  } catch { return $false }
+}
+
 # --- sanity ---------------------------------------------------------------
 if (-not (Test-Path .git)) {
   Bad "Run from repo root (no .git found)."
   exit 1
 }
 
+Ensure-Git
+Ensure-Origin
+Ensure-Branch $Branch
+
 Say "Checking working tree status..."
 $dirty = (git status --porcelain)
 if ($dirty) {
   Say "Staging and committing changes..."
   if ($DryRun) {
-    Warn "DRY RUN: would git add . && git commit -m '$Message'"
+    Warn "DRY RUN: would run git add . && git commit -m '$Message'"
   } else {
     git add .
     git commit -m $Message | Out-Null
@@ -116,10 +153,16 @@ Say "Final tag → $finalTag"
 if ($DryRun) {
   Warn "DRY RUN: would create annotated tag $finalTag"
 } else {
-  $exists = (git tag --list $finalTag)
-  if ($exists) {
-    Warn "Tag '$finalTag' already exists; will push it."
+  # Local existence
+  $existsLocal = (git tag --list $finalTag)
+  if ($existsLocal) {
+    Warn "Tag '$finalTag' already exists locally; will push it."
   } else {
+    # Remote collision check (prevents surprises)
+    if (Tag-ExistsRemote $finalTag) {
+      Bad "Tag '$finalTag' already exists on origin. Choose a new tag (change -Version or suffix flags)."
+      exit 1
+    }
     Say "Creating annotated tag..."
     git tag -a $finalTag -m $Message
   }
@@ -138,14 +181,14 @@ if ($DryRun) {
 if ($GitHubRelease) {
   $hasGh = (Get-Command gh -ErrorAction SilentlyContinue) -ne $null
   if (-not $hasGh) {
-    Warn "GitHub CLI (gh) not found. Skipping release. Install: https://cli.github.com/"
+    Warn "GitHub CLI (gh) not found. Skipping release."
   } else {
     Say "Creating GitHub Release for $finalTag..."
     $notes = $Message
     if (Test-Path CHANGELOG.md) {
       try {
         $chg = Get-Content CHANGELOG.md -Raw
-        $notes = $chg
+        if ($chg) { $notes = $chg }
       } catch { }
     }
     if ($DryRun) {

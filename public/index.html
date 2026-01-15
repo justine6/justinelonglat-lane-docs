@@ -5,87 +5,23 @@
   <title>JustineLonglaT-Lane Docs — Cloud Confidence. Delivered.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- SEO -->
   <meta
     name="description"
-    content="JustineLonglaT-Lane Docs — concise, production-ready documentation for the JustineLonglaT-Lane ecosystem: tooling, CI/CD pipelines, multi-site architecture, and automation guardrails."
+    content="JustineLonglaT-Lane Docs — concise, production-ready documentation for the JustineLonglaT-Lane ecosystem: tooling, CI/CD, multi-site architecture, and automation guardrails."
   />
 
   <link rel="icon" href="/favicon.ico" />
-
-  <!-- Global + page styles -->
-  <!-- Behaviour -->
-  <script src="/scripts/theme-toggle.js" defer></script>
-  
   <link rel="stylesheet" href="/styles.css" />
+
+  <script src="/scripts/theme-toggle.js" defer></script>
+  <script src="/scripts/back-to-top.js" defer></script>
 </head>
 
 <body>
-  <!-- ================= Header / Nav ================= -->
-  
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ================= Main ================= -->
-  <main class="page-main">
-  <!-- ===== HERO ===== -->
-<section class="home-hero" aria-labelledby="hero-title">
-  <div class="container home-hero-inner">
-
-    <!-- Hero card (crest + copy + CTAs) -->
-    <div class="hero-card" role="region" aria-label="Quick links">
-      <div class="hero-card-crest">
-        <img src="/assets/img/crest.png" alt="JustineLonglaT-Lane crest" />
-      </div>
-
-      <p class="home-hero-eyebrow">JustineLonglaT-Lane Docs</p>
-
-      <h1 id="hero-title" class="home-hero-title">Cloud Confidence. Delivered.</h1>
-
-      <p class="home-hero-lead">
-        JustineLonglaT-Lane Docs is the source of truth for how this ecosystem runs in real life:
-        from local dev and Git hygiene to CI/CD, Vercel deploys, GitHub Pages, and the automation
-        guardrails that keep all four sites healthy.
-      </p>
-
-      <div class="hero-card-links" aria-label="Hero actions">
-        <a class="hero-btn hero-btn--primary" href="/intro-call.html">Book Intro Call</a>
-        <a class="hero-btn hero-btn--ghost" href="/brochure.html">Download Brochure</a>
-        <a class="hero-btn hero-btn--ghost" href="/resume.html">Resume</a>
-        <a class="hero-btn hero-btn--ghost" href="/automation-toolkit.html">Automation Toolkit</a>
-      </div>
-
-      <div class="home-feature-grid" aria-label="Highlights">
-        <article class="home-feature-card">
-          <h3>Getting Started</h3>
-          <p>Local setup, repo structure, conventions, and how everything fits together.</p>
-          <a href="/getting-started.html">Read guide →</a>
-        </article>
-
-        <article class="home-feature-card">
-          <h3>CI/CD Architecture</h3>
-          <p>Pipelines, environments, and deployment guardrails across the ecosystem.</p>
-          <a href="/cicd-pipelines.html">View pipelines →</a>
-        </article>
-
-        <article class="home-feature-card">
-          <h3>Automation Toolkit</h3>
-          <p>Scripts, helpers, and reusable automation patterns powering the platform.</p>
-          <a href="/toolkit.html">Explore tools →</a>
-        </article>
-      </div>
-
-      <div class="home-cta-row" aria-label="Primary actions">
-        <a class="btn btn-gradient" href="/docs.html">Get All Docs</a>
-        <a class="btn btn-outline" href="/README.html">View Technical README</a>
-        <a class="btn btn-outline" href="/toolkit.html">Automation Toolkit</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-    <!-- ===== Overview ===== -->
-    <section class="container home-overview" aria-labelledby="whats-inside-heading">
-      <header class="site-header" role="banner">
+  <!-- PARTIAL:HEADER -->
+<header class="site-header" role="banner">
   <div class="container navbar">
     <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
       <img class="brand-logo" src="/assets/img/crest.png" alt="Justine Longla T." />
@@ -126,55 +62,132 @@
     </div>
   </div>
 </header>
+<!-- /PARTIAL:HEADER -->
 
-      <h3>What’s inside</h3>
-      <ul>
-        <li>
-          <strong><a href="/getting-started.html">Getting started</a></strong>
-          — local environment, first run, and how to work with this docs repo.
-        </li>
-        <li>
-          <strong><a href="/tooling-setup.html">Tooling setup</a></strong>
-          — editors, formatting, linting, and quality gates.
-        </li>
-        <li>
-          <strong><a href="/cicd-pipelines.html">CI/CD pipelines</a></strong>
-          — preview, main, and production flows wired to Vercel and GitHub Actions.
-        </li>
-        <li>
-          <strong><a href="/architecture.html">Architecture</a></strong>
-          — high-level diagrams and platform decisions.
-        </li>
-        <li>
-          <strong><a href="/system-design-part-d.html">System Design — Part D</a></strong>
-          — how the four sites (consulting, docs, blog, and Nouvo Ayiti 2075) coordinate through DNS, repos, and automation.
-        </li>
-        <li>
-          <strong><a href="/toolkit.html">Automation Toolkit</a></strong>
-          — reusable CI snippets, PowerShell helpers, and guardrails.
-        </li>
+  <main id="main" class="page-main">
+    <!-- ===== HERO ===== -->
+    <section class="home-hero" aria-labelledby="hero-title">
+      <div class="container home-hero-inner">
+        <div class="hero-card" role="region" aria-label="Quick links">
+          <div class="hero-card-crest">
+            <img src="/assets/img/crest.png" alt="JustineLonglaT-Lane crest" />
+          </div>
+
+          <p class="home-hero-eyebrow">JustineLonglaT-Lane Docs</p>
+          <h1 id="hero-title" class="home-hero-title">Cloud Confidence. Delivered.</h1>
+
+          <p class="home-hero-lead">
+            JustineLonglaT-Lane Docs is the source of truth for how this ecosystem runs in real life:
+            from local dev and Git hygiene to CI/CD, Vercel deploys, GitHub Pages, and the automation
+            guardrails that keep all four sites healthy.
+          </p>
+
+          <div class="hero-card-links" aria-label="Hero actions">
+            <a class="hero-btn hero-btn--primary" href="/intro-call.html">Book Intro Call</a>
+            <a class="hero-btn hero-btn--ghost" href="/brochure.html">Download Brochure</a>
+            <a class="hero-btn hero-btn--ghost" href="/resume.html">Resume</a>
+            <a class="hero-btn hero-btn--ghost" href="/toolkit.html">Automation Toolkit</a>
+          </div>
+
+          <div class="home-feature-grid" aria-label="Highlights">
+            <article class="home-feature-card">
+              <h3>Getting Started</h3>
+              <p>Local setup, repo structure, conventions, and how everything fits together.</p>
+              <a href="/getting-started.html">Read guide →</a>
+            </article>
+
+            <article class="home-feature-card">
+              <h3>CI/CD Architecture</h3>
+              <p>Pipelines, environments, and deployment guardrails across the ecosystem.</p>
+              <a href="/cicd-pipelines.html">View pipelines →</a>
+            </article>
+
+            <article class="home-feature-card">
+              <h3>Automation Toolkit</h3>
+              <p>Scripts, helpers, and reusable automation patterns powering the platform.</p>
+              <a href="/toolkit.html">Explore tools →</a>
+            </article>
+          </div>
+
+          <div class="home-cta-row" aria-label="Primary actions">
+            <a class="btn btn-gradient" href="/docs.html">Get All Docs</a>
+            <a class="btn btn-outline" href="/README.html">View Technical README</a>
+            <a class="btn btn-outline" href="/toolkit.html">Automation Toolkit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Concise overview (under hero) ===== -->
+    <section class="container home-summary" aria-labelledby="summary-heading">
+      <h2 id="summary-heading" class="sr-only">Documentation overview</h2>
+
+      <ul class="summary-list">
+        <li><strong><a href="/getting-started.html">Getting started</a></strong> — local environment, first run, and repo flow.</li>
+        <li><strong><a href="/tooling-setup.html">Tooling setup</a></strong> — editors, formatting, linting, and gates.</li>
+        <li><strong><a href="/cicd-pipelines.html">CI/CD pipelines</a></strong> — preview, main, and production flows.</li>
+        <li><strong><a href="/architecture.html">Architecture</a></strong> — diagrams and platform decisions.</li>
+        <li><strong><a href="/system-design-part-d.html">System Design — Part D</a></strong> — how the four sites coordinate.</li>
+        <li><strong><a href="/toolkit.html">Automation Toolkit</a></strong> — scripts, helpers, and guardrails.</li>
       </ul>
+    </section>
 
-      <h3>Next steps</h3>
-      <ol>
-        <li><a href="/README.html">README</a></li>
-        <li><a href="/getting-started.html">Getting started</a></li>
-        <li><a href="/tooling-setup.html">Tooling setup</a></li>
-        <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
-        <li><a href="/architecture.html">Architecture</a></li>
-        <li><a href="/system-design-part-d.html">System Design — Part D</a></li>
-        <li><a href="/toolkit.html">Automation Toolkit</a></li>
-      </ol>
+    <!-- ===== Long-form overview ===== -->
+    <section class="container home-overview" aria-labelledby="whats-inside-heading">
+      <header class="section-header">
+        <h2 id="whats-inside-heading" class="mt-0">What’s inside</h2>
+        <p class="lead">
+          Concise, production-ready documentation for the JustineLonglaT-Lane ecosystem: start quickly,
+          standardize tooling, ship with robust CI/CD, and understand the multi-site architecture behind the stack.
+        </p>
+      </header>
+
+      <ul>
+        <li><strong><a href="/getting-started.html">Getting started</a></strong> — local environment, first run, and how to work with this docs repo.</li>
+        <li><strong><a href="/tooling-setup.html">Tooling setup</a></strong> — editors, formatting, linting, and quality gates.</li>
+        <li><strong><a href="/cicd-pipelines.html">CI/CD pipelines</a></strong> — preview, main, and production flows wired to Vercel and GitHub Actions.</li>
+        <li><strong><a href="/architecture.html">Architecture</a></strong> — high-level diagrams and platform decisions.</li>
+        <li><strong><a href="/system-design-part-d.html">System Design — Part D</a></strong> — how the four sites (consulting, docs, blog, and Nouvo Ayiti 2075) coordinate through DNS, repos, and automation.</li>
+        <li><strong><a href="/toolkit.html">Automation Toolkit</a></strong> — reusable CI snippets, PowerShell helpers, and guardrails.</li>
+      </ul>
     </section>
   </main>
 
-  <!-- ================= Footer ================= -->
-  
+  <!-- PARTIAL:FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <strong>JustineLonglaT-Lane Docs</strong>
+      <div class="muted">Cloud Confidence. Delivered.</div>
+      <div class="muted">© <span id="year"></span> Justine Longla T.</div>
+    </div>
+
+    <nav aria-label="Docs">
+      <a href="/README.html">README</a>
+      <a href="/index.html">Home</a>
+      <a href="/getting-started.html">Getting started</a>
+      <a href="/tooling-setup.html">Tooling setup</a>
+      <a href="/cicd-pipelines.html">CI/CD pipelines</a>
+      <a href="/architecture.html">Architecture</a>
+      <a href="/toolkit.html">Automation toolkit</a>
+      <a href="/sitemap.html">All docs</a>
+    </nav>
+
+    <nav aria-label="Network">
+      <a href="https://justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">JustineLonglaT-Lane Consulting</a>
+      <a href="https://nouvoayiti2075.com" target="_blank" rel="noopener noreferrer">Nouvo Ayiti 2075</a>
+      <a href="https://foundation.nouvoayiti2075.com" target="_blank" rel="noopener noreferrer">Foundation</a>
+      <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blogs</a>
+    </nav>
+  </div>
+
+  <script>
+    (function () {
+      var y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+  </script>
+</footer>
+<!-- /PARTIAL:FOOTER -->
 </body>
 </html>
-
-
-
-
-
-

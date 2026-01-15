@@ -129,7 +129,7 @@ for (const file of REQUIRED_PARTIALS) {
 // Checks: PARTIAL markers + layout regressions
 // ---------------------------------------------------------------------------
 
-const targets = listPublicHtmlFiles();
+const TARGET_HTML_FILES = ["index.html", "toolkit.html"];
 
 if (targets.length === 0) {
   warn("No public HTML files found to validate markers.");

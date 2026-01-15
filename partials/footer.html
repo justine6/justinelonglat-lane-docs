@@ -3,11 +3,12 @@
     <div class="footer-brand">
       <strong>JustineLonglaT-Lane Docs</strong>
       <div class="muted">Cloud Confidence. Delivered.</div>
+      <div class="muted">© <span id="year"></span> Justine Longla T.</div>
     </div>
 
     <nav aria-label="Docs">
-      <a href="/readme.html">README</a>
-      <a href="/">Home</a>
+      <a href="/README.html">README</a>
+      <a href="/index.html">Home</a>
       <a href="/getting-started.html">Getting started</a>
       <a href="/tooling-setup.html">Tooling setup</a>
       <a href="/cicd-pipelines.html">CI/CD pipelines</a>
@@ -17,10 +18,17 @@
     </nav>
 
     <nav aria-label="Network">
-      <a href="https://justinelonglat-lane.com" target="_blank" rel="noopener">JustineLonglaT-Lane Consulting</a>
-      <a href="https://nouvoayiti2075.com" target="_blank" rel="noopener">Nouvo Ayiti 2075</a>
-      <a href="https://foundation.nouvoayiti2075.com" target="_blank" rel="noopener">Foundation</a>
-      <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener">Blogs</a>
+      <a href="https://justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">JustineLonglaT-Lane Consulting</a>
+      <a href="https://nouvoayiti2075.com" target="_blank" rel="noopener noreferrer">Nouvo Ayiti 2075</a>
+      <a href="https://foundation.nouvoayiti2075.com" target="_blank" rel="noopener noreferrer">Foundation</a>
+      <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blogs</a>
     </nav>
   </div>
+
+  <script>
+    (function () {
+      var y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+  </script>
 </footer>

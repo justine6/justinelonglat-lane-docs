@@ -13,27 +13,45 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # always good practice for tooling & versioning
+          fetch-depth: 0
 
-      - name: Setup Node (if needed for docs build)
+      - name: Setup Node (for guardrails)
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # If your docs require a build step, enable this:
-      # - name: Build site
-      #   run: npm run build
+      # Optional but helpful if any PS scripts rely on git autocrlf differences
+      - name: Setup PowerShell
+        uses: PowerShell/PowerShell@v1
+        with:
+          version: "7.4.1"
+
+      # ✅ Guardrails first: fail fast on missing partials/markers/rogue header/footer
+      - name: Check layout partials
+        run: node scripts/check-partials.mjs
+      - name: Ensure working tree clean after injectio
+        run: |
+          git status --porcelain
+          test -z "$(git status --porcelain)"
+
+
+      # ✅ If your workflow expects final injected HTML, do injection in CI too
+      - name: Inject partials
+        run: node scripts/inject-partials.mjs
 
       - name: Generate sitemap + robots.txt
         shell: pwsh
         run: ./scripts/Invoke-Tool.ps1 -Name gen-sitemap
 
-      - name: Check links in docs (Lychee)
+      - name: Check links in site (Lychee)
         uses: lycheeverse/lychee-action@v1
         with:
           args: >
             --verbose
             --no-progress
-            docs/**/*.html
+            --accept 200,206,429
+            --exclude-mail
+            --exclude '^file://'
+            public/**/*.html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

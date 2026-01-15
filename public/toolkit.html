@@ -70,6 +70,31 @@
 
     <hr />
 
+    <section aria-labelledby="node-optional">
+      <h2 id="node-optional">Node.js is optional</h2>
+
+      <p>
+        This docs site is a <strong>static HTML site</strong>. It does not require Node.js,
+        npm, or a package lock to build or deploy.
+      </p>
+
+      <p>
+        A small number of helper scripts (for example <code>validate-site.mjs</code> and
+        partial injection checks) are written in Node purely for convenience.
+        They are tooling — not runtime dependencies.
+      </p>
+
+      <ul>
+        <li><strong>If you have Node:</strong> you can run validation and guardrail scripts locally.</li>
+        <li><strong>If you don’t:</strong> the site still works, builds, and deploys normally.</li>
+      </ul>
+
+      <p class="muted">
+        This separation is intentional: content and layout remain simple and portable,
+        while automation stays optional and removable.
+      </p>
+    </section>
+
     <!-- Workflow: adds the missing “story + depth” layer -->
     <section aria-labelledby="workflow">
       <h2 id="workflow">The daily workflow (boring-but-powerful)</h2>

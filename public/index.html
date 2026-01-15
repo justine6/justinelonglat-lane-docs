@@ -22,53 +22,7 @@
 
 <body>
   <!-- ================= Header / Nav ================= -->
-  <header class="site-header">
-    <div class="container navbar">
-      <!-- Brand / logo -->
-      <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
-        <img src="/assets/img/crest.png" alt="JustineLonglaT-Lane crest" class="brand-logo" />
-        <div class="brand-text">
-          <span class="brand-title">JustineLonglaT-Lane Docs</span>
-          <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
-        </div>
-      </a>
-
-      <!-- Nav + profile + theme toggle -->
-      <div class="nav-shell">
-        <nav class="nav-right" aria-label="Primary">
-          <a href="/README.html">README</a>
-          <a href="/docs.html">Docs index</a>
-          <a href="https://justinelonglat-lane.com" target="_blank" rel="noreferrer">Consulting site</a>
-          <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noreferrer">Blog</a>
-          <a href="/knowledge/featured-writing.html">Featured writing</a>
-        </nav>
-        <img
-          src="/assets/img/profile.jpg"
-          alt="Justine Longla T."
-          class="nav-profile-avatar"
-          loading="lazy"
-          decoding="async"
-        />
-
-        <div class="nav-profile">
-          <div class="nav-profile-text">
-            <span class="nav-profile-eyebrow">Docs by</span>
-            <span class="nav-profile-name">Justine Longla T.</span>
-          </div>
-
-          <button
-            id="themeToggle"
-            class="nav-theme-toggle"
-            type="button"
-            aria-label="Toggle theme"
-            title="Toggle theme"
-          >
-            🌙
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
+  
 
   <!-- ================= Main ================= -->
   <main class="page-main">
@@ -131,13 +85,47 @@
 
     <!-- ===== Overview ===== -->
     <section class="container home-overview" aria-labelledby="whats-inside-heading">
-      <header class="section-header">
-        <h2 id="whats-inside-heading" class="mt-0">JustineLonglaT-Lane Docs</h2>
-        <p class="lead">
-          Concise, production-ready documentation for the JustineLonglaT-Lane ecosystem: start quickly,
-          standardize tooling, ship with robust CI/CD, and understand the multi-site architecture behind the stack.
-        </p>
-      </header>
+      <header class="site-header" role="banner">
+  <div class="container navbar">
+    <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
+      <img class="brand-logo" src="/assets/img/crest.png" alt="Justine Longla T." />
+      <span class="brand-text">
+        <strong>JustineLonglaT-Lane Docs</strong>
+        <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
+      </span>
+    </a>
+
+    <nav class="nav-right" aria-label="Primary">
+      <a href="/README.html">README</a>
+      <a href="/docs.html">Docs index</a>
+      <a href="/tooling-setup.html">Tooling</a>
+      <a href="/cicd-pipelines.html">CI/CD</a>
+      <a href="/toolkit.html">Automation Toolkit</a>
+    </nav>
+
+    <div class="nav-profile" aria-label="Docs signature">
+      <img
+        src="/assets/img/profile.jpg"
+        alt="Justine Longla T."
+        class="nav-profile-avatar"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="nav-profile-text">
+        <span class="nav-profile-eyebrow">Docs by</span>
+        <span class="nav-profile-name">Justine Longla T.</span>
+      </div>
+
+      <button
+        id="themeToggle"
+        class="nav-theme-toggle"
+        type="button"
+        aria-label="Toggle theme"
+        title="Toggle theme"
+      >🌙</button>
+    </div>
+  </div>
+</header>
 
       <h3>What’s inside</h3>
       <ul>
@@ -181,46 +169,7 @@
   </main>
 
   <!-- ================= Footer ================= -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <div class="muted">
-          © <span id="year"></span> Justine Longla T. — DevSecOps • Cloud • Sustainability
-        </div>
-        <div class="muted">
-          Operating under <strong>JustineLonglaT-Lane Consulting.</strong>
-        </div>
-      </div>
-
-      <div>
-        <div class="muted mb-0"><strong>Platform links</strong></div>
-        <nav aria-label="Cross-site">
-          <a href="https://justinelonglat-lane.com" target="_blank" rel="noreferrer">Main Site</a>
-          <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noreferrer">Blog</a>
-          <a href="https://projects.justinelonglat-lane.com" target="_blank" rel="noreferrer">Projects</a>
-          <a href="/index.html" aria-current="page">Docs</a>
-          <a href="/toolkit.html">Automation Toolkit</a>
-        </nav>
-      </div>
-
-      <div>
-        <div class="muted mb-0"><strong>Docs shortcuts</strong></div>
-        <nav aria-label="Docs shortcuts">
-          <a href="/README.html">Technical README</a>
-          <a href="/system-design-part-d.html">System Design — Part D</a>
-          <a href="/architecture.html">Architecture</a>
-          <a href="/cicd-pipelines.html">CI/CD pipelines</a>
-        </nav>
-      </div>
-    </div>
-
-    <script>
-      (function () {
-        var y = document.getElementById("year");
-        if (y) y.textContent = new Date().getFullYear();
-      })();
-    </script>
-  </footer>
+  
 </body>
 </html>
 

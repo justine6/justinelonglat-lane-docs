@@ -85,7 +85,9 @@
         <a href="#workflow">Workflow</a> ·
         <a href="#guardrails">Guardrails</a> ·
         <a href="#downloads">Downloads</a> ·
-        <a href="#related">Related docs</a>
+        <a href="#tool-index">Tool index</a> ·
+        <a href="#rollback">Rollback</a> ·
+        <a href="#release-checklist">Release checklist</a>
       </p>
     </section>
 
@@ -159,7 +161,11 @@
       <ul>
         <li><a href="/docs/automation-toolkit-overview.pdf">Automation Toolkit Overview (PDF)</a></li>
         <li><a href="/docs/powershell-starter-pack.zip">PowerShell Starter Pack (ZIP)</a></li>
-        <!-- Add/change links as you publish real artifacts -->
+
+        <!-- Scripts published as static assets under /public/downloads -->
+        <li><a href="/downloads/validate-site.mjs">validate-site.mjs (link / anchor drift checks)</a></li>
+        <li><a href="/downloads/Tag-Release.ps1">Tag-Release.ps1 (canonical release tagging helper)</a></li>
+        <li><a href="/downloads/bust-styles.ps1">bust-styles.ps1 (style cleanup)</a></li>
       </ul>
 
       <p class="muted">
@@ -169,56 +175,92 @@
 
     <hr />
 
-  <section aria-labelledby="tool-index">
-    <h2 id="tool-index">Tool index (downloads)</h2>
-    <p class="muted">
-      These tools are published as static assets so you can download them directly from the docs site.
-      Source-of-truth lives in the repo; this page links to the shareable copies under <code>/public/downloads</code>.
-    </p>
+    <section aria-labelledby="tool-index">
+      <h2 id="tool-index">Tool index (downloads)</h2>
+      <p class="muted">
+        These tools are published as static assets so you can download them directly from the docs site.
+        Source-of-truth lives in the repo; this page links to the shareable copies under <code>/public/downloads</code>.
+      </p>
 
-    <ul>
-      <li>
-        <strong>Site validation (internal links / anchors / drift checks)</strong><br />
-        <span class="muted"><strong>When to use:</strong> before tagging a release or merging route/layout changes.</span><br />
-        <span><strong>Download:</strong> <a href="/downloads/validate-site.mjs">/downloads/validate-site.mjs</a></span>
-      </li>
+      <ul>
+        <li>
+          <strong>Site validation (internal links / anchors / drift checks)</strong><br />
+          <span class="muted"><strong>When to use:</strong> before tagging a release or merging route/layout changes.</span><br />
+          <span><strong>Download:</strong> <a href="/downloads/validate-site.mjs">/downloads/validate-site.mjs</a></span>
+        </li>
 
-      <li>
-        <strong>Style cleanup helper</strong><br />
-        <span class="muted"><strong>When to use:</strong> after refactors when CSS/formatting gets noisy.</span><br />
-        <span><strong>Download:</strong> <a href="/downloads/bust-styles.ps1">/downloads/bust-styles.ps1</a></span>
-      </li>
+        <li>
+          <strong>Style cleanup helper</strong><br />
+          <span class="muted"><strong>When to use:</strong> after refactors when CSS/formatting gets noisy.</span><br />
+          <span><strong>Download:</strong> <a href="/downloads/bust-styles.ps1">/downloads/bust-styles.ps1</a></span>
+        </li>
 
-      <li>
-        <strong>Release tagging helper (v1)</strong><br />
-        <span class="muted"><strong>When to use:</strong> when you want a clean freeze point / release tag.</span><br />
-        <span><strong>Download:</strong> <a href="/downloads/Tag-Release.ps1">/downloads/Tag-Release.ps1</a></span>
-      </li>
+        <li>
+          <strong>Release tagging helper</strong><br />
+          <span class="muted"><strong>When to use:</strong> when you want a clean freeze point / release tag.</span><br />
+          <span><strong>Download:</strong> <a href="/downloads/Tag-Release.ps1">/downloads/Tag-Release.ps1</a></span>
+        </li>
 
-      <li>
-        <strong>Release tagging helper (v2)</strong><br />
-        <span class="muted"><strong>When to use:</strong> when you want an updated tagging workflow.</span><br />
-        <span><strong>Download:</strong> <a href="/downloads/Tag-Release-v2.ps1">/downloads/Tag-Release-v2.ps1</a></span>
-      </li>
+        <li>
+          <strong>Build script (currently disabled)</strong><br />
+          <span class="muted"><strong>When to use:</strong> only after you re-enable and confirm it matches your Vercel static output.</span><br />
+          <span><strong>Path:</strong> <code>/build-Docs.ps1.disabled</code></span>
+        </li>
 
-      <li>
-        <strong>Build script (currently disabled)</strong><br />
-        <span class="muted"><strong>When to use:</strong> only after you re-enable and confirm it matches your Vercel static output.</span><br />
-        <span><strong>Path:</strong> <code>/build-Docs.ps1.disabled</code></span>
-      </li>
+        <li>
+          <strong>Reference templates</strong><br />
+          <span class="muted"><strong>When to use:</strong> to restore known-good layout blocks (hero/header/index variations).</span><br />
+          <span><strong>Path:</strong> <code>/templates/</code></span>
+        </li>
+      </ul>
 
-      <li>
-        <strong>Reference templates</strong><br />
-        <span class="muted"><strong>When to use:</strong> to restore known-good layout blocks (hero/header/index variations).</span><br />
-        <span><strong>Path:</strong> <code>/templates/</code></span>
-      </li>
-    </ul>
+      <p class="muted">
+        Tip: if you publish new helpers, copy them into <code>/public/downloads</code> and add a line here.
+        That keeps downloads stable without changing your repo layout.
+      </p>
+    </section>
 
-    <p class="muted">
-      Tip: if you publish new helpers, copy them into <code>/public/downloads</code> and add a line here.
-      That keeps downloads stable without changing your repo layout.
-    </p>
-  </section>
+    <hr />
+
+    <section aria-labelledby="rollback">
+      <h2 id="rollback">Rollback & recovery (when something breaks)</h2>
+      <p>
+        The goal is simple: if production regresses, you should be able to return to a known-good baseline
+        in minutes — without guessing.
+      </p>
+
+      <ul>
+        <li><strong>Prefer revert over rewrite:</strong> if a bad change shipped, revert commit(s) instead of rewriting history.</li>
+        <li><strong>Use freeze tags as restore points:</strong> keep “known-good” tags like <code>v1.0-footer-fix</code>.</li>
+        <li>
+          <strong>Recover from a tag:</strong>
+          <code>git checkout &lt;tag&gt;</code> → validate locally → ship a fix branch (don’t force-push main).
+        </li>
+        <li><strong>Don’t panic-edit production:</strong> fix in Git, redeploy cleanly, and keep diffs explainable.</li>
+      </ul>
+
+      <p class="muted">
+        Practical rule: every stable layout milestone ends with a tag and a deploy. Tags are your calm button.
+      </p>
+    </section>
+
+    <hr />
+
+    <section aria-labelledby="release-checklist">
+      <h2 id="release-checklist">Release checklist (boring = reliable)</h2>
+      <ol>
+        <li><strong>Local sanity:</strong> open Home, README, Docs index, Toolkit and verify layout is centered.</li>
+        <li><strong>Link sweep:</strong> click header + footer links and confirm no 404s.</li>
+        <li><strong>Minimal diff:</strong> avoid mixing refactors with content updates in the same commit.</li>
+        <li><strong>Tag a freeze point:</strong> run <code>Tag-Release.ps1</code> and push the tag.</li>
+        <li><strong>Deploy:</strong> confirm Vercel is building the expected branch/output.</li>
+        <li><strong>Post-deploy verify:</strong> test in an incognito window; confirm theme toggle + nav work.</li>
+      </ol>
+
+      <p class="muted">
+        If you can’t explain what changed in one sentence, the batch is probably too big.
+      </p>
+    </section>
 
   </main>
 

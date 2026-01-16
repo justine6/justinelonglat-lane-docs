@@ -8,8 +8,23 @@ const PUBLIC_DIR = path.join(ROOT, "public");
 const HEADER_PATH = path.join(PARTIALS_DIR, "header.html");
 const FOOTER_PATH = path.join(PARTIALS_DIR, "footer.html");
 
+// OFF by default. Enable only if you truly want the mirror.
+const MIRROR_PUBLIC_PARTIALS = process.env.MIRROR_PUBLIC_PARTIALS === "1";
+const PUBLIC_PARTIALS_DIR = path.join(PUBLIC_DIR, "_partials");
+
+// ---------- helpers ----------
+function fail(msg) {
+  console.error(`✗ ${msg}`);
+  process.exit(1);
+}
+
+// Normalize to LF to stop CRLF drift in injected files.
+function toLF(s) {
+  return s.replace(/\r\n/g, "\n");
+}
+
 function readText(p) {
-  return fs.readFileSync(p, "utf8").trim() + "\n";
+  return toLF(fs.readFileSync(p, "utf8")).trim() + "\n";
 }
 
 function getHtmlTargets(dir) {
@@ -20,13 +35,23 @@ function getHtmlTargets(dir) {
     .map((f) => path.join(dir, f));
 }
 
+function hasMarker(html, name) {
+  return (
+    html.includes(`<!-- PARTIAL:${name} -->`) &&
+    html.includes(`<!-- /PARTIAL:${name} -->`)
+  );
+}
+
 /**
  * Replaces a marker block like:
  * <!-- PARTIAL:HEADER -->
  *   anything...
  * <!-- /PARTIAL:HEADER -->
  *
- * with the marker + replacement + closing marker, so markers remain stable.
+ * with:
+ * <!-- PARTIAL:HEADER -->
+ * ...replacement...
+ * <!-- /PARTIAL:HEADER -->
  */
 function replaceMarkerBlock(html, name, replacementHtml) {
   const open = `<!-- PARTIAL:${name} -->`;
@@ -47,18 +72,8 @@ function replaceMarkerBlock(html, name, replacementHtml) {
     `${replacementHtml}` +
     `${close}`;
 
-  return {
-    html: before + injected + after,
-    changed: true,
-    missing: false,
-  };
-}
-
-function hasMarker(html, name) {
-  return (
-    html.includes(`<!-- PARTIAL:${name} -->`) &&
-    html.includes(`<!-- /PARTIAL:${name} -->`)
-  );
+  const out = before + injected + after;
+  return { html: out, changed: out !== html, missing: false };
 }
 
 function ensurePartialsExist() {
@@ -74,6 +89,7 @@ function ensurePartialsExist() {
   }
 }
 
+// ---------- run ----------
 ensurePartialsExist();
 
 const headerHtml = readText(HEADER_PATH);
@@ -85,11 +101,12 @@ let changedCount = 0;
 const diagnostics = [];
 
 for (const file of targets) {
-  const before = fs.readFileSync(file, "utf8");
+  const beforeRaw = fs.readFileSync(file, "utf8");
+  const before = toLF(beforeRaw); // normalize line endings in memory
 
-  // Track missing markers (useful to know why a file wasn't updated)
   const hasHeader = hasMarker(before, "HEADER");
   const hasFooter = hasMarker(before, "FOOTER");
+
   if (!hasHeader || !hasFooter) {
     diagnostics.push({
       file: path.relative(ROOT, file),
@@ -100,19 +117,11 @@ for (const file of targets) {
 
   let out = before;
 
-  // Only inject where markers exist (bulletproof + predictable)
-  if (hasHeader) {
-    const r = replaceMarkerBlock(out, "HEADER", headerHtml);
-    out = r.html;
-  }
-
-  if (hasFooter) {
-    const r = replaceMarkerBlock(out, "FOOTER", footerHtml);
-    out = r.html;
-  }
+  if (hasHeader) out = replaceMarkerBlock(out, "HEADER", headerHtml).html;
+  if (hasFooter) out = replaceMarkerBlock(out, "FOOTER", footerHtml).html;
 
   if (out !== before) {
-    fs.writeFileSync(file, out, "utf8");
+    fs.writeFileSync(file, out, "utf8"); // writes LF (because out is LF)
     changedCount++;
   }
 }
@@ -126,4 +135,14 @@ if (diagnostics.length) {
     const f = d.footer ? "ok" : "MISSING";
     console.log(` - ${d.file}: HEADER=${h}; FOOTER=${f}`);
   }
+}
+
+// Optional mirror (OFF by default)
+if (MIRROR_PUBLIC_PARTIALS) {
+  fs.mkdirSync(PUBLIC_PARTIALS_DIR, { recursive: true });
+
+  fs.copyFileSync(HEADER_PATH, path.join(PUBLIC_PARTIALS_DIR, "header.html"));
+  fs.copyFileSync(FOOTER_PATH, path.join(PUBLIC_PARTIALS_DIR, "footer.html"));
+
+  console.log("✓ Mirrored partials to public/_partials (MIRROR_PUBLIC_PARTIALS=1)");
 }

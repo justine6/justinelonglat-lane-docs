@@ -137,3 +137,8 @@ If your main work happens on `fix/css-single-source`, add it to workflow `push.b
 ```yaml
 push:
   branches: [ main, fix/css-single-source ]
+### Local pre-commit guardrail (recommended)
+Enable the repo-tracked hook:
+
+```bash
+git config core.hooksPath .githooks

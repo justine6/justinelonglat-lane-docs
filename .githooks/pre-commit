@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+set -e
+
+echo "▶ Running partials guardrails (check-partials.mjs)..."
+
+# If Node isn't installed, don't block commits (Node is optional).
+if ! command -v node >/dev/null 2>&1; then
+  echo "⚠ node not found — skipping check-partials (Node is optional)."
+  exit 0
+fi
+
+node scripts/check-partials.mjs
+echo "✅ Partials guardrails passed."

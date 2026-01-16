@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "inject:partials": "node scripts/inject-partials.mjs",
+    "check:partials": "node scripts/check-partials.mjs"
+  }
+}

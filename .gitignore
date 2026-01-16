@@ -111,3 +111,9 @@ _site-backup*/
 _css-backups*/
 _legacy_templates/
 _orphaned_runtime/
+
+# Optional mirror output (never commit)
+public/_partials/
+
+# Crash dumps
+*.stackdump

@@ -1,330 +1,35 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Automation Toolkit — JustineLonglaT-Lane Docs</title>
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="alternate icon" href="/favicon.ico" />
-  <meta name="theme-color" content="#0ea5e9" />
+  <meta http-equiv="refresh" content="0; url=/automation-toolkit.html" />
+  <link rel="canonical" href="/automation-toolkit.html" />
+  <meta name="robots" content="noindex" />
 
   <link rel="stylesheet" href="/styles.css" />
-
-  <!-- Behaviour -->
-  <script src="/scripts/theme-toggle.js" defer></script>
-  <script src="/scripts/back-to-top.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- PARTIAL:HEADER -->
-<header class="site-header" role="banner">
-  <div class="container navbar">
-    <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
-      <img class="brand-logo" src="/assets/img/crest.png" alt="Justine Longla T." />
-      <span class="brand-text">
-        <strong>JustineLonglaT-Lane Docs</strong>
-        <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
-      </span>
-    </a>
+  <!-- /PARTIAL:HEADER -->
 
-    <nav class="nav-right" aria-label="Primary">
-      <a href="/README.html">README</a>
-      <a href="/docs.html">Docs index</a>
-      <a href="/tooling-setup.html">Tooling</a>
-      <a href="/cicd-pipelines.html">CI/CD</a>
-      <a href="/toolkit.html">Automation Toolkit</a>
-    </nav>
-
-    <div class="nav-profile" aria-label="Docs signature">
-      <img
-        src="/assets/img/profile.jpg"
-        alt="Justine Longla T."
-        class="nav-profile-avatar"
-        loading="lazy"
-        decoding="async"
-      />
-      <div class="nav-profile-text">
-        <span class="nav-profile-eyebrow">Docs by</span>
-        <span class="nav-profile-name">Justine Longla T.</span>
-      </div>
-
-      <button
-        id="themeToggle"
-        class="nav-theme-toggle"
-        type="button"
-        aria-label="Toggle theme"
-        title="Toggle theme"
-      >🌙</button>
-    </div>
-  </div>
-</header>
-<!-- /PARTIAL:HEADER -->
-
-  <main id="main" class="container page" role="main">
-    <section aria-labelledby="why">
-      <h2 id="why">Why this toolkit exists</h2>
-      <p>
-        As a repo grows, the biggest risks aren’t the features — it’s drift: broken links, inconsistent slugs,
-        missing tags, duplicated pages, and last-minute surprises where preview and production don’t match.
-        This toolkit is the safety layer that turns those risks into repeatable checks and safe workflows.
-      </p>
-
-      <ul>
-        <li><strong>Fast:</strong> small commands you can run daily.</li>
-        <li><strong>Safe:</strong> guardrails for risky operations (release prep, rewrites, restores).</li>
-        <li><strong>Reproducible:</strong> the same steps work across projects.</li>
-        <li><strong>Explainable:</strong> every script has a “when to use” and “what it changes.”</li>
-      </ul>
-
-      <p class="muted">
-        Use this page as your checklist: create → validate → preview → release → deploy → recover.
-      </p>
-
-      <p>
-        <strong>Jump to:</strong>
-        <a href="#included">What’s included</a> ·
-        <a href="#workflow">Workflow</a> ·
-        <a href="#guardrails">Guardrails</a> ·
-        <a href="#downloads">Downloads</a> ·
-        <a href="#tool-index">Tool index</a> ·
-        <a href="#rollback">Rollback</a> ·
-        <a href="#release-checklist">Release checklist</a>
-      </p>
-    </section>
-
-    <hr />
-
-    <section aria-labelledby="included">
-      <h2 id="included">What's included</h2>
-      <ul>
-        <li><strong>PowerShell helpers</strong> for local environment hygiene, repo setup, and repeatable actions.</li>
-        <li><strong>CI/CD snippets</strong> for GitHub Actions + Vercel workflows (checks, caching, safe deploys).</li>
-        <li><strong>Templates</strong> for YAML/config patterns you can reuse across projects.</li>
-        <li><strong>Operational runbooks</strong> and sanity-check playbooks for calm shipping.</li>
-      </ul>
-
-      <p class="muted">
-        Tip: keep scripts under <code>/tools</code> or <code>/scripts</code>, and treat them like product code:
-        versioned, documented, and used through named actions.
-      </p>
-    </section>
-
-    <hr />
-
-    <section aria-labelledby="node-optional">
-      <h2 id="node-optional">Node.js is optional</h2>
-
-      <p>
-        This docs site is a <strong>static HTML site</strong>. It does not require Node.js,
-        npm, or a package lock to build or deploy.
-      </p>
-
-      <p>
-        A small number of helper scripts (for example <code>validate-site.mjs</code> and
-        partial injection checks) are written in Node purely for convenience.
-        They are tooling — not runtime dependencies.
-      </p>
-
-      <ul>
-        <li><strong>If you have Node:</strong> you can run validation and guardrail scripts locally.</li>
-        <li><strong>If you don’t:</strong> the site still works, builds, and deploys normally.</li>
-      </ul>
-
-      <p class="muted">
-        This separation is intentional: content and layout remain simple and portable,
-        while automation stays optional and removable.
-      </p>
-    </section>
-
-    <hr />
-
-    <section aria-labelledby="workflow">
-      <h2 id="workflow">The daily workflow (boring-but-powerful)</h2>
-      <p>
-        Here’s the repeatable loop I use for content, docs, and automation updates — the same logic applies
-        whether you’re writing a post, adding a page, or shipping a release.
-      </p>
-
-      <ol>
-        <li><strong>Create</strong> the change (page/post/script) in a clean, predictable folder path.</li>
-        <li><strong>Validate</strong> structure and metadata (links, slugs, tags, indexes) before you ship.</li>
-        <li><strong>Preview</strong> locally so you catch issues before they hit production.</li>
-        <li><strong>Release</strong> in a batch when it’s ready (changelog, versioning, clean history).</li>
-        <li><strong>Deploy</strong> with the correct environment settings and a known-good baseline.</li>
-      </ol>
-
-      <p class="muted">
-        The goal is not “more automation.” The goal is fewer surprises.
-      </p>
-    </section>
-
-    <hr />
-
-    <section aria-labelledby="guardrails">
-      <h2 id="guardrails">Guardrails (when mistakes are expensive)</h2>
-      <p>
-        These are the safety patterns that keep production stable and recovery fast. If something goes wrong,
-        you should be able to return to a known-good state quickly.
-      </p>
-
-      <ul>
-        <li><strong>Pre-ship checks:</strong> catch broken links, collisions, and missing metadata early.</li>
-        <li><strong>Point-in-time restore:</strong> maintain a reference build/tag you can always revert to.</li>
-        <li><strong>Safe history operations:</strong> avoid unrecoverable mistakes when rebasing or rewriting.</li>
-        <li><strong>Release discipline:</strong> ship in clean batches with a changelog and predictable diffs.</li>
-      </ul>
-    </section>
-
-    <hr />
-
-    <section aria-labelledby="downloads">
-      <h2 id="downloads">Downloads</h2>
-      <p>
-        Publish packs here (for example under <code>/docs/</code> or <code>/downloads/</code>) so the toolkit stays
-        easy to share with collaborators.
-      </p>
-
-      <ul>
-        <li><a href="/docs/automation-toolkit-overview.pdf">Automation Toolkit Overview (PDF)</a></li>
-        <li><a href="/docs/powershell-starter-pack.zip">PowerShell Starter Pack (ZIP)</a></li>
-
-        <li><a href="/downloads/validate-site.mjs">validate-site.mjs (link / anchor drift checks)</a></li>
-        <li><a href="/downloads/Tag-Release.ps1">Tag-Release.ps1 (canonical release tagging helper)</a></li>
-        <li><a href="/downloads/bust-styles.ps1">bust-styles.ps1 (style cleanup)</a></li>
-      </ul>
-
-      <p class="muted">
-        Optional: add checksums (SHA256) next to each artifact if you want integrity verification.
-      </p>
-    </section>
-
-    <hr />
-
-    <section aria-labelledby="tool-index">
-      <h2 id="tool-index">Tool index (downloads)</h2>
-      <p class="muted">
-        These tools are published as static assets so you can download them directly from the docs site.
-        Source-of-truth lives in the repo; this page links to the shareable copies under <code>/public/downloads</code>.
-      </p>
-
-      <ul>
-        <li>
-          <strong>Site validation (internal links / anchors / drift checks)</strong><br />
-          <span class="muted"><strong>When to use:</strong> before tagging a release or merging route/layout changes.</span><br />
-          <span><strong>Download:</strong> <a href="/downloads/validate-site.mjs">/downloads/validate-site.mjs</a></span>
-        </li>
-
-        <li>
-          <strong>Style cleanup helper</strong><br />
-          <span class="muted"><strong>When to use:</strong> after refactors when CSS/formatting gets noisy.</span><br />
-          <span><strong>Download:</strong> <a href="/downloads/bust-styles.ps1">/downloads/bust-styles.ps1</a></span>
-        </li>
-
-        <li>
-          <strong>Release tagging helper</strong><br />
-          <span class="muted"><strong>When to use:</strong> when you want a clean freeze point / release tag.</span><br />
-          <span><strong>Download:</strong> <a href="/downloads/Tag-Release.ps1">/downloads/Tag-Release.ps1</a></span>
-        </li>
-
-        <li>
-          <strong>Build script (currently disabled)</strong><br />
-          <span class="muted"><strong>When to use:</strong> only after you re-enable and confirm it matches your Vercel static output.</span><br />
-          <span><strong>Path:</strong> <code>/build-Docs.ps1.disabled</code></span>
-        </li>
-
-        <li>
-          <strong>Reference templates</strong><br />
-          <span class="muted"><strong>When to use:</strong> to restore known-good layout blocks (hero/header/index variations).</span><br />
-          <span><strong>Path:</strong> <code>/templates/</code></span>
-        </li>
-      </ul>
-
-      <p class="muted">
-        Tip: if you publish new helpers, copy them into <code>/public/downloads</code> and add a line here.
-        That keeps downloads stable without changing your repo layout.
-      </p>
-    </section>
-
-    <hr />
-
-    <section aria-labelledby="rollback">
-      <h2 id="rollback">Rollback & recovery (when something breaks)</h2>
-      <p>
-        The goal is simple: if production regresses, you should be able to return to a known-good baseline
-        in minutes — without guessing.
-      </p>
-
-      <ul>
-        <li><strong>Prefer revert over rewrite:</strong> if a bad change shipped, revert commit(s) instead of rewriting history.</li>
-        <li><strong>Use freeze tags as restore points:</strong> keep “known-good” tags like <code>v1.0-footer-fix</code>.</li>
-        <li>
-          <strong>Recover from a tag:</strong>
-          <code>git checkout &lt;tag&gt;</code> → validate locally → ship a fix branch (don’t force-push main).
-        </li>
-        <li><strong>Don’t panic-edit production:</strong> fix in Git, redeploy cleanly, and keep diffs explainable.</li>
-      </ul>
-
-      <p class="muted">
-        Practical rule: every stable layout milestone ends with a tag and a deploy. Tags are your calm button.
-      </p>
-    </section>
-
-    <hr />
-
-    <section aria-labelledby="release-checklist">
-      <h2 id="release-checklist">Release checklist (boring = reliable)</h2>
-      <ol>
-        <li><strong>Local sanity:</strong> open Home, README, Docs index, Toolkit and verify layout is centered.</li>
-        <li><strong>Link sweep:</strong> click header + footer links and confirm no 404s.</li>
-        <li><strong>Minimal diff:</strong> avoid mixing refactors with content updates in the same commit.</li>
-        <li><strong>Tag a freeze point:</strong> run <code>Tag-Release.ps1</code> and push the tag.</li>
-        <li><strong>Deploy:</strong> confirm Vercel is building the expected branch/output.</li>
-        <li><strong>Post-deploy verify:</strong> test in an incognito window; confirm theme toggle + nav work.</li>
-      </ol>
-
-      <p class="muted">
-        If you can’t explain what changed in one sentence, the batch is probably too big.
-      </p>
-    </section>
+  <main id="main" class="container page" role="main" data-page="toolkit-alias">
+    <h1>Automation Toolkit</h1>
+    <p class="muted">
+      This page is an alias. Redirecting to the canonical toolkit page…
+    </p>
+    <p>
+      <a href="/automation-toolkit.html">Open Automation Toolkit</a>
+    </p>
   </main>
 
   <!-- PARTIAL:FOOTER -->
-<footer class="site-footer" role="contentinfo">
-  <div class="container footer-grid">
-    <div class="footer-brand">
-      <strong>JustineLonglaT-Lane Docs</strong>
-      <div class="muted">Cloud Confidence. Delivered.</div>
-      <div class="muted">© <span id="year"></span> Justine Longla T.</div>
-    </div>
+  <!-- /PARTIAL:FOOTER -->
 
-    <nav aria-label="Docs">
-      <a href="/README.html">README</a>
-      <a href="/index.html">Home</a>
-      <a href="/getting-started.html">Getting started</a>
-      <a href="/tooling-setup.html">Tooling setup</a>
-      <a href="/cicd-pipelines.html">CI/CD pipelines</a>
-      <a href="/architecture.html">Architecture</a>
-      <a href="/toolkit.html">Automation toolkit</a>
-      <a href="/sitemap.html">All docs</a>
-    </nav>
-
-    <nav aria-label="Network">
-      <a href="https://justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">JustineLonglaT-Lane Consulting</a>
-      <a href="https://nouvoayiti2075.com" target="_blank" rel="noopener noreferrer">Nouvo Ayiti 2075</a>
-      <a href="https://foundation.nouvoayiti2075.com" target="_blank" rel="noopener noreferrer">Foundation</a>
-      <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blogs</a>
-    </nav>
-  </div>
-
-  <script>
-    (function () {
-      var y = document.getElementById("year");
-      if (y) y.textContent = new Date().getFullYear();
-    })();
-  </script>
-</footer>
-<!-- /PARTIAL:FOOTER -->
+  <script defer src="/scripts/theme-toggle.js"></script>
 </body>
 </html>

@@ -1,17 +1,9 @@
-/**
- * check-heroes.mjs
- * ----------------
- * Verifies that the hero block(s) in public pages match the canonical hero partials.
- * Source of truth: /partials/heroes/*.html
- */
-
 import fs from "fs";
 import path from "path";
 import process from "process";
 
 const ROOT = process.cwd();
 const PARTIALS = path.join(ROOT, "partials", "heroes");
-const PUBLIC_DIR = path.join(ROOT, "public");
 
 const HERO_MAP = {
   "HERO:HOME": "home.html",
@@ -39,10 +31,11 @@ function extractMarkerBlock(html, name) {
 
   if (start === -1 || end === -1 || end < start) return null;
 
-  return html.slice(start + open.length, end).trim();
+  const inner = html.slice(start + open.length, end).trim();
+  return inner;
 }
 
-const targetFile = path.join(PUBLIC_DIR, "index.html");
+const targetFile = path.join(PUBLIC, "index.html");
 if (!fs.existsSync(targetFile)) fail(`Missing public/index.html`);
 
 const page = read(targetFile);
@@ -55,7 +48,7 @@ for (const [marker, partialFile] of Object.entries(HERO_MAP)) {
   if (!canonical) fail(`Hero partial is empty: ${partialPath}`);
 
   const current = extractMarkerBlock(page, marker);
-  if (current == null) fail(`Missing marker block in public/index.html: ${marker}`);
+  if (!current) fail(`Missing marker block in index.html: ${marker}`);
 
   if (current.trim() !== canonical) {
     fail(

@@ -2,11 +2,17 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
+  <title>Docs index — JustineLonglaT-Lane Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Architecture — JustineLonglaT-Lane Docs</title>
-  <meta name="description" content="Architecture diagrams and platform decisions for JustineLonglaT-Lane Docs." />
+
+  <meta
+    name="description"
+    content="Docs index for JustineLonglaT-Lane Docs: getting started, tooling, CI/CD, architecture, system design, and the automation toolkit."
+  />
+
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
+
   <script src="/scripts/theme-toggle.js" defer></script>
   <script src="/scripts/back-to-top.js" defer></script>
 </head>
@@ -64,40 +70,62 @@
   <main id="main" class="page-main">
     <section class="container">
       <header class="section-header">
-        <h1 class="mt-0">Architecture</h1>
-        <p class="lead">Diagrams + design decisions for the docs ecosystem.</p>
+        <h1 class="mt-0">Docs index</h1>
+        <p class="lead">
+          A curated table of contents for the JustineLonglaT-Lane Docs hub — everything is reachable in 1–2 clicks.
+        </p>
       </header>
 
-      <section class="mt-4" aria-labelledby="principles">
-        <h2 id="principles">Key design principles</h2>
+      <!-- Primary paths -->
+      <section class="mt-4" aria-labelledby="primary-heading">
+        <h2 id="primary-heading">Start here</h2>
         <ul>
-          <li><strong>Modularity:</strong> independently deployable components.</li>
-          <li><strong>Security by design:</strong> least privilege + encrypted stores.</li>
-          <li><strong>Observability:</strong> logs, metrics, tracing everywhere.</li>
-          <li><strong>Automation:</strong> IaC + CI/CD for repeatability.</li>
+          <li><strong><a href="/README.html">README</a></strong> — what this repo is, what it contains, and how to use it.</li>
+          <li><strong><a href="/getting-started.html">Getting started</a></strong> — local environment, first run, and repo flow.</li>
+          <li><strong><a href="/tooling-setup.html">Tooling setup</a></strong> — editors, formatting, linting, and guardrails.</li>
         </ul>
       </section>
 
-      <section class="mt-4" aria-labelledby="gallery">
-        <h2 id="gallery">Diagram gallery</h2>
-        <p class="muted">Click any diagram to open full-size.</p>
+      <!-- Delivery + platform -->
+      <section class="mt-4" aria-labelledby="delivery-heading">
+        <h2 id="delivery-heading">Delivery & operations</h2>
+        <ul>
+          <li><strong><a href="/cicd-pipelines.html">CI/CD pipelines</a></strong> — preview, main, and production flows.</li>
+          <li><strong><a href="/toolkit.html">Automation Toolkit</a></strong> — reusable scripts, helpers, and guardrails.</li>
+        </ul>
+      </section>
 
-        <div class="diagram-grid">
-          <figure>
-            <a href="/diagrams/high-level.svg" target="_blank" rel="noopener">
-            <img src="/diagrams/high-level.svg" alt="High-level system architecture" />
-            </a>
+      <!-- Architecture -->
+      <section class="mt-4" aria-labelledby="arch-heading">
+        <h2 id="arch-heading">Architecture</h2>
+        <ul>
+          <li><strong><a href="/architecture.html">Architecture</a></strong> — diagrams and platform decisions.</li>
+          <li><strong><a href="/system-design-part-d.html">System Design — Part D</a></strong> — how the four sites coordinate through DNS, repos, and automation.</li>
+        </ul>
 
-            <a href="/diagrams/data-pipeline.svg" target="_blank" rel="noopener">
-            <img src="/diagrams/data-pipeline.svg" alt="Data pipeline" />
-            </a>
+        <p class="muted mt-2">
+          Tip: if you add new architecture pages, link them here so the docs hub always reflects the real platform map.
+        </p>
+      </section>
 
-            <a href="/diagrams/service-flow.svg" target="_blank" rel="noopener">
-            <img src="/diagrams/service-flow.svg" alt="Service flow" />
-            </a>
-            <figcaption>Service interactions / request flow</figcaption>
-          </figure>
-        </div>
+      <!-- Everything else -->
+      <section class="mt-4" aria-labelledby="all-pages-heading">
+        <h2 id="all-pages-heading">All pages</h2>
+        <p class="muted">
+          This is a manual index (intentionally simple). Keep it curated and update it as you add new docs.
+        </p>
+
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/README.html">README</a></li>
+          <li><a href="/getting-started.html">Getting started</a></li>
+          <li><a href="/tooling-setup.html">Tooling setup</a></li>
+          <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
+          <li><a href="/architecture.html">Architecture</a></li>
+          <li><a href="/system-design-part-d.html">System Design — Part D</a></li>
+          <li><a href="/toolkit.html">Automation Toolkit</a></li>
+          <li><a href="/sitemap.html">All docs (sitemap)</a></li>
+        </ul>
       </section>
     </section>
   </main>

@@ -34,9 +34,12 @@
     <nav class="nav-right" aria-label="Primary">
       <a href="/README.html">README</a>
       <a href="/docs.html">Docs index</a>
+      <a href="/getting-started.html">Getting started</a>
       <a href="/tooling-setup.html">Tooling</a>
       <a href="/cicd-pipelines.html">CI/CD</a>
-      <a href="/toolkit.html">Automation Toolkit</a>
+      <a href="/architecture.html">Architecture</a>
+      <a href="/automation-toolkit.html">Automation Toolkit</a>
+      <a href="/sitemap.html">More</a>
     </nav>
 
     <div class="nav-profile" aria-label="Docs signature">
@@ -64,13 +67,39 @@
 </header>
 <!-- /PARTIAL:HEADER -->
 
-  <main id="main" class="page-main">
+<main id="main" class="page-main">
+  <!-- PARTIAL:HERO:HOME -->
+<section class="home-hero" aria-labelledby="hero-title">
+  <div class="container home-hero-inner">
+    <div class="hero-card" role="region" aria-label="Quick links">
+      <div class="hero-card-crest">
+        <img src="/assets/img/crest.png" alt="JustineLonglaT-Lane crest" />
+      </div>
 
-    <!-- PARTIAL:HERO:HOME -->
-    <!-- /PARTIAL:HERO:HOME -->
+      <p class="home-hero-eyebrow">JustineLonglaT-Lane Docs</p>
+      <h1 id="hero-title" class="home-hero-title">Cloud Confidence. Delivered.</h1>
+
+      <p class="home-hero-lead">
+        JustineLonglaT-Lane Docs is the source of truth for how this ecosystem runs in real life:
+        from local dev and Git hygiene to CI/CD, Vercel deploys, GitHub Pages, and the automation
+        guardrails that keep all four sites healthy.
+      </p>
+
+      <div class="hero-card-links" aria-label="Hero actions">
+        <a class="hero-btn hero-btn--primary" href="/intro-call.html">Book Intro Call</a>
+        <a class="hero-btn hero-btn--ghost" href="/brochure.html">Download Brochure</a>
+        <a class="hero-btn hero-btn--ghost" href="/resume.html">Resume</a>
+        <a class="hero-btn hero-btn--ghost" href="/toolkit.html">Automation Toolkit</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /PARTIAL:HERO:HOME -->
+
+  <div class="container">
 
     <!-- ===== Concise overview (under hero) ===== -->
-    <section class="container home-summary" aria-labelledby="summary-heading">
+    <section class="home-summary" aria-labelledby="summary-heading">
       <h2 id="summary-heading" class="sr-only">Documentation overview</h2>
 
       <ul class="summary-list">
@@ -84,7 +113,7 @@
     </section>
 
     <!-- ===== Long-form overview ===== -->
-    <section class="container home-overview" aria-labelledby="whats-inside-heading">
+    <section class="home-overview" aria-labelledby="whats-inside-heading">
       <header class="section-header">
         <h2 id="whats-inside-heading" class="mt-0">What’s inside</h2>
         <p class="lead">
@@ -102,8 +131,8 @@
         <li><strong><a href="/toolkit.html">Automation Toolkit</a></strong> — reusable CI snippets, PowerShell helpers, and guardrails.</li>
       </ul>
     </section>
-  </main>
-
+  </div>
+</main>
   <!-- PARTIAL:FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-grid">

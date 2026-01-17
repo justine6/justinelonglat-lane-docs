@@ -18,9 +18,17 @@ function fail(msg) {
   process.exit(1);
 }
 
-// Normalize to LF to stop CRLF drift in injected files.
+// Normalize to LF to stop CRLF drift in injected files (in-memory only).
 function toLF(s) {
   return s.replace(/\r\n/g, "\n");
+}
+
+// Preserve original file EOL when writing back.
+function detectEol(s) {
+  return s.includes("\r\n") ? "\r\n" : "\n";
+}
+function fromLF(s, eol) {
+  return eol === "\r\n" ? s.replace(/\n/g, "\r\n") : s;
 }
 
 function readText(p) {
@@ -29,18 +37,11 @@ function readText(p) {
 
 function getHtmlTargets(dir) {
   if (!fs.existsSync(dir)) return [];
-
   return fs
     .readdirSync(dir)
     .filter((f) => f.toLowerCase().endsWith(".html"))
-    .filter((f) => {
-      // ---- EXCLUSIONS: pages that should NOT require partial markers ----
-      if (f === "toolkit.html") return false;        // lightweight alias
-      if (f.startsWith("_")) return false;          // frozen / reference files
-      if (f.endsWith(".redirect.html")) return false; // optional future pattern
-      return true;
-    })
     .map((f) => path.join(dir, f));
+    
 }
 
 function hasMarker(html, name) {
@@ -48,13 +49,6 @@ function hasMarker(html, name) {
     html.includes(`<!-- PARTIAL:${name} -->`) &&
     html.includes(`<!-- /PARTIAL:${name} -->`)
   );
-}
-function detectEol(s) {
-  return s.includes("\r\n") ? "\r\n" : "\n";
-}
-
-function fromLF(s, eol) {
-  return eol === "\r\n" ? s.replace(/\n/g, "\r\n") : s;
 }
 
 /**
@@ -82,12 +76,9 @@ function replaceMarkerBlock(html, name, replacementHtml) {
   const before = html.slice(0, start);
   const after = html.slice(end + close.length);
 
-  const injected =
-    `${open}\n` +
-    `${replacementHtml}` +
-    `${close}`;
-
+  const injected = `${open}\n${replacementHtml}${close}`;
   const out = before + injected + after;
+
   return { html: out, changed: out !== html, missing: false };
 }
 
@@ -113,27 +104,24 @@ const footerHtml = readText(FOOTER_PATH);
 let targets = getHtmlTargets(PUBLIC_DIR);
 
 // Ensure critical hub pages are always treated as targets
-const REQUIRED_PAGES = ["index.html", "docs.html", "automation-toolkit.html"];
+const REQUIRED_PAGES = ["index.html", "docs.html", "toolkit.html"];
 
 targets = Array.from(
   new Set([
     ...targets,
     ...REQUIRED_PAGES.map((p) => path.join(PUBLIC_DIR, p)),
   ])
-);
-
-
-// Use the merged list going forward
-for (const file of targets) {
-  // ...
-}
+).filter((p) => fs.existsSync(p)); // avoid crashing if a required page is missing
 
 let changedCount = 0;
 const diagnostics = [];
 
 for (const file of targets) {
   const beforeRaw = fs.readFileSync(file, "utf8");
-  const before = toLF(beforeRaw); // normalize line endings in memory
+  const eol = detectEol(beforeRaw);
+
+  // normalize to LF ONLY for marker operations + comparison
+  const before = toLF(beforeRaw);
 
   const hasHeader = hasMarker(before, "HEADER");
   const hasFooter = hasMarker(before, "FOOTER");
@@ -152,12 +140,15 @@ for (const file of targets) {
   if (hasFooter) out = replaceMarkerBlock(out, "FOOTER", footerHtml).html;
 
   if (out !== before) {
-    fs.writeFileSync(file, out, "utf8"); // writes LF (because out is LF)
+    const outWithOriginalEol = fromLF(out, eol);
+    fs.writeFileSync(file, outWithOriginalEol, "utf8");
     changedCount++;
   }
 }
 
-console.log(`inject-partials: updated ${changedCount}/${targets.length} html file(s)`);
+console.log(
+  `inject-partials: updated ${changedCount}/${targets.length} html file(s)`
+);
 
 if (diagnostics.length) {
   console.log("\nDiagnostics (missing markers):");
@@ -177,10 +168,3 @@ if (MIRROR_PUBLIC_PARTIALS) {
 
   console.log("✓ Mirrored partials to public/_partials (MIRROR_PUBLIC_PARTIALS=1)");
 }
-
-
-
-
-
-
-

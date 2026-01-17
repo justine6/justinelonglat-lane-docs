@@ -1,20 +1,20 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Architecture — JustineLonglaT-Lane Docs</title>
-  <meta name="description" content="Architecture diagrams and platform decisions for JustineLonglaT-Lane Docs." />
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="/styles.css" />
-  <script src="/scripts/theme-toggle.js" defer></script>
-  <script src="/scripts/back-to-top.js" defer></script>
-</head>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Automation Toolkit — JustineLonglaT-Lane Docs</title>
 
+  <link rel="stylesheet" href="/styles.css?v=20251106-144839" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  <meta name="theme-color" content="#0ea5e9" />
+</head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- PARTIAL:HEADER -->
+  
+<!-- PARTIAL:HEADER -->
 <header class="site-header" role="banner">
   <div class="container navbar">
     <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
@@ -60,49 +60,43 @@
   </div>
 </header>
 <!-- /PARTIAL:HEADER -->
+<main id="main" class="container">
+    <h1>Automation Toolkit</h1>
+    <p class="lead">
+      Curated scripts, templates, and reference docs to accelerate secure,
+      production-grade automation for JustineLonglaT-Lane Consulting and your client environments.
+    </p>
 
-  <main id="main" class="page-main">
-    <section class="container">
-      <header class="section-header">
-        <h1 class="mt-0">Architecture</h1>
-        <p class="lead">Diagrams + design decisions for the docs ecosystem.</p>
-      </header>
+    <h2>What's included</h2>
+    <ul>
+      <li>PowerShell helpers for local environment hygiene and repo setup.</li>
+      <li>CI/CD snippets for GitHub Actions and Vercel workflows.</li>
+      <li>Infrastructure templates (IaC, YAML, and config samples).</li>
+      <li>Operational runbooks and sanity-check playbooks.</li>
+    </ul>
 
-      <section class="mt-4" aria-labelledby="principles">
-        <h2 id="principles">Key design principles</h2>
-        <ul>
-          <li><strong>Modularity:</strong> independently deployable components.</li>
-          <li><strong>Security by design:</strong> least privilege + encrypted stores.</li>
-          <li><strong>Observability:</strong> logs, metrics, tracing everywhere.</li>
-          <li><strong>Automation:</strong> IaC + CI/CD for repeatability.</li>
-        </ul>
-      </section>
+    <h2>Downloads</h2>
+    <p>
+      Link your published packs here (for example under <code>/docs/</code>
+      or <code>/downloads/</code>):
+    </p>
+    <ul>
+      <li><a href="/docs/automation-toolkit-overview.pdf">Automation Toolkit Overview (PDF)</a></li>
+      <li><a href="/docs/powershell-starter-pack.zip">PowerShell Starter Pack (ZIP)</a></li>
+      <!-- Add/change links as you publish real artifacts -->
+    </ul>
 
-      <section class="mt-4" aria-labelledby="gallery">
-        <h2 id="gallery">Diagram gallery</h2>
-        <p class="muted">Click any diagram to open full-size.</p>
-
-        <div class="diagram-grid">
-          <figure>
-            <a href="/diagrams/high-level.svg" target="_blank" rel="noopener">
-            <img src="/diagrams/high-level.svg" alt="High-level system architecture" />
-            </a>
-
-            <a href="/diagrams/data-pipeline.svg" target="_blank" rel="noopener">
-            <img src="/diagrams/data-pipeline.svg" alt="Data pipeline" />
-            </a>
-
-            <a href="/diagrams/service-flow.svg" target="_blank" rel="noopener">
-            <img src="/diagrams/service-flow.svg" alt="Service flow" />
-            </a>
-            <figcaption>Service interactions / request flow</figcaption>
-          </figure>
-        </div>
-      </section>
-    </section>
+    <h2>Related documentation</h2>
+    <ul>
+      <li><a href="/getting-started.html">Getting started</a></li>
+      <li><a href="/tooling-setup.html">Tooling setup</a></li>
+      <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
+      <li><a href="/architecture.html">Architecture</a></li>
+    </ul>
   </main>
 
-  <!-- PARTIAL:FOOTER -->
+  
+<!-- PARTIAL:FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-grid">
     <div class="footer-brand">
@@ -138,5 +132,14 @@
   </script>
 </footer>
 <!-- /PARTIAL:FOOTER -->
+<script defer src="/scripts/theme-toggle.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+

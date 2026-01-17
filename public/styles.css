@@ -482,3 +482,364 @@ html[data-theme="dark"] .nav-profile-name{
     text-align: left;
   }
 }
+/* =========================
+   Toolkit layout helpers
+   ========================= */
+
+.toolkit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: .35rem .65rem;
+  border: 1px solid rgba(148, 163, 184, .35);
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.toolkit-grid {
+  display: grid;
+  grid-template-columns: 1.3fr .9fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 980px) {
+  .toolkit-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 720px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  border: 1px solid rgba(148, 163, 184, .25);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.card-title {
+  margin: 0 0 .35rem 0;
+}
+
+.panel {
+  border: 1px solid rgba(148, 163, 184, .25);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.sticky {
+  position: sticky;
+  top: 1rem;
+}
+
+.linklist {
+  list-style: none;
+  padding-left: 0;
+  margin: .5rem 0 0 0;
+}
+
+.linklist li {
+  margin: .35rem 0;
+}
+
+.tool-row {
+  border-top: 1px solid rgba(148, 163, 184, .18);
+  padding-top: .6rem;
+  margin-top: .6rem;
+}
+
+.tool-name {
+  font-weight: 700;
+}
+
+.steps {
+  padding-left: 1.25rem;
+}
+
+.bullets {
+  padding-left: 1.25rem;
+}
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.toolkit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.toolkit-table th,
+.toolkit-table td {
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+
+.toolkit-table th {
+  text-align: left;
+  background: rgba(148, 163, 184, 0.08);
+}
+
+.toolkit-table a {
+  word-break: break-all;
+}
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border, #e5e7eb) 50%,
+    transparent 100%
+  );
+  margin: 2rem 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+  opacity: 0.2;
+}
+
+/* ===== Animated section divider (brand navy) ===== */
+.section-divider {
+  height: 1px;
+  margin: 2rem 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #0b1b2d,   /* ← your darker navy */
+    transparent
+  );
+  opacity: 0.7;
+  transform: scaleX(0.9);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Animate on hover or when in view */
+.section-divider:hover,
+.section-divider.is-visible {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+:root{
+  /* darker navy brand token (tweak if you want it even deeper) */
+  --brand-navy: #0b1f3a;
+  --divider: color-mix(in srgb, var(--brand-navy) 22%, transparent);
+}
+
+/* dark theme override (optional) */
+html[data-theme="dark"]{
+  --divider: color-mix(in srgb, var(--brand-navy) 35%, transparent);
+}
+
+/* animated separator */
+.section-divider{
+  height: 1px;
+  width: 100%;
+  margin: 1.25rem 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--divider),
+    transparent
+  );
+  opacity: .9;
+
+  /* subtle “living” movement */
+  background-size: 220% 100%;
+  animation: divider-sheen 6s ease-in-out infinite;
+}
+
+@keyframes divider-sheen{
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* accessibility */
+@media (prefers-reduced-motion: reduce){
+  .section-divider{ animation: none; }
+}
+.page-main{
+  padding: 2.25rem 0 3rem;
+}
+.section-header{
+  margin-bottom: 1.5rem;
+}
+/* =========================
+   Brand + shared tokens
+========================= */
+:root{
+  /* your darker navy (tweak if you want even deeper) */
+  --brand-navy: #0b1f3a;
+
+  /* soft line color consistent with docs pages */
+  --line: rgba(11, 31, 58, 0.14);
+  --line-strong: rgba(11, 31, 58, 0.22);
+}
+
+/* =========================
+   Toolkit: match docs index
+========================= */
+.page-main--docs .toolkit-grid{
+  /* keep your 2-col layout, but make it feel like the docs index */
+  margin-top: 1.25rem;
+  gap: 1.25rem;
+}
+
+.page-main--docs .toolkit-left,
+.page-main--docs .toolkit-right{
+  min-width: 0;
+}
+
+/* Flatten cards/panels to feel like docs sections */
+.page-main--docs .card,
+.page-main--docs .panel{
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+/* Optional: if you want them EVEN closer to docs index, uncomment:
+.page-main--docs .card,
+.page-main--docs .panel{
+  border: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+*/
+
+.page-main--docs .cards{
+  gap: 1rem;
+}
+
+/* Chips: tone down to match docs index links */
+.page-main--docs .chip{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.45);
+}
+html[data-theme="dark"] .page-main--docs .chip{
+  background: rgba(255,255,255,0.06);
+}
+
+/* Table: lighter borders like docs pages */
+.page-main--docs .toolkit-table{
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.page-main--docs .toolkit-table th,
+.page-main--docs .toolkit-table td{
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.page-main--docs .toolkit-table th:last-child,
+.page-main--docs .toolkit-table td:last-child{
+  border-right: 0;
+}
+
+.page-main--docs .toolkit-table thead th{
+  /* subtle header tint */
+  background: rgba(11, 31, 58, 0.06);
+}
+
+html[data-theme="dark"] .page-main--docs .toolkit-table thead th{
+  background: rgba(255,255,255,0.06);
+}
+
+/* =========================
+   Animated separators (navy)
+========================= */
+.section-divider{
+  height: 1px;
+  margin: 1.25rem 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(11, 31, 58, 0.55),
+    rgba(11, 31, 58, 0.22),
+    rgba(11, 31, 58, 0.55),
+    transparent
+  );
+  background-size: 220% 100%;
+  animation: dividerSweep 4.5s linear infinite;
+  opacity: 0.9;
+}
+
+html[data-theme="dark"] .section-divider{
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(160, 200, 255, 0.32),
+    rgba(160, 200, 255, 0.12),
+    rgba(160, 200, 255, 0.32),
+    transparent
+  );
+}
+
+@keyframes dividerSweep{
+  0%{ background-position: 0% 0%; }
+  100%{ background-position: 220% 0%; }
+}
+
+/* Responsive: collapse to single column earlier (docs-like feel) */
+@media (max-width: 980px){
+  .page-main--docs .toolkit-grid{
+    grid-template-columns: 1fr;
+  }
+  .page-main--docs .toolkit-right .sticky{
+    position: static;
+    top: auto;
+  }
+}
+.section-divider{
+  height: 1px;
+  margin: 1.25rem 0;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .6s ease, transform .6s ease;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(11, 31, 58, 0.55),
+    rgba(11, 31, 58, 0.22),
+    rgba(11, 31, 58, 0.55),
+    transparent
+  );
+  background-size: 220% 100%;
+}
+
+/* when revealed */
+.section-divider.is-visible{
+  opacity: 0.9;
+  transform: translateY(0);
+  animation: dividerSweep 4.5s linear infinite;
+}
+
+@keyframes dividerSweep{
+  0%{ background-position: 0% 0%; }
+  100%{ background-position: 220% 0%; }
+}

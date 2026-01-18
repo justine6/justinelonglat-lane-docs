@@ -35,7 +35,8 @@ const MARKERS = [
 ];
 
 // Which public HTML files must contain markers
-const TARGET_HTML_FILES = ["index.html", "docs.html", "toolkit.html"];
+const TARGET_HTML_FILES = ["index.html", "docs.html", "automation-toolkit.html"];
+
 
 // ---------------------------------------------------------------------------
 // Helpers

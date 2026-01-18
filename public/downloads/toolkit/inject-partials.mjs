@@ -104,7 +104,7 @@ const footerHtml = readText(FOOTER_PATH);
 let targets = getHtmlTargets(PUBLIC_DIR);
 
 // Ensure critical hub pages are always treated as targets
-const REQUIRED_PAGES = ["index.html", "docs.html", "toolkit.html"];
+const REQUIRED_PAGES = ["index.html", "docs.html", "automation-toolkit.html"];
 
 targets = Array.from(
   new Set([

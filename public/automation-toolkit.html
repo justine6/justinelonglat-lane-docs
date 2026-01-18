@@ -60,42 +60,393 @@
   </div>
 </header>
 <!-- /PARTIAL:HEADER -->
-<main id="main" class="container">
-    <h1>Automation Toolkit</h1>
-    <p class="lead">
-      Curated scripts, templates, and reference docs to accelerate secure,
-      production-grade automation for JustineLonglaT-Lane Consulting and your client environments.
+<main id="main" class="container page" role="main" data-page="automation-toolkit">
+
+<div class="toolkit-layout">
+
+<h1 id="toolkit-api-model">The JTL Automation API Model</h1>
+
+<p class="lead">
+  The Automation Toolkit is intentionally designed as an internal <strong>engineering API</strong> for the
+  JustineLonglaT-Lane ecosystem — a stable interface that standardizes how work is requested, validated,
+  executed, and released across repositories, sites, and environments.  
+
+  The diagram below models the Toolkit as a single orchestrator that coordinates eight complementary layers
+  of automation:
+</p>
+
+<ul>
+  <li>
+    <strong>API Intent</strong> — clarifies <em>why</em> automation exists and the outcomes it must deliver 
+    (reliability, repeatability, and safe releases).
+  </li>
+
+  <li>
+    <strong>API Surface</strong> — makes capabilities discoverable through well-structured, reusable assets
+    (scripts, templates, and CI building blocks).
+  </li>
+
+  <li>
+    <strong>API Pipeline</strong> — orchestrates predictable, repeatable workflows from validation to deployment.
+  </li>
+
+  <li>
+    <strong>API Safety</strong> — enforces guardrails such as pre-checks, linting, and validation before changes ship.
+  </li>
+
+  <li>
+    <strong>API Assets</strong> — provides reusable automation primitives that teams can compose instead of reinvent.
+  </li>
+
+  <li>
+    <strong>API Catalog</strong> — acts as a searchable index of tools, patterns, and recommended practices.
+  </li>
+
+  <li>
+    <strong>API Error Handling</strong> — ensures graceful recovery through rollback, logging, and remediation paths.
+  </li>
+
+  <li>
+    <strong>API Contract</strong> — formalizes expectations via release checklists, quality gates, and repeatable standards.
+  </li>
+</ul>
+
+<p>
+  Thinking in terms of an <strong>Automation API</strong> allows the Toolkit to scale, remain consistent,
+  and integrate naturally with CI/CD, cloud infrastructure, and platform engineering practices across
+  the JustineLonglaT-Lane ecosystem.
+</p>
+
+<figure class="toolkit-diagram">
+  <img 
+    src="/diagrams/Toolkit-API-ProcessFlows.png"
+    alt="JTL Automation API — unified orchestration of validation, preview, release, deploy, and recovery"
+    loading="lazy"
+  />
+  <figcaption>
+    <strong>JTL Automation API Model.</strong>
+    A single orchestrator that bundles validation, preview, release discipline,
+    safe deployment, and rollback into one repeatable system.
+  </figcaption>
+</figure>
+
+    </section>
+
+    <!-- your right sidebar continues here -->
+
+    <!-- LEFT: deep content -->
+    <div class="toolkit-left">
+      <section aria-labelledby="why">
+        <h2 id="why">Why this Automation Toolkit API exists</h2>
+        <p>
+
+        <p>
+          The Automation Toolkit API Model defines a shared interface for how engineers interact with automation.
+          Instead of ad-hoc scripts and manual steps, every action becomes a well-defined “API call” with clear intent, inputs, and outcomes.
+        </p>
+
+        <p>
+          The Automation Toolkit is designed as a single, repeatable <strong>Automation API</strong> for shipping safely.
+          Instead of scattered scripts, everything flows through one mental model:
+          This section describes the API surface of the Automation Toolkit — the standardized tools, templates, and primitives you can call from any repository.
+        </p>
+
+        <ul>
+          <li><strong>Inputs</strong> → <strong>Operations</strong> → <strong>Outputs</strong></li>
+          <li class="muted">Inputs: pages, posts, metadata, links, templates</li>
+          <li class="muted">Operations: validate, preview, tag/release, deploy, recover</li>
+          <li class="muted">Outputs: clean builds, stable URLs, reproducible releases</li>
+        </ul>
+
+        <p class="muted">
+          Think of this page as both documentation <em>and</em> a control plane for the Automation Toolkit API.
+        </p>
+
+        <ul>
+          <li><strong>Fast:</strong> lightweight commands you can run daily.</li>
+          <li><strong>Safe:</strong> guardrails around risky operations.</li>
+          <li><strong>Reproducible:</strong> the same workflow across projects.</li>
+          <li><strong>Explainable:</strong> every tool has a clear role in the pipeline.</li>
+        </ul>
+
+        <p class="muted">
+          Mental model: <strong>Create → Validate → Preview → Release → Deploy → Recover.</strong>
+        </p>
+      </section>
+
+
+      <hr class="section-divider" />
+
+      <section aria-labelledby="included">
+        <h2 id="included">What the Toolkit API provides</h2>
+        <ul>
+          <li>
+            <strong>Local clients (PowerShell helpers):</strong> tools that act like “SDKs” for working with your repo.
+          </li>
+          <li>
+            <strong>Server-side checks (CI/CD):</strong> automated validation in GitHub Actions and Vercel.
+          </li>
+          <li>
+            <strong>Shared contracts (templates):</strong> predictable YAML, routing, and layout patterns.
+          </li>
+          <li>
+            <strong>Runbooks:</strong> documented procedures for calm releases and recovery.
+          </li>
+        </ul>
+      </section>
+
+    <section aria-labelledby="workflow">
+      <h2 id="workflow">The Toolkit API workflow</h2>
+
+      <ol>
+        <li><strong>Input (Create):</strong> add pages, posts, or scripts in predictable paths.</li>
+        <li><strong>Validate:</strong> run checks for links, anchors, routes, and collisions.</li>
+        <li><strong>Preview:</strong> verify locally before opening a PR.</li>
+        <li><strong>Release:</strong> batch changes cleanly and tag a freeze point.</li>
+        <li><strong>Deploy:</strong> ship from a known-good baseline (consistent output).</li>
+        <li><strong>Observe:</strong> confirm production behavior matches local intent.</li>
+      </ol>
+
+    <p class="muted">In the Toolkit API Model, every change flows through a predictable request pipeline — from local development to CI validation, to guarded release.</p>
+
+    </section>
+
+      <hr class="section-divider" />
+
+      <section aria-labelledby="guardrails">
+        <h2 id="guardrails">Guardrails act as the policy layer of the Toolkit API, ensuring consistency, security, and reliability before anything reaches production.</h2>
+        <ul>
+          <li><strong>Pre-ship validation:</strong> catch broken links, bad routes, and missing metadata.</li>
+          <li><strong>Freeze points:</strong> keep stable reference tags you can always roll back to.</li>
+          <li><strong>Safe history operations:</strong> avoid destructive rewrites of main.</li>
+          <li><strong>Clean releases:</strong> ship small, explainable batches with predictable diffs.</li>
+        </ul>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section aria-labelledby="downloads" data-section="downloads">
+        <h2 id="downloads">Downloads represent the official artifacts produced by the Toolkit API — reusable, versioned outputs you can adopt across projects.</h2>
+        <ul>
+          <li><a href="/docs/automation-toolkit-overview.pdf">Toolkit API Overview (PDF)</a></li>
+          <li><a href="/docs/powershell-starter-pack.zip">PowerShell SDK (Starter Pack)</a></li>
+          <li><a href="/downloads/validate-site.mjs">validate-site.mjs (API validator)</a></li>
+          <li><a href="/downloads/Tag-Release.ps1">Tag-Release.ps1 (release controller)</a></li>
+          <li><a href="/downloads/bust-styles.ps1">bust-styles.ps1 (style normalizer)</a></li>
+        </ul>
+        <p class="muted">
+          Future improvement: publish SHA256 checksums for artifact integrity.
+        </p>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section aria-labelledby="tool-index" data-section="tool-index">
+        <h2 id="tool-index">Toolkit API components</h2>
+
+        <p>
+          Each tool below represents a function in your Toolkit API — you call it at a specific moment
+          in the lifecycle.
+        </p>
+
+        <div class="tool-index">
+          <article class="tool-card">
+            <h3>validate-site.mjs</h3>
+            <p class="muted"><strong>When to use:</strong> before tagging a release or merging routing/layout changes.</p>
+            <p><strong>Download:</strong> <a href="/downloads/validate-site.mjs">/downloads/validate-site.mjs</a></p>
+          </article>
+
+          <article class="tool-card">
+            <h3>bust-styles.ps1</h3>
+            <p class="muted"><strong>When to use:</strong> after refactors when CSS/formatting gets noisy.</p>
+            <p><strong>Download:</strong> <a href="/downloads/bust-styles.ps1">/downloads/bust-styles.ps1</a></p>
+          </article>
+
+          <article class="tool-card">
+            <h3>Tag-Release.ps1</h3>
+            <p class="muted"><strong>When to use:</strong> when you want a clean freeze point / release tag.</p>
+            <p><strong>Download:</strong> <a href="/downloads/Tag-Release.ps1">/downloads/Tag-Release.ps1</a></p>
+          </article>
+
+          <article class="tool-card">
+            <h3>Templates</h3>
+            <p class="muted"><strong>When to use:</strong> restore known-good layout blocks (hero/header/index variations).</p>
+            <p><strong>Path:</strong> <code>/templates/</code></p>
+          </article>
+        </div>
+
+        <p class="muted">
+          Tip: publish new helpers under <code>/public/downloads</code>, then add them here so links stay stable.
+        </p>
+      </section>
+      <hr class="section-divider" />
+
+    <section aria-labelledby="tool-table" data-section="tool-table">
+    <h2 id="tool-table">The Tool Index is your endpoint catalog — a curated list of automation capabilities exposed by the Toolkit API./h2>
+    <p class="muted">
+        Quick reference to every toolkit tool — what it does, when to use it, and how to run it.
+        Source-of-truth lives in the repo; downloads are stable copies in <code>/public/downloads</code>.
     </p>
 
-    <h2>What's included</h2>
-    <ul>
-      <li>PowerShell helpers for local environment hygiene and repo setup.</li>
-      <li>CI/CD snippets for GitHub Actions and Vercel workflows.</li>
-      <li>Infrastructure templates (IaC, YAML, and config samples).</li>
-      <li>Operational runbooks and sanity-check playbooks.</li>
-    </ul>
+    <div class="table-wrapper" role="region" aria-label="Toolkit tools table" tabindex="0">
+        <table class="toolkit-table">
+        <thead>
+            <tr>
+            <th>Tool</th>
+            <th>Purpose</th>
+            <th>When to use</th>
+            <th>Command</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><strong>inject-partials.mjs</strong></td>
+            <td>Rebuilds header/footer across all pages.</td>
+            <td>After editing partials or page layout.</td>
+            <td><code>node ./scripts/inject-partials.mjs</code></td>
+            </tr>
+            <tr>
+            <td><strong>check-partials.mjs</strong></td>
+            <td>Validates partial markers exist and match.</td>
+            <td>Before merge or release tag.</td>
+            <td><code>node ./scripts/check-partials.mjs</code></td>
+            </tr>
+            <tr>
+            <td><strong>check-heroes.mjs</strong></td>
+            <td>Ensures hero blocks are consistent.</td>
+            <td>When editing home/landing layouts.</td>
+            <td><code>node ./scripts/check-heroes.mjs</code></td>
+            </tr>
+            <tr>
+            <td><strong>partials-guardrails.yml</strong></td>
+            <td>CI guardrails for partial safety.</td>
+            <td>Used in GitHub Actions.</td>
+            <td><code>runs automatically in CI</code></td>
+            </tr>
+            <tr>
+            <td><strong>hero-guardrails.yml</strong></td>
+            <td>CI guardrails for hero consistency.</td>
+            <td>Used in GitHub Actions.</td>
+            <td><code>runs automatically in CI</code></td>
+            </tr>
+            <tr>
+            <td><strong>validate-site.mjs</strong></td>
+            <td>Checks internal links and anchor drift.</td>
+            <td>Before tagging a release.</td>
+            <td><code>node ./downloads/validate-site.mjs</code></td>
+            </tr>
+            <tr>
+            <td><strong>Tag-Release.ps1</strong></td>
+            <td>Canonical release tagging helper.</td>
+            <td>When freezing a milestone.</td>
+            <td><code>./downloads/Tag-Release.ps1</code></td>
+            </tr>
+            <tr>
+            <td><strong>bust-styles.ps1</strong></td>
+            <td>Cleans noisy CSS diffs.</td>
+            <td>After big refactors.</td>
+            <td><code>./downloads/bust-styles.ps1</code></td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
 
-    <h2>Downloads</h2>
-    <p>
-      Link your published packs here (for example under <code>/docs/</code>
-      or <code>/downloads/</code>):
+    <p class="muted">
+        Tip: when you add a new tool, add it to <code>/public/downloads</code>, then register it here so links stay stable.
     </p>
-    <ul>
-      <li><a href="/docs/automation-toolkit-overview.pdf">Automation Toolkit Overview (PDF)</a></li>
-      <li><a href="/docs/powershell-starter-pack.zip">PowerShell Starter Pack (ZIP)</a></li>
-      <!-- Add/change links as you publish real artifacts -->
-    </ul>
+    </section>
 
-    <h2>Related documentation</h2>
-    <ul>
-      <li><a href="/getting-started.html">Getting started</a></li>
-      <li><a href="/tooling-setup.html">Tooling setup</a></li>
-      <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
-      <li><a href="/architecture.html">Architecture</a></li>
-    </ul>
-  </main>
+      <hr class="section-divider" />
 
-  
+      <section aria-labelledby="rollback">
+        <h2 id="rollback">Rollback defines the Toolkit’s error-handling behavior — how the system recovers safely when a deployment fails.</h2>
+        <ul>
+          <li><strong>Prefer revert over rewrite:</strong> keep history clean.</li>
+          <li><strong>Use freeze tags:</strong> restore from known-good states.</li>
+          <li><strong>Recover method:</strong> checkout tag → validate → fix → redeploy.</li>
+          <li><strong>No panic edits:</strong> resolve issues through Git, not quick hacks.</li>
+        </ul>
+      </section>
+
+      <hr class="section-divider" />
+
+      <section aria-labelledby="toolkit-api">
+        <h2 id="tool-index">Toolkit endpoints (tool catalog)</h2>
+
+        <p>
+          Think of the Automation Toolkit as a lightweight “API” for your repository:
+          predictable inputs, safe operations, and reliable outputs.
+        </p>
+
+        <ul>
+          <li><strong>Inputs:</strong> pages, posts, links, metadata, and templates.</li>
+          <li><strong>Operations:</strong> validate, preview, tag, deploy, recover.</li>
+          <li><strong>Outputs:</strong> clean builds, stable URLs, and reproducible releases.</li>
+        </ul>
+
+        <p class="muted">
+          Each tool below behaves like a small, focused endpoint in your Toolkit API.
+        </p>
+
+      </section>
+
+
+      <hr class="section-divider" />
+
+      <section aria-labelledby="release-checklist" data-section="release-checklist">
+        <h2 id="release-checklist">The Release Checklist serves as the API contract — a formal definition of what a “valid release” must satisfy.</h2>
+        <ol>
+          <li><strong>Local sanity:</strong> home, README, and toolkit layout are centered and consistent.</li>
+          <li><strong>Link validation:</strong> header/footer links return 200.</li>
+          <li><strong>Clean diff:</strong> separate refactors from content changes.</li>
+          <li><strong>Freeze point:</strong> tag a stable release with Tag-Release.ps1.</li>
+          <li><strong>Deploy:</strong> confirm Vercel builds the correct branch.</li>
+          <li><strong>Post-deploy verify:</strong> test in incognito; theme toggle + nav must work.</li>
+        </ol>
+      </section>
+
+    </div>
+
+    <!-- RIGHT: sticky control panel -->
+    <aside class="toolkit-right" aria-label="Toolkit sidebar">
+      <div class="panel" aria-label="Toolkit API quick jumps">
+       <h3>Toolkit API — Quick jumps</h3>
+        <ul class="panel-list">
+          <li><a href="#why">Why <span class="api-label">API intent</span></a></li>
+          <li><a href="#included">What’s included <span class="api-label">API surface</span></a></li>
+          <li><a href="#workflow">Workflow <span class="api-label">request pipeline</span></a></li>
+          <li><a href="#guardrails">Guardrails <span class="api-label">policy layer</span></a></li>
+          <li><a href="#downloads">Downloads <span class="api-label">artifacts</span></a></li>
+          <li><a href="#tool-index">Tool index <span class="api-label">endpoint catalog</span></a></li>
+          <li><a href="#rollback">Rollback <span class="api-label">error handling</span></a></li>
+          <li><a href="#release-checklist">Release checklist <span class="api-label">API contract</span></a></li>
+        </ul>
+      </div>
+
+      <div class="panel" aria-label="Downloads panel">
+        <h3>Downloads</h3>
+        <ul class="panel-list">
+          <li><a href="/docs/automation-toolkit-overview.pdf">Toolkit Overview (PDF)</a></li>
+          <li><a href="/docs/powershell-starter-pack.zip">Starter Pack (ZIP)</a></li>
+          <li><a href="/downloads/validate-site.mjs">validate-site.mjs</a></li>
+          <li><a href="/downloads/Tag-Release.ps1">Tag-Release.ps1</a></li>
+        </ul>
+      </div>
+
+      <div class="panel" aria-label="Release summary">
+        <h3>Release summary</h3>
+        <ul class="panel-list">
+          <li>Validate links + anchors</li>
+          <li>Preview locally</li>
+          <li>Tag a freeze point</li>
+          <li>Deploy from known-good</li>
+          <li>Verify in incognito</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</main>
+
 <!-- PARTIAL:FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-grid">
@@ -135,6 +486,11 @@
 <script defer src="/scripts/theme-toggle.js"></script>
 </body>
 </html>
+
+
+
+
+
 
 
 

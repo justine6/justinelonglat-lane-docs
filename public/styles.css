@@ -304,7 +304,16 @@ html[data-theme="dark"] .nav-profile-name{
   }
   .nav-theme-toggle{ width:38px; height:30px; }
 }
-
+.na.nav-cta {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.nav-cta:hover { transform: translateY(-1px); }
+v
 /* ===============================
    HERO / CARDS (safe defaults)
    =============================== */
@@ -385,6 +394,12 @@ html[data-theme="dark"] .nav-profile-name{
   line-height: 1;
   cursor: pointer;
   width:100%;
+}
+.hero-btn--link {
+  background: transparent;
+  border: 0;
+  padding: 0.25rem 0;
+  text-decoration: underline;
 }
 
 /* ===============================

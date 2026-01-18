@@ -312,6 +312,7 @@ html[data-theme="dark"] .nav-profile-name{
   background: #fff;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
+
 .nav-cta:hover { transform: translateY(-1px); }
 v
 /* ===============================
@@ -801,4 +802,130 @@ html[data-theme="dark"] .toolkit-table thead th {
 
 .panel-list li {
   margin: 0.4rem 0;
+}
+.toolkit-diagram img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+/* --- Badge + buttons (lightweight) --- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.8);
+}
+
+.badge--info {}
+
+/* Simple button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.85);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn--sm { padding: 0.35rem 0.6rem; font-size: 0.9rem; }
+.btn--primary { box-shadow: 0 10px 24px rgba(0,0,0,0.08); }
+
+/* --- Diagram block --- */
+.toolkit-diagram {
+  margin-top: 1.25rem;
+}
+
+.toolkit-diagram__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.toolkit-diagram__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Click-to-zoom button wrapper */
+.toolkit-diagram__zoom {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.toolkit-diagram__zoom img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+/* --- Modal --- */
+.img-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.img-modal.is-open { display: block; }
+
+.img-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+}
+
+.img-modal__panel {
+  position: relative;
+  margin: 4vh auto;
+  width: min(1100px, 92vw);
+  max-height: 92vh;
+  background: rgba(255,255,255,0.96);
+  border-radius: 18px;
+  padding: 0.75rem;
+  overflow: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.img-modal__panel img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+}
+
+.img-modal__close {
+  position: sticky;
+  top: 0;
+  margin-left: auto;
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.9);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
 }

@@ -1,18 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>README — JustineLonglaT-Lane Docs</title>
+  <meta charset="utf-8" />
+  <title>Technical README — JustineLonglaT-Lane Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
-
 <body>
 
-  <!-- PARTIAL: HEADER -->
-  <!-- inject:partials:header -->
+  <!-- PARTIAL:HEADER -->
+<header class="site-header" role="banner">
+  <div class="container navbar">
+    <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
+      <img class="brand-logo" src="/assets/img/crest.png" alt="Justine Longla T." />
+      <span class="brand-text">
+        <strong>JustineLonglaT-Lane Docs</strong>
+        <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
+      </span>
+    </a>
+
+    <nav class="nav-right" aria-label="Primary">
+      <!-- Ecosystem (external, canonical) -->
+      <a href="https://justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">
+        Top site
+      </a>
+      <a href="https://consulting.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">
+        Consulting
+      </a>
+      <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">
+        Blog
+      </a>
+
+      <!-- Docs (internal) -->
+      <a href="/README.html">README</a>
+      <a href="/getting-started.html">Getting started</a>
+      <a href="/tooling-setup.html">Tooling</a>
+      <a href="/cicd-pipelines.html">CI/CD</a>
+      <a href="/architecture.html">Architecture</a>
+
+      <!-- Primary internal CTA -->
+      <a class="nav-cta" href="/automation-toolkit.html">Automation Toolkit</a>
+
+      <a href="/sitemap.html">More</a>
+    </nav>
+
+    <div class="nav-profile" aria-label="Docs signature">
+      <img
+        src="/assets/img/profile.jpg"
+        alt="Justine Longla T."
+        class="nav-profile-avatar"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="nav-profile-text">
+        <span class="nav-profile-eyebrow">Docs by</span>
+        <span class="nav-profile-name">Justine Longla T.</span>
+      </div>
+
+      <button
+        id="themeToggle"
+        class="nav-theme-toggle"
+        type="button"
+        aria-label="Toggle theme"
+        title="Toggle theme"
+      >🌙</button>
+    </div>
+  </div>
+</header>
+<!-- /PARTIAL:HEADER -->
 
   <main class="container section">
+
+    <!-- GitHub banner / actions -->
+    <section class="repo-card" aria-label="Repository links">
+      <div class="repo-card-inner">
+        <div>
+          <div class="repo-eyebrow">TECHNICAL REPOSITORY</div>
+          <div class="repo-title">JustineLonglaT-Lane</div>
+          <p class="repo-sub">
+            Live source code, CI/CD workflows, automation guardrails, and multi-site architecture.
+          </p>
+        </div>
+
+        <div class="repo-actions">
+          <a class="btn primary"
+             href="https://github.com/justine6/JustineLonglaT-Lane"
+             target="_blank" rel="noopener noreferrer">
+            View repo on GitHub ↗
+          </a>
+
+          <a class="btn"
+             href="https://github.com/justine6/JustineLonglaT-Lane/blob/main/README.md"
+             target="_blank" rel="noopener noreferrer">
+            Open README.md ↗
+          </a>
+        </div>
+      </div>
+    </section>
 
     <h1>Technical README</h1>
 
@@ -44,15 +128,9 @@
           Blog platform ↗
         </a>
       </li>
-      <li>
-        <a href="/docs">Docs index</a>
-      </li>
-      <li>
-        <a href="/architecture">Architecture</a>
-      </li>
-      <li>
-        <a href="/automation-toolkit">Automation Toolkit</a>
-      </li>
+      <li><a href="/docs">Docs index</a></li>
+      <li><a href="/architecture">Architecture</a></li>
+      <li><a href="/automation-toolkit">Automation Toolkit</a></li>
     </ul>
 
     <hr />
@@ -63,10 +141,57 @@
 
   </main>
 
-  <!-- PARTIAL: FOOTER -->
-  <!-- inject:partials:footer -->
+  <!-- PARTIAL:FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <strong>JustineLonglaT-Lane Docs</strong>
+      <div class="muted">Cloud Confidence. Delivered.</div>
+      <div class="muted">© <span id="year"></span> Justine Longla T.</div>
+    </div>
 
-  <script src="/scripts/theme-toggle.js"></script>
+    <nav aria-label="Docs">
+      <a href="/README.html">README</a>
+      <a href="/index.html">Home</a>
+      <a href="/getting-started.html">Getting started</a>
+      <a href="/tooling-setup.html">Tooling setup</a>
+      <a href="/cicd-pipelines.html">CI/CD pipelines</a>
+      <a href="/architecture.html">Architecture</a>
+      <a href="/automation-toolkit.html">Automation Toolkit</a>
+      <a href="/sitemap.html">All docs</a>
+    </nav>
+
+    <nav aria-label="Network">
+      <a href="https://justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Top site</a>
+      <a href="https://consulting.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Consulting</a>
+      <a href="https://docs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Docs</a>
+      <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog</a>
+      <a href="https://docs.justinelonglat-lane.com/automation-toolkit.html"
+        target="_blank" rel="noopener noreferrer">Automation Toolkit</a>
+    </nav>
+  </div>
+
+  <script>
+    (function () {
+      var y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+  </script>
+</footer>
+<!-- /PARTIAL:FOOTER -->
+
+  <!-- tiny local styling fallback (safe even if your CSS already has these) -->
+  <style>
+    .repo-card{margin:0 0 20px;border-radius:16px;border:1px solid rgba(15,23,42,.12);background:#fff;box-shadow:0 10px 30px rgba(15,23,42,.06)}
+    .repo-card-inner{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;padding:16px;flex-wrap:wrap}
+    .repo-eyebrow{font-size:11px;letter-spacing:.18em;font-weight:700;color:rgba(15,23,42,.55)}
+    .repo-title{font-size:16px;font-weight:800;margin-top:4px}
+    .repo-sub{margin:6px 0 0;color:rgba(15,23,42,.7);max-width:60ch}
+    .repo-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:10px 14px;font-weight:700;font-size:13px;border:1px solid rgba(15,23,42,.18);text-decoration:none}
+    .btn.primary{background:#0f172a;color:#fff;border-color:#0f172a}
+    .btn:hover{transform:translateY(-1px)}
+  </style>
 
 </body>
 </html>

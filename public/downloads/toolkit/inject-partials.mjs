@@ -45,10 +45,15 @@ function getHtmlTargets(dir) {
 }
 
 function hasMarker(html, name) {
-  return (
-    html.includes(`<!-- PARTIAL:${name} -->`) &&
-    html.includes(`<!-- /PARTIAL:${name} -->`)
-  );
+  const openA = `<!-- PARTIAL:${name} -->`;  // space
+  const openB = `<!-- PARTIAL:${name}-->`;   // no space
+  const closeA = `<!-- /PARTIAL:${name} -->`;
+  const closeB = `<!-- /PARTIAL:${name}-->`;
+
+  const hasOpen = html.includes(openA) || html.includes(openB);
+  const hasClose = html.includes(closeA) || html.includes(closeB);
+
+  return hasOpen && hasClose;
 }
 
 /**
@@ -63,8 +68,17 @@ function hasMarker(html, name) {
  * <!-- /PARTIAL:HEADER -->
  */
 function replaceMarkerBlock(html, name, replacementHtml) {
-  const open = `<!-- PARTIAL:${name} -->`;
-  const close = `<!-- /PARTIAL:${name} -->`;
+  const openA = `<!-- PARTIAL:${name} -->`; // space
+  const openB = `<!-- PARTIAL:${name}-->`;  // no space
+  const closeA = `<!-- /PARTIAL:${name} -->`;
+  const closeB = `<!-- /PARTIAL:${name}-->`;
+
+  const open = html.includes(openA) ? openA : (html.includes(openB) ? openB : null);
+  const close = html.includes(closeA) ? closeA : (html.includes(closeB) ? closeB : null);
+
+  if (!open || !close) {
+    return { html, changed: false, missing: true };
+  }
 
   const start = html.indexOf(open);
   const end = html.indexOf(close);
@@ -76,6 +90,7 @@ function replaceMarkerBlock(html, name, replacementHtml) {
   const before = html.slice(0, start);
   const after = html.slice(end + close.length);
 
+  // Preserve the marker style found in the file (space vs no-space)
   const injected = `${open}\n${replacementHtml}${close}`;
   const out = before + injected + after;
 

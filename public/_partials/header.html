@@ -1,7 +1,7 @@
 <header class="site-header" role="banner">
   <div class="container navbar">
     <!-- Brand (left) -->
-    <a class="brand" href="/index.html">
+    <a class="brand" href="/">
       <img class="brand-logo" src="/assets/img/crest.png" alt="JustineLonglaT-Lane crest" />
       <div class="brand-text">
         <div class="brand-title">JustineLonglaT-Lane Docs</div>
@@ -9,12 +9,15 @@
       </div>
     </a>
 
-    <!-- Links (center/right) -->
+    <!-- Links -->
     <nav class="nav-right" aria-label="Primary">
-      <a href="/README.html">README</a>
-      <a href="/docs.html">Docs index</a>
+      <!-- Internal (guaranteed to exist) -->
+      <a href="/docs">Docs index</a>
+      <a href="/architecture">Architecture</a>
+      <a href="/automation-toolkit">Automation Toolkit</a>
+      <a href="/toolkit">Toolkit</a>
 
-      <!-- Temporary business-focused routing -->
+      <!-- External (until docs pages exist) -->
       <a
         href="https://consulting.justinelonglat-lane.com/engineering-mesh"
         target="_blank"
@@ -22,6 +25,7 @@
       >
         Getting started ↗
       </a>
+
       <a
         href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
         target="_blank"
@@ -30,13 +34,18 @@
         Tooling ↗
       </a>
 
-      <a href="/cicd-pipelines.html">CI/CD</a>
-      <a href="/architecture.html">Architecture</a>
-      <a href="/automation-toolkit.html">Automation Toolkit</a>
-      <a href="/sitemap.html">More</a>
+      <a
+        href="https://consulting.justinelonglat-lane.com/engineering-mesh#cicd"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        CI/CD ↗
+      </a>
+
+      <a href="/sitemap">More</a>
     </nav>
 
-    <!-- Signature pill (far right) -->
+    <!-- Signature pill -->
     <div class="nav-shell">
       <div class="nav-profile" aria-label="Docs signature">
         <img

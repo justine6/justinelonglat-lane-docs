@@ -2,6 +2,7 @@
   "scripts": {
     "inject:partials": "node scripts/inject-partials.mjs",
     "check:partials": "node scripts/check-partials.mjs",
-    "inject": "node scripts/inject-partials.mjs"
+    "inject": "node scripts/inject-partials.mjs",
+    "build": "pnpm run inject:partials && pnpm run check:partials"
   }
 }

@@ -5,6 +5,7 @@ const ROOT = process.cwd();
 const PARTIALS_DIR = path.join(ROOT, "partials");
 const PUBLIC_DIR = path.join(ROOT, "public");
 
+const HEAD_PATH = path.join(PARTIALS_DIR, "head.html");
 const HEADER_PATH = path.join(PARTIALS_DIR, "header.html");
 const FOOTER_PATH = path.join(PARTIALS_DIR, "footer.html");
 
@@ -35,9 +36,9 @@ function getHtmlTargets(dir) {
     .filter((f) => f.toLowerCase().endsWith(".html"))
     .filter((f) => {
       // ---- EXCLUSIONS: pages that should NOT require partial markers ----
-      if (f === "toolkit.html") return false;        // lightweight alias
-      if (f.startsWith("_")) return false;          // frozen / reference files
-      if (f.endsWith(".redirect.html")) return false; // optional future pattern
+      if (f === "toolkit.html") return false;          // lightweight alias
+      if (f.startsWith("_")) return false;             // frozen / reference files
+      if (f.endsWith(".redirect.html")) return false;  // optional future pattern
       return true;
     })
     .map((f) => path.join(dir, f));
@@ -49,24 +50,17 @@ function hasMarker(html, name) {
     html.includes(`<!-- /PARTIAL:${name} -->`)
   );
 }
-function detectEol(s) {
-  return s.includes("\r\n") ? "\r\n" : "\n";
-}
-
-function fromLF(s, eol) {
-  return eol === "\r\n" ? s.replace(/\n/g, "\r\n") : s;
-}
 
 /**
  * Replaces a marker block like:
- * <!-- PARTIAL:HEADER -->
+ * <!-- PARTIAL:NAME -->
  *   anything...
- * <!-- /PARTIAL:HEADER -->
+ * <!-- /PARTIAL:NAME -->
  *
  * with:
- * <!-- PARTIAL:HEADER -->
+ * <!-- PARTIAL:NAME -->
  * ...replacement...
- * <!-- /PARTIAL:HEADER -->
+ * <!-- /PARTIAL:NAME -->
  */
 function replaceMarkerBlock(html, name, replacementHtml) {
   const open = `<!-- PARTIAL:${name} -->`;
@@ -94,6 +88,7 @@ function replaceMarkerBlock(html, name, replacementHtml) {
 function ensurePartialsExist() {
   const missing = [];
   if (!fs.existsSync(PARTIALS_DIR)) missing.push("partials/ directory");
+  if (!fs.existsSync(HEAD_PATH)) missing.push("partials/head.html");
   if (!fs.existsSync(HEADER_PATH)) missing.push("partials/header.html");
   if (!fs.existsSync(FOOTER_PATH)) missing.push("partials/footer.html");
 
@@ -107,6 +102,7 @@ function ensurePartialsExist() {
 // ---------- run ----------
 ensurePartialsExist();
 
+const headHtml = readText(HEAD_PATH);
 const headerHtml = readText(HEADER_PATH);
 const footerHtml = readText(FOOTER_PATH);
 
@@ -114,19 +110,12 @@ let targets = getHtmlTargets(PUBLIC_DIR);
 
 // Ensure critical hub pages are always treated as targets
 const REQUIRED_PAGES = ["index.html", "docs.html", "automation-toolkit.html"];
-
 targets = Array.from(
   new Set([
     ...targets,
     ...REQUIRED_PAGES.map((p) => path.join(PUBLIC_DIR, p)),
   ])
-);
-
-
-// Use the merged list going forward
-for (const file of targets) {
-  // ...
-}
+).filter((p) => fs.existsSync(p));
 
 let changedCount = 0;
 const diagnostics = [];
@@ -135,12 +124,14 @@ for (const file of targets) {
   const beforeRaw = fs.readFileSync(file, "utf8");
   const before = toLF(beforeRaw); // normalize line endings in memory
 
+  const hasHead = hasMarker(before, "HEAD");
   const hasHeader = hasMarker(before, "HEADER");
   const hasFooter = hasMarker(before, "FOOTER");
 
-  if (!hasHeader || !hasFooter) {
+  if (!hasHead || !hasHeader || !hasFooter) {
     diagnostics.push({
       file: path.relative(ROOT, file),
+      head: hasHead,
       header: hasHeader,
       footer: hasFooter,
     });
@@ -148,6 +139,7 @@ for (const file of targets) {
 
   let out = before;
 
+  if (hasHead) out = replaceMarkerBlock(out, "HEAD", headHtml).html;
   if (hasHeader) out = replaceMarkerBlock(out, "HEADER", headerHtml).html;
   if (hasFooter) out = replaceMarkerBlock(out, "FOOTER", footerHtml).html;
 
@@ -162,9 +154,10 @@ console.log(`inject-partials: updated ${changedCount}/${targets.length} html fil
 if (diagnostics.length) {
   console.log("\nDiagnostics (missing markers):");
   for (const d of diagnostics) {
+    const hd = d.head ? "ok" : "MISSING";
     const h = d.header ? "ok" : "MISSING";
     const f = d.footer ? "ok" : "MISSING";
-    console.log(` - ${d.file}: HEADER=${h}; FOOTER=${f}`);
+    console.log(` - ${d.file}: HEAD=${hd}; HEADER=${h}; FOOTER=${f}`);
   }
 }
 
@@ -172,15 +165,9 @@ if (diagnostics.length) {
 if (MIRROR_PUBLIC_PARTIALS) {
   fs.mkdirSync(PUBLIC_PARTIALS_DIR, { recursive: true });
 
+  fs.copyFileSync(HEAD_PATH, path.join(PUBLIC_PARTIALS_DIR, "head.html"));
   fs.copyFileSync(HEADER_PATH, path.join(PUBLIC_PARTIALS_DIR, "header.html"));
   fs.copyFileSync(FOOTER_PATH, path.join(PUBLIC_PARTIALS_DIR, "footer.html"));
 
   console.log("✓ Mirrored partials to public/_partials (MIRROR_PUBLIC_PARTIALS=1)");
 }
-
-
-
-
-
-
-

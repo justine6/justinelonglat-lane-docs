@@ -20,13 +20,14 @@ const PARTIALS_DIR = path.resolve(ROOT, "partials");
 const PUBLIC_DIR = path.resolve(ROOT, "public");
 
 // Canonical partials
-const REQUIRED_PARTIALS = ["header.html", "footer.html"];
+const REQUIRED_PARTIALS = ["head.html", "header.html", "footer.html"];
 
 // Optional-but-guarded hero partial (freeze workflow)
 const HERO_PARTIAL = path.resolve(PARTIALS_DIR, "heroes", "home.html");
 
 // Injection markers required in targets
 const MARKERS = [
+  { name: "HEAD", open: "<!-- PARTIAL:HEAD -->", close: "<!-- /PARTIAL:HEAD -->" },
   { name: "HEADER", open: "<!-- PARTIAL:HEADER -->", close: "<!-- /PARTIAL:HEADER -->" },
   { name: "FOOTER", open: "<!-- PARTIAL:FOOTER -->", close: "<!-- /PARTIAL:FOOTER -->" },
 
@@ -36,7 +37,6 @@ const MARKERS = [
 
 // Which public HTML files must contain markers
 const TARGET_HTML_FILES = ["index.html", "docs.html", "automation-toolkit.html"];
-
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -172,10 +172,9 @@ if (!fs.existsSync(PUBLIC_DIR)) {
 }
 ok("Found /public directory");
 
-// Build absolute paths for public html files that exist
-const targets = TARGET_HTML_FILES.map((f) => path.join(PUBLIC_DIR, f)).filter((p) =>
-  fs.existsSync(p)
-);
+const targets = TARGET_HTML_FILES
+  .map((f) => path.join(PUBLIC_DIR, f))
+  .filter((p) => fs.existsSync(p));
 
 if (targets.length === 0) {
   warn("No public HTML files found to validate markers.");
@@ -237,9 +236,5 @@ if (targets.length === 0) {
 
   ok("All required injection markers are present in target HTML files");
 }
-
-// ---------------------------------------------------------------------------
-// Success
-// ---------------------------------------------------------------------------
 
 ok("All required partials are present and non-empty (and markers validated)");

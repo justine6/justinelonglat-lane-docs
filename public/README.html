@@ -5,6 +5,7 @@
   <title>Technical README — JustineLonglaT-Lane Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/styles.css" />
+<meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline">
 </head>
 <body>
 
@@ -139,34 +140,16 @@
 
   <!-- PARTIAL:FOOTER -->
 <footer class="site-footer" role="contentinfo">
-  <div class="container footer-grid">
-    <div class="footer-brand">
-      <strong>JustineLonglaT-Lane Docs</strong>
-      <div class="muted">Cloud Confidence. Delivered.</div>
-      <div class="muted">© <span id="year"></span> Justine Longla T.</div>
-    </div>
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Justine Longla T.</p>
 
-    <nav aria-label="Docs">
-      <a href="/README.html">README</a>
-      <a href="/index.html">Home</a>
-      <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
-        target="_blank" rel="noopener noreferrer">Getting started ↗</a>
+    <!-- Docs version line (always visible, own line) -->
+    <p id="docsVersionLine" class="footer-version"></p>
 
-      <a href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
-        target="_blank" rel="noopener noreferrer">Tooling ↗</a>
-      <a href="/cicd-pipelines.html">CI/CD pipelines</a>
-      <a href="/architecture.html">Architecture</a>
+    <nav class="footer-nav">
+      <a href="/docs.html">Docs</a>
       <a href="/automation-toolkit.html">Automation Toolkit</a>
-      <a href="/sitemap.html">All docs</a>
-    </nav>
-
-    <nav aria-label="Network">
-      <a href="https://justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Top site</a>
-      <a href="https://consulting.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Consulting</a>
-      <a href="https://docs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Docs</a>
-      <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog</a>
-      <a href="https://docs.justinelonglat-lane.com/automation-toolkit.html"
-        target="_blank" rel="noopener noreferrer">Automation Toolkit</a>
+      <a href="/sitemap.xml">Sitemap</a>
     </nav>
   </div>
 
@@ -174,6 +157,11 @@
     (function () {
       var y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
+
+      // Read the version from the meta tag and render it in the footer
+      var meta = document.querySelector('meta[name="docs-version"]');
+      var line = document.getElementById("docsVersionLine");
+      if (line && meta && meta.content) line.textContent = meta.content;
     })();
   </script>
 </footer>
@@ -194,3 +182,4 @@
 
 </body>
 </html>
+

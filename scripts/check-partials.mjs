@@ -36,7 +36,17 @@ const MARKERS = [
 ];
 
 // Which public HTML files must contain markers
-const TARGET_HTML_FILES = ["index.html", "docs.html", "automation-toolkit.html"];
+// Default: enforce markers on ALL public HTML pages (future-proof).
+// Exclusions are allowed for true edge cases only.
+const EXCLUDED_HTML_FILES = new Set([
+  // add exclusions here if needed
+  // "README.html",
+]);
+
+const TARGET_HTML_FILES = fs
+  .readdirSync(PUBLIC_DIR)
+  .filter((f) => f.toLowerCase().endsWith(".html"))
+  .filter((f) => !EXCLUDED_HTML_FILES.has(f));
 
 // ---------------------------------------------------------------------------
 // Helpers

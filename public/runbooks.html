@@ -119,6 +119,7 @@
         <h2 id="runbook-catalog">Runbook catalog</h2>
 
         <div class="docs-grid">
+
           <article class="docs-card">
             <h3>Sandbox Startup</h3>
             <p>
@@ -186,9 +187,26 @@
               <a href="/runbooks/docker-recovery.html">Open runbook →</a>
             </p>
           </article>
+
+          <article class="docs-card">
+            <h3>Metrics Endpoint Debug</h3>
+            <p>
+              Debug the <code>/metrics</code> endpoint when Prometheus cannot scrape data or the
+              application is running without exposing expected telemetry.
+            </p>
+            <ul>
+              <li>Call <code>/metrics</code> directly</li>
+              <li>Verify service port exposure</li>
+              <li>Review application logs</li>
+              <li>Confirm metric registration</li>
+            </ul>
+            <p>
+              <a href="/runbooks/metrics-endpoint-debug.html">Open runbook →</a>
+            </p>
+          </article>
+
         </div>
       </section>
-
       <section class="mt-4" aria-labelledby="operating-model">
         <h2 id="operating-model">Operating model</h2>
         <p>

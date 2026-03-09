@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- PARTIAL:HEAD -->
+<!-- /PARTIAL:HEAD -->
+  <title>Metrics Endpoint Debug — JLT-Lane Runbooks</title>
+  <meta
+    name="description"
+    content="Runbook for debugging the /metrics endpoint in the JLT-Lane sandbox environment when Prometheus has no scrapeable metrics."
+  />
+  <meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+<!-- PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
+
+  <main id="main" class="page-main">
+    <section class="container">
+      <header class="section-header">
+        <h1 class="mt-0">Metrics Endpoint Debug</h1>
+        <p class="lead">
+          Use this runbook when the application is up but the <code>/metrics</code> endpoint is
+          empty, unavailable, or missing expected Prometheus-formatted output.
+        </p>
+      </header>
+
+      <section class="mt-4">
+        <h2>Common symptoms</h2>
+        <ul>
+          <li><code>curl http://localhost:3002/metrics</code> returns nothing useful</li>
+          <li>Prometheus target is DOWN</li>
+          <li>Grafana panels show no data even though containers are running</li>
+        </ul>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 1 — Call the endpoint directly</h2>
+        <div class="code-block">
+<pre><code>curl http://localhost:3002/metrics</code></pre>
+        </div>
+        <p>
+          A healthy endpoint should return plain-text Prometheus metrics.
+        </p>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 2 — Verify the service is listening on the expected port</h2>
+        <div class="code-block">
+<pre><code>docker ps
+docker compose ps</code></pre>
+        </div>
+        <p>
+          Confirm the auth-service container is running and exposing the expected application port.
+        </p>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 3 — Review application logs</h2>
+        <div class="code-block">
+<pre><code>docker compose logs auth-service --tail=100</code></pre>
+        </div>
+        <p>
+          Look for errors related to route registration, metrics middleware, app startup, or port binding.
+        </p>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 4 — Confirm metrics registration</h2>
+        <p>Typical metrics exposed by the service may include:</p>
+        <div class="code-block">
+<pre><code>process_cpu_seconds_total
+process_resident_memory_bytes
+nodejs_active_handles
+auth_service_http_requests_total</code></pre>
+        </div>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 5 — Restart the application service</h2>
+        <div class="code-block">
+<pre><code>docker compose restart auth-service</code></pre>
+        </div>
+      </section>
+
+      <section class="mt-4">
+        <h2>Success criteria</h2>
+        <ul>
+          <li><code>/metrics</code> responds with Prometheus-formatted text</li>
+          <li>Prometheus can scrape the target</li>
+          <li>Grafana queries begin returning live data</li>
+        </ul>
+      </section>
+
+      <section class="mt-4">
+        <h2>Related runbooks</h2>
+        <ul>
+          <li><a href="/runbooks/sandbox-startup.html">Sandbox Startup</a></li>
+          <li><a href="/runbooks/prometheus-target-debug.html">Prometheus Target Debug</a></li>
+          <li><a href="/runbooks/docker-recovery.html">Docker Recovery</a></li>
+          <li><a href="/runbooks.html">Runbooks Hub</a></li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+<!-- PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+</body>
+</html>

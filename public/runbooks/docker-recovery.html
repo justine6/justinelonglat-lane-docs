@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- PARTIAL:HEAD -->
+<!-- /PARTIAL:HEAD -->
+  <title>Docker Recovery — JLT-Lane Runbooks</title>
+  <meta
+    name="description"
+    content="Runbook for recovering the JLT-Lane sandbox when Docker containers fail to start, networks drift, or the local environment becomes unstable."
+  />
+  <meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+<!-- PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
+
+  <main id="main" class="page-main">
+    <section class="container">
+      <header class="section-header">
+        <h1 class="mt-0">Docker Recovery</h1>
+        <p class="lead">
+          Recover the platform when containers fail to start, networks drift, or the local Docker
+          environment becomes unstable.
+        </p>
+      </header>
+
+      <section class="mt-4">
+        <h2>Common symptoms</h2>
+        <ul>
+          <li>Containers exit immediately after startup</li>
+          <li>Prometheus cannot reach the application target</li>
+          <li>Grafana loads but shows no data</li>
+          <li>Docker Desktop is running but services are unreachable</li>
+        </ul>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 1 — Verify Docker health</h2>
+        <div class="code-block">
+<pre><code>docker info
+docker version</code></pre>
+        </div>
+        <p>
+          Confirm Docker Desktop is running and the daemon is available before troubleshooting the
+          stack itself.
+        </p>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 2 — Inspect container state</h2>
+        <div class="code-block">
+<pre><code>docker ps -a</code></pre>
+        </div>
+        <p>
+          Look for containers that are repeatedly restarting, exited, or unhealthy.
+        </p>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 3 — Restart the compose stack</h2>
+        <div class="code-block">
+<pre><code>docker compose down
+docker compose up -d</code></pre>
+        </div>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 4 — Review logs</h2>
+        <div class="code-block">
+<pre><code>docker compose logs --tail=100
+docker compose logs prometheus
+docker compose logs grafana
+docker compose logs auth-service</code></pre>
+        </div>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 5 — Reset stale resources if needed</h2>
+        <div class="code-block">
+<pre><code>docker network prune
+docker volume prune</code></pre>
+        </div>
+        <p class="muted">
+          Use pruning carefully. This removes unused Docker resources and may delete stale volumes.
+        </p>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 6 — Validate recovery</h2>
+        <ul>
+          <li>Containers are running normally</li>
+          <li><code>/metrics</code> responds successfully</li>
+          <li>Prometheus target is UP</li>
+          <li>Grafana dashboards begin rendering data again</li>
+        </ul>
+      </section>
+
+      <section class="mt-4">
+        <h2>Related runbooks</h2>
+        <ul>
+          <li><a href="/runbooks/sandbox-startup.html">Sandbox Startup</a></li>
+          <li><a href="/runbooks/prometheus-target-debug.html">Prometheus Target Debug</a></li>
+          <li><a href="/runbooks/metrics-endpoint-debug.html">Metrics Endpoint Debug</a></li>
+          <li><a href="/runbooks.html">Runbooks Hub</a></li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+<!-- PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CI/CD Pipelines — JustineLonglaT-Lane Docs</title>
+  <meta
+    name="description"
+    content="CI/CD pipeline documentation for the JustineLonglaT-Lane ecosystem: release workflows, validation stages, deployment patterns, and containerized delivery pipelines."
+  />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/scripts/theme-toggle.js" defer></script>
+  <script src="/scripts/back-to-top.js" defer></script>
+  <meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline">
+
+  <!-- PARTIAL:HEAD -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/assets/img/crest.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- /PARTIAL:HEAD -->
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- PARTIAL:HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container navbar">
+      <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
+        <img class="brand-logo" src="/assets/img/crest.png" alt="Justine Longla T." />
+        <span class="brand-text">
+          <strong>JustineLonglaT-Lane Docs</strong>
+          <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
+        </span>
+      </a>
+
+      <nav class="nav-right" aria-label="Primary">
+        
+        <a href="https://consulting.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Consulting ↗</a>
+        <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog ↗</a>
+
+        <a href="/README.html">README</a>
+        <a href="/docs.html">Docs index</a>
+        <a href="/architecture.html">Architecture</a>
+        <a href="/observability-architecture.html">Observability</a>
+        <a class="nav-cta" href="/automation-toolkit.html">Automation Toolkit</a>
+        <a href="/sitemap.html">More</a>
+
+        <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
+          target="_blank" rel="noopener noreferrer">Getting started ↗</a>
+
+        <a href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
+          target="_blank" rel="noopener noreferrer">Tooling ↗</a>
+      </nav>
+
+      <div class="nav-profile" aria-label="Docs signature">
+        <img
+          src="/assets/img/profile.jpg"
+          alt="Justine Longla T."
+          class="nav-profile-avatar"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="nav-profile-text">
+          <span class="nav-profile-eyebrow">Docs by</span>
+          <span class="nav-profile-name">Justine Longla T.</span>
+        </div>
+
+        <button
+          id="themeToggle"
+          class="nav-theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+          title="Toggle theme"
+        >🌙</button>
+      </div>
+    </div>
+  </header>
+  <!-- /PARTIAL:HEADER -->
+
+  <main id="main" class="page-main">
+    <section class="container">
+      <header class="section-header">
+        <h1 class="mt-0">CI/CD Pipelines</h1>
+        <p class="lead">
+          This page documents how the JustineLonglaT-Lane ecosystem ships changes through
+          validation, release, deployment, and operational verification across documentation,
+          platform assets, and containerized delivery workflows.
+        </p>
+      </header>
+
+      <section class="mt-4" aria-labelledby="overview">
+        <h2 id="overview">Overview</h2>
+        <p>
+          CI/CD in this ecosystem is not treated as a single deployment script. It is a release discipline.
+          Every pipeline is designed to move changes from source control to a known-good deployed state
+          through repeatable checks, predictable workflow stages, and clear rollback paths.
+        </p>
+        <p>
+          This includes documentation publishing, automation safety checks, and emerging container-based
+          workflows for runtime services and platform engineering sandbox environments.
+        </p>
+      </section>
+
+      <section class="mt-4" aria-labelledby="pipeline-goals">
+        <h2 id="pipeline-goals">Pipeline goals</h2>
+        <ul>
+          <li><strong>Reliability:</strong> every release should move through a known sequence of checks.</li>
+          <li><strong>Repeatability:</strong> the same workflow should work across repositories and environments.</li>
+          <li><strong>Safety:</strong> validation should happen before deployment, not after failure.</li>
+          <li><strong>Visibility:</strong> releases should be traceable through tags, logs, and workflow states.</li>
+          <li><strong>Recoverability:</strong> every deployment should have a rollback path.</li>
+        </ul>
+      </section>
+
+      <section class="mt-4" aria-labelledby="lifecycle">
+        <h2 id="lifecycle">Release lifecycle</h2>
+        <pre><code>Create changes
+      ↓
+Run local validation
+      ↓
+Open preview / verify layout
+      ↓
+Merge approved changes
+      ↓
+Run CI checks
+      ↓
+Tag or freeze release point
+      ↓
+Deploy to target platform
+      ↓
+Verify production behavior
+      ↓
+Rollback if required</code></pre>
+      </section>
+
+      <section class="mt-4" aria-labelledby="workflow-types">
+        <h2 id="workflow-types">Workflow types</h2>
+
+        <h3>1. Documentation publishing workflow</h3>
+        <p>
+          This workflow ships updates to the docs platform itself. It typically includes partial injection,
+          link checks, content validation, and deployment verification after publishing.
+        </p>
+        <ul>
+          <li>update content or structure</li>
+          <li>run partial injection</li>
+          <li>validate markers and shared layout</li>
+          <li>preview locally</li>
+          <li>ship to production</li>
+        </ul>
+
+        <h3>2. Static site release workflow</h3>
+        <p>
+          This workflow handles updates to brand, content, project pages, architecture references, and
+          publishing surfaces across the broader ecosystem.
+        </p>
+
+        <h3>3. Automation workflow</h3>
+        <p>
+          This includes validation scripts, release helpers, and guardrails used to standardize release
+          quality across repositories.
+        </p>
+
+        <h3>4. Containerized delivery workflow</h3>
+        <p>
+          This workflow applies to platform and runtime services that move through build, packaging,
+          containerization, orchestration, and runtime validation. It is especially relevant for the
+          sandbox environment where service monitoring and observability are part of the delivery model.
+        </p>
+      </section>
+
+      <section class="mt-4" aria-labelledby="containerized">
+        <h2 id="containerized">Containerized pipeline model</h2>
+        <p>
+          The CI/CD model now extends beyond static publishing into runtime-oriented delivery. A typical
+          containerized flow includes image build, dependency packaging, environment startup, and health verification.
+        </p>
+
+        <pre><code>Source code
+      ↓
+Build application artifact
+      ↓
+Build container image
+      ↓
+Push / register image
+      ↓
+Start runtime environment
+      ↓
+Run health checks
+      ↓
+Verify logs, metrics, and service state
+      ↓
+Promote or rollback</code></pre>
+
+        <p class="muted">
+          For the monitoring side of this runtime model, see the
+          <a href="/observability-architecture.html">Platform Observability Architecture</a>.
+        </p>
+      </section>
+
+      <section class="mt-4" aria-labelledby="stages">
+        <h2 id="stages">Common pipeline stages</h2>
+        <ul>
+          <li><strong>Linting:</strong> catch formatting and syntax issues early.</li>
+          <li><strong>Validation:</strong> ensure links, routes, partials, or configs are correct.</li>
+          <li><strong>Build:</strong> generate the deployable site or runtime artifact.</li>
+          <li><strong>Package:</strong> assemble the output for release or container delivery.</li>
+          <li><strong>Deploy:</strong> publish to the target environment.</li>
+          <li><strong>Post-deploy verification:</strong> confirm live behavior matches intent.</li>
+        </ul>
+      </section>
+
+      <section class="mt-4" aria-labelledby="release-discipline">
+        <h2 id="release-discipline">Release discipline</h2>
+        <p>
+          A pipeline is only as strong as the release discipline behind it. In this ecosystem, releases are
+          expected to be small, explainable, and tied to a known-good state. Freeze points and tags are used
+          to preserve dependable rollback anchors.
+        </p>
+
+        <ul>
+          <li>prefer small release batches</li>
+          <li>separate content changes from structural refactors</li>
+          <li>tag known-good milestones</li>
+          <li>verify behavior after deployment</li>
+          <li>use rollback rather than panic edits</li>
+        </ul>
+      </section>
+
+      <section class="mt-4" aria-labelledby="tooling">
+        <h2 id="tooling">Related tooling</h2>
+        <ul>
+          <li><a href="/automation-toolkit.html">Automation Toolkit</a></li>
+          <li><a href="/architecture.html">Architecture</a></li>
+          <li><a href="/observability-architecture.html">Observability Architecture</a></li>
+          <li><a href="/mesh-governance.html">Mesh Governance</a></li>
+        </ul>
+      </section>
+
+      <section class="mt-4" aria-labelledby="future">
+        <h2 id="future">Future expansion</h2>
+        <p>
+          This page is designed to grow as the platform evolves. Future additions may include:
+        </p>
+        <ul>
+          <li>named workflow catalog</li>
+          <li>GitHub Actions job maps</li>
+          <li>container build and registry flow details</li>
+          <li>environment promotion strategy</li>
+          <li>release tagging standards</li>
+          <li>deployment verification checklist</li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+  <!-- PARTIAL:FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Justine Longla T.</p>
+
+      <p id="docsVersionLine" class="footer-version"></p>
+
+      <nav class="footer-nav">
+        <a href="/docs.html">Docs</a>
+        <a href="/architecture.html">Architecture</a>
+        <a href="/observability-architecture.html">Observability</a>
+        <a href="/automation-toolkit.html">Automation Toolkit</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </nav>
+    </div>
+
+    <script>
+      (function () {
+        var y = document.getElementById("year");
+        if (y) y.textContent = new Date().getFullYear();
+
+        var meta = document.querySelector('meta[name="docs-version"]');
+        var line = document.getElementById("docsVersionLine");
+        if (line && meta && meta.content) line.textContent = meta.content;
+      })();
+    </script>
+  </footer>
+  <!-- /PARTIAL:FOOTER -->
+</body>
+</html>

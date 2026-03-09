@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Platform Observability Architecture — JustineLonglaT-Lane Docs</title>
+  <meta
+    name="description"
+    content="Platform observability architecture for JLT-Lane: Node.js metrics, Prometheus scraping, Grafana dashboards, and Docker-based monitoring foundations."
+  />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/scripts/theme-toggle.js" defer></script>
+  <script src="/scripts/back-to-top.js" defer></script>
+  <meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline">
+
+  <!-- PARTIAL:HEAD -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="/assets/img/crest.png" />
+<link rel="stylesheet" href="/styles.css" />
+<!-- /PARTIAL:HEAD -->
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- PARTIAL:HEADER -->
+<header class="site-header" role="banner">
+  <div class="container navbar">
+
+    <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
+      <img class="brand-logo" src="/assets/img/crest.png" alt="Justine Longla T." />
+      <span class="brand-text">
+        <strong>JustineLonglaT-Lane Docs</strong>
+        <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
+      </span>
+    </a>
+
+    <nav class="nav-right" aria-label="Primary">
+      <!-- Ecosystem -->
+      <a href="https://consulting.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Consulting ↗</a>
+      <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog ↗</a>
+
+      <!-- Docs -->
+      <a href="/README.html">README</a>
+      <a href="/docs.html">Docs index</a>
+      <a href="/architecture.html">Platform architecture</a>
+      <a href="/observability-architecture.html">Observability architecture</a>
+      <a href="https://www.justinelonglat-lane.com/projects/system-design-ecosystem-b"
+         target="_blank"
+         rel="noopener noreferrer">
+         System design ↗
+      </a>
+
+      <a class="nav-cta" href="/automation-toolkit.html">Automation Toolkit</a>
+      <a href="/sitemap.html">More</a>
+
+      <!-- External knowledge -->
+      <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
+         target="_blank" rel="noopener noreferrer">Getting started ↗</a>
+
+      <a href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
+         target="_blank" rel="noopener noreferrer">Tooling ↗</a>
+    </nav>
+
+    <div class="nav-profile" aria-label="Docs signature">
+      <img
+        src="/assets/img/profile.jpg"
+        alt="Justine Longla T."
+        class="nav-profile-avatar"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <div class="nav-profile-text">
+        <span class="nav-profile-eyebrow">Docs by</span>
+        <span class="nav-profile-name">Justine Longla T.</span>
+      </div>
+
+      <button
+        id="themeToggle"
+        class="nav-theme-toggle"
+        type="button"
+        aria-label="Toggle theme"
+        title="Toggle theme"
+      >🌙</button>
+    </div>
+
+  </div>
+</header>
+<!-- /PARTIAL:HEADER -->
+
+  <main id="main" class="page-main">
+    <section class="container">
+      <header class="section-header">
+        <h1 class="mt-0">Platform Observability Architecture</h1>
+        <p class="lead">
+          JLT-Lane builds observability directly into the engineering platform behind modern applications.
+          This page documents the monitoring flow used in the sandbox platform environment.
+        </p>
+      </header>
+
+      <section class="mt-4" aria-labelledby="overview">
+        <h2 id="overview">Overview</h2>
+        <p>
+          In this architecture, a Node.js authentication service exposes operational metrics through a
+          <code>/metrics</code> endpoint. Prometheus scrapes those metrics at regular intervals, stores them
+          as time-series data, and Grafana visualizes service behavior through dashboards.
+        </p>
+        <p>
+          All components run inside a Docker-based environment, making the platform portable,
+          reproducible, and easy to operate.
+        </p>
+      </section>
+
+      <section class="mt-4" aria-labelledby="diagram">
+        <h2 id="diagram">Architecture Diagram</h2>
+        <p class="muted">Click the diagram to open full-size.</p>
+
+        <figure>
+          <a href="/diagrams/JLT-Lane_Observability_Architecture.PNG" target="_blank" rel="noopener">
+            <img
+              src="/diagrams/JLT-Lane_Observability_Architecture.PNG"
+              alt="JLT-Lane observability architecture showing Node.js Auth Service, Prometheus, Grafana, and containerized Docker environment"
+            />
+          </a>
+          <figcaption>
+            JLT-Lane observability pipeline: Node.js service → Prometheus → Grafana inside a containerized sandbox environment.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="mt-4" aria-labelledby="flow">
+        <h2 id="flow">Observability Flow</h2>
+        <pre><code>Node.js Auth Service
+        ↓
+/metrics endpoint
+        ↓
+Prometheus scrape job
+        ↓
+Prometheus time-series database
+        ↓
+Grafana monitoring dashboards</code></pre>
+      </section>
+
+      <section class="mt-4" aria-labelledby="components">
+        <h2 id="components">Core Components</h2>
+
+        <h3>Node.js Auth Service</h3>
+        <p>
+          The service exposes Prometheus-compatible metrics that describe internal runtime behavior and
+          application activity.
+        </p>
+        <pre><code>process_cpu_seconds_total
+process_resident_memory_bytes
+nodejs_active_handles
+auth_service_http_requests_total</code></pre>
+
+        <h3>Prometheus</h3>
+        <p>
+          Prometheus scrapes the metrics endpoint and stores the results as queryable time-series data.
+          This forms the measurement layer of the observability stack.
+        </p>
+        <pre><code>scrape_configs:
+  - job_name: "auth-service"
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["auth-service:3002"]</code></pre>
+
+        <h3>Grafana</h3>
+        <p>
+          Grafana connects to Prometheus and renders dashboard panels for service health, request throughput,
+          CPU usage, memory consumption, and runtime pressure indicators.
+        </p>
+      </section>
+
+      <section class="mt-4" aria-labelledby="queries">
+        <h2 id="queries">Example PromQL Queries</h2>
+        <pre><code>rate(auth_service_http_requests_total[5m])
+rate(process_cpu_seconds_total[1m])
+process_resident_memory_bytes
+nodejs_active_handles</code></pre>
+      </section>
+
+      <section class="mt-4" aria-labelledby="value">
+        <h2 id="value">Why This Matters</h2>
+        <p>
+          Modern systems should not just run. They should be able to explain their own behavior.
+          Observability helps teams detect issues early, troubleshoot incidents faster, and operate services
+          with more confidence.
+        </p>
+        <p>
+          At JLT-Lane, this is part of the platform foundation itself rather than an afterthought.
+        </p>
+      </section>
+
+      <section class="mt-4" aria-labelledby="jltlane">
+        <h2 id="jltlane">JLT-Lane Platform View</h2>
+        <p>
+          JLT-Lane builds the engineering platform behind your applications — the infrastructure,
+          automation, monitoring, and security systems that allow your services to run reliably and scale
+          as your organization grows.
+        </p>
+        <p>
+          This observability architecture is one practical example of that philosophy in action.
+        </p>
+      </section>
+
+      <section class="mt-4" aria-labelledby="related">
+        <h2 id="related">Related Pages</h2>
+        <ul>
+          <li><a href="/docs.html">Docs Index</a></li>
+          <li><a href="/architecture.html">Architecture</a></li>
+          <li><a href="/mesh-governance.html">Mesh Governance</a></li>
+          <li><a href="/platform-rules.html">Platform Rules</a></li>
+          <li><a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog ↗</a></li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+  <!-- PARTIAL:FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-inner">
+
+    <p>© <span id="year"></span> Justine Longla T.</p>
+
+    <!-- Docs version line -->
+    <p id="docsVersionLine" class="footer-version"></p>
+
+    <nav class="footer-nav">
+      <a href="/docs.html">Docs</a>
+      <a href="/architecture.html">Architecture</a>
+      <a href="/observability-architecture.html">Observability</a>
+      <a href="/automation-toolkit.html">Automation Toolkit</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </nav>
+
+  </div>
+
+  <script>
+    (function () {
+      var y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
+
+      var meta = document.querySelector('meta[name="docs-version"]');
+      var line = document.getElementById("docsVersionLine");
+      if (line && meta && meta.content) line.textContent = meta.content;
+    })();
+  </script>
+</footer>
+<!-- /PARTIAL:FOOTER -->
+</body>
+</html>

@@ -25,6 +25,7 @@
 <!-- PARTIAL:HEADER -->
 <header class="site-header" role="banner">
   <div class="container navbar">
+
     <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
       <img class="brand-logo" src="/assets/img/crest.png" alt="Justine Longla T." />
       <span class="brand-text">
@@ -33,26 +34,32 @@
       </span>
     </a>
 
-      <nav class="nav-right" aria-label="Primary">
-        <!-- Ecosystem (external, canonical) -->
-        <a href="https://justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Top site ↗</a>
-        <a href="https://consulting.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Consulting ↗</a>
-        <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog ↗</a>
+    <nav class="nav-right" aria-label="Primary">
+      <!-- Ecosystem -->
+      <a href="https://consulting.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Consulting ↗</a>
+      <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog ↗</a>
 
-        <!-- Docs (internal, guaranteed in this repo) -->
-        <a href="/README.html">README</a>
-        <a href="/docs.html">Docs index</a>
-        <a href="/architecture.html">Architecture</a>
-        <a class="nav-cta" href="/automation-toolkit.html">Automation Toolkit</a>
-        <a href="/sitemap.html">More</a>
+      <!-- Docs -->
+      <a href="/README.html">README</a>
+      <a href="/docs.html">Docs index</a>
+      <a href="/architecture.html">Platform architecture</a>
+      <a href="/observability-architecture.html">Observability architecture</a>
+      <a href="https://www.justinelonglat-lane.com/projects/system-design-ecosystem-b"
+         target="_blank"
+         rel="noopener noreferrer">
+         System design ↗
+      </a>
 
-        <!-- Not built here yet (external to avoid 404) -->
-        <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
-          target="_blank" rel="noopener noreferrer">Getting started ↗</a>
+      <a class="nav-cta" href="/automation-toolkit.html">Automation Toolkit</a>
+      <a href="/sitemap.html">More</a>
 
-        <a href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
-          target="_blank" rel="noopener noreferrer">Tooling ↗</a>
-      </nav>
+      <!-- External knowledge -->
+      <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
+         target="_blank" rel="noopener noreferrer">Getting started ↗</a>
+
+      <a href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
+         target="_blank" rel="noopener noreferrer">Tooling ↗</a>
+    </nav>
 
     <div class="nav-profile" aria-label="Docs signature">
       <img
@@ -62,6 +69,7 @@
         loading="lazy"
         decoding="async"
       />
+
       <div class="nav-profile-text">
         <span class="nav-profile-eyebrow">Docs by</span>
         <span class="nav-profile-name">Justine Longla T.</span>
@@ -75,6 +83,7 @@
         title="Toggle theme"
       >🌙</button>
     </div>
+
   </div>
 </header>
 <!-- /PARTIAL:HEADER -->
@@ -82,153 +91,142 @@
 
 <div class="toolkit-layout">
 
-<h1 id="toolkit-api-model">The JTL Automation API Model</h1>
+  <h1 id="toolkit-api-model">The JTL Automation API Model</h1>
 
-<p class="lead">
-  The Automation Toolkit is intentionally designed as an internal <strong>engineering API</strong> for the
-  JustineLonglaT-Lane ecosystem — a stable interface that standardizes how work is requested, validated,
-  executed, and released across repositories, sites, and environments.  
+  <p class="lead">
+    The Automation Toolkit is intentionally designed as an internal <strong>engineering API</strong> for the
+    JustineLonglaT-Lane ecosystem — a stable interface that standardizes how work is requested, validated,
+    executed, and released across repositories, sites, and environments.
+    The diagram below models the Toolkit as a single orchestrator that coordinates eight complementary layers
+    of automation:
+  </p>
 
-  The diagram below models the Toolkit as a single orchestrator that coordinates eight complementary layers
-  of automation:
-</p>
+  <ul>
+    <li>
+      <strong>API Intent</strong> — clarifies <em>why</em> automation exists and the outcomes it must deliver
+      (reliability, repeatability, and safe releases).
+    </li>
+    <li>
+      <strong>API Surface</strong> — makes capabilities discoverable through well-structured, reusable assets
+      (scripts, templates, and CI building blocks).
+    </li>
+    <li>
+      <strong>API Pipeline</strong> — orchestrates predictable, repeatable workflows from validation to deployment.
+    </li>
+    <li>
+      <strong>API Safety</strong> — enforces guardrails such as pre-checks, linting, and validation before changes ship.
+    </li>
+    <li>
+      <strong>API Assets</strong> — provides reusable automation primitives that teams can compose instead of reinvent.
+    </li>
+    <li>
+      <strong>API Catalog</strong> — acts as a searchable index of tools, patterns, and recommended practices.
+    </li>
+    <li>
+      <strong>API Error Handling</strong> — ensures graceful recovery through rollback, logging, and remediation paths.
+    </li>
+    <li>
+      <strong>API Contract</strong> — formalizes expectations via release checklists, quality gates, and repeatable standards.
+    </li>
+  </ul>
 
-<ul>
-  <li>
-    <strong>API Intent</strong> — clarifies <em>why</em> automation exists and the outcomes it must deliver 
-    (reliability, repeatability, and safe releases).
-  </li>
+  <p>
+    Thinking in terms of an <strong>Automation API</strong> allows the Toolkit to scale, remain consistent,
+    and integrate naturally with CI/CD, cloud infrastructure, and platform engineering practices across
+    the JustineLonglaT-Lane ecosystem.
 
-  <li>
-    <strong>API Surface</strong> — makes capabilities discoverable through well-structured, reusable assets
-    (scripts, templates, and CI building blocks).
-  </li>
+    For a broader view of how these systems interact across the platform,
+    see the <a href="/architecture.html">Architecture overview</a>.
+  </p>
 
-  <li>
-    <strong>API Pipeline</strong> — orchestrates predictable, repeatable workflows from validation to deployment.
-  </li>
+  <figure class="toolkit-diagram">
+    <div class="toolkit-diagram__top">
+      <span class="badge badge--info" aria-label="Diagram badge">API Diagram</span>
 
-  <li>
-    <strong>API Safety</strong> — enforces guardrails such as pre-checks, linting, and validation before changes ship.
-  </li>
-
-  <li>
-    <strong>API Assets</strong> — provides reusable automation primitives that teams can compose instead of reinvent.
-  </li>
-
-  <li>
-    <strong>API Catalog</strong> — acts as a searchable index of tools, patterns, and recommended practices.
-  </li>
-
-  <li>
-    <strong>API Error Handling</strong> — ensures graceful recovery through rollback, logging, and remediation paths.
-  </li>
-
-  <li>
-    <strong>API Contract</strong> — formalizes expectations via release checklists, quality gates, and repeatable standards.
-  </li>
-</ul>
-
-<p>
-  Thinking in terms of an <strong>Automation API</strong> allows the Toolkit to scale, remain consistent,
-  and integrate naturally with CI/CD, cloud infrastructure, and platform engineering practices across
-  the JustineLonglaT-Lane ecosystem.
-</p>
-
-<figure class="toolkit-diagram">
-  <div class="toolkit-diagram__top">
-    <span class="badge badge--info" aria-label="Diagram badge">API Diagram</span>
-
-    <div class="toolkit-diagram__actions">
-      <a class="btn btn--sm" href="/diagrams/Toolkit-API-ProcessFlows.PNG" download>
-        Download PNG
-      </a>
-      <a class="btn btn--sm btn--primary" href="/downloads/Toolkit-API-ProcessFlows.pdf" download>
-        Download PDF
-      </a>
+      <div class="toolkit-diagram__actions">
+        <a class="btn btn--sm" href="/diagrams/Toolkit-API-ProcessFlows.PNG" download>
+          Download PNG
+        </a>
+        <a class="btn btn--sm btn--primary" href="/downloads/Toolkit-API-ProcessFlows.pdf" download>
+          Download PDF
+        </a>
+      </div>
     </div>
-  </div>
 
-  <button class="toolkit-diagram__zoom" type="button" aria-label="Open diagram larger">
-    <img
-      src="/diagrams/Toolkit-API-ProcessFlows.PNG"
-      alt="JTL Automation API — unified orchestration of validation, preview, release, deploy, and recovery"
-      loading="lazy"
-    />
-  </button>
+    <button class="toolkit-diagram__zoom" type="button" aria-label="Open diagram larger">
+      <img
+        src="/diagrams/Toolkit-API-ProcessFlows.PNG"
+        alt="JTL Automation API — unified orchestration of validation, preview, release, deploy, and recovery"
+        loading="lazy"
+      />
+    </button>
 
-  <figcaption>
-    <strong>JTL Automation API Model.</strong>
-    A single orchestrator that bundles validation, preview, release discipline,
-    safe deployment, and rollback into one repeatable system.
-    <span class="muted">(Click to zoom)</span>
-  </figcaption>
-</figure>
+    <figcaption>
+      <strong>JTL Automation API Model.</strong>
+      A single orchestrator that bundles validation, preview, release discipline,
+      safe deployment, and rollback into one repeatable system.
+      <span class="muted">(Click to zoom)</span>
+    </figcaption>
+  </figure>
 
+  <!-- LEFT: deep content -->
+  <div class="toolkit-left">
+    <section aria-labelledby="why">
+      <h2 id="why">Why this Automation Toolkit API exists</h2>
+
+      <p>
+        The Automation Toolkit API Model defines a shared interface for how engineers interact with automation.
+        Instead of ad-hoc scripts and manual steps, every action becomes a well-defined “API call” with clear intent, inputs, and outcomes.
+      </p>
+
+      <p>
+        The Automation Toolkit is designed as a single, repeatable <strong>Automation API</strong> for shipping safely.
+        Instead of scattered scripts, everything flows through one mental model.
+        This section describes the API surface of the Automation Toolkit — the standardized tools, templates, and primitives you can call from any repository.
+      </p>
+
+      <ul>
+        <li><strong>Inputs</strong> → <strong>Operations</strong> → <strong>Outputs</strong></li>
+        <li class="muted">Inputs: pages, posts, metadata, links, templates</li>
+        <li class="muted">Operations: validate, preview, tag/release, deploy, recover</li>
+        <li class="muted">Outputs: clean builds, stable URLs, reproducible releases</li>
+      </ul>
+
+      <p class="muted">
+        Think of this page as both documentation <em>and</em> a control plane for the Automation Toolkit API.
+      </p>
+
+      <ul>
+        <li><strong>Fast:</strong> lightweight commands you can run daily.</li>
+        <li><strong>Safe:</strong> guardrails around risky operations.</li>
+        <li><strong>Reproducible:</strong> the same workflow across projects.</li>
+        <li><strong>Explainable:</strong> every tool has a clear role in the pipeline.</li>
+      </ul>
+
+      <p class="muted">
+        Mental model: <strong>Create → Validate → Preview → Release → Deploy → Recover.</strong>
+      </p>
     </section>
 
-    <!-- your right sidebar continues here -->
+    <hr class="section-divider" />
 
-    <!-- LEFT: deep content -->
-    <div class="toolkit-left">
-      <section aria-labelledby="why">
-        <h2 id="why">Why this Automation Toolkit API exists</h2>
-        <p>
-
-        <p>
-          The Automation Toolkit API Model defines a shared interface for how engineers interact with automation.
-          Instead of ad-hoc scripts and manual steps, every action becomes a well-defined “API call” with clear intent, inputs, and outcomes.
-        </p>
-
-        <p>
-          The Automation Toolkit is designed as a single, repeatable <strong>Automation API</strong> for shipping safely.
-          Instead of scattered scripts, everything flows through one mental model:
-          This section describes the API surface of the Automation Toolkit — the standardized tools, templates, and primitives you can call from any repository.
-        </p>
-
-        <ul>
-          <li><strong>Inputs</strong> → <strong>Operations</strong> → <strong>Outputs</strong></li>
-          <li class="muted">Inputs: pages, posts, metadata, links, templates</li>
-          <li class="muted">Operations: validate, preview, tag/release, deploy, recover</li>
-          <li class="muted">Outputs: clean builds, stable URLs, reproducible releases</li>
-        </ul>
-
-        <p class="muted">
-          Think of this page as both documentation <em>and</em> a control plane for the Automation Toolkit API.
-        </p>
-
-        <ul>
-          <li><strong>Fast:</strong> lightweight commands you can run daily.</li>
-          <li><strong>Safe:</strong> guardrails around risky operations.</li>
-          <li><strong>Reproducible:</strong> the same workflow across projects.</li>
-          <li><strong>Explainable:</strong> every tool has a clear role in the pipeline.</li>
-        </ul>
-
-        <p class="muted">
-          Mental model: <strong>Create → Validate → Preview → Release → Deploy → Recover.</strong>
-        </p>
-      </section>
-
-
-      <hr class="section-divider" />
-
-      <section aria-labelledby="included">
-        <h2 id="included">What the Toolkit API provides</h2>
-        <ul>
-          <li>
-            <strong>Local clients (PowerShell helpers):</strong> tools that act like “SDKs” for working with your repo.
-          </li>
-          <li>
-            <strong>Server-side checks (CI/CD):</strong> automated validation in GitHub Actions and Vercel.
-          </li>
-          <li>
-            <strong>Shared contracts (templates):</strong> predictable YAML, routing, and layout patterns.
-          </li>
-          <li>
-            <strong>Runbooks:</strong> documented procedures for calm releases and recovery.
-          </li>
-        </ul>
-      </section>
+    <section aria-labelledby="included">
+      <h2 id="included">What the Toolkit API provides</h2>
+      <ul>
+        <li>
+          <strong>Local clients (PowerShell helpers):</strong> tools that act like “SDKs” for working with your repo.
+        </li>
+        <li>
+          <strong>Server-side checks (CI/CD):</strong> automated validation in GitHub Actions and Vercel.
+        </li>
+        <li>
+          <strong>Shared contracts (templates):</strong> predictable YAML, routing, and layout patterns.
+        </li>
+        <li>
+          <strong>Runbooks:</strong> documented procedures for calm releases and recovery.
+        </li>
+      </ul>
+    </section>
 
     <section aria-labelledby="workflow">
       <h2 id="workflow">The Toolkit API workflow</h2>
@@ -242,37 +240,38 @@
         <li><strong>Observe:</strong> confirm production behavior matches local intent.</li>
       </ol>
 
-    <p class="muted">In the Toolkit API Model, every change flows through a predictable request pipeline — from local development to CI validation, to guarded release.</p>
-
+      <p class="muted">
+        In the Toolkit API Model, every change flows through a predictable request pipeline — from local development to CI validation, to guarded release.
+      </p>
     </section>
 
-      <hr class="section-divider" />
+    <hr class="section-divider" />
 
-      <section aria-labelledby="guardrails">
-        <h2 id="guardrails">Guardrails act as the policy layer of the Toolkit API, ensuring consistency, security, and reliability before anything reaches production.</h2>
-        <ul>
-          <li><strong>Pre-ship validation:</strong> catch broken links, bad routes, and missing metadata.</li>
-          <li><strong>Freeze points:</strong> keep stable reference tags you can always roll back to.</li>
-          <li><strong>Safe history operations:</strong> avoid destructive rewrites of main.</li>
-          <li><strong>Clean releases:</strong> ship small, explainable batches with predictable diffs.</li>
-        </ul>
-      </section>
+    <section aria-labelledby="guardrails">
+      <h2 id="guardrails">Guardrails act as the policy layer of the Toolkit API, ensuring consistency, security, and reliability before anything reaches production.</h2>
+      <ul>
+        <li><strong>Pre-ship validation:</strong> catch broken links, bad routes, and missing metadata.</li>
+        <li><strong>Freeze points:</strong> keep stable reference tags you can always roll back to.</li>
+        <li><strong>Safe history operations:</strong> avoid destructive rewrites of main.</li>
+        <li><strong>Clean releases:</strong> ship small, explainable batches with predictable diffs.</li>
+      </ul>
+    </section>
 
-      <hr class="section-divider" />
+    <hr class="section-divider" />
 
-      <section aria-labelledby="downloads" data-section="downloads">
-        <h2 id="downloads">Downloads represent the official artifacts produced by the Toolkit API — reusable, versioned outputs you can adopt across projects.</h2>
-        <ul>
-          <li><a href="/docs/automation-toolkit-overview.pdf">Toolkit API Overview (PDF)</a></li>
-          <li><a href="/docs/powershell-starter-pack.zip">PowerShell SDK (Starter Pack)</a></li>
-          <li><a href="/downloads/validate-site.mjs">validate-site.mjs (API validator)</a></li>
-          <li><a href="/downloads/Tag-Release.ps1">Tag-Release.ps1 (release controller)</a></li>
-          <li><a href="/downloads/bust-styles.ps1">bust-styles.ps1 (style normalizer)</a></li>
-        </ul>
-        <p class="muted">
-          Future improvement: publish SHA256 checksums for artifact integrity.
-        </p>
-      </section>
+    <section aria-labelledby="downloads" data-section="downloads">
+      <h2 id="downloads">Downloads represent the official artifacts produced by the Toolkit API — reusable, versioned outputs you can adopt across projects.</h2>
+      <ul>
+        <li><a href="/docs/automation-toolkit-overview.pdf">Toolkit API Overview (PDF)</a></li>
+        <li><a href="/docs/powershell-starter-pack.zip">PowerShell SDK (Starter Pack)</a></li>
+        <li><a href="/downloads/validate-site.mjs">validate-site.mjs (API validator)</a></li>
+        <li><a href="/downloads/Tag-Release.ps1">Tag-Release.ps1 (release controller)</a></li>
+        <li><a href="/downloads/bust-styles.ps1">bust-styles.ps1 (style normalizer)</a></li>
+      </ul>
+      <p class="muted">
+        Future improvement: publish SHA256 checksums for artifact integrity.
+      </p>
+    </section>
 
       <hr class="section-divider" />
 
@@ -485,16 +484,20 @@
 <!-- PARTIAL:FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
+
     <p>© <span id="year"></span> Justine Longla T.</p>
 
-    <!-- Docs version line (always visible, own line) -->
+    <!-- Docs version line -->
     <p id="docsVersionLine" class="footer-version"></p>
 
     <nav class="footer-nav">
       <a href="/docs.html">Docs</a>
+      <a href="/architecture.html">Architecture</a>
+      <a href="/observability-architecture.html">Observability</a>
       <a href="/automation-toolkit.html">Automation Toolkit</a>
       <a href="/sitemap.xml">Sitemap</a>
     </nav>
+
   </div>
 
   <script>
@@ -502,7 +505,6 @@
       var y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
 
-      // Read the version from the meta tag and render it in the footer
       var meta = document.querySelector('meta[name="docs-version"]');
       var line = document.getElementById("docsVersionLine");
       if (line && meta && meta.content) line.textContent = meta.content;

@@ -1,36 +1,17 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="utf-8" />
-  <title>JustineLonglaT-Lane Docs — Cloud Confidence. Delivered.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />-
-
-  <meta
-    name="description"
-    content="JustineLonglaT-Lane Docs — concise, production-ready documentation for the JustineLonglaT-Lane ecosystem: tooling, CI/CD, multi-site architecture, and automation guardrails."
-  />
-
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="/styles.css" />
-
-  <script src="/scripts/theme-toggle.js" defer></script>
-  <script src="/scripts/back-to-top.js" defer></script>
-<meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline">
-  <!-- inject:head -->
-  <!-- PARTIAL:HEAD -->
+<html lang="en">
+<!-- PARTIAL:HEAD -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" href="/assets/img/crest.png" />
 <link rel="stylesheet" href="/styles.css" />
 <!-- /PARTIAL:HEAD -->
-</head>
 
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- PARTIAL:HEADER -->
+<!-- PARTIAL:HEADER -->
 <header class="site-header" role="banner">
   <div class="container navbar">
+
     <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
       <img class="brand-logo" src="/assets/img/crest.png" alt="Justine Longla T." />
       <span class="brand-text">
@@ -39,26 +20,32 @@
       </span>
     </a>
 
-      <nav class="nav-right" aria-label="Primary">
-        <!-- Ecosystem (external, canonical) -->
-        <a href="https://justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Top site ↗</a>
-        <a href="https://consulting.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Consulting ↗</a>
-        <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog ↗</a>
+    <nav class="nav-right" aria-label="Primary">
+      <!-- Ecosystem -->
+      <a href="https://consulting.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Consulting ↗</a>
+      <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog ↗</a>
 
-        <!-- Docs (internal, guaranteed in this repo) -->
-        <a href="/README.html">README</a>
-        <a href="/docs.html">Docs index</a>
-        <a href="/architecture.html">Architecture</a>
-        <a class="nav-cta" href="/automation-toolkit.html">Automation Toolkit</a>
-        <a href="/sitemap.html">More</a>
+      <!-- Docs -->
+      <a href="/README.html">README</a>
+      <a href="/docs.html">Docs index</a>
+      <a href="/architecture.html">Platform architecture</a>
+      <a href="/observability-architecture.html">Observability architecture</a>
+      <a href="https://www.justinelonglat-lane.com/projects/system-design-ecosystem-b"
+         target="_blank"
+         rel="noopener noreferrer">
+         System design ↗
+      </a>
 
-        <!-- Not built here yet (external to avoid 404) -->
-        <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
-          target="_blank" rel="noopener noreferrer">Getting started ↗</a>
+      <a class="nav-cta" href="/automation-toolkit.html">Automation Toolkit</a>
+      <a href="/sitemap.html">More</a>
 
-        <a href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
-          target="_blank" rel="noopener noreferrer">Tooling ↗</a>
-      </nav>
+      <!-- External knowledge -->
+      <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
+         target="_blank" rel="noopener noreferrer">Getting started ↗</a>
+
+      <a href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
+         target="_blank" rel="noopener noreferrer">Tooling ↗</a>
+    </nav>
 
     <div class="nav-profile" aria-label="Docs signature">
       <img
@@ -68,6 +55,7 @@
         loading="lazy"
         decoding="async"
       />
+
       <div class="nav-profile-text">
         <span class="nav-profile-eyebrow">Docs by</span>
         <span class="nav-profile-name">Justine Longla T.</span>
@@ -81,139 +69,140 @@
         title="Toggle theme"
       >🌙</button>
     </div>
+
   </div>
 </header>
 <!-- /PARTIAL:HEADER -->
 
-<main id="main" class="page-main">
-  <!-- PARTIAL:HERO:HOME -->
+  <main class="page-main">
+<!-- PARTIAL:HERO:HOME -->
 <section class="home-hero" aria-labelledby="hero-title">
-  <div class="container home-hero-inner">
-    <div class="hero-card" role="region" aria-label="Quick links">
-      <div class="hero-card-crest">
-        <img src="/assets/img/crest.png" alt="JustineLonglaT-Lane crest" />
+      <div class="container home-hero-inner">
+        <div class="hero-card" role="region" aria-label="Quick links">
+          <div class="hero-card-crest">
+            <img src="/assets/img/crest.png" alt="JustineLonglaT-Lane crest" />
+          </div>
+
+          <p class="home-hero-eyebrow">JustineLonglaT-Lane Docs</p>
+          <h1 id="hero-title" class="home-hero-title">Cloud Confidence. Delivered.</h1>
+
+          <p class="home-hero-lead">
+            JustineLonglaT-Lane Docs is the source of truth for how this ecosystem runs in real life:
+            from local dev and Git hygiene to CI/CD, Vercel deploys, GitHub Pages, and the automation
+            guardrails that keep all four sites healthy.
+          </p>
+
+          <p class="muted mt-2">
+            For the monitoring side of the platform, see the
+            <a href="/observability-architecture.html">Platform Observability Architecture</a>
+            documentation for the Node.js → Prometheus → Grafana stack used in the JLT-Lane sandbox environment.
+          </p>
+
+          <div class="hero-card-links" aria-label="Hero actions">
+            <a class="hero-btn hero-btn--primary" href="/docs.html">Docs Index</a>
+            <a class="hero-btn hero-btn--ghost" href="/README.html">Technical README</a>
+            <a class="hero-btn hero-btn--ghost" href="/architecture.html">Architecture</a>
+            <a class="hero-btn hero-btn--ghost" href="/automation-toolkit.html">Automation Toolkit</a>
+          </div>
+
+          <div class="home-feature-grid" aria-label="Highlights">
+            <article class="home-feature-card">
+              <h3>Getting Started</h3>
+              <p>Local setup, repo structure, conventions, and how everything fits together.</p>
+              <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
+                 target="_blank" rel="noopener noreferrer">Read guide ↗</a>
+            </article>
+
+            <article class="home-feature-card">
+              <h3>CI/CD Architecture</h3>
+              <p>Pipelines, environments, and deployment guardrails across the ecosystem.</p>
+              <a href="/cicd-pipelines.html">View pipelines →</a>
+            </article>
+
+            <article class="home-feature-card">
+              <h3>Automation Toolkit</h3>
+              <p>Scripts, helpers, and reusable automation patterns powering the platform.</p>
+              <a href="/automation-toolkit.html">Explore tools →</a>
+            </article>
+          </div>
+
+          <div class="home-cta-row" aria-label="Primary actions">
+            <a class="btn btn-gradient" href="/docs.html">Get All Docs</a>
+            <a class="btn btn-outline" href="/README.html">View Technical README</a>
+            <a class="btn btn-outline" href="/automation-toolkit.html">Automation Toolkit</a>
+          </div>
+        </div>
       </div>
-
-      <p class="home-hero-eyebrow">JustineLonglaT-Lane Docs</p>
-      <h1 id="hero-title" class="home-hero-title">Cloud Confidence. Delivered.</h1>
-
-      <p class="home-hero-lead">
-        JustineLonglaT-Lane Docs is the source of truth for how this ecosystem runs in real life:
-        from local dev and Git hygiene to CI/CD, Vercel deploys, GitHub Pages, and the automation
-        guardrails that keep all four sites healthy.
-      </p>
-
-      <!-- External links -->
-  <div class="hero-card-links" aria-label="Hero actions">
-    <a class="hero-btn hero-btn--primary" href="/automation-toolkit.html">
-      Automation Toolkit
-    </a>
-
-    <a class="hero-btn hero-btn--ghost" href="https://www.justinelonglat-lane.com/booking" target="_blank" rel="noopener noreferrer">
-      Book Intro Call
-    </a>
-
-    <a class="hero-btn hero-btn--ghost" href="https://justinelonglat-lane.com/<brochure>" target="_blank" rel="noopener noreferrer">
-      Download Brochure
-    </a>
-
-    <a class="hero-btn hero-btn--link" href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">
-      Blog
-    </a>
-
-    <a class="hero-btn hero-btn--link" href="https://justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">
-      Consulting site
-    </a>
-  </div>
-
-  </div>
-</section>
+    </section>
 <!-- /PARTIAL:HERO:HOME -->
 
-  <div class="container">
-
-    <!-- ===== Concise overview (under hero) ===== -->
-    <section class="home-summary" aria-labelledby="summary-heading">
-      <h2 id="summary-heading" class="sr-only">Documentation overview</h2>
-
-      <ul class="summary-list">
-        <li>
-          <strong>
-            <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
-              target="_blank" rel="noopener noreferrer">
-              Getting started ↗
-            </a>
-          </strong>
-          — local environment, first run, and how to work with this docs repo.
-        </li>
-
-        <li>
-          <strong>
-            <a href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
-              target="_blank" rel="noopener noreferrer">
-              Tooling setup ↗
-            </a>
-          </strong>
-          — editors, formatting, linting, and quality gates.
-        </li>
-        <li><strong><a href="/cicd-pipelines.html">CI/CD pipelines</a></strong> — preview, main, and production flows.</li>
-        <li><strong><a href="/architecture.html">Architecture</a></strong> — diagrams and platform decisions.</li>
-        <li><strong><a href="/system-design-part-d.html">System Design — Part D</a></strong> — how the four sites coordinate.</li>
-        <li><strong><a href="/toolkit.html">Automation Toolkit</a></strong> — scripts, helpers, and guardrails.</li>
-      </ul>
-    </section>
-
-    <!-- ===== Long-form overview ===== -->
-    <section class="home-overview" aria-labelledby="whats-inside-heading">
+    <section class="container" aria-labelledby="whats-inside-heading">
       <header class="section-header">
-        <h2 id="whats-inside-heading" class="mt-0">What’s inside</h2>
+        <h2 id="whats-inside-heading" class="mt-0">JustineLonglaT-Lane Docs</h2>
         <p class="lead">
-          Concise, production-ready documentation for the JustineLonglaT-Lane ecosystem: start quickly,
-          standardize tooling, ship with robust CI/CD, and understand the multi-site architecture behind the stack.
+          Concise, production-ready documentation for the JustineLonglaT-Lane
+          ecosystem: start quickly, standardize tooling, ship with robust CI/CD,
+          and understand the multi-site architecture behind the stack.
         </p>
       </header>
 
+      <h3>What’s inside</h3>
       <ul>
-      <li>
-        <strong>
-          <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
-            target="_blank" rel="noopener noreferrer">
-            Getting started ↗
-          </a>
-        </strong>
-        — local environment, first run, and how to work with this docs repo.
-      </li>
-
-      <li>
-        <strong>
-          <a href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
-            target="_blank" rel="noopener noreferrer">
-            Tooling setup ↗
-          </a>
-        </strong>
-        — editors, formatting, linting, and quality gates.
-      </li>
-        <li><strong><a href="/cicd-pipelines.html">CI/CD pipelines</a></strong> — preview, main, and production flows wired to Vercel and GitHub Actions.</li>
-        <li><strong><a href="/architecture.html">Architecture</a></strong> — high-level diagrams and platform decisions.</li>
-        <li><strong><a href="/system-design-part-d.html">System Design — Part D</a></strong> — how the four sites (consulting, docs, blog, and Nouvo Ayiti 2075) coordinate through DNS, repos, and automation.</li>
-        <li><strong><a href="/toolkit.html">Automation Toolkit</a></strong> — reusable CI snippets, PowerShell helpers, and guardrails.</li>
+        <li>
+          <strong><a href="/getting-started.html">Getting started</a></strong>
+          — local environment, first run, and how to work with this docs repo.
+        </li>
+        <li>
+          <strong><a href="/tooling-setup.html">Tooling setup</a></strong>
+          — editors, formatting, linting, and quality gates.
+        </li>
+        <li>
+          <strong><a href="/architecture.html">Architecture</a></strong>
+          — high-level diagrams and platform decisions.
+        </li>
+        <li>
+          <strong><a href="/observability-architecture.html">Observability Architecture</a></strong>
+          — Node.js metrics, Prometheus scraping, Grafana dashboards, and the monitoring foundations of the platform.
+        </li>
+        <li>
+          <strong><a href="/mesh-governance.html">Mesh Governance</a></strong>
+          — how the platform ecosystem is structured, coordinated, and governed across sites and services.
+        </li>
+        <li>
+          <strong><a href="/automation-toolkit.html">Automation Toolkit</a></strong>
+          — reusable CI snippets, PowerShell helpers, and guardrails.
+        </li>
       </ul>
+      <h3>Next steps</h3>
+      <ol>
+        <li><a href="/README.html">README</a></li>
+        <li><a href="/getting-started.html">Getting started</a></li>
+        <li><a href="/tooling-setup.html">Tooling setup</a></li>
+        <li><a href="/architecture.html">Architecture</a></li>
+        <li><a href="/observability-architecture.html">Observability Architecture</a></li>
+        <li><a href="/mesh-governance.html">Mesh Governance</a></li>
+        <li><a href="/automation-toolkit.html">Automation Toolkit</a></li>
+      </ol>
     </section>
-  </div>
-</main>
-  <!-- PARTIAL:FOOTER -->
+  </main>
+
+<!-- PARTIAL:FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
+
     <p>© <span id="year"></span> Justine Longla T.</p>
 
-    <!-- Docs version line (always visible, own line) -->
+    <!-- Docs version line -->
     <p id="docsVersionLine" class="footer-version"></p>
 
     <nav class="footer-nav">
       <a href="/docs.html">Docs</a>
+      <a href="/architecture.html">Architecture</a>
+      <a href="/observability-architecture.html">Observability</a>
       <a href="/automation-toolkit.html">Automation Toolkit</a>
       <a href="/sitemap.xml">Sitemap</a>
     </nav>
+
   </div>
 
   <script>
@@ -221,7 +210,6 @@
       var y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
 
-      // Read the version from the meta tag and render it in the footer
       var meta = document.querySelector('meta[name="docs-version"]');
       var line = document.getElementById("docsVersionLine");
       if (line && meta && meta.content) line.textContent = meta.content;
@@ -229,9 +217,5 @@
   </script>
 </footer>
 <!-- /PARTIAL:FOOTER -->
-
 </body>
 </html>
-
-
-

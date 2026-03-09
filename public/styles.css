@@ -916,3 +916,71 @@ html:not([data-theme="light"]) .toolkit-table thead th{
   background: color-mix(in srgb, var(--surface2) 70%, transparent);
   transform: translateY(-1px);
 }
+.navbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.nav-shell {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex: 1;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px 20px;
+}
+
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.nav-caret {
+  font-size: 0.7em;
+  margin-left: 4px;
+  opacity: 0.7;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 18px;
+}
+
+.nav-shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  gap: 20px;
+}
+
+.brand {
+  margin-right: 18px;
+}
+.nav-dropdown:hover .nav-caret,
+.nav-dropdown:focus-within .nav-caret {
+  transform: translateY(-1px) rotate(180deg);
+}
+.nav-dropdown-toggle {
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-weight: 500;
+}
+
+.nav-caret {
+  font-size: 0.75em;
+  margin-left: 4px;
+  opacity: 0.7;
+}

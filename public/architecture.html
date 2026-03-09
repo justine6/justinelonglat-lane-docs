@@ -24,6 +24,7 @@
   <!-- PARTIAL:HEADER -->
 <header class="site-header" role="banner">
   <div class="container navbar">
+
     <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
       <img class="brand-logo" src="/assets/img/crest.png" alt="Justine Longla T." />
       <span class="brand-text">
@@ -32,28 +33,32 @@
       </span>
     </a>
 
-      <nav class="nav-right" aria-label="Primary">
-        <!-- Ecosystem (external, canonical) -->
-        <a href="https://justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Top site ↗</a>
-        <a href="https://consulting.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Consulting ↗</a>
-        <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog ↗</a>
+    <nav class="nav-right" aria-label="Primary">
+      <!-- Ecosystem -->
+      <a href="https://consulting.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Consulting ↗</a>
+      <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog ↗</a>
 
-        <!-- Docs (internal, guaranteed in this repo) -->
-        <a href="/README.html">README</a>
-        <a href="/docs.html">Docs index</a>
-        <a href="/architecture.html">Architecture</a>
-        <a class="nav-cta" href="/automation-toolkit.html">Automation Toolkit</a>
-        <a href="/mesh-governance.html">Governance</a>
-        <a href="/platform-rules.html">Platform rules</a>
-        <a href="/sitemap.html">More</a>
+      <!-- Docs -->
+      <a href="/README.html">README</a>
+      <a href="/docs.html">Docs index</a>
+      <a href="/architecture.html">Platform architecture</a>
+      <a href="/observability-architecture.html">Observability architecture</a>
+      <a href="https://www.justinelonglat-lane.com/projects/system-design-ecosystem-b"
+         target="_blank"
+         rel="noopener noreferrer">
+         System design ↗
+      </a>
 
-        <!-- Not built here yet (external to avoid 404) -->
-        <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
-          target="_blank" rel="noopener noreferrer">Getting started ↗</a>
+      <a class="nav-cta" href="/automation-toolkit.html">Automation Toolkit</a>
+      <a href="/sitemap.html">More</a>
 
-        <a href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
-          target="_blank" rel="noopener noreferrer">Tooling ↗</a>
-      </nav>
+      <!-- External knowledge -->
+      <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
+         target="_blank" rel="noopener noreferrer">Getting started ↗</a>
+
+      <a href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
+         target="_blank" rel="noopener noreferrer">Tooling ↗</a>
+    </nav>
 
     <div class="nav-profile" aria-label="Docs signature">
       <img
@@ -63,6 +68,7 @@
         loading="lazy"
         decoding="async"
       />
+
       <div class="nav-profile-text">
         <span class="nav-profile-eyebrow">Docs by</span>
         <span class="nav-profile-name">Justine Longla T.</span>
@@ -76,6 +82,7 @@
         title="Toggle theme"
       >🌙</button>
     </div>
+
   </div>
 </header>
 <!-- /PARTIAL:HEADER -->
@@ -97,43 +104,69 @@
         </ul>
       </section>
 
-      <section class="mt-4" aria-labelledby="gallery">
-        <h2 id="gallery">Diagram gallery</h2>
-        <p class="muted">Click any diagram to open full-size.</p>
-
-        <div class="diagram-grid">
-          <figure>
-            <a href="/diagrams/high-level.svg" target="_blank" rel="noopener">
+    <section class="mt-4" aria-labelledby="gallery">
+      <h2 id="gallery">Diagram gallery</h2>
+      <p class="muted">Click any diagram to open full-size.</p>
+      <div class="diagram-grid">
+        <figure>
+          <a href="/observability-architecture.html">
+            <img
+              src="/diagrams/JLT-Lane_Observability_Architecture.PNG"
+              alt="JLT-Lane platform observability architecture"
+            />
+          </a>
+          <figcaption>
+            Platform observability architecture — Node.js metrics, Prometheus collection, and Grafana dashboards.
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="/diagrams/high-level.svg" target="_blank" rel="noopener">
             <img src="/diagrams/high-level.svg" alt="High-level system architecture" />
-            </a>
+          </a>
+          <figcaption>High-level system architecture</figcaption>
+        </figure>
 
-            <a href="/diagrams/data-pipeline.svg" target="_blank" rel="noopener">
+        <figure>
+          <a href="/diagrams/data-pipeline.svg" target="_blank" rel="noopener">
             <img src="/diagrams/data-pipeline.svg" alt="Data pipeline" />
-            </a>
+          </a>
+          <figcaption>Data pipeline</figcaption>
+        </figure>
 
-            <a href="/diagrams/service-flow.svg" target="_blank" rel="noopener">
+        <figure>
+          <a href="/diagrams/service-flow.svg" target="_blank" rel="noopener">
             <img src="/diagrams/service-flow.svg" alt="Service flow" />
-            </a>
-            <figcaption>Service interactions / request flow</figcaption>
-          </figure>
-        </div>
-      </section>
+          </a>
+          <figcaption>JLT-Lane Platform Control Plane and Service Ecosystem</figcaption>
+        </figure>
+
+        <figure>
+          <a href="/diagrams/platform-architecture.png" target="_blank" rel="noopener">
+            <img src="/diagrams/platform-architecture.png" alt="JLT-Lane platform architecture" />
+          </a>
+          <figcaption>Platform architecture</figcaption>
+        </figure>
+      </div>
     </section>
   </main>
 
   <!-- PARTIAL:FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
+
     <p>© <span id="year"></span> Justine Longla T.</p>
 
-    <!-- Docs version line (always visible, own line) -->
+    <!-- Docs version line -->
     <p id="docsVersionLine" class="footer-version"></p>
 
     <nav class="footer-nav">
       <a href="/docs.html">Docs</a>
+      <a href="/architecture.html">Architecture</a>
+      <a href="/observability-architecture.html">Observability</a>
       <a href="/automation-toolkit.html">Automation Toolkit</a>
       <a href="/sitemap.xml">Sitemap</a>
     </nav>
+
   </div>
 
   <script>
@@ -141,7 +174,6 @@
       var y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
 
-      // Read the version from the meta tag and render it in the footer
       var meta = document.querySelector('meta[name="docs-version"]');
       var line = document.getElementById("docsVersionLine");
       if (line && meta && meta.content) line.textContent = meta.content;

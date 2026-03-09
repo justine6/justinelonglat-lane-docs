@@ -1,59 +1,199 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <title>Featured Writing — JustineLonglaT-Lane Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-        content="Selected articles and long-form writing by Justine Longla T. on DevSecOps, cloud, and sustainable systems." />
-
-  <script src="/scripts/theme-toggle.js" defer></script>
-  <script src="/scripts/back-to-top.js" defer></script>  
+  <title>Featured Writing — JustineLonglaT-Lane Docs</title>
+  <meta
+    name="description"
+    content="Selected writing by Justine Longla T. on DevSecOps, platform engineering, observability, automation, and sustainable cloud systems."
+  />
+  <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
-<meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline">
-</head>
-<body>
-  <div id="siteHeader"></div>
-<main class="page-main container">
-    <section aria-labelledby="featured-heading">
-      <h1 id="featured-heading">Featured Writing</h1>
-      <p class="lead">
-        A small selection of long-form pieces that explain how I think about DevSecOps,
-        platform engineering, and sustainable cloud systems.
-      </p>
+  <script src="/scripts/theme-toggle.js" defer></script>
+  <script src="/scripts/back-to-top.js" defer></script>
+  <meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline">
 
-      <ul>
-        <li>
-          <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noreferrer">
-            Visit the blog for essays and deep dives
-          </a>
-        </li>
-        <li>
-          <a href="https://justinelonglat-lane.com" target="_blank" rel="noreferrer">
-            Explore case studies on the consulting site
-          </a>
-        </li>
-      </ul>
+  <!-- PARTIAL:HEAD -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/assets/img/crest.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- /PARTIAL:HEAD -->
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- PARTIAL:HEADER -->
+  <header class="site-header" role="banner">
+    <div class="container navbar">
+      <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
+        <img class="brand-logo" src="/assets/img/crest.png" alt="Justine Longla T." />
+        <span class="brand-text">
+          <strong>JustineLonglaT-Lane Docs</strong>
+          <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
+        </span>
+      </a>
+
+      <nav class="nav-right" aria-label="Primary">
+        
+        <a href="https://consulting.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Consulting ↗</a>
+        <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog ↗</a>
+
+        <a href="/README.html">README</a>
+        <a href="/docs.html">Docs index</a>
+        <a href="/architecture.html">Architecture</a>
+        <a href="/observability-architecture.html">Observability</a>
+        <a class="nav-cta" href="/automation-toolkit.html">Automation Toolkit</a>
+        <a href="/sitemap.html">More</a>
+
+        <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
+          target="_blank" rel="noopener noreferrer">Getting started ↗</a>
+
+        <a href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
+          target="_blank" rel="noopener noreferrer">Tooling ↗</a>
+      </nav>
+
+      <div class="nav-profile" aria-label="Docs signature">
+        <img
+          src="/assets/img/profile.jpg"
+          alt="Justine Longla T."
+          class="nav-profile-avatar"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="nav-profile-text">
+          <span class="nav-profile-eyebrow">Docs by</span>
+          <span class="nav-profile-name">Justine Longla T.</span>
+        </div>
+
+        <button
+          id="themeToggle"
+          class="nav-theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+          title="Toggle theme"
+        >🌙</button>
+      </div>
+    </div>
+  </header>
+  <!-- /PARTIAL:HEADER -->
+
+  <main id="main" class="page-main">
+    <section class="container">
+      <header class="section-header">
+        <h1 class="mt-0">Featured Writing</h1>
+        <p class="lead">
+          This page highlights the ideas behind the JustineLonglaT-Lane ecosystem:
+          DevSecOps, platform engineering, observability, automation, and sustainable cloud systems.
+          The writing here is not separate from the platform — it grows out of real implementation work,
+          operational lessons, and the discipline of building dependable systems.
+        </p>
+      </header>
+
+      <section class="mt-4" aria-labelledby="intro-heading">
+        <h2 id="intro-heading">Editorial focus</h2>
+        <p>
+          Across the ecosystem, my writing connects architecture, execution, and long-term platform thinking.
+          Some pieces focus on technical foundations such as CI/CD, observability, and automation guardrails.
+          Others explore how resilient systems are designed, documented, and operated with clarity.
+        </p>
+      </section>
+
+      <section class="mt-4" aria-labelledby="topics-heading">
+        <h2 id="topics-heading">What I write about</h2>
+        <ul>
+          <li><strong>DevSecOps and platform engineering</strong> — how systems move from concept to reliable execution.</li>
+          <li><strong>Observability and operations</strong> — metrics, visibility, and building systems that explain themselves.</li>
+          <li><strong>Automation and release discipline</strong> — repeatable workflows, safety checks, and dependable delivery.</li>
+          <li><strong>Cloud architecture</strong> — practical decisions around structure, scale, governance, and resilience.</li>
+          <li><strong>Sustainable systems thinking</strong> — designing technology with long-term clarity, maintainability, and impact in mind.</li>
+        </ul>
+      </section>
+
+      <section class="mt-4" aria-labelledby="read-more-heading">
+        <h2 id="read-more-heading">Where to read more</h2>
+        <ul>
+          <li>
+            <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noreferrer noopener">
+              Visit the blog for essays, reflections, and deep dives ↗
+            </a>
+          </li>
+          <li>
+            <a href="https://justinelonglat-lane.com" target="_blank" rel="noreferrer noopener">
+              Explore case studies and platform execution work on the consulting site ↗
+            </a>
+          </li>
+          <li>
+            <a href="/architecture.html">Browse architecture documentation in this docs site</a>
+          </li>
+          <li>
+            <a href="/observability-architecture.html">Read the observability architecture reference</a>
+          </li>
+          <li>
+            <a href="/automation-toolkit.html">Review the Automation Toolkit and release discipline</a>
+          </li>
+          <li>
+            <a href="/cicd-pipelines.html">Explore CI/CD pipeline documentation</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="mt-4" aria-labelledby="purpose-heading">
+        <h2 id="purpose-heading">Why this writing exists</h2>
+        <p>
+          Writing is part of how this ecosystem is built. Documentation clarifies execution.
+          Essays capture lessons. Case studies show proof. Together, they form a knowledge layer
+          that supports the platform itself.
+        </p>
+        <p>
+          The goal is simple: build systems with confidence, document them with discipline,
+          and share the thinking clearly enough that others can learn from the work.
+        </p>
+      </section>
+
+      <section class="mt-4" aria-labelledby="related-heading">
+        <h2 id="related-heading">Related pages</h2>
+        <ul>
+          <li><a href="/docs.html">Docs Index</a></li>
+          <li><a href="/architecture.html">Architecture</a></li>
+          <li><a href="/observability-architecture.html">Observability Architecture</a></li>
+          <li><a href="/mesh-governance.html">Mesh Governance</a></li>
+          <li><a href="/automation-toolkit.html">Automation Toolkit</a></li>
+          <li><a href="/cicd-pipelines.html">CI/CD Pipelines</a></li>
+        </ul>
+      </section>
     </section>
-  </main> 
-  <script src="/scripts/partials.js" defer></script>
+  </main>
+
+  <!-- PARTIAL:FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Justine Longla T.</p>
+
+      <p id="docsVersionLine" class="footer-version"></p>
+
+      <nav class="footer-nav">
+        <a href="/docs.html">Docs</a>
+        <a href="/architecture.html">Architecture</a>
+        <a href="/observability-architecture.html">Observability</a>
+        <a href="/automation-toolkit.html">Automation Toolkit</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </nav>
+    </div>
+
+    <script>
+      (function () {
+        var y = document.getElementById("year");
+        if (y) y.textContent = new Date().getFullYear();
+
+        var meta = document.querySelector('meta[name="docs-version"]');
+        var line = document.getElementById("docsVersionLine");
+        if (line && meta && meta.content) line.textContent = meta.content;
+      })();
+    </script>
+  </footer>
+  <!-- /PARTIAL:FOOTER -->
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- PARTIAL:HEAD -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark light" />
+
+<link rel="icon" href="/assets/img/crest.png" />
+<link rel="stylesheet" href="/styles.css" />
+
+<script src="/scripts/theme-toggle.js" defer></script>
+<script src="/scripts/back-to-top.js" defer></script>
+<!-- /PARTIAL:HEAD -->
+  <title>Platform Runbooks — JustineLonglaT-Lane Docs</title>
+  <meta
+    name="description"
+    content="Operational runbooks for the JLT-Lane engineering platform: sandbox startup, Prometheus target debugging, Grafana dashboard setup, and Docker recovery."
+  />
+  <meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+<!-- PARTIAL:HEADER -->
+<header class="site-header" role="banner">
+  <div class="container navbar">
+
+    <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
+      <img class="brand-logo" src="/assets/img/crest.png" alt="Justine Longla T." />
+      <span class="brand-text">
+        <strong>JustineLonglaT-Lane Docs</strong>
+        <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
+      </span>
+    </a>
+
+    <nav class="nav-right" aria-label="Primary">
+      <!-- Ecosystem -->
+      <a href="https://consulting.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Consulting ↗</a>
+      <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog ↗</a>
+
+      <!-- Docs -->
+      <a href="/README.html">README</a>
+      <a href="/docs.html">Docs index</a>
+      <a href="/architecture.html">Platform architecture</a>
+      <a href="/observability-architecture.html">Observability architecture</a>
+      <a href="https://www.justinelonglat-lane.com/projects/system-design-ecosystem-b"
+         target="_blank"
+         rel="noopener noreferrer">
+         System design ↗
+      </a>
+
+      <a class="nav-cta" href="/automation-toolkit.html">Automation Toolkit</a>
+      <a href="/sitemap.html">More</a>
+
+      <!-- External knowledge -->
+      <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
+         target="_blank" rel="noopener noreferrer">Getting started ↗</a>
+
+      <a href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
+         target="_blank" rel="noopener noreferrer">Tooling ↗</a>
+    </nav>
+
+    <div class="nav-profile" aria-label="Docs signature">
+      <img
+        src="/assets/img/profile.jpg"
+        alt="Justine Longla T."
+        class="nav-profile-avatar"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <div class="nav-profile-text">
+        <span class="nav-profile-eyebrow">Docs by</span>
+        <span class="nav-profile-name">Justine Longla T.</span>
+      </div>
+
+      <button
+        id="themeToggle"
+        class="nav-theme-toggle"
+        type="button"
+        aria-label="Toggle theme"
+        title="Toggle theme"
+      >🌙</button>
+    </div>
+
+  </div>
+</header>
+<!-- /PARTIAL:HEADER -->
+
+  <main id="main" class="page-main">
+    <section class="container" aria-labelledby="runbooks-heading">
+      <header class="section-header">
+        <h1 id="runbooks-heading" class="mt-0">Platform Runbooks</h1>
+        <p class="lead">
+          Operational playbooks for the JLT-Lane engineering platform. These runbooks describe
+          how to start, verify, troubleshoot, and recover the sandbox observability stack and
+          related platform services.
+        </p>
+      </header>
+
+      <section class="mt-4" aria-labelledby="why-runbooks">
+        <h2 id="why-runbooks">Why these runbooks exist</h2>
+        <p>
+          Architecture explains how the platform is designed. Runbooks explain how the platform
+          is operated in real conditions. Together, they form the bridge between documentation
+          and execution.
+        </p>
+        <p>
+          These pages are intended to support repeatable operations across Docker-based local
+          environments, Prometheus metric collection, Grafana dashboards, and service recovery
+          workflows in the JLT-Lane sandbox suite.
+        </p>
+      </section>
+
+      <section class="mt-4" aria-labelledby="runbook-catalog">
+        <h2 id="runbook-catalog">Runbook catalog</h2>
+
+        <div class="docs-grid">
+          <article class="docs-card">
+            <h3>Sandbox Startup</h3>
+            <p>
+              Start the Node.js service, Prometheus, Grafana, and supporting containers in the
+              local sandbox environment, then verify the stack is healthy.
+            </p>
+            <ul>
+              <li>Docker compose startup</li>
+              <li>Container verification</li>
+              <li>Metrics endpoint validation</li>
+              <li>Prometheus target checks</li>
+            </ul>
+            <p>
+              <a href="/runbooks/sandbox-startup.html">Open runbook →</a>
+            </p>
+          </article>
+
+          <article class="docs-card">
+            <h3>Prometheus Target Debug</h3>
+            <p>
+              Diagnose missing metrics, scrape failures, or Prometheus targets that are marked
+              down when dashboards show incomplete or empty data.
+            </p>
+            <ul>
+              <li>Check <code>/metrics</code></li>
+              <li>Inspect Prometheus targets</li>
+              <li>Validate Docker networking</li>
+              <li>Confirm scrape configuration</li>
+            </ul>
+            <p>
+              <a href="/runbooks/prometheus-target-debug.html">Open runbook →</a>
+            </p>
+          </article>
+
+          <article class="docs-card">
+            <h3>Grafana Dashboard Setup</h3>
+            <p>
+              Configure Grafana to use Prometheus as a datasource and build dashboard panels for
+              CPU, memory, and request visibility.
+            </p>
+            <ul>
+              <li>Datasource configuration</li>
+              <li>Panel creation</li>
+              <li>PromQL examples</li>
+              <li>Dashboard validation</li>
+            </ul>
+            <p>
+              <a href="/runbooks/grafana-dashboard-setup.html">Open runbook →</a>
+            </p>
+          </article>
+
+          <article class="docs-card">
+            <h3>Docker Recovery</h3>
+            <p>
+              Recover the platform when containers fail to start, networks drift, or the local
+              Docker environment becomes unstable.
+            </p>
+            <ul>
+              <li>Restart Docker Desktop</li>
+              <li>Reset compose stack</li>
+              <li>Inspect failing containers</li>
+              <li>Prune stale resources safely</li>
+            </ul>
+            <p>
+              <a href="/runbooks/docker-recovery.html">Open runbook →</a>
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="mt-4" aria-labelledby="operating-model">
+        <h2 id="operating-model">Operating model</h2>
+        <p>
+          These runbooks follow a common troubleshooting pattern:
+        </p>
+
+        <div class="code-block">
+<pre><code>Observe symptom
+        ↓
+Verify service/container state
+        ↓
+Check metrics or targets
+        ↓
+Confirm configuration
+        ↓
+Restart / recover safely
+        ↓
+Validate platform behavior</code></pre>
+        </div>
+
+        <p class="muted">
+          This keeps recovery steps explainable, repeatable, and safe across environments.
+        </p>
+      </section>
+
+      <section class="mt-4" aria-labelledby="related-docs">
+        <h2 id="related-docs">Related documentation</h2>
+        <ul>
+          <li><a href="/observability-architecture.html">Platform Observability Architecture</a></li>
+          <li><a href="/architecture.html">Architecture</a></li>
+          <li><a href="/automation-toolkit.html">Automation Toolkit</a></li>
+          <li><a href="/mesh-governance.html">Mesh Governance</a></li>
+          <li><a href="/platform-rules.html">Platform Rules</a></li>
+          <li><a href="/docs.html">Docs Index</a></li>
+        </ul>
+      </section>
+
+      <section class="mt-4" aria-labelledby="next-expansions">
+        <h2 id="next-expansions">Planned runbook expansions</h2>
+        <ul>
+          <li>Metrics endpoint debug</li>
+          <li>Observability stack reset</li>
+          <li>Container health verification</li>
+          <li>Incident simulation: Grafana “No Data”</li>
+        </ul>
+        <p class="muted">
+          The long-term goal is to make this page the operational entry point for platform
+          troubleshooting and recovery workflows.
+        </p>
+      </section>
+    </section>
+  </main>
+
+<!-- PARTIAL:FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-inner">
+
+    <p>© <span id="year"></span> Justine Longla T.</p>
+
+    <!-- Docs version line -->
+    <p id="docsVersionLine" class="footer-version"></p>
+
+    <nav class="footer-nav">
+      <a href="/docs.html">Docs</a>
+      <a href="/architecture.html">Architecture</a>
+      <a href="/observability-architecture.html">Observability</a>
+      <a href="/automation-toolkit.html">Automation Toolkit</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </nav>
+
+  </div>
+
+  <script>
+    (function () {
+      var y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
+
+      var meta = document.querySelector('meta[name="docs-version"]');
+      var line = document.getElementById("docsVersionLine");
+      if (line && meta && meta.content) line.textContent = meta.content;
+    })();
+  </script>
+</footer>
+<!-- /PARTIAL:FOOTER -->
+</body>
+</html>

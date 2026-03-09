@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- PARTIAL:HEAD -->
+<!-- /PARTIAL:HEAD -->
+  <title>Sandbox Startup — JLT-Lane Runbooks</title>
+  <meta
+    name="description"
+    content="Runbook for starting the JLT-Lane sandbox observability stack: Docker, Node.js service, Prometheus, and Grafana."
+  />
+  <meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+<!-- PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
+
+  <main id="main" class="page-main">
+    <section class="container">
+      <header class="section-header">
+        <h1 class="mt-0">Sandbox Startup</h1>
+        <p class="lead">
+          This runbook explains how to start and verify the JLT-Lane sandbox observability stack,
+          including the Node.js service, Prometheus, and Grafana.
+        </p>
+      </header>
+
+      <section class="mt-4">
+        <h2>Objective</h2>
+        <p>
+          Bring the local Docker-based observability stack online and confirm that metrics are
+          flowing from the Node.js service into Prometheus and Grafana.
+        </p>
+      </section>
+
+      <section class="mt-4">
+        <h2>Start the stack</h2>
+        <div class="code-block">
+<pre><code>docker compose up -d</code></pre>
+        </div>
+      </section>
+
+      <section class="mt-4">
+        <h2>Verify running containers</h2>
+        <div class="code-block">
+<pre><code>docker ps</code></pre>
+        </div>
+        <p>Expected services include:</p>
+        <ul>
+          <li>auth-service</li>
+          <li>prometheus</li>
+          <li>grafana</li>
+          <li>redis (optional)</li>
+          <li>postgres (optional)</li>
+        </ul>
+      </section>
+
+      <section class="mt-4">
+        <h2>Check the metrics endpoint</h2>
+        <div class="code-block">
+<pre><code>curl http://localhost:3002/metrics</code></pre>
+        </div>
+        <p>
+          You should see Prometheus-formatted output with application and process metrics.
+        </p>
+      </section>
+
+      <section class="mt-4">
+        <h2>Verify Prometheus targets</h2>
+        <p>Open Prometheus targets in the browser:</p>
+        <div class="code-block">
+<pre><code>http://localhost:9090/targets</code></pre>
+        </div>
+        <p>The auth-service target should be <strong>UP</strong>.</p>
+      </section>
+
+      <section class="mt-4">
+        <h2>Open Grafana</h2>
+        <div class="code-block">
+<pre><code>http://localhost:3000</code></pre>
+        </div>
+        <p>Default local login is typically:</p>
+        <div class="code-block">
+<pre><code>admin / admin</code></pre>
+        </div>
+      </section>
+
+      <section class="mt-4">
+        <h2>Success criteria</h2>
+        <ul>
+          <li>Containers are running</li>
+          <li><code>/metrics</code> responds successfully</li>
+          <li>Prometheus target is UP</li>
+          <li>Grafana loads and can query Prometheus</li>
+        </ul>
+      </section>
+
+      <section class="mt-4">
+        <h2>Related runbooks</h2>
+        <ul>
+          <li><a href="/runbooks/prometheus-target-debug.html">Prometheus Target Debug</a></li>
+          <li><a href="/runbooks/grafana-dashboard-setup.html">Grafana Dashboard Setup</a></li>
+          <li><a href="/runbooks.html">Runbooks Hub</a></li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+<!-- PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+</body>
+</html>

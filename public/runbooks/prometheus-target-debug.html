@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- PARTIAL:HEAD -->
+<!-- /PARTIAL:HEAD -->
+  <title>Prometheus Target Debug — JLT-Lane Runbooks</title>
+  <meta
+    name="description"
+    content="Runbook for debugging Prometheus targets, scrape failures, and missing metrics in the JLT-Lane sandbox environment."
+  />
+  <meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+<!-- PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
+
+  <main id="main" class="page-main">
+    <section class="container">
+      <header class="section-header">
+        <h1 class="mt-0">Prometheus Target Debug</h1>
+        <p class="lead">
+          Use this runbook when Grafana shows no data or Prometheus reports scrape failures or
+          targets in a DOWN state.
+        </p>
+      </header>
+
+      <section class="mt-4">
+        <h2>Common symptom</h2>
+        <p>
+          Dashboards are empty, metrics are stale, or the Prometheus targets page shows that the
+          application endpoint is unreachable.
+        </p>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 1 — Check the metrics endpoint</h2>
+        <div class="code-block">
+<pre><code>curl http://localhost:3002/metrics</code></pre>
+        </div>
+        <p>
+          If this fails, the Node.js service may not be running or may not be exporting metrics.
+        </p>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 2 — Inspect Prometheus targets</h2>
+        <div class="code-block">
+<pre><code>http://localhost:9090/targets</code></pre>
+        </div>
+        <p>Look for the configured application target and confirm its state is <strong>UP</strong>.</p>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 3 — Validate scrape configuration</h2>
+        <p>Typical Prometheus job example:</p>
+        <div class="code-block">
+<pre><code>scrape_configs:
+  - job_name: "auth-service"
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["auth-service:3002"]</code></pre>
+        </div>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 4 — Verify Docker networking</h2>
+        <div class="code-block">
+<pre><code>docker ps
+docker network ls
+docker inspect prometheus</code></pre>
+        </div>
+        <p>
+          Confirm that Prometheus and the application service are on the same Docker network and
+          that the container name in the scrape target is correct.
+        </p>
+      </section>
+
+      <section class="mt-4">
+        <h2>Step 5 — Restart the stack if needed</h2>
+        <div class="code-block">
+<pre><code>docker compose restart
+docker compose ps</code></pre>
+        </div>
+      </section>
+
+      <section class="mt-4">
+        <h2>Success criteria</h2>
+        <ul>
+          <li><code>/metrics</code> responds</li>
+          <li>Target state in Prometheus is UP</li>
+          <li>Metrics begin appearing in Grafana queries</li>
+        </ul>
+      </section>
+
+      <section class="mt-4">
+        <h2>Related runbooks</h2>
+        <ul>
+          <li><a href="/runbooks/sandbox-startup.html">Sandbox Startup</a></li>
+          <li><a href="/runbooks/grafana-dashboard-setup.html">Grafana Dashboard Setup</a></li>
+          <li><a href="/runbooks.html">Runbooks Hub</a></li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+<!-- PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+</body>
+</html>

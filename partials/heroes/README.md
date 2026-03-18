@@ -3,11 +3,12 @@
 Hero sections are treated as canonical layout blocks.
 
 - Canonical source lives in `partials/heroes/`
-- Pages must include a matching `PARTIAL:HERO_*` marker
-- CI enforces exact match with canonical HTML
-- Manual edits in pages are not allowed
+- Pages must include the matching hero marker block
+- CI enforces that injected hero output stays aligned with canonical source
+- Manual edits inside injected hero regions are not allowed
 
 To change a hero:
-1. Edit the canonical hero partial
-2. Run `node scripts/inject-heroes.mjs`
-3. Commit the result
+1. Edit the canonical hero partial in `partials/heroes/`
+2. Run the repo’s injection step (`npm run inject:partials`)
+3. Run the repo’s validation step (`npm run check:partials`)
+4. Commit both the canonical source and injected page output

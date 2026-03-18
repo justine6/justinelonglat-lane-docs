@@ -18,7 +18,69 @@
   <script src="/scripts/theme-toggle.js" defer></script>
   <script src="/scripts/back-to-top.js" defer></script>
 </head>
+<script>
+  (() => {
+    const hero = document.querySelector(".home-hero");
+    const card = document.querySelector(".hero-card");
 
+    if (!hero) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    const updateHeroScroll = () => {
+      const rect = hero.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+
+      const progress = clamp(rect.top / vh, -1, 1);
+      const moveY = progress * -18;
+      const fade = 1 - Math.min(Math.abs(progress) * 0.35, 0.35);
+
+      hero.style.setProperty("--hero-grid-y", `${moveY}px`);
+      hero.style.setProperty("--hero-glow-y", `${moveY * 0.6}px`);
+      hero.style.setProperty("--hero-fade", `${fade}`);
+    };
+
+    const resetMouseMotion = () => {
+      hero.style.setProperty("--hero-mouse-x", "0px");
+      hero.style.setProperty("--hero-mouse-y", "0px");
+      hero.style.setProperty("--hero-card-x", "0px");
+      hero.style.setProperty("--hero-card-y", "0px");
+    };
+
+    const updateHeroMouse = (event) => {
+      if (reduceMotion || coarsePointer) return;
+
+      const rect = hero.getBoundingClientRect();
+      const relX = (event.clientX - rect.left) / rect.width;
+      const relY = (event.clientY - rect.top) / rect.height;
+
+      const offsetX = (relX - 0.5) * 16;
+      const offsetY = (relY - 0.5) * 12;
+
+      hero.style.setProperty("--hero-mouse-x", `${offsetX}px`);
+      hero.style.setProperty("--hero-mouse-y", `${offsetY}px`);
+
+      if (card) {
+        hero.style.setProperty("--hero-card-x", `${offsetX * 0.12}px`);
+        hero.style.setProperty("--hero-card-y", `${offsetY * 0.10}px`);
+      }
+    };
+
+    updateHeroScroll();
+    resetMouseMotion();
+
+    window.addEventListener("scroll", updateHeroScroll, { passive: true });
+    window.addEventListener("resize", updateHeroScroll);
+
+    if (!reduceMotion && !coarsePointer) {
+      hero.addEventListener("mousemove", updateHeroMouse, { passive: true });
+      hero.addEventListener("mouseleave", resetMouseMotion);
+    }
+  })();
+</script>
 <body>
   <!-- ================= Header / Nav ================= -->
 <header class="site-header">

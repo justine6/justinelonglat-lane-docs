@@ -192,6 +192,9 @@
 <!-- /PARTIAL:HEADER -->
 <!-- /PARTIAL:HEADER -->
 <!-- /PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
 
   <main id="main" class="page-main">
     <section class="container">
@@ -305,41 +308,132 @@
 
   <!-- PARTIAL:FOOTER -->
 <!-- PARTIAL:FOOTER -->
-<footer class="site-footer" role="contentinfo">
-  <div class="container footer-inner">
-    <p>© <span id="year"></span> Justine Longla T.</p>
+<footer class="site-footer site-footer--network" role="contentinfo">
+  <div class="footer-top">
+    <div class="footer-col footer-brand">
+      <h3 class="footer-brand-title">Justine Longla T.</h3>
+      <p class="footer-brand-copy">
+        Cloud Confidence. Delivered. Secure, performance-tuned solutions — built the
+        right way.
+      </p>
 
-    <p class="footer-signature">
-      Developed by Justine Longla T. — originally deployed on Jutellane, now JLT-Lane.
-    </p>
+      <div class="footer-brand-ctas">
+        <a
+          class="footer-btn footer-btn--primary"
+          href="https://consulting.justinelonglat-lane.com/intro-call"
+          aria-label="Schedule your intro call"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Schedule Your Intro Call
+        </a>
 
-    <div class="footer-version-row">
-      <p id="docsVersionLine" class="footer-version"></p>
+        <a
+          class="footer-btn footer-btn--secondary"
+          href="https://consulting.justinelonglat-lane.com/hire-me"
+          aria-label="Hire me"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Hire Me
+        </a>
+      </div>
     </div>
 
-    <nav class="footer-nav" aria-label="Footer">
-      <a href="/docs.html">Docs</a>
-      <a href="/architecture.html">Architecture</a>
-      <a href="/observability-architecture.html">Observability</a>
-      <a href="/runbooks.html">Runbooks</a>
-      <a href="/automation-toolkit.html">Automation Toolkit</a>
-      <a href="/sitemap.xml">Sitemap</a>
+    <nav class="footer-col footer-links" aria-label="Quick links">
+      <h4 class="sr-only">Quick links</h4>
+      <ul class="footer-list">
+        <li><a href="https://www.justinelonglat-lane.com/">Home</a></li>
+        <li><a href="https://www.justinelonglat-lane.com/projects">Projects</a></li>
+        <li>
+          <a href="https://blogs.justinelonglat-lane.com/" target="_blank" rel="noopener noreferrer">
+            Blog ↗
+          </a>
+        </li>
+        <li><a href="https://www.justinelonglat-lane.com/contact">Contact</a></li>
+        <li><a href="https://www.justinelonglat-lane.com/hire-me">Hire Me</a></li>
+        <li><a href="https://www.justinelonglat-lane.com/resume">Résumé</a></li>
+        <li>
+          <a
+            href="https://www.justinelonglat-lane.com/Justine-Longla-T-Lane-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download Résumé (PDF)
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.justinelonglat-lane.com/Justine-Longla-T-Lane-Brochure.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download a Brochure
+          </a>
+        </li>
+      </ul>
     </nav>
+
+    <div class="footer-col footer-contact">
+      <h4 class="footer-heading">CONTACT</h4>
+      <ul class="footer-list">
+        <li>
+          <a href="mailto:justine@justinelonglat-lane.com">
+            justine@justinelonglat-lane.com
+          </a>
+        </li>
+        <li>
+          <a href="https://www.justinelonglat-lane.com/videos">Videos</a>
+        </li>
+        <li>
+          <a href="tel:+14059345864">+1 405.934.5864</a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/longlatjustine"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn: longlatjustine
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <script>
-    (function () {
-      var y = document.getElementById("year");
-      if (y) y.textContent = new Date().getFullYear();
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-meta">
+        © 2026 <span class="footer-strong">Justine Longla T-Lane.</span> · DevSecOps • Cloud • Sustainability
+      </p>
 
-      var meta = document.querySelector('meta[name="docs-version"]');
-      var line = document.getElementById("docsVersionLine");
-      if (line && meta && meta.content) {
-        line.textContent = meta.content;
-      }
-    })();
-  </script>
+      <p class="footer-submeta">
+        Operating under <span class="footer-strong">JustineLonglaT-Lane LLC.</span>
+      </p>
+
+      <nav class="footer-network" aria-label="Justine Longla T. network">
+        <a href="https://blogs.justinelonglat-lane.com/" target="_blank" rel="noopener noreferrer">Blog</a>
+        <a href="https://www.justinelonglat-lane.com/projects">Projects</a>
+        <a href="https://docs.justinelonglat-lane.com/" target="_blank" rel="noopener noreferrer">Docs</a>
+        <a href="https://docs.justinelonglat-lane.com/automation-toolkit.html" target="_blank" rel="noopener noreferrer">Automation Toolkit</a>
+      </nav>
+
+      <div class="footer-divider" aria-hidden="true"></div>
+
+      <div class="footer-version">
+        Engineering Mesh v1.2.0 — Release: runtime-stable — Verified production baseline
+      </div>
+
+      <div class="footer-utility-links">
+        <a href="/automation-toolkit.html">Automation toolkit</a>
+        <a href="/sitemap.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
 </footer>
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->

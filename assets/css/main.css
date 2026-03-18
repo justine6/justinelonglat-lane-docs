@@ -673,6 +673,49 @@ pre {
 }
 
 /* ===== Footer ============================================================= */
+.site-footer--network .footer-top {
+  padding: 2.25rem 1rem 2rem;
+  gap: 1.5rem;
+}
+
+.site-footer--network .footer-brand-copy {
+  max-width: 28rem;
+}
+
+.site-footer--network .footer-list li + li {
+  margin-top: 0.65rem;
+}
+
+.site-footer--network .footer-bottom {
+  padding: 1rem 1rem 1.5rem;
+}
+
+.site-footer--network .footer-bottom-inner {
+  gap: 0.45rem;
+}
+
+.site-footer--network .footer-network {
+  margin-top: 0.2rem;
+  gap: 1rem 1.5rem;
+}
+
+.site-footer--network .footer-divider {
+  margin-top: 0.75rem;
+}
+
+.site-footer--network .footer-version {
+  margin-top: 0.35rem;
+}
+
+.site-footer--network .footer-utility-links {
+  gap: 1rem;
+}
+
+@media (min-width: 769px) {
+  .site-footer--network .footer-network {
+    flex-direction: row;
+  }
+}
 .site-footer {
   margin-top: 3.25rem;
   padding: 2rem 0 2rem;

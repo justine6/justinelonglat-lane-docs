@@ -483,6 +483,18 @@ html:not([data-theme="light"]) .nav-profile-name{
   overflow:hidden;
   padding: clamp(4rem, 7vw, 6rem) 0;
   background: linear-gradient(180deg, #eef2f7 0%, #e9eef5 100%);
+  .home-hero{
+  position:relative;
+  overflow:hidden;
+  padding: clamp(4rem, 7vw, 6rem) 0;
+  background: linear-gradient(180deg, #eef2f7 0%, #e9eef5 100%);
+
+  --hero-shift-x: 0px;
+  --hero-shift-y: 0px;
+  --hero-scale: 1;
+  --hero-ring-scale: 1;
+  --hero-ring-opacity: 0.82;
+}
 }
 
 .home-hero::before{

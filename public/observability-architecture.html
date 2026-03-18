@@ -1,18 +1,15 @@
-<!doctype html>
-<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Platform Observability Architecture — JustineLonglaT-Lane Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
     content="Platform observability architecture for JLT-Lane: Node.js metrics, Prometheus scraping, Grafana dashboards, and Docker-based monitoring foundations."
   />
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="/styles.css" />
-  <script src="/scripts/theme-toggle.js" defer></script>
-  <script src="/scripts/back-to-top.js" defer></script>
-  <meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline">
+  <meta
+    name="docs-version"
+    content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline"
+  />
 
   <!-- PARTIAL:HEAD -->
 <meta charset="utf-8" />
@@ -24,7 +21,6 @@
 
 <script src="/scripts/theme-toggle.js" defer></script>
 <script src="/scripts/back-to-top.js" defer></script>
-<!-- /PARTIAL:HEAD -->
 <!-- /PARTIAL:HEAD -->
 </head>
 
@@ -98,49 +94,52 @@
 </header>
 <!-- /PARTIAL:HEADER -->
 
-  <main id="main" class="page-main">
-    <section class="container">
-      <header class="section-header">
-        <h1 class="mt-0">Platform Observability Architecture</h1>
-        <p class="lead">
-          JLT-Lane builds observability directly into the engineering platform behind modern applications.
-          This page documents the monitoring flow used in the sandbox platform environment.
-        </p>
-      </header>
+<main id="main" class="page-main">
+  <section class="container">
+    <header class="section-header">
+      <h1 class="mt-0">Platform Observability Architecture</h1>
+      <p class="lead">
+        The visibility layer of the JLT-Lane platform — where system signals are
+        exposed, collected, and turned into operational understanding.
+      </p>
+    </header>
 
-      <section class="mt-4" aria-labelledby="overview">
-        <h2 id="overview">Overview</h2>
-        <p>
-          In this architecture, a Node.js authentication service exposes operational metrics through a
-          <code>/metrics</code> endpoint. Prometheus scrapes those metrics at regular intervals, stores them
-          as time-series data, and Grafana visualizes service behavior through dashboards.
-        </p>
-        <p>
-          All components run inside a Docker-based environment, making the platform portable,
-          reproducible, and easy to operate.
-        </p>
-      </section>
+    <section class="mt-4" aria-labelledby="overview">
+      <h2 id="overview">Why this page exists</h2>
+      <p>
+        Observability is how the platform explains its own behavior. This page
+        documents the path from service-level metrics to dashboards and operational
+        visibility inside the JLT-Lane sandbox environment.
+      </p>
+      <p class="muted">
+        In the broader Engineering Mesh, observability sits between sandbox
+        experimentation and runbook-driven operations. It is the layer that turns
+        system behavior into actionable signals.
+      </p>
+    </section>
 
-      <section class="mt-4" aria-labelledby="diagram">
-        <h2 id="diagram">Architecture Diagram</h2>
-        <p class="muted">Click the diagram to open full-size.</p>
+    <section class="mt-4" aria-labelledby="diagram">
+      <h2 id="diagram">Observability model</h2>
+      <p class="muted">Click the diagram to open full-size.</p>
 
-        <figure>
-          <a href="/diagrams/JLT-Lane_Observability_Architecture.PNG" target="_blank" rel="noopener">
-            <img
-              src="/diagrams/JLT-Lane_Observability_Architecture.PNG"
-              alt="JLT-Lane observability architecture showing Node.js Auth Service, Prometheus, Grafana, and containerized Docker environment"
-            />
-          </a>
-          <figcaption>
-            JLT-Lane observability pipeline: Node.js service → Prometheus → Grafana inside a containerized sandbox environment.
-          </figcaption>
-        </figure>
-      </section>
+      <figure>
+        <a href="/diagrams/JLT-Lane_Observability_Architecture.PNG" target="_blank" rel="noopener">
+          <img
+            src="/diagrams/JLT-Lane_Observability_Architecture.PNG"
+            alt="JLT-Lane observability architecture showing Node.js Auth Service, Prometheus, Grafana, and containerized Docker environment"
+          />
+        </a>
+        <figcaption>
+          JLT-Lane observability path — service metrics flow from a Node.js runtime
+          into Prometheus and are visualized through Grafana dashboards inside a
+          containerized sandbox environment.
+        </figcaption>
+      </figure>
+    </section>
 
-      <section class="mt-4" aria-labelledby="flow">
-        <h2 id="flow">Observability Flow</h2>
-        <pre><code>Node.js Auth Service
+    <section class="mt-4" aria-labelledby="flow">
+      <h2 id="flow">Signal flow</h2>
+      <pre><code>Node.js Auth Service
         ↓
 /metrics endpoint
         ↓
@@ -149,114 +148,193 @@ Prometheus scrape job
 Prometheus time-series database
         ↓
 Grafana monitoring dashboards</code></pre>
-      </section>
+    </section>
 
-      <section class="mt-4" aria-labelledby="components">
-        <h2 id="components">Core Components</h2>
+    <section class="mt-4" aria-labelledby="components">
+      <h2 id="components">Core components</h2>
 
-        <h3>Node.js Auth Service</h3>
-        <p>
-          The service exposes Prometheus-compatible metrics that describe internal runtime behavior and
-          application activity.
-        </p>
-        <pre><code>process_cpu_seconds_total
+      <h3>Node.js Auth Service</h3>
+      <p>
+        The service exposes Prometheus-compatible metrics describing runtime behavior,
+        request activity, and resource pressure. This is the first point where the
+        platform becomes visible from the inside.
+      </p>
+      <pre><code>process_cpu_seconds_total
 process_resident_memory_bytes
 nodejs_active_handles
 auth_service_http_requests_total</code></pre>
 
-        <h3>Prometheus</h3>
-        <p>
-          Prometheus scrapes the metrics endpoint and stores the results as queryable time-series data.
-          This forms the measurement layer of the observability stack.
-        </p>
-        <pre><code>scrape_configs:
+      <h3>Prometheus</h3>
+      <p>
+        Prometheus scrapes the metrics endpoint at regular intervals and stores the
+        results as queryable time-series data. It forms the measurement layer of the
+        observability stack.
+      </p>
+      <pre><code>scrape_configs:
   - job_name: "auth-service"
     metrics_path: /metrics
     static_configs:
       - targets: ["auth-service:3002"]</code></pre>
 
-        <h3>Grafana</h3>
-        <p>
-          Grafana connects to Prometheus and renders dashboard panels for service health, request throughput,
-          CPU usage, memory consumption, and runtime pressure indicators.
-        </p>
-      </section>
+      <h3>Grafana</h3>
+      <p>
+        Grafana turns collected metrics into visual dashboards for service health,
+        throughput, CPU, memory, and runtime pressure. This is where raw metrics
+        become human-readable platform insight.
+      </p>
+    </section>
 
-      <section class="mt-4" aria-labelledby="queries">
-        <h2 id="queries">Example PromQL Queries</h2>
-        <pre><code>rate(auth_service_http_requests_total[5m])
+    <section class="mt-4" aria-labelledby="queries">
+      <h2 id="queries">Example PromQL queries</h2>
+      <pre><code>rate(auth_service_http_requests_total[5m])
 rate(process_cpu_seconds_total[1m])
 process_resident_memory_bytes
 nodejs_active_handles</code></pre>
-      </section>
-
-      <section class="mt-4" aria-labelledby="value">
-        <h2 id="value">Why This Matters</h2>
-        <p>
-          Modern systems should not just run. They should be able to explain their own behavior.
-          Observability helps teams detect issues early, troubleshoot incidents faster, and operate services
-          with more confidence.
-        </p>
-        <p>
-          At JLT-Lane, this is part of the platform foundation itself rather than an afterthought.
-        </p>
-      </section>
-
-      <section class="mt-4" aria-labelledby="jltlane">
-        <h2 id="jltlane">JLT-Lane Platform View</h2>
-        <p>
-          JLT-Lane builds the engineering platform behind your applications — the infrastructure,
-          automation, monitoring, and security systems that allow your services to run reliably and scale
-          as your organization grows.
-        </p>
-        <p>
-          This observability architecture is one practical example of that philosophy in action.
-        </p>
-      </section>
-
-      <section class="mt-4" aria-labelledby="related">
-        <h2 id="related">Related Pages</h2>
-        <ul>
-          <li><a href="/docs.html">Docs Index</a></li>
-          <li><a href="/architecture.html">Architecture</a></li>
-          <li><a href="/mesh-governance.html">Mesh Governance</a></li>
-          <li><a href="/platform-rules.html">Platform Rules</a></li>
-          <li><a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog ↗</a></li>
-        </ul>
-      </section>
     </section>
-  </main>
+
+    <section class="mt-4" aria-labelledby="value">
+      <h2 id="value">Why observability matters</h2>
+      <p>
+        Modern systems should not only run — they should be able to describe their
+        own condition. Observability helps teams detect issues earlier, troubleshoot
+        with more precision, and operate services with confidence.
+      </p>
+      <p>
+        At JLT-Lane, observability is treated as a built-in platform layer rather
+        than an afterthought. It supports both technical reliability and operational clarity.
+      </p>
+    </section>
+
+    <section class="mt-4" aria-labelledby="mesh-context">
+      <h2 id="mesh-context">Where this sits in the Engineering Mesh</h2>
+      <p>
+        In the JLT-Lane Engineering Mesh, observability is the bridge between
+        experimentation and action.
+      </p>
+      <pre><code>Architecture
+        ↓
+Sandbox
+        ↓
+Observability
+        ↓
+Runbooks
+        ↓
+Delivery</code></pre>
+      <p class="muted">
+        The sandbox creates a safe place to generate signals. Observability captures
+        them. Runbooks turn them into decisions and repeatable response paths.
+      </p>
+    </section>
+
+    <section class="mt-4" aria-labelledby="next-steps">
+      <h2 id="next-steps">From observability to action</h2>
+      <p class="muted">
+        These pages take the signals shown here and connect them to the rest of the platform.
+      </p>
+
+      <div class="control-grid">
+        <a class="control-card" href="/architecture.html">
+          <span class="control-label">Return to architecture</span>
+          <span class="control-arrow">→</span>
+          <p>
+            Step back into the broader platform map: Engineering Mesh, sandbox,
+            reliability flow, and system structure.
+          </p>
+        </a>
+
+        <a class="control-card" href="/runbooks.html">
+          <span class="control-label">Move into runbooks</span>
+          <span class="control-arrow">→</span>
+          <p>
+            See how observability signals are translated into operational response,
+            debugging steps, and recovery procedures.
+          </p>
+        </a>
+
+        <a class="control-card" href="/automation-toolkit.html">
+          <span class="control-label">Use the toolkit</span>
+          <span class="control-arrow">→</span>
+          <p>
+            Explore the supporting scripts, patterns, and tooling references that
+            help make observability usable in practice.
+          </p>
+        </a>
+
+        <a class="control-card" href="/docs.html">
+          <span class="control-label">Return to MeshHub</span>
+          <span class="control-arrow">→</span>
+          <p>
+            Go back to the documentation control plane to choose another path
+            through the platform.
+          </p>
+        </a>
+
+        <a
+          class="control-card"
+          href="https://blogs.justinelonglat-lane.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="control-label">Read the blog</span>
+          <span class="control-arrow">↗</span>
+          <p>
+            Follow longer reflections on observability, platform engineering,
+            and system design.
+          </p>
+        </a>
+      </div>
+    </section>
+  </section>
+</main>
 
   <!-- PARTIAL:FOOTER -->
+<!-- PARTIAL:FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
 
+    <!-- Copyright -->
     <p>© <span id="year"></span> Justine Longla T.</p>
 
-    <!-- Docs version line -->
-    <p id="docsVersionLine" class="footer-version"></p>
+    <!-- Signature (platform identity) -->
+    <p class="footer-signature">
+      Developed by Justine Longla T. — originally deployed on Jutellane, now JLT-Lane.
+    </p>
 
-    <nav class="footer-nav">
+    <!-- Docs version line -->
+    <div class="footer-version-row">
+      <p id="docsVersionLine" class="footer-version"></p>
+    </div>
+
+    <!-- Footer navigation -->
+    <nav class="footer-nav" aria-label="Footer">
       <a href="/docs.html">Docs</a>
       <a href="/architecture.html">Architecture</a>
       <a href="/observability-architecture.html">Observability</a>
+      <a href="/runbooks.html">Runbooks</a>
       <a href="/automation-toolkit.html">Automation Toolkit</a>
       <a href="/sitemap.xml">Sitemap</a>
     </nav>
 
   </div>
 
+  <!-- Footer script (safe + deterministic) -->
   <script>
     (function () {
+      // Year
       var y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
 
+      // Docs version
       var meta = document.querySelector('meta[name="docs-version"]');
       var line = document.getElementById("docsVersionLine");
-      if (line && meta && meta.content) line.textContent = meta.content;
+      if (line && meta && meta.content) {
+        line.textContent = meta.content;
+      }
     })();
   </script>
 </footer>
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
 </body>
 </html>

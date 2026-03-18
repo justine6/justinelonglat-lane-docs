@@ -194,35 +194,53 @@
   </main>
 
 <!-- PARTIAL:FOOTER -->
+<!-- PARTIAL:FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
 
+    <!-- Copyright -->
     <p>© <span id="year"></span> Justine Longla T.</p>
 
-    <!-- Docs version line -->
-    <p id="docsVersionLine" class="footer-version"></p>
+    <!-- Signature (platform identity) -->
+    <p class="footer-signature">
+      Developed by Justine Longla T. — originally deployed on Jutellane, now JLT-Lane.
+    </p>
 
-    <nav class="footer-nav">
+    <!-- Docs version line -->
+    <div class="footer-version-row">
+      <p id="docsVersionLine" class="footer-version"></p>
+    </div>
+
+    <!-- Footer navigation -->
+    <nav class="footer-nav" aria-label="Footer">
       <a href="/docs.html">Docs</a>
       <a href="/architecture.html">Architecture</a>
       <a href="/observability-architecture.html">Observability</a>
+      <a href="/runbooks.html">Runbooks</a>
       <a href="/automation-toolkit.html">Automation Toolkit</a>
       <a href="/sitemap.xml">Sitemap</a>
     </nav>
 
   </div>
 
+  <!-- Footer script (safe + deterministic) -->
   <script>
     (function () {
+      // Year
       var y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
 
+      // Docs version
       var meta = document.querySelector('meta[name="docs-version"]');
       var line = document.getElementById("docsVersionLine");
-      if (line && meta && meta.content) line.textContent = meta.content;
+      if (line && meta && meta.content) {
+        line.textContent = meta.content;
+      }
     })();
   </script>
 </footer>
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
 </body>
 </html>

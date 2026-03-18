@@ -4,12 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Architecture — JustineLonglaT-Lane Docs</title>
-  <meta name="description" content="Architecture diagrams and platform decisions for JustineLonglaT-Lane Docs." />
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="/styles.css" />
-  <script src="/scripts/theme-toggle.js" defer></script>
-  <script src="/scripts/back-to-top.js" defer></script>
-<meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline">
+  <meta
+    name="description"
+    content="Architecture diagrams and platform decisions for JustineLonglaT-Lane Docs."
+  />
+  <meta
+    name="docs-version"
+    content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline"
+  />
+
   <!-- PARTIAL:HEAD -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,7 +23,6 @@
 
 <script src="/scripts/theme-toggle.js" defer></script>
 <script src="/scripts/back-to-top.js" defer></script>
-<!-- /PARTIAL:HEAD -->
 <!-- /PARTIAL:HEAD -->
 </head>
 
@@ -98,7 +100,7 @@
     <section class="container">
       <header class="section-header">
         <h1 class="mt-0">Architecture</h1>
-        <p class="lead">Diagrams + design decisions for the docs ecosystem.</p>
+        <p class="lead">Diagrams + design decisions for the JLT-Lane ecosystem.</p>
       </header>
 
       <section class="mt-4" aria-labelledby="principles">
@@ -111,84 +113,147 @@
         </ul>
       </section>
 
-    <section class="mt-4" aria-labelledby="gallery">
-      <h2 id="gallery">Diagram gallery</h2>
-      <p class="muted">Click any diagram to open full-size.</p>
-      <div class="diagram-grid">
-        <figure>
-          <a href="/observability-architecture.html">
-            <img
-              src="/diagrams/JLT-Lane_Observability_Architecture.PNG"
-              alt="JLT-Lane platform observability architecture"
-            />
-          </a>
-          <figcaption>
-            Platform observability architecture — Node.js metrics, Prometheus collection, and Grafana dashboards.
-          </figcaption>
-        </figure>
-        <figure>
-          <a href="/diagrams/high-level.svg" target="_blank" rel="noopener">
-            <img src="/diagrams/high-level.svg" alt="High-level system architecture" />
-          </a>
-          <figcaption>High-level system architecture</figcaption>
-        </figure>
+      <section class="mt-4" aria-labelledby="gallery">
+        <h2 id="gallery">Diagram gallery</h2>
+        <p class="muted">Click any diagram to open full-size.</p>
 
-        <figure>
-          <a href="/diagrams/data-pipeline.svg" target="_blank" rel="noopener">
-            <img src="/diagrams/data-pipeline.svg" alt="Data pipeline" />
-          </a>
-          <figcaption>Data pipeline</figcaption>
-        </figure>
+        <div class="diagram-grid">
+          <figure>
+            <a href="/diagrams/JLT-Lane Engineering Mesh Platform Model.png" target="_blank" rel="noopener">
+              <img
+                src="/diagrams/JLT-Lane Engineering Mesh Platform Model.png"
+                alt="JLT-Lane Engineering Mesh five-layer platform engineering framework"
+              />
+            </a>
+            <figcaption>
+              JLT-Lane Engineering Mesh — a five-layer platform engineering model connecting architecture, sandbox, observability, runbooks, and monetization.
+            </figcaption>
+          </figure>
 
-        <figure>
-          <a href="/diagrams/service-flow.svg" target="_blank" rel="noopener">
-            <img src="/diagrams/service-flow.svg" alt="Service flow" />
-          </a>
-          <figcaption>JLT-Lane Platform Control Plane and Service Ecosystem</figcaption>
-        </figure>
+          <figure>
+            <a href="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png" target="_blank" rel="noopener">
+              <img
+                src="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png"
+                alt="JLT-Lane Sandbox Suite Architecture"
+              />
+            </a>
+            <figcaption>
+              Sandbox Suite architecture — developer laptop, Docker Compose, services, metrics, dashboards, and runbooks for incident troubleshooting.
+            </figcaption>
+          </figure>
 
-        <figure>
-          <a href="/diagrams/platform-architecture.png" target="_blank" rel="noopener">
-            <img src="/diagrams/platform-architecture.png" alt="JLT-Lane platform architecture" />
-          </a>
-          <figcaption>Platform architecture</figcaption>
-        </figure>
-      </div>
+          <figure>
+            <a href="/observability-architecture.html">
+              <img
+                src="/diagrams/JLT-Lane_Observability_Architecture.PNG"
+                alt="JLT-Lane platform observability architecture"
+              />
+            </a>
+            <figcaption>
+              Platform observability architecture — Node.js metrics, Prometheus collection, and Grafana dashboards.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a href="/diagrams/platform-reliability-flow.png" target="_blank" rel="noopener">
+              <img
+                src="/diagrams/platform-reliability-flow.png"
+                alt="Platform reliability flow connecting architecture, observability, operations, and performance optimization"
+              />
+            </a>
+            <figcaption>
+              Platform reliability flow — how architecture, observability, and operations feed performance optimization and architecture evolution.
+            </figcaption>
+          </figure>
+
+                    <figure>
+            <a href="/diagrams/service-flow.svg" target="_blank" rel="noopener">
+              <img
+                src="/diagrams/service-flow.svg"
+                alt="JLT-Lane platform control plane and service ecosystem"
+              />
+            </a>
+            <figcaption>
+              JLT-Lane platform control plane and service ecosystem.
+            </figcaption>
+          </figure>
+          
+          <figure>
+            <a href="/diagrams/high-level.svg" target="_blank" rel="noopener">
+              <img src="/diagrams/high-level.svg" alt="High-level system architecture" />
+            </a>
+            <figcaption>High-level system architecture.</figcaption>
+          </figure>
+
+          <figure>
+            <a href="/diagrams/data-pipeline.svg" target="_blank" rel="noopener">
+              <img src="/diagrams/data-pipeline.svg" alt="Data pipeline" />
+            </a>
+            <figcaption>Data pipeline.</figcaption>
+          </figure>
+
+          <figure>
+            <a href="/diagrams/platform-architecture.png" target="_blank" rel="noopener">
+              <img
+                src="/diagrams/platform-architecture.png"
+                alt="JLT-Lane platform architecture"
+              />
+            </a>
+            <figcaption>Platform architecture.</figcaption>
+          </figure>
+        </div>
+      </section>
     </section>
   </main>
 
   <!-- PARTIAL:FOOTER -->
+<!-- PARTIAL:FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
 
+    <!-- Copyright -->
     <p>© <span id="year"></span> Justine Longla T.</p>
 
-    <!-- Docs version line -->
-    <p id="docsVersionLine" class="footer-version"></p>
+    <!-- Signature (platform identity) -->
+    <p class="footer-signature">
+      Developed by Justine Longla T. — originally deployed on Jutellane, now JLT-Lane.
+    </p>
 
-    <nav class="footer-nav">
+    <!-- Docs version line -->
+    <div class="footer-version-row">
+      <p id="docsVersionLine" class="footer-version"></p>
+    </div>
+
+    <!-- Footer navigation -->
+    <nav class="footer-nav" aria-label="Footer">
       <a href="/docs.html">Docs</a>
       <a href="/architecture.html">Architecture</a>
       <a href="/observability-architecture.html">Observability</a>
+      <a href="/runbooks.html">Runbooks</a>
       <a href="/automation-toolkit.html">Automation Toolkit</a>
       <a href="/sitemap.xml">Sitemap</a>
     </nav>
 
   </div>
 
+  <!-- Footer script (safe + deterministic) -->
   <script>
     (function () {
+      // Year
       var y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
 
+      // Docs version
       var meta = document.querySelector('meta[name="docs-version"]');
       var line = document.getElementById("docsVersionLine");
-      if (line && meta && meta.content) line.textContent = meta.content;
+      if (line && meta && meta.content) {
+        line.textContent = meta.content;
+      }
     })();
   </script>
 </footer>
 <!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
 </body>
 </html>
-
-

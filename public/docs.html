@@ -2,21 +2,17 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <title>Docs index — JustineLonglaT-Lane Docs</title>
+  <title>MeshHub — JustineLonglaT-Lane Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <meta
     name="description"
-    content="Docs index for JustineLonglaT-Lane Docs: getting started, tooling, CI/CD, architecture, system design, and the automation toolkit."
+    content="MeshHub for JustineLonglaT-Lane Docs: architecture, observability, runbooks, automation, and delivery paths across the JLT-Lane ecosystem."
+  />
+  <meta
+    name="docs-version"
+    content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline"
   />
 
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="/styles.css" />
-
-  <script src="/scripts/theme-toggle.js" defer></script>
-  <script src="/scripts/back-to-top.js" defer></script>
-<meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline">
-  <!-- inject:head -->
   <!-- PARTIAL:HEAD -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,7 +23,6 @@
 
 <script src="/scripts/theme-toggle.js" defer></script>
 <script src="/scripts/back-to-top.js" defer></script>
-<!-- /PARTIAL:HEAD -->
 <!-- /PARTIAL:HEAD -->
 </head>
 
@@ -103,103 +98,236 @@
 
   <main id="main" class="page-main">
     <section class="container">
+
       <header class="section-header">
-        <h1 class="mt-0">Docs index</h1>
+        <h1 class="mt-0">MeshHub</h1>
         <p class="lead">
-          A curated table of contents for the JustineLonglaT-Lane Docs hub — everything is reachable in 1–2 clicks.
+          The documentation control plane behind JLT-Lane — where architecture,
+          observability, runbooks, automation, and delivery paths come together.
         </p>
       </header>
 
-      <!-- Primary paths -->
-      <section class="mt-4" aria-labelledby="primary-heading">
-        <h2 id="primary-heading">Start here</h2>
-        <ul>
-          <li><strong><a href="/README.html">README</a></strong> — what this repo is, what it contains, and how to use it.</li>
-          <li id="getting-started"><strong><a href="/docs.html#getting-started">Getting started</a></strong> — local environment, first run, and repo flow.</li>
-          <li id="tooling"><strong><a href="/docs.html#tooling">Tooling</a></strong> — editors, formatting, linting, and guardrails.</li>
-        </ul>
-      </section>
-
-      <!-- Delivery + platform -->
-      <section class="mt-4" aria-labelledby="delivery-heading">
-        <h2 id="delivery-heading">Delivery & operations</h2>
-        <ul>
-          <li><strong><a href="/cicd-pipelines.html">CI/CD pipelines</a></strong> — preview, main, and production flows.</li>
-          <li><strong><a href="/toolkit.html">Automation Toolkit</a></strong> — reusable scripts, helpers, and guardrails.</li>
-        </ul>
-      </section>
-
-      <!-- Architecture -->
-      <section class="mt-4" aria-labelledby="arch-heading">
-        <h2 id="arch-heading">Architecture</h2>
-        <ul>
-          <li><strong><a href="/architecture.html">Architecture</a></strong> — diagrams and platform decisions.</li>
-
-          <li><strong><a href="/observability-architecture.html">Platform Observability Architecture</a></strong> — Node.js metrics, Prometheus scraping, and Grafana monitoring for the JLT-Lane platform.</li>
-
-          <li><strong><a href="/system-design-part-d.html">System Design — Part D</a></strong> — how the four sites coordinate through DNS, repos, and automation.</li>
-        </ul>
-
-        <p class="muted mt-2">
-          Tip: if you add new architecture pages, link them here so the docs hub always reflects the real platform map.
+      <section class="mt-4" aria-labelledby="intro">
+        <h2 id="intro">What this docs site is for</h2>
+        <p>
+          This site documents the systems, patterns, and operating logic behind the
+          JLT-Lane ecosystem. It is designed to help readers move from platform ideas
+          into architecture, telemetry, operational playbooks, and working outcomes.
+        </p>
+        <p class="muted">
+          Think of MeshHub as a map of the platform: start where you need clarity,
+          then follow the path into deeper architecture, observability, or execution.
         </p>
       </section>
 
-      <!-- Everything else -->
+      <section class="mt-4" aria-labelledby="paths">
+        <h2 id="paths">Choose a path</h2>
+        <p class="muted">
+          Start with the layer that matches your goal.
+        </p>
+
+        <div class="control-grid">
+          <a class="control-card" href="/architecture.html">
+            <span class="control-label">Architecture</span>
+            <span class="control-arrow">→</span>
+            <p>
+              Explore the Engineering Mesh, sandbox architecture, reliability flow,
+              and the visual models behind the platform.
+            </p>
+          </a>
+
+          <a class="control-card" href="/observability-architecture.html">
+            <span class="control-label">Observability</span>
+            <span class="control-arrow">→</span>
+            <p>
+              Follow system signals from service instrumentation into Prometheus
+              and Grafana dashboards.
+            </p>
+          </a>
+
+          <a class="control-card" href="/runbooks.html">
+            <span class="control-label">Runbooks</span>
+            <span class="control-arrow">→</span>
+            <p>
+              Move from signals into action using operational playbooks for
+              debugging, recovery, and repeatable workflows.
+            </p>
+          </a>
+
+          <a class="control-card" href="/automation-toolkit.html">
+            <span class="control-label">Automation Toolkit</span>
+            <span class="control-arrow">→</span>
+            <p>
+              Explore reusable scripts, execution patterns, and tooling references
+              that support platform delivery.
+            </p>
+          </a>
+
+          <a
+            class="control-card"
+            href="https://www.justinelonglat-lane.com/projects"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="control-label">Projects</span>
+            <span class="control-arrow">↗</span>
+            <p>
+              See how the architecture becomes case studies, experiments, and
+              working systems in practice.
+            </p>
+          </a>
+
+          <a
+            class="control-card"
+            href="https://www.justinelonglat-lane.com/engineering-mesh"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="control-label">Engineering Mesh</span>
+            <span class="control-arrow">↗</span>
+            <p>
+              Step into the broader ecosystem framework connecting architecture,
+              operations, and platform delivery.
+            </p>
+          </a>
+        </div>
+      </section>
+
+      <section class="mt-4" aria-labelledby="featured">
+        <h2 id="featured">Featured surfaces</h2>
+        <p class="muted">
+          Start here for the strongest entry points into the platform story.
+        </p>
+
+        <div class="control-grid">
+          <a class="control-card" href="/architecture.html">
+            <span class="control-label">Engineering Mesh Framework</span>
+            <span class="control-arrow">→</span>
+            <p>
+              The five-layer model connecting architecture, sandbox,
+              observability, runbooks, and delivery.
+            </p>
+          </a>
+
+          <a class="control-card" href="/architecture.html">
+            <span class="control-label">Sandbox Suite Architecture</span>
+            <span class="control-arrow">→</span>
+            <p>
+              A Docker-based platform simulation environment for testing,
+              visibility, and incident rehearsal.
+            </p>
+          </a>
+
+          <a class="control-card" href="/observability-architecture.html">
+            <span class="control-label">Observability Path</span>
+            <span class="control-arrow">→</span>
+            <p>
+              Metrics exposure, collection, and dashboards across the platform.
+            </p>
+          </a>
+
+          <a class="control-card" href="/runbooks.html">
+            <span class="control-label">Operational Playbooks</span>
+            <span class="control-arrow">→</span>
+            <p>
+              The procedures that turn architecture and telemetry into action.
+            </p>
+          </a>
+        </div>
+      </section>
+
+      <section class="mt-4" aria-labelledby="delivery-heading">
+        <h2 id="delivery-heading">Delivery and operations</h2>
+        <ul>
+          <li><strong><a href="/cicd-pipelines.html">CI/CD pipelines</a></strong> — preview, main, and production flows.</li>
+          <li><strong><a href="/automation-toolkit.html">Automation Toolkit</a></strong> — reusable scripts, helpers, execution patterns, and guardrails.</li>
+          <li><strong><a href="/runbooks.html">Runbooks</a></strong> — operational procedures for platform recovery, diagnostics, and repeatable action.</li>
+        </ul>
+      </section>
+
       <section class="mt-4" aria-labelledby="all-pages-heading">
         <h2 id="all-pages-heading">All pages</h2>
         <p class="muted">
-          This is a manual index (intentionally simple). Keep it curated and update it as you add new docs.
+          This remains a curated index. Keep it intentional and update it as the platform evolves.
         </p>
         <ul>
           <li><a href="/index.html">Home</a></li>
           <li><a href="/README.html">README</a></li>
-          <li><a href="/docs.html#getting-started">Getting started</a></li>
-          <li><a href="/docs.html#tooling">Tooling</a></li>
-          <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
           <li><a href="/architecture.html">Architecture</a></li>
           <li><a href="/observability-architecture.html">Platform Observability Architecture</a></li>
+          <li><a href="/runbooks.html">Runbooks</a></li>
+          <li><a href="/automation-toolkit.html">Automation Toolkit</a></li>
+          <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
           <li><a href="https://www.justinelonglat-lane.com/projects/system-design-ecosystem-b" target="_blank" rel="noreferrer noopener">System Design — Ecosystem Execution ↗</a></li>
-          <li><a href="/toolkit.html">Automation Toolkit</a></li>
           <li><a href="/sitemap.html">All docs (sitemap)</a></li>
         </ul>
       </section>
+
+      <section class="mt-4" aria-labelledby="why-it-matters">
+        <h2 id="why-it-matters">Why MeshHub matters</h2>
+        <p>
+          Good documentation does more than describe a system. It helps people
+          understand how the system behaves, how it should be operated, and how
+          platform knowledge becomes repeatable execution.
+        </p>
+        <p class="muted">
+          The goal of MeshHub is to make the JLT-Lane ecosystem legible: not just
+          as code or diagrams, but as a working platform with design logic,
+          telemetry, procedures, and delivery paths.
+        </p>
+      </section>
+
     </section>
   </main>
 
   <!-- PARTIAL:FOOTER -->
+<!-- PARTIAL:FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
 
+    <!-- Copyright -->
     <p>© <span id="year"></span> Justine Longla T.</p>
 
-    <!-- Docs version line -->
-    <p id="docsVersionLine" class="footer-version"></p>
+    <!-- Signature (platform identity) -->
+    <p class="footer-signature">
+      Developed by Justine Longla T. — originally deployed on Jutellane, now JLT-Lane.
+    </p>
 
-    <nav class="footer-nav">
+    <!-- Docs version line -->
+    <div class="footer-version-row">
+      <p id="docsVersionLine" class="footer-version"></p>
+    </div>
+
+    <!-- Footer navigation -->
+    <nav class="footer-nav" aria-label="Footer">
       <a href="/docs.html">Docs</a>
       <a href="/architecture.html">Architecture</a>
       <a href="/observability-architecture.html">Observability</a>
+      <a href="/runbooks.html">Runbooks</a>
       <a href="/automation-toolkit.html">Automation Toolkit</a>
       <a href="/sitemap.xml">Sitemap</a>
     </nav>
 
   </div>
 
+  <!-- Footer script (safe + deterministic) -->
   <script>
     (function () {
+      // Year
       var y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
 
+      // Docs version
       var meta = document.querySelector('meta[name="docs-version"]');
       var line = document.getElementById("docsVersionLine");
-      if (line && meta && meta.content) line.textContent = meta.content;
+      if (line && meta && meta.content) {
+        line.textContent = meta.content;
+      }
     })();
   </script>
 </footer>
 <!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
 </body>
 </html>
-
-
-

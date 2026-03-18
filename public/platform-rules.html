@@ -17,7 +17,7 @@
 <script src="/scripts/theme-toggle.js" defer></script>
 <script src="/scripts/back-to-top.js" defer></script>
 <!-- /PARTIAL:HEAD -->
-<!-- /PARTIAL:HEAD -->
+
 </head>
 
 <body>
@@ -90,94 +90,336 @@
 </header>
 <!-- /PARTIAL:HEADER -->
 
-  <main id="main" class="container">
-    <header class="page-hero">
-      <h1>Platform Rules</h1>
+<main id="main" class="page-main">
+  <section class="container">
+
+    <header class="section-header">
+      <h1 class="mt-0">Architecture</h1>
       <p class="lead">
-        Rules that keep the Mesh coherent as it grows—consistent identity, predictable navigation, and repeatable delivery.
+        The visual control layer behind JLT-Lane — where platform design,
+        observability, sandbox experimentation, and operational delivery connect.
       </p>
     </header>
 
-    <section class="card">
-      <h2>Identity rules (must)</h2>
+    <!-- MeshHub framing -->
+    <section class="mt-4" aria-labelledby="meshhub-intro">
+      <h2 id="meshhub-intro">MeshHub architecture control page</h2>
+      <p>
+        This page acts as a visual command surface for the JLT-Lane ecosystem.
+        It brings together the core models that explain how the platform is
+        designed, how it is tested, how it is observed, and how it is operated.
+      </p>
+      <p class="muted">
+        Use it as a map: start with the Engineering Mesh, move into the sandbox,
+        follow the observability path, and branch into runbooks, toolkit, projects,
+        and long-form technical explanations.
+      </p>
+    </section>
+
+    <!-- MeshHub control panel -->
+<section class="mt-4" aria-labelledby="control-panel">
+  <h2 id="control-panel">Control panel</h2>
+  <p class="muted">
+    Jump directly into the parts of the platform this architecture supports.
+  </p>
+
+  <div class="control-grid">
+
+    <a class="control-card"
+       href="https://www.justinelonglat-lane.com/engineering-mesh"
+       target="_blank" rel="noopener noreferrer">
+      <span class="control-label">Engineering Mesh</span>
+      <span class="control-arrow">↗</span>
+      <p>
+        The platform model connecting architecture, sandbox, observability,
+        operations, and monetization.
+      </p>
+    </a>
+
+    <a class="control-card" href="/observability-architecture.html">
+      <span class="control-label">Observability</span>
+      <span class="control-arrow">→</span>
+      <p>
+        Follow metrics from services into Prometheus and Grafana dashboards.
+      </p>
+    </a>
+
+    <a class="control-card" href="/runbooks.html">
+      <span class="control-label">Runbooks</span>
+      <span class="control-arrow">→</span>
+      <p>
+        Operational playbooks for debugging, recovery, and repeatable workflows.
+      </p>
+    </a>
+
+    <a class="control-card" href="/automation-toolkit.html">
+      <span class="control-label">Automation Toolkit</span>
+      <span class="control-arrow">→</span>
+      <p>
+        Reusable tooling, scripts, and execution patterns for the platform.
+      </p>
+    </a>
+
+    <a class="control-card"
+       href="https://www.justinelonglat-lane.com/projects"
+       target="_blank" rel="noopener noreferrer">
+      <span class="control-label">Projects</span>
+      <span class="control-arrow">↗</span>
+      <p>
+        Case studies showing how the architecture becomes real systems.
+      </p>
+    </a>
+
+    <a class="control-card"
+       href="https://blogs.justinelonglat-lane.com"
+       target="_blank" rel="noopener noreferrer">
+      <span class="control-label">Blog</span>
+      <span class="control-arrow">↗</span>
+      <p>
+        Deep dives into platform engineering, DevSecOps, and system design.
+      </p>
+    </a>
+
+  </div>
+</section>
+
+    <!-- Principles -->
+    <section class="mt-4" aria-labelledby="principles">
+      <h2 id="principles">Design perspective</h2>
       <ul>
-        <li>Use the name: <strong>JLT-Lane Engineering Mesh</strong>.</li>
-        <li>
-          Always provide a MeshHub link:
-          <a href="https://www.justinelonglat-lane.com/engineering-mesh">/engineering-mesh ↗</a>
-        </li>
-        <li>Keep the tagline consistent: <strong>Cloud Confidence. Delivered.</strong></li>
+        <li><strong>Systems over components:</strong> every part is designed in relation to the whole.</li>
+        <li><strong>Visibility is foundational:</strong> metrics, logs, and traces are part of the architecture, not added later.</li>
+        <li><strong>Operate what you design:</strong> runbooks and recovery paths are built alongside the system.</li>
+        <li><strong>Learn through iteration:</strong> sandbox environments allow continuous validation and improvement.</li>
       </ul>
     </section>
 
-    <section class="card">
-      <h2>Navigation rules (must)</h2>
-      <p>Every service site must link to the core planes:</p>
-      <ul>
-        <li>MeshHub</li>
-        <li>Docs</li>
-        <li>Consulting</li>
-        <li>Blogs / Projects (where relevant)</li>
-      </ul>
+    <!-- Architecture gallery -->
+    <section class="mt-4" aria-labelledby="gallery">
+      <h2 id="gallery">Architecture views</h2>
+      <p class="muted">
+        A connected set of diagrams describing the JLT-Lane platform — from high-level
+        structure to observability and operational flow.
+      </p>
+
+      <div class="diagram-grid">
+
+        <figure>
+          <a href="/diagrams/JLT-Lane Engineering Mesh Platform Model.png" target="_blank" rel="noopener">
+            <img
+              src="/diagrams/JLT-Lane Engineering Mesh Platform Model.png"
+              alt="JLT-Lane Engineering Mesh platform model"
+            />
+          </a>
+          <figcaption>
+            The Engineering Mesh — a five-layer model connecting architecture, sandbox,
+            observability, runbooks, and delivery into a unified platform lifecycle.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <a href="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png" target="_blank" rel="noopener">
+            <img
+              src="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png"
+              alt="JLT-Lane Sandbox Suite Architecture"
+            />
+          </a>
+          <figcaption>
+            Sandbox Suite — a controlled environment used to simulate services, validate metrics
+            pipelines, and rehearse operational scenarios.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <a href="/observability-architecture.html">
+            <img
+              src="/diagrams/JLT-Lane_Observability_Architecture.PNG"
+              alt="JLT-Lane observability architecture"
+            />
+          </a>
+          <figcaption>
+            Observability path — how system signals are exposed, collected, and visualized
+            for real-time understanding.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <a href="/diagrams/platform-reliability-flow.png" target="_blank" rel="noopener">
+            <img
+              src="/diagrams/platform-reliability-flow.png"
+              alt="Platform reliability flow"
+            />
+          </a>
+          <figcaption>
+            Reliability loop — connecting architecture decisions, operational actions,
+            and performance improvements into continuous evolution.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <a href="/diagrams/service-flow.svg" target="_blank" rel="noopener">
+            <img
+              src="/diagrams/service-flow.svg"
+              alt="JLT-Lane platform ecosystem"
+            />
+          </a>
+          <figcaption>
+            Service ecosystem — a broader system view showing how platform components
+            interact across the control and service layers.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <a href="/diagrams/high-level.svg" target="_blank" rel="noopener">
+            <img src="/diagrams/high-level.svg" alt="High-level system architecture" />
+          </a>
+          <figcaption>
+            Structural overview of the platform at a high level.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <a href="/diagrams/data-pipeline.svg" target="_blank" rel="noopener">
+            <img src="/diagrams/data-pipeline.svg" alt="Data pipeline" />
+          </a>
+          <figcaption>
+            Data flow across ingestion, processing, and visualization layers.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <a href="/diagrams/platform-architecture.png" target="_blank" rel="noopener">
+            <img
+              src="/diagrams/platform-architecture.png"
+              alt="JLT-Lane platform architecture"
+            />
+          </a>
+          <figcaption>
+            Core platform layout — a reference view of the system’s structure.
+          </figcaption>
+        </figure>
+
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Content rules (should)</h2>
-      <ul>
-        <li>Posts should include at least one <strong>Implementation Path</strong> link to Docs or Projects.</li>
-        <li>Prefer stable canonical URLs; avoid duplicate content—link instead.</li>
-        <li>Use consistent terminology: MeshHub, Knowledge Service, Narrative Service, Proof Service.</li>
-      </ul>
-    </section>
+<!-- Related surfaces -->
+<section class="mt-4" aria-labelledby="next-steps">
+  <h2 id="next-steps">From architecture to action</h2>
+  <p class="muted">
+    Architecture only becomes valuable when it is used. These paths take you
+    from diagrams into real operational work, tooling, and platform delivery.
+  </p>
 
-    <section class="card">
-      <h2>Operational rules (should)</h2>
-      <ul>
-        <li>Each service deploys independently.</li>
-        <li>Changes must not break cross-site navigation.</li>
-        <li>Keep pages reproducible: deterministic builds, guardrails, validation scripts.</li>
-      </ul>
-    </section>
+  <div class="control-grid">
 
-    <section class="card">
-      <h2>Versioning rules (recommended)</h2>
-      <ul>
-        <li>Maintain a lightweight changelog per service.</li>
-        <li>Tag platform milestones from MeshHub announcements.</li>
-      </ul>
-    </section>
-  </main>
+    <a class="control-card" href="/runbooks.html">
+      <span class="control-label">Operate the platform</span>
+      <span class="control-arrow">→</span>
+      <p>
+        Move from architecture into action using runbooks for debugging,
+        recovery, and repeatable operational workflows.
+      </p>
+    </a>
+
+    <a class="control-card" href="/automation-toolkit.html">
+      <span class="control-label">Execute with tooling</span>
+      <span class="control-arrow">→</span>
+      <p>
+        Explore scripts, patterns, and reusable components that support
+        consistent platform execution.
+      </p>
+    </a>
+
+    <a class="control-card" href="/observability-architecture.html">
+      <span class="control-label">Understand system behavior</span>
+      <span class="control-arrow">→</span>
+      <p>
+        Follow the observability layer in detail — from metrics exposure to
+        dashboards and performance insights.
+      </p>
+    </a>
+
+    <a
+      class="control-card"
+      href="https://www.justinelonglat-lane.com/projects"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="control-label">See it in practice</span>
+      <span class="control-arrow">↗</span>
+      <p>
+        Review projects and case studies where the architecture is applied
+        in real-world scenarios.
+      </p>
+    </a>
+
+    <a
+      class="control-card"
+      href="https://www.justinelonglat-lane.com/engineering-mesh"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="control-label">Return to the system model</span>
+      <span class="control-arrow">↗</span>
+      <p>
+        Step back into the Engineering Mesh to understand how all layers
+        connect across the full platform lifecycle.
+      </p>
+    </a>
+
+  </div>
+</section>
+  </section>
+</main>
 
   <!-- PARTIAL:FOOTER -->
+<!-- PARTIAL:FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
 
+    <!-- Copyright -->
     <p>© <span id="year"></span> Justine Longla T.</p>
 
-    <!-- Docs version line -->
-    <p id="docsVersionLine" class="footer-version"></p>
+    <!-- Signature (platform identity) -->
+    <p class="footer-signature">
+      Developed by Justine Longla T. — originally deployed on Jutellane, now JLT-Lane.
+    </p>
 
-    <nav class="footer-nav">
+    <!-- Docs version line -->
+    <div class="footer-version-row">
+      <p id="docsVersionLine" class="footer-version"></p>
+    </div>
+
+    <!-- Footer navigation -->
+    <nav class="footer-nav" aria-label="Footer">
       <a href="/docs.html">Docs</a>
       <a href="/architecture.html">Architecture</a>
       <a href="/observability-architecture.html">Observability</a>
+      <a href="/runbooks.html">Runbooks</a>
       <a href="/automation-toolkit.html">Automation Toolkit</a>
       <a href="/sitemap.xml">Sitemap</a>
     </nav>
 
   </div>
 
+  <!-- Footer script (safe + deterministic) -->
   <script>
     (function () {
+      // Year
       var y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
 
+      // Docs version
       var meta = document.querySelector('meta[name="docs-version"]');
       var line = document.getElementById("docsVersionLine");
-      if (line && meta && meta.content) line.textContent = meta.content;
+      if (line && meta && meta.content) {
+        line.textContent = meta.content;
+      }
     })();
   </script>
 </footer>
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
 </body>
 </html>

@@ -24,70 +24,167 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- PARTIAL:HEADER -->
+<!-- PARTIAL:HEADER -->
 <header class="site-header" role="banner">
   <div class="container navbar">
 
-    <a class="brand" href="/index.html" aria-label="JustineLonglaT-Lane Docs home">
-      <img class="brand-logo" src="/assets/img/crest.png" alt="Justine Longla T." />
-      <span class="brand-text">
-        <strong>JustineLonglaT-Lane Docs</strong>
-        <span class="brand-subtitle">DevSecOps · Cloud · Sustainability</span>
-      </span>
+    <a
+      class="brand"
+      href="https://www.justinelonglat-lane.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="JustineLonglaT-Lane home"
+    >
+      <img
+        class="brand-logo"
+        src="/assets/img/crest.png"
+        alt="JLT-Lane crest"
+      />
+      <div class="brand-text">
+        <div class="brand-title">JustineLonglaT-Lane</div>
+        <div class="brand-subtitle">Cloud Confidence. Delivered.</div>
+      </div>
     </a>
 
     <nav class="nav-right" aria-label="Primary">
-      <!-- Ecosystem -->
-      <a href="https://consulting.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Consulting ↗</a>
-      <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">Blog ↗</a>
+      <a
+        href="https://www.justinelonglat-lane.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Home <span class="nav-ext">↗</span></a>
 
-      <!-- Docs -->
+      <a
+        href="https://www.justinelonglat-lane.com/engineering-mesh"
+        target="_blank"
+        rel="noopener noreferrer"
+      >MeshHub <span class="nav-ext">↗</span></a>
+
+      <a
+        href="https://docs.justinelonglat-lane.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Docs <span class="nav-ext">↗</span></a>
+
+      <a
+        href="https://blogs.justinelonglat-lane.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Blog <span class="nav-ext">↗</span></a>
+
       <a href="/README.html">README</a>
-      <a href="/docs.html">Docs index</a>
       <a href="/architecture.html">Platform architecture</a>
       <a href="/observability-architecture.html">Observability architecture</a>
       <a href="/runbooks.html">Runbooks</a>
-      <a href="https://www.justinelonglat-lane.com/projects/system-design-ecosystem-b"
-         target="_blank"
-         rel="noopener noreferrer">
-         System design ↗
-      </a>
 
-      <a class="nav-cta" href="/automation-toolkit.html">Automation Toolkit</a>
-      <a href="/sitemap.html">More</a>
+      <a
+        class="nav-cta"
+        href="/automation-toolkit.html"
+      >Automation Toolkit</a>
 
-      <!-- External knowledge -->
-      <a href="https://consulting.justinelonglat-lane.com/engineering-mesh"
-         target="_blank" rel="noopener noreferrer">Getting started ↗</a>
+      <a
+        href="https://consulting.justinelonglat-lane.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Consulting <span class="nav-ext">↗</span></a>
 
-      <a href="https://consulting.justinelonglat-lane.com/case-studies/engineering-grade-publishing"
-         target="_blank" rel="noopener noreferrer">Tooling ↗</a>
+      <a
+        href="https://www.justinelonglat-lane.com/projects"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Projects <span class="nav-ext">↗</span></a>
+
+      <!-- Ecosystem dropdown -->
+      <div class="nav-dropdown">
+        <button
+          class="nav-dropdown-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          Ecosystem <span class="nav-caret">▾</span>
+        </button>
+
+        <div class="nav-dropdown-menu" role="menu">
+          <a
+            href="https://www.justinelonglat-lane.com/engineering-mesh"
+            target="_blank"
+            rel="noopener noreferrer"
+            role="menuitem"
+          >Engineering Mesh ↗</a>
+
+          <a
+            href="https://docs.justinelonglat-lane.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            role="menuitem"
+          >Docs ↗</a>
+
+          <a
+            href="https://blogs.justinelonglat-lane.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            role="menuitem"
+          >Blog ↗</a>
+
+          <a
+            href="https://consulting.justinelonglat-lane.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            role="menuitem"
+          >Consulting ↗</a>
+
+          <a
+            href="https://www.justinelonglat-lane.com/projects"
+            target="_blank"
+            rel="noopener noreferrer"
+            role="menuitem"
+          >Projects ↗</a>
+
+          <a href="/docs.html" role="menuitem">Docs index</a>
+          <a href="/architecture.html" role="menuitem">Architecture</a>
+          <a href="/observability-architecture.html" role="menuitem">Observability</a>
+          <a href="/runbooks.html" role="menuitem">Runbooks</a>
+          <a href="/automation-toolkit.html" role="menuitem">Automation Toolkit</a>
+        </div>
+      </div>
     </nav>
 
-    <div class="nav-profile" aria-label="Docs signature">
-      <img
-        src="/assets/img/profile.jpg"
-        alt="Justine Longla T."
-        class="nav-profile-avatar"
-        loading="lazy"
-        decoding="async"
-      />
+    <div class="nav-shell">
+      <div class="nav-profile" aria-label="Signature">
+        <img
+          src="/assets/img/profile.jpg"
+          alt="Justine Longla T."
+          class="nav-profile-avatar"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="nav-profile-text">
+          <span class="nav-profile-eyebrow">Built by</span>
+          <span class="nav-profile-name">Justine Longla T.</span>
+        </div>
 
-      <div class="nav-profile-text">
-        <span class="nav-profile-eyebrow">Docs by</span>
-        <span class="nav-profile-name">Justine Longla T.</span>
+        <button
+          id="themeToggle"
+          class="nav-theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+          title="Toggle theme"
+        >
+          🌙
+        </button>
       </div>
-
-      <button
-        id="themeToggle"
-        class="nav-theme-toggle"
-        type="button"
-        aria-label="Toggle theme"
-        title="Toggle theme"
-      >🌙</button>
     </div>
 
   </div>
 </header>
+<!-- /PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
 <!-- /PARTIAL:HEADER -->
 
   <main id="main" class="container">
@@ -136,21 +233,16 @@
 <!-- PARTIAL:FOOTER -->
 <footer class="site-footer" role="contentinfo">
   <div class="container footer-inner">
-
-    <!-- Copyright -->
     <p>© <span id="year"></span> Justine Longla T.</p>
 
-    <!-- Signature (platform identity) -->
     <p class="footer-signature">
       Developed by Justine Longla T. — originally deployed on Jutellane, now JLT-Lane.
     </p>
 
-    <!-- Docs version line -->
     <div class="footer-version-row">
       <p id="docsVersionLine" class="footer-version"></p>
     </div>
 
-    <!-- Footer navigation -->
     <nav class="footer-nav" aria-label="Footer">
       <a href="/docs.html">Docs</a>
       <a href="/architecture.html">Architecture</a>
@@ -159,17 +251,13 @@
       <a href="/automation-toolkit.html">Automation Toolkit</a>
       <a href="/sitemap.xml">Sitemap</a>
     </nav>
-
   </div>
 
-  <!-- Footer script (safe + deterministic) -->
   <script>
     (function () {
-      // Year
       var y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
 
-      // Docs version
       var meta = document.querySelector('meta[name="docs-version"]');
       var line = document.getElementById("docsVersionLine");
       if (line && meta && meta.content) {
@@ -178,6 +266,14 @@
     })();
   </script>
 </footer>
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->

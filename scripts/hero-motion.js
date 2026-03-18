@@ -1,0 +1,1 @@
+<script src="/scripts/hero-motion.js" defer></script>

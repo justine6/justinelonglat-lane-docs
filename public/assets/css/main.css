@@ -1415,3 +1415,16 @@ pre {
 .nav-dropdown:focus-within .nav-caret {
   transform: translateY(-1px) rotate(180deg);
 }
+.nav-dropdown-group + .nav-dropdown-group {
+  margin-top: 0.35rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.nav-dropdown-label {
+  padding: 0.55rem 0.75rem 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(148,163,184,0.75);
+}

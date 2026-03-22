@@ -1,56 +1,25 @@
-/**
- * check-partials.mjs
- * ------------------
- * Guardrail script to verify that required HTML partials exist
- * AND that target HTML files contain the correct injection markers.
- *
- * Static output under /public remains the source of truth.
- */
-
 import fs from "fs";
 import path from "path";
 import process from "process";
 
-// ---------------------------------------------------------------------------
-// Configuration
-// ---------------------------------------------------------------------------
-
 const ROOT = process.cwd();
 const PARTIALS_DIR = path.resolve(ROOT, "partials");
+const PAGES_DIR = path.resolve(ROOT, "pages");
 const PUBLIC_DIR = path.resolve(ROOT, "public");
 
-// Canonical partials
 const REQUIRED_PARTIALS = ["head.html", "header.html", "footer.html"];
-
-// Optional-but-guarded hero partial (freeze workflow)
 const HERO_PARTIAL = path.resolve(PARTIALS_DIR, "heroes", "home.html");
 
-// Injection markers required in targets
 const MARKERS = [
   { name: "HEAD", open: "<!-- PARTIAL:HEAD -->", close: "<!-- /PARTIAL:HEAD -->" },
   { name: "HEADER", open: "<!-- PARTIAL:HEADER -->", close: "<!-- /PARTIAL:HEADER -->" },
   { name: "FOOTER", open: "<!-- PARTIAL:FOOTER -->", close: "<!-- /PARTIAL:FOOTER -->" },
-
-  // Hero freeze (index.html only)
   { name: "HERO:HOME", open: "<!-- PARTIAL:HERO:HOME -->", close: "<!-- /PARTIAL:HERO:HOME -->" },
 ];
 
-// Which public HTML files must contain markers
-// Default: enforce markers on ALL public HTML pages (future-proof).
-// Exclusions are allowed for true edge cases only.
 const EXCLUDED_HTML_FILES = new Set([
-  // add exclusions here if needed
-  // "README.html",
+  // add exclusions here if ever needed
 ]);
-
-const TARGET_HTML_FILES = fs
-  .readdirSync(PUBLIC_DIR)
-  .filter((f) => f.toLowerCase().endsWith(".html"))
-  .filter((f) => !EXCLUDED_HTML_FILES.has(f));
-
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
 
 function fail(message) {
   console.error(`✗ ${message}`);
@@ -89,10 +58,6 @@ function extractMain(html) {
   return html.slice(startClose + 1, end);
 }
 
-/**
- * Hero partial must be a fragment only.
- * Reject full-document wrappers and layout tags.
- */
 function assertHeroPartialSafe(html) {
   const lower = html.toLowerCase();
 
@@ -118,9 +83,35 @@ function assertHeroPartialSafe(html) {
   }
 }
 
-// ---------------------------------------------------------------------------
-// Checks: partials existence + non-empty
-// ---------------------------------------------------------------------------
+function walkHtmlFiles(dir) {
+  if (!fs.existsSync(dir)) return [];
+
+  const results = [];
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const full = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      results.push(...walkHtmlFiles(full));
+      continue;
+    }
+
+    if (!entry.isFile()) continue;
+    if (!entry.name.toLowerCase().endsWith(".html")) continue;
+    if (entry.name.startsWith("_")) continue;
+    if (entry.name.endsWith(".redirect.html")) continue;
+    if (EXCLUDED_HTML_FILES.has(entry.name)) continue;
+
+    results.push(full);
+  }
+
+  return results;
+}
+
+function relFromPages(file) {
+  return path.relative(PAGES_DIR, file);
+}
 
 if (!fs.existsSync(PARTIALS_DIR)) {
   fail(
@@ -148,10 +139,6 @@ for (const file of REQUIRED_PARTIALS) {
   ok(`Validated partial: ${file}`);
 }
 
-// ---------------------------------------------------------------------------
-// Checks: hero partial integrity (freeze workflow)
-// ---------------------------------------------------------------------------
-
 if (fs.existsSync(HERO_PARTIAL)) {
   const hero = readUtf8(HERO_PARTIAL).trim();
   if (!hero) {
@@ -170,50 +157,64 @@ if (fs.existsSync(HERO_PARTIAL)) {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Checks: marker presence + layout regressions in target public files
-// ---------------------------------------------------------------------------
+if (!fs.existsSync(PAGES_DIR)) {
+  fail(
+    `Missing required directory: /pages\n` +
+      `This repo now expects source HTML templates to live here.`
+  );
+}
+ok("Found /pages directory");
 
 if (!fs.existsSync(PUBLIC_DIR)) {
   fail(
     `Missing required directory: /public\n` +
-      `This repo expects static output HTML to live here.`
+      `This repo expects generated static output HTML to live here.`
   );
 }
 ok("Found /public directory");
 
-const targets = TARGET_HTML_FILES
-  .map((f) => path.join(PUBLIC_DIR, f))
-  .filter((p) => fs.existsSync(p));
+const sourceFiles = walkHtmlFiles(PAGES_DIR);
 
-if (targets.length === 0) {
-  warn("No public HTML files found to validate markers.");
+if (sourceFiles.length === 0) {
+  warn("No page templates found under /pages.");
 } else {
-  ok(`Found ${targets.length} public HTML file(s) to validate markers`);
+  ok(`Found ${sourceFiles.length} page HTML file(s) in /pages`);
 
   let markerFailures = 0;
+  let outputFailures = 0;
 
-  for (const file of targets) {
-    const html = readUtf8(file);
-    const rel = path.relative(ROOT, file);
+  for (const sourceFile of sourceFiles) {
+    const html = readUtf8(sourceFile);
+    const rel = relFromPages(sourceFile);
+    const relDisplay = path.relative(ROOT, sourceFile);
+    const outputFile = path.join(PUBLIC_DIR, rel);
 
-    // Marker presence (HERO is required only on index.html)
     for (const m of MARKERS) {
       const isHero = m.name === "HERO:HOME";
-      const isIndex = path.basename(file).toLowerCase() === "index.html";
+      const isIndex = path.basename(sourceFile).toLowerCase() === "index.html";
       if (isHero && !isIndex) continue;
 
       if (!hasMarkerBlock(html, m.open, m.close)) {
         markerFailures++;
         console.error(
-          `✗ Missing marker block in ${rel}: ${m.open} ... ${m.close}\n` +
+          `✗ Missing marker block in ${relDisplay}: ${m.open} ... ${m.close}\n` +
             `   Fix: add both marker lines where you want ${m.name.toLowerCase()} injected.`
         );
       }
     }
 
-    // Detect *layout* header/footer incorrectly placed inside <main>
-    const main = extractMain(html);
+    if (!fs.existsSync(outputFile)) {
+      outputFailures++;
+      console.error(
+        `✗ Missing generated output for ${rel}\n` +
+          `   Expected: ${path.relative(ROOT, outputFile)}`
+      );
+      continue;
+    }
+
+    const outputHtml = readUtf8(outputFile);
+    const main = extractMain(outputHtml);
+
     if (main) {
       const hasSiteHeaderInMain =
         /<header\b[^>]*\bclass=["'][^"']*\bsite-header\b[^"']*["'][^>]*>/i.test(main);
@@ -223,15 +224,19 @@ if (targets.length === 0) {
 
       if (hasSiteHeaderInMain) {
         warn(
-          `Rogue layout <header class="site-header"> detected inside <main> in ${rel} ` +
-            `(can cause "header below hero").`
+          `Rogue layout <header class="site-header"> detected inside <main> in ${path.relative(
+            ROOT,
+            outputFile
+          )} (can cause "header below hero").`
         );
       }
 
       if (hasSiteFooterInMain) {
         warn(
-          `Rogue layout <footer class="site-footer"> detected inside <main> in ${rel} ` +
-            `(can cause missing or duplicated footer).`
+          `Rogue layout <footer class="site-footer"> detected inside <main> in ${path.relative(
+            ROOT,
+            outputFile
+          )} (can cause missing or duplicated footer).`
         );
       }
     }
@@ -239,12 +244,20 @@ if (targets.length === 0) {
 
   if (markerFailures > 0) {
     fail(
-      `Marker validation failed: ${markerFailures} issue(s).\n` +
+      `Marker validation failed in /pages: ${markerFailures} issue(s).\n` +
         `Add missing markers before injection.`
     );
   }
 
-  ok("All required injection markers are present in target HTML files");
+  if (outputFailures > 0) {
+    fail(
+      `Generated output validation failed: ${outputFailures} missing file(s) in /public.\n` +
+        `Run the injector before validating.`
+    );
+  }
+
+  ok("All required injection markers are present in page templates");
+  ok("All expected generated output files exist in /public");
 }
 
-ok("All required partials are present and non-empty (and markers validated)");
+ok("All required partials are present and non-empty (and pages/public are validated)");

@@ -2,11 +2,11 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
+  <title>MeshHub — JustineLonglaT-Lane Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Architecture — JustineLonglaT-Lane Docs</title>
   <meta
     name="description"
-    content="Architecture diagrams and platform decisions for JustineLonglaT-Lane Docs."
+    content="MeshHub for JustineLonglaT-Lane Docs: architecture, observability, runbooks, automation, and delivery paths across the JLT-Lane ecosystem."
   />
   <meta
     name="docs-version"
@@ -140,115 +140,188 @@
 <!-- /PARTIAL:HEADER -->
 <!-- /PARTIAL:HEADER -->
 <!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
 
   <main id="main" class="page-main">
     <section class="container">
+
       <header class="section-header">
-        <h1 class="mt-0">Architecture</h1>
-        <p class="lead">Diagrams + design decisions for the JLT-Lane ecosystem.</p>
+        <h1 class="mt-0">MeshHub</h1>
+        <p class="lead">
+          The documentation control plane behind JLT-Lane — where architecture,
+          observability, runbooks, automation, and delivery paths come together.
+        </p>
       </header>
 
-      <section class="mt-4" aria-labelledby="principles">
-        <h2 id="principles">Key design principles</h2>
+      <section class="mt-4" aria-labelledby="intro">
+        <h2 id="intro">What this docs site is for</h2>
+        <p>
+          This site documents the systems, patterns, and operating logic behind the
+          JLT-Lane ecosystem. It is designed to help readers move from platform ideas
+          into architecture, telemetry, operational playbooks, and working outcomes.
+        </p>
+        <p class="muted">
+          Think of MeshHub as a map of the platform: start where you need clarity,
+          then follow the path into deeper architecture, observability, or execution.
+        </p>
+      </section>
+
+      <section class="mt-4" aria-labelledby="paths">
+        <h2 id="paths">Choose a path</h2>
+        <p class="muted">
+          Start with the layer that matches your goal.
+        </p>
+
+        <div class="control-grid">
+          <a class="control-card" href="/architecture.html">
+            <span class="control-label">Architecture</span>
+            <span class="control-arrow">→</span>
+            <p>
+              Explore the Engineering Mesh, sandbox architecture, reliability flow,
+              and the visual models behind the platform.
+            </p>
+          </a>
+
+          <a class="control-card" href="/observability-architecture.html">
+            <span class="control-label">Observability</span>
+            <span class="control-arrow">→</span>
+            <p>
+              Follow system signals from service instrumentation into Prometheus
+              and Grafana dashboards.
+            </p>
+          </a>
+
+          <a class="control-card" href="/runbooks.html">
+            <span class="control-label">Runbooks</span>
+            <span class="control-arrow">→</span>
+            <p>
+              Move from signals into action using operational playbooks for
+              debugging, recovery, and repeatable workflows.
+            </p>
+          </a>
+
+          <a class="control-card" href="/automation-toolkit.html">
+            <span class="control-label">Automation Toolkit</span>
+            <span class="control-arrow">→</span>
+            <p>
+              Explore reusable scripts, execution patterns, and tooling references
+              that support platform delivery.
+            </p>
+          </a>
+
+          <a
+            class="control-card"
+            href="https://www.justinelonglat-lane.com/projects"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="control-label">Projects</span>
+            <span class="control-arrow">↗</span>
+            <p>
+              See how the architecture becomes case studies, experiments, and
+              working systems in practice.
+            </p>
+          </a>
+
+          <a
+            class="control-card"
+            href="https://www.justinelonglat-lane.com/engineering-mesh"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="control-label">Engineering Mesh</span>
+            <span class="control-arrow">↗</span>
+            <p>
+              Step into the broader ecosystem framework connecting architecture,
+              operations, and platform delivery.
+            </p>
+          </a>
+        </div>
+      </section>
+
+      <section class="mt-4" aria-labelledby="featured">
+        <h2 id="featured">Featured surfaces</h2>
+        <p class="muted">
+          Start here for the strongest entry points into the platform story.
+        </p>
+
+        <div class="control-grid">
+          <a class="control-card" href="/architecture.html">
+            <span class="control-label">Engineering Mesh Framework</span>
+            <span class="control-arrow">→</span>
+            <p>
+              The five-layer model connecting architecture, sandbox,
+              observability, runbooks, and delivery.
+            </p>
+          </a>
+
+          <a class="control-card" href="/architecture.html">
+            <span class="control-label">Sandbox Suite Architecture</span>
+            <span class="control-arrow">→</span>
+            <p>
+              A Docker-based platform simulation environment for testing,
+              visibility, and incident rehearsal.
+            </p>
+          </a>
+
+          <a class="control-card" href="/observability-architecture.html">
+            <span class="control-label">Observability Path</span>
+            <span class="control-arrow">→</span>
+            <p>
+              Metrics exposure, collection, and dashboards across the platform.
+            </p>
+          </a>
+
+          <a class="control-card" href="/runbooks.html">
+            <span class="control-label">Operational Playbooks</span>
+            <span class="control-arrow">→</span>
+            <p>
+              The procedures that turn architecture and telemetry into action.
+            </p>
+          </a>
+        </div>
+      </section>
+
+      <section class="mt-4" aria-labelledby="delivery-heading">
+        <h2 id="delivery-heading">Delivery and operations</h2>
         <ul>
-          <li><strong>Modularity:</strong> independently deployable components.</li>
-          <li><strong>Security by design:</strong> least privilege + encrypted stores.</li>
-          <li><strong>Observability:</strong> logs, metrics, tracing everywhere.</li>
-          <li><strong>Automation:</strong> IaC + CI/CD for repeatability.</li>
+          <li><strong><a href="/cicd-pipelines.html">CI/CD pipelines</a></strong> — preview, main, and production flows.</li>
+          <li><strong><a href="/automation-toolkit.html">Automation Toolkit</a></strong> — reusable scripts, helpers, execution patterns, and guardrails.</li>
+          <li><strong><a href="/runbooks.html">Runbooks</a></strong> — operational procedures for platform recovery, diagnostics, and repeatable action.</li>
         </ul>
       </section>
 
-      <section class="mt-4" aria-labelledby="gallery">
-        <h2 id="gallery">Diagram gallery</h2>
-        <p class="muted">Click any diagram to open full-size.</p>
-
-        <div class="diagram-grid">
-          <figure>
-            <a href="/diagrams/JLT-Lane Engineering Mesh Platform Model.png" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/JLT-Lane Engineering Mesh Platform Model.png"
-                alt="JLT-Lane Engineering Mesh five-layer platform engineering framework"
-              />
-            </a>
-            <figcaption>
-              JLT-Lane Engineering Mesh — a five-layer platform engineering model connecting architecture, sandbox, observability, runbooks, and monetization.
-            </figcaption>
-          </figure>
-
-          <figure>
-            <a href="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png"
-                alt="JLT-Lane Sandbox Suite Architecture"
-              />
-            </a>
-            <figcaption>
-              Sandbox Suite architecture — developer laptop, Docker Compose, services, metrics, dashboards, and runbooks for incident troubleshooting.
-            </figcaption>
-          </figure>
-
-          <figure>
-            <a href="/observability-architecture.html">
-              <img
-                src="/diagrams/JLT-Lane_Observability_Architecture.PNG"
-                alt="JLT-Lane platform observability architecture"
-              />
-            </a>
-            <figcaption>
-              Platform observability architecture — Node.js metrics, Prometheus collection, and Grafana dashboards.
-            </figcaption>
-          </figure>
-
-          <figure>
-            <a href="/diagrams/platform-reliability-flow.png" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/platform-reliability-flow.png"
-                alt="Platform reliability flow connecting architecture, observability, operations, and performance optimization"
-              />
-            </a>
-            <figcaption>
-              Platform reliability flow — how architecture, observability, and operations feed performance optimization and architecture evolution.
-            </figcaption>
-          </figure>
-
-                    <figure>
-            <a href="/diagrams/service-flow.svg" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/service-flow.svg"
-                alt="JLT-Lane platform control plane and service ecosystem"
-              />
-            </a>
-            <figcaption>
-              JLT-Lane platform control plane and service ecosystem.
-            </figcaption>
-          </figure>
-          
-          <figure>
-            <a href="/diagrams/high-level.svg" target="_blank" rel="noopener">
-              <img src="/diagrams/high-level.svg" alt="High-level system architecture" />
-            </a>
-            <figcaption>High-level system architecture.</figcaption>
-          </figure>
-
-          <figure>
-            <a href="/diagrams/data-pipeline.svg" target="_blank" rel="noopener">
-              <img src="/diagrams/data-pipeline.svg" alt="Data pipeline" />
-            </a>
-            <figcaption>Data pipeline.</figcaption>
-          </figure>
-
-          <figure>
-            <a href="/diagrams/platform-architecture.png" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/platform-architecture.png"
-                alt="JLT-Lane platform architecture"
-              />
-            </a>
-            <figcaption>Platform architecture.</figcaption>
-          </figure>
-        </div>
+      <section class="mt-4" aria-labelledby="all-pages-heading">
+        <h2 id="all-pages-heading">All pages</h2>
+        <p class="muted">
+          This remains a curated index. Keep it intentional and update it as the platform evolves.
+        </p>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/README.html">README</a></li>
+          <li><a href="/architecture.html">Architecture</a></li>
+          <li><a href="/observability-architecture.html">Platform Observability Architecture</a></li>
+          <li><a href="/runbooks.html">Runbooks</a></li>
+          <li><a href="/automation-toolkit.html">Automation Toolkit</a></li>
+          <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
+          <li><a href="https://www.justinelonglat-lane.com/projects/system-design-ecosystem-b" target="_blank" rel="noreferrer noopener">System Design — Ecosystem Execution ↗</a></li>
+          <li><a href="/sitemap.html">All docs (sitemap)</a></li>
+        </ul>
       </section>
+
+      <section class="mt-4" aria-labelledby="why-it-matters">
+        <h2 id="why-it-matters">Why MeshHub matters</h2>
+        <p>
+          Good documentation does more than describe a system. It helps people
+          understand how the system behaves, how it should be operated, and how
+          platform knowledge becomes repeatable execution.
+        </p>
+        <p class="muted">
+          The goal of MeshHub is to make the JLT-Lane ecosystem legible: not just
+          as code or diagrams, but as a working platform with design logic,
+          telemetry, procedures, and delivery paths.
+        </p>
+      </section>
+
     </section>
   </main>
 
@@ -377,7 +450,6 @@
     </div>
   </div>
 </footer>
-<!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->

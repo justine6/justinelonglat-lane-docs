@@ -3,23 +3,16 @@ import path from "path";
 
 const ROOT = process.cwd();
 const PARTIALS_DIR = path.join(ROOT, "partials");
+const PAGES_DIR = path.join(ROOT, "pages");
 const PUBLIC_DIR = path.join(ROOT, "public");
 
 const HEAD_PATH = path.join(PARTIALS_DIR, "head.html");
 const HEADER_PATH = path.join(PARTIALS_DIR, "header.html");
 const FOOTER_PATH = path.join(PARTIALS_DIR, "footer.html");
 
-// OFF by default. Enable only if you truly want the mirror.
 const MIRROR_PUBLIC_PARTIALS = process.env.MIRROR_PUBLIC_PARTIALS === "1";
 const PUBLIC_PARTIALS_DIR = path.join(PUBLIC_DIR, "_partials");
 
-// ---------- helpers ----------
-function fail(msg) {
-  console.error(`✗ ${msg}`);
-  process.exit(1);
-}
-
-// Normalize to LF to stop CRLF drift in injected files.
 function toLF(s) {
   return s.replace(/\r\n/g, "\n");
 }
@@ -28,20 +21,23 @@ function readText(p) {
   return toLF(fs.readFileSync(p, "utf8")).trim() + "\n";
 }
 
-function getHtmlTargets(dir) {
-  if (!fs.existsSync(dir)) return [];
+function ensureDir(dir) {
+  fs.mkdirSync(dir, { recursive: true });
+}
 
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.toLowerCase().endsWith(".html"))
-    .filter((f) => {
-      // ---- EXCLUSIONS: pages that should NOT require partial markers ----
-      if (f === "toolkit.html") return false;          // lightweight alias
-      if (f.startsWith("_")) return false;             // frozen / reference files
-      if (f.endsWith(".redirect.html")) return false;  // optional future pattern
-      return true;
-    })
-    .map((f) => path.join(dir, f));
+function ensurePartialsExist() {
+  const missing = [];
+  if (!fs.existsSync(PARTIALS_DIR)) missing.push("partials/ directory");
+  if (!fs.existsSync(HEAD_PATH)) missing.push("partials/head.html");
+  if (!fs.existsSync(HEADER_PATH)) missing.push("partials/header.html");
+  if (!fs.existsSync(FOOTER_PATH)) missing.push("partials/footer.html");
+  if (!fs.existsSync(PAGES_DIR)) missing.push("pages/ directory");
+
+  if (missing.length) {
+    console.error("inject-partials: missing required files:");
+    for (const m of missing) console.error(" - " + m);
+    process.exit(1);
+  }
 }
 
 function hasMarker(html, name) {
@@ -51,17 +47,6 @@ function hasMarker(html, name) {
   );
 }
 
-/**
- * Replaces a marker block like:
- * <!-- PARTIAL:NAME -->
- *   anything...
- * <!-- /PARTIAL:NAME -->
- *
- * with:
- * <!-- PARTIAL:NAME -->
- * ...replacement...
- * <!-- /PARTIAL:NAME -->
- */
 function replaceMarkerBlock(html, name, replacementHtml) {
   const open = `<!-- PARTIAL:${name} -->`;
   const close = `<!-- /PARTIAL:${name} -->`;
@@ -85,44 +70,51 @@ function replaceMarkerBlock(html, name, replacementHtml) {
   return { html: out, changed: out !== html, missing: false };
 }
 
-function ensurePartialsExist() {
-  const missing = [];
-  if (!fs.existsSync(PARTIALS_DIR)) missing.push("partials/ directory");
-  if (!fs.existsSync(HEAD_PATH)) missing.push("partials/head.html");
-  if (!fs.existsSync(HEADER_PATH)) missing.push("partials/header.html");
-  if (!fs.existsSync(FOOTER_PATH)) missing.push("partials/footer.html");
+function walkHtmlFiles(dir) {
+  if (!fs.existsSync(dir)) return [];
 
-  if (missing.length) {
-    console.error("inject-partials: missing required files:");
-    for (const m of missing) console.error(" - " + m);
-    process.exit(1);
+  const results = [];
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const full = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      results.push(...walkHtmlFiles(full));
+      continue;
+    }
+
+    if (!entry.isFile()) continue;
+    if (!entry.name.toLowerCase().endsWith(".html")) continue;
+    if (entry.name.startsWith("_")) continue;
+    if (entry.name.endsWith(".redirect.html")) continue;
+
+    results.push(full);
   }
+
+  return results;
 }
 
-// ---------- run ----------
+function relativeToPages(file) {
+  return path.relative(PAGES_DIR, file);
+}
+
 ensurePartialsExist();
 
 const headHtml = readText(HEAD_PATH);
 const headerHtml = readText(HEADER_PATH);
 const footerHtml = readText(FOOTER_PATH);
 
-let targets = getHtmlTargets(PUBLIC_DIR);
-
-// Ensure critical hub pages are always treated as targets
-const REQUIRED_PAGES = ["index.html", "docs.html", "automation-toolkit.html"];
-targets = Array.from(
-  new Set([
-    ...targets,
-    ...REQUIRED_PAGES.map((p) => path.join(PUBLIC_DIR, p)),
-  ])
-).filter((p) => fs.existsSync(p));
+const sourceFiles = walkHtmlFiles(PAGES_DIR);
 
 let changedCount = 0;
 const diagnostics = [];
 
-for (const file of targets) {
-  const beforeRaw = fs.readFileSync(file, "utf8");
-  const before = toLF(beforeRaw); // normalize line endings in memory
+for (const sourceFile of sourceFiles) {
+  const rel = relativeToPages(sourceFile);
+  const outputFile = path.join(PUBLIC_DIR, rel);
+
+  const before = toLF(fs.readFileSync(sourceFile, "utf8"));
 
   const hasHead = hasMarker(before, "HEAD");
   const hasHeader = hasMarker(before, "HEADER");
@@ -130,7 +122,7 @@ for (const file of targets) {
 
   if (!hasHead || !hasHeader || !hasFooter) {
     diagnostics.push({
-      file: path.relative(ROOT, file),
+      file: path.relative(ROOT, sourceFile),
       head: hasHead,
       header: hasHeader,
       footer: hasFooter,
@@ -143,13 +135,19 @@ for (const file of targets) {
   if (hasHeader) out = replaceMarkerBlock(out, "HEADER", headerHtml).html;
   if (hasFooter) out = replaceMarkerBlock(out, "FOOTER", footerHtml).html;
 
-  if (out !== before) {
-    fs.writeFileSync(file, out, "utf8"); // writes LF (because out is LF)
+  ensureDir(path.dirname(outputFile));
+
+  const existing = fs.existsSync(outputFile)
+    ? toLF(fs.readFileSync(outputFile, "utf8"))
+    : "";
+
+  if (out !== existing) {
+    fs.writeFileSync(outputFile, out, "utf8");
     changedCount++;
   }
 }
 
-console.log(`inject-partials: updated ${changedCount}/${targets.length} html file(s)`);
+console.log(`inject-partials: updated ${changedCount}/${sourceFiles.length} html file(s)`);
 
 if (diagnostics.length) {
   console.log("\nDiagnostics (missing markers):");
@@ -161,7 +159,6 @@ if (diagnostics.length) {
   }
 }
 
-// Optional mirror (OFF by default)
 if (MIRROR_PUBLIC_PARTIALS) {
   fs.mkdirSync(PUBLIC_PARTIALS_DIR, { recursive: true });
 

@@ -1,18 +1,6 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Architecture — JustineLonglaT-Lane Docs</title>
-  <meta
-    name="description"
-    content="Architecture diagrams and platform decisions for JustineLonglaT-Lane Docs."
-  />
-  <meta
-    name="docs-version"
-    content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline"
-  />
-
   <!-- PARTIAL:HEAD -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,9 +14,7 @@
 <script src="/scripts/hero-mesh-scroll.js" defer></script>
 <!-- /PARTIAL:HEAD -->
 </head>
-
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- PARTIAL:HEADER -->
 <!-- PARTIAL:HEADER -->
@@ -121,135 +107,13 @@
 </header>
 <!-- /PARTIAL:HEADER -->
 <!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
 
-  <main id="main" class="page-main">
-    <section class="container">
-      <header class="section-header">
-        <h1 class="mt-0">Architecture</h1>
-        <p class="lead">Diagrams + design decisions for the JLT-Lane ecosystem.</p>
-      </header>
-
-      <section class="mt-4" aria-labelledby="principles">
-        <h2 id="principles">Key design principles</h2>
-        <ul>
-          <li><strong>Modularity:</strong> independently deployable components.</li>
-          <li><strong>Security by design:</strong> least privilege + encrypted stores.</li>
-          <li><strong>Observability:</strong> logs, metrics, tracing everywhere.</li>
-          <li><strong>Automation:</strong> IaC + CI/CD for repeatability.</li>
-        </ul>
-      </section>
-
-      <section class="mt-4" aria-labelledby="gallery">
-        <h2 id="gallery">Diagram gallery</h2>
-        <p class="muted">Click any diagram to open full-size.</p>
-
-        <div class="diagram-grid">
-          <figure>
-            <a href="/diagrams/JLT-Lane Engineering Mesh Platform Model.png" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/JLT-Lane Engineering Mesh Platform Model.png"
-                alt="JLT-Lane Engineering Mesh five-layer platform engineering framework"
-              />
-            </a>
-            <figcaption>
-              JLT-Lane Engineering Mesh — a five-layer platform engineering model connecting architecture, sandbox, observability, runbooks, and monetization.
-            </figcaption>
-          </figure>
-
-          <figure>
-            <a href="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png"
-                alt="JLT-Lane Sandbox Suite Architecture"
-              />
-            </a>
-            <figcaption>
-              Sandbox Suite architecture — developer laptop, Docker Compose, services, metrics, dashboards, and runbooks for incident troubleshooting.
-            </figcaption>
-          </figure>
-
-          <figure>
-            <a href="/observability-architecture.html">
-              <img
-                src="/diagrams/JLT-Lane_Observability_Architecture.PNG"
-                alt="JLT-Lane platform observability architecture"
-              />
-            </a>
-            <figcaption>
-              Platform observability architecture — Node.js metrics, Prometheus collection, and Grafana dashboards.
-            </figcaption>
-          </figure>
-
-          <figure>
-            <a href="/diagrams/platform-reliability-flow.png" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/platform-reliability-flow.png"
-                alt="Platform reliability flow connecting architecture, observability, operations, and performance optimization"
-              />
-            </a>
-            <figcaption>
-              Platform reliability flow — how architecture, observability, and operations feed performance optimization and architecture evolution.
-            </figcaption>
-          </figure>
-
-                    <figure>
-            <a href="/diagrams/service-flow.svg" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/service-flow.svg"
-                alt="JLT-Lane platform control plane and service ecosystem"
-              />
-            </a>
-            <figcaption>
-              JLT-Lane platform control plane and service ecosystem.
-            </figcaption>
-          </figure>
-          
-          <figure>
-            <a href="/diagrams/high-level.svg" target="_blank" rel="noopener">
-              <img src="/diagrams/high-level.svg" alt="High-level system architecture" />
-            </a>
-            <figcaption>High-level system architecture.</figcaption>
-          </figure>
-
-          <figure>
-            <a href="/diagrams/data-pipeline.svg" target="_blank" rel="noopener">
-              <img src="/diagrams/data-pipeline.svg" alt="Data pipeline" />
-            </a>
-            <figcaption>Data pipeline.</figcaption>
-          </figure>
-
-          <figure>
-            <a href="/diagrams/platform-architecture.png" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/platform-architecture.png"
-                alt="JLT-Lane platform architecture"
-              />
-            </a>
-            <figcaption>Platform architecture.</figcaption>
-          </figure>
-        </div>
-      </section>
-    </section>
+  <main class="container section">
+    <h1>JLT Platform — Deployment Flow</h1>
+    <p>
+      This page documents how each JLT platform surface is built, validated,
+      deployed, and verified.
+    </p>
   </main>
 
   <!-- PARTIAL:FOOTER -->
@@ -379,27 +243,6 @@
 </footer>
 <!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
+
 </body>
 </html>

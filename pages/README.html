@@ -1,18 +1,11 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
+  <title>Technical README — JustineLonglaT-Lane Docs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Architecture — JustineLonglaT-Lane Docs</title>
-  <meta
-    name="description"
-    content="Architecture diagrams and platform decisions for JustineLonglaT-Lane Docs."
-  />
-  <meta
-    name="docs-version"
-    content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline"
-  />
-
+  <link rel="stylesheet" href="/styles.css" />
+<meta name="docs-version" content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline">
   <!-- PARTIAL:HEAD -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,10 +18,9 @@
 <script src="/scripts/back-to-top.js" defer></script>
 <script src="/scripts/hero-mesh-scroll.js" defer></script>
 <!-- /PARTIAL:HEAD -->
+<!-- /PARTIAL:HEAD -->
 </head>
-
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- PARTIAL:HEADER -->
 <!-- PARTIAL:HEADER -->
@@ -121,135 +113,76 @@
 </header>
 <!-- /PARTIAL:HEADER -->
 <!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
 
-  <main id="main" class="page-main">
-    <section class="container">
-      <header class="section-header">
-        <h1 class="mt-0">Architecture</h1>
-        <p class="lead">Diagrams + design decisions for the JLT-Lane ecosystem.</p>
-      </header>
-
-      <section class="mt-4" aria-labelledby="principles">
-        <h2 id="principles">Key design principles</h2>
-        <ul>
-          <li><strong>Modularity:</strong> independently deployable components.</li>
-          <li><strong>Security by design:</strong> least privilege + encrypted stores.</li>
-          <li><strong>Observability:</strong> logs, metrics, tracing everywhere.</li>
-          <li><strong>Automation:</strong> IaC + CI/CD for repeatability.</li>
-        </ul>
-      </section>
-
-      <section class="mt-4" aria-labelledby="gallery">
-        <h2 id="gallery">Diagram gallery</h2>
-        <p class="muted">Click any diagram to open full-size.</p>
-
-        <div class="diagram-grid">
-          <figure>
-            <a href="/diagrams/JLT-Lane Engineering Mesh Platform Model.png" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/JLT-Lane Engineering Mesh Platform Model.png"
-                alt="JLT-Lane Engineering Mesh five-layer platform engineering framework"
-              />
-            </a>
-            <figcaption>
-              JLT-Lane Engineering Mesh — a five-layer platform engineering model connecting architecture, sandbox, observability, runbooks, and monetization.
-            </figcaption>
-          </figure>
-
-          <figure>
-            <a href="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png"
-                alt="JLT-Lane Sandbox Suite Architecture"
-              />
-            </a>
-            <figcaption>
-              Sandbox Suite architecture — developer laptop, Docker Compose, services, metrics, dashboards, and runbooks for incident troubleshooting.
-            </figcaption>
-          </figure>
-
-          <figure>
-            <a href="/observability-architecture.html">
-              <img
-                src="/diagrams/JLT-Lane_Observability_Architecture.PNG"
-                alt="JLT-Lane platform observability architecture"
-              />
-            </a>
-            <figcaption>
-              Platform observability architecture — Node.js metrics, Prometheus collection, and Grafana dashboards.
-            </figcaption>
-          </figure>
-
-          <figure>
-            <a href="/diagrams/platform-reliability-flow.png" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/platform-reliability-flow.png"
-                alt="Platform reliability flow connecting architecture, observability, operations, and performance optimization"
-              />
-            </a>
-            <figcaption>
-              Platform reliability flow — how architecture, observability, and operations feed performance optimization and architecture evolution.
-            </figcaption>
-          </figure>
-
-                    <figure>
-            <a href="/diagrams/service-flow.svg" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/service-flow.svg"
-                alt="JLT-Lane platform control plane and service ecosystem"
-              />
-            </a>
-            <figcaption>
-              JLT-Lane platform control plane and service ecosystem.
-            </figcaption>
-          </figure>
-          
-          <figure>
-            <a href="/diagrams/high-level.svg" target="_blank" rel="noopener">
-              <img src="/diagrams/high-level.svg" alt="High-level system architecture" />
-            </a>
-            <figcaption>High-level system architecture.</figcaption>
-          </figure>
-
-          <figure>
-            <a href="/diagrams/data-pipeline.svg" target="_blank" rel="noopener">
-              <img src="/diagrams/data-pipeline.svg" alt="Data pipeline" />
-            </a>
-            <figcaption>Data pipeline.</figcaption>
-          </figure>
-
-          <figure>
-            <a href="/diagrams/platform-architecture.png" target="_blank" rel="noopener">
-              <img
-                src="/diagrams/platform-architecture.png"
-                alt="JLT-Lane platform architecture"
-              />
-            </a>
-            <figcaption>Platform architecture.</figcaption>
-          </figure>
+  <main class="container section">
+    <!-- GitHub banner / actions -->
+    <section class="repo-card" aria-label="Repository links">
+      <div class="repo-card-inner">
+        <div>
+          <div class="repo-eyebrow">TECHNICAL REPOSITORY</div>
+          <div class="repo-title">JustineLonglaT-Lane</div>
+          <p class="repo-sub">
+            Live source code, CI/CD workflows, automation guardrails, and multi-site architecture.
+          </p>
         </div>
-      </section>
+
+        <div class="repo-actions">
+          <a class="btn primary"
+             href="https://github.com/justine6/JustineLonglaT-Lane"
+             target="_blank" rel="noopener noreferrer">
+            View repo on GitHub ↗
+          </a>
+
+          <a class="btn"
+             href="https://github.com/justine6/JustineLonglaT-Lane/blob/main/README.md"
+             target="_blank" rel="noopener noreferrer">
+            Open README.md ↗
+          </a>
+        </div>
+      </div>
     </section>
+
+    <h1>Technical README</h1>
+
+    <p>
+      This documentation site is the operational source of truth for the
+      JustineLonglaT-Lane ecosystem.
+    </p>
+
+    <h2>What this repository contains</h2>
+
+    <ul>
+      <li>Architecture overview</li>
+      <li>Automation Toolkit</li>
+      <li>CI/CD guardrails</li>
+      <li>Multi-site deployment structure</li>
+      <li>Partial injection system</li>
+    </ul>
+
+    <h2>Related properties</h2>
+
+    <ul>
+      <li>
+        
+          Main consulting site ↗
+        </a>
+      </li>
+      <li>
+        <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener noreferrer">
+          Blog platform ↗
+        </a>
+      </li>
+      <li><a href="/docs">Docs index</a></li>
+      <li><a href="/architecture">Architecture</a></li>
+      <li><a href="/automation-toolkit">Automation Toolkit</a></li>
+    </ul>
+
+    <hr />
+
+    <p class="muted">
+      Maintained by Justine Longla T. • DevSecOps • Cloud • Sustainability
+    </p>
+
   </main>
 
   <!-- PARTIAL:FOOTER -->
@@ -400,6 +333,21 @@
 <!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
+
+  <!-- tiny local styling fallback (safe even if your CSS already has these) -->
+  <style>
+    .repo-card{margin:0 0 20px;border-radius:16px;border:1px solid rgba(15,23,42,.12);background:#fff;box-shadow:0 10px 30px rgba(15,23,42,.06)}
+    .repo-card-inner{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;padding:16px;flex-wrap:wrap}
+    .repo-eyebrow{font-size:11px;letter-spacing:.18em;font-weight:700;color:rgba(15,23,42,.55)}
+    .repo-title{font-size:16px;font-weight:800;margin-top:4px}
+    .repo-sub{margin:6px 0 0;color:rgba(15,23,42,.7);max-width:60ch}
+    .repo-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:10px 14px;font-weight:700;font-size:13px;border:1px solid rgba(15,23,42,.18);text-decoration:none}
+    .btn.primary{background:#0f172a;color:#fff;border-color:#0f172a}
+    .btn:hover{transform:translateY(-1px)}
+  </style>
+
 </body>
 </html>
+
+

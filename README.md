@@ -220,5 +220,9 @@ MIT License ( replace with proprietary license if needed.)
 # ⭐ Support
 If this documentation helps you, star the repo and share JustineLonglaT-Lane Consulting!
 
+## Stable Releases
 
-
+### v1.2.0-docs-header-stable
+- Canonical header/nav system
+- Internal + external link architecture restored
+- Responsive + pill styling unified

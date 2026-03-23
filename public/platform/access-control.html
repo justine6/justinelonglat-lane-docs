@@ -13,9 +13,14 @@
 <script src="/scripts/back-to-top.js" defer></script>
 <script src="/scripts/hero-mesh-scroll.js" defer></script>
 <!-- /PARTIAL:HEAD -->
+
+  <title>Access Control Model · JustineLonglaT-Lane Docs</title>
+  <meta
+    name="description"
+    content="Entitlement-based access control model for the JustineLonglaT-Lane platform: roles, subscription tiers, resource groups, and authorization flow."
+  />
 </head>
 <body>
-
   <!-- PARTIAL:HEADER -->
 <!-- PARTIAL:HEADER -->
 <header class="site-header" role="banner">
@@ -109,11 +114,158 @@
 <!-- /PARTIAL:HEADER -->
 <!-- /PARTIAL:HEADER -->
 
-  <main class="container section">
-    <h1>JLT Platform — Deployment Flow</h1>
+  <main id="main-content" class="container doc-page">
+    <h1>Entitlement-Based Access Control Model</h1>
+
+    <p class="lead">
+      The JustineLonglaT-Lane platform uses an entitlement-based access control model
+      to protect platform resources, APIs, runbooks, and premium tooling.
+      Access decisions are based on a combination of user role, subscription tier,
+      and required entitlements.
+    </p>
+
+    <h2>1. Identity Context</h2>
     <p>
-      This page documents how each JLT platform surface is built, validated,
-      deployed, and verified.
+      Every request is evaluated using an <strong>Identity Context</strong>, which represents
+      the user and their platform role.
+    </p>
+
+<pre><code>{
+  userId: string;
+  role: JltRole;
+  status: "active" | "inactive" | "suspended";
+}</code></pre>
+
+    <p>Example roles include:</p>
+    <ul>
+      <li>public_visitor</li>
+      <li>guest_contributor</li>
+      <li>basic_member</li>
+      <li>toolkit_subscriber</li>
+      <li>platform_subscriber</li>
+      <li>advisory_client</li>
+      <li>admin</li>
+      <li>owner</li>
+    </ul>
+
+    <h2>2. Subscription Context</h2>
+    <p>
+      The <strong>Subscription Context</strong> represents the user's subscription tier and status.
+      This will later be connected to Stripe for billing and subscription management.
+    </p>
+
+<pre><code>{
+  tier: "none" | "starter" | "toolkit" | "platform" | "advisory" | "internal";
+  status: "active" | "inactive" | "trial" | "expired";
+}</code></pre>
+
+    <h2>3. Authorization Profiles</h2>
+    <p>
+      Authorization profiles are defined in <code>config/access-model.json</code>.
+      Each role maps to a profile that defines:
+    </p>
+
+    <ul>
+      <li>Subscription tier</li>
+      <li>Entitlements</li>
+      <li>Allowed resource groups</li>
+      <li>Denied resource groups</li>
+    </ul>
+
+<pre><code>{
+  "authorizationProfiles": {
+    "public_visitor": {
+      "subscriptionTier": "none",
+      "entitlements": [],
+      "allow": ["docs.public", "runbooks.public"],
+      "deny": ["docs.private", "runbooks.private"]
+    }
+  }
+}</code></pre>
+
+    <h2>4. Resource Groups</h2>
+    <p>
+      Resources in the platform are grouped into logical <strong>Resource Groups</strong>.
+      Access is granted or denied at the resource group level.
+    </p>
+
+    <ul>
+      <li>docs.public</li>
+      <li>docs.private</li>
+      <li>runbooks.public</li>
+      <li>runbooks.private</li>
+      <li>toolkit.preview</li>
+      <li>toolkit.full</li>
+      <li>automation.templates.basic</li>
+      <li>automation.templates.premium</li>
+      <li>api.platform.read</li>
+      <li>api.platform.execute</li>
+      <li>api.admin</li>
+      <li>billing.customer</li>
+      <li>billing.admin</li>
+      <li>contributor.protocols</li>
+    </ul>
+
+    <h2>5. Access Evaluation Flow</h2>
+
+<pre><code>Request
+  ↓
+API Route
+  ↓
+Session Context
+  ↓
+Access Profile
+  ↓
+Entitlement Check
+  ↓
+Allow / Deny
+  ↓
+Response (200 or 403)</code></pre>
+
+    <h2>6. Protected Routes Example</h2>
+
+<pre><code>const denied = requireEntitlement(
+  context,
+  "contributor.protocols",
+  ["contributor.protocol.read"]
+);
+
+if (denied) return denied;</code></pre>
+
+    <p>
+      If the user does not have the required entitlement, the API returns a
+      <strong>403 Forbidden</strong> response.
+    </p>
+
+    <h2>7. Platform Architecture Role</h2>
+    <p>
+      This access control system is part of the platform's Control Plane and is responsible for:
+    </p>
+
+    <ul>
+      <li>Protecting premium platform features</li>
+      <li>Controlling access to runbooks and automation templates</li>
+      <li>Enforcing subscription-based feature access</li>
+      <li>Securing platform APIs</li>
+      <li>Supporting contributor and member access levels</li>
+    </ul>
+
+    <hr />
+
+    <p class="muted">
+      Related:
+      <a href="/platform/access-model.html">Access Model</a> ·
+      <a href="/platform/architecture-map.html">Architecture Map</a>
+    </p>
+
+    <p class="muted">
+      Related files:
+      <br />
+      <code>/config/access-model.json</code><br />
+      <code>/lib/authz/profiles.ts</code><br />
+      <code>/lib/authz/evaluate-access.ts</code><br />
+      <code>/lib/authz/require-entitlement.ts</code><br />
+      <code>/lib/authz/session-context.ts</code>
     </p>
   </main>
 
@@ -244,6 +396,5 @@
 </footer>
 <!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
-
 </body>
 </html>

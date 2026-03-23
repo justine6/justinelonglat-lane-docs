@@ -62,3 +62,29 @@ This is the **first official reference build** of **JustineLonglaT-Lane Docs**, 
 **Maintainer:** Fnu Longla Justine Tekang  
 **Brand Motto:** *Cloud Confidence. Delivered.*  
 **Powered by:** JustineLonglaT-Lane Consulting × Vercel
+
+---
+
+## v1.3.0 — Platform Docs (March 2026)
+
+### Added
+- Platform documentation section
+- Access Model documentation
+- Access Control documentation
+- Resource Groups documentation
+- Platform Control Flow documentation
+- Request Lifecycle documentation
+- Platform index page and navigation structure
+- Recommended reading order for platform documentation
+
+### Updated
+- Docs navigation updated to include Platform section
+- Documentation structure reorganized into Architecture, Access, and Operations layers
+- Partials guardrails updated to support platform section pages
+
+### Notes
+This release introduces the Platform documentation layer for the JLT ecosystem.
+The platform documentation defines the access-control model, protected resource
+boundaries, request lifecycle, and platform delivery flow. This documentation
+serves as the control-plane reference for how the JLT platform is designed,
+secured, and operated.

@@ -73,3 +73,26 @@ Refactored the documentation site to use a proper static build pipeline with sha
 - Clear platform documentation structure
 - Docs site now functions as platform documentation hub
 ---
+## v1.4.1 — Platform Architecture Gallery
+**Release date:** 2026
+
+### Added
+- Platform architecture diagram gallery
+- Platform control flow diagram
+- Entitlement-based access control architecture
+- Request lifecycle diagram
+- Toolkit API process flow diagram
+- Observability & operations loop diagram
+- Deployment guardrails diagram
+
+### Updated
+- Architecture page reorganized into platform lifecycle order:
+  - Platform overview
+  - Access & request flow
+  - Toolkit & delivery
+  - Operations & reliability
+
+### Notes
+This release formalizes the JLT Platform Engineering Model and documents
+the full platform lifecycle from identity and access control to deployment
+guardrails and reliability improvement loops.

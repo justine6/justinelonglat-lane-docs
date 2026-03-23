@@ -88,3 +88,29 @@ The platform documentation defines the access-control model, protected resource
 boundaries, request lifecycle, and platform delivery flow. This documentation
 serves as the control-plane reference for how the JLT platform is designed,
 secured, and operated.
+
+---
+
+## v1.4.1 — Platform Architecture Gallery
+**Release date:** 2026
+
+### Added
+- Platform architecture diagram gallery
+- Platform control flow diagram
+- Entitlement-based access control architecture
+- Request lifecycle diagram
+- Toolkit API process flow diagram
+- Observability & operations loop diagram
+- Deployment guardrails diagram
+
+### Updated
+- Architecture page reorganized into platform lifecycle order:
+  - Platform overview
+  - Access & request flow
+  - Toolkit & delivery
+  - Operations & reliability
+
+### Notes
+This release formalizes the JLT Platform Engineering Model and documents
+the full platform lifecycle from identity and access control to deployment
+guardrails and reliability improvement loops.

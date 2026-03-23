@@ -200,9 +200,10 @@ if (targets.length === 0) {
 
     // Marker presence (HERO is required only on index.html)
     for (const m of MARKERS) {
-      const isHero = m.name === "HERO:HOME";
-      const isIndex = path.basename(file).toLowerCase() === "index.html";
-      if (isHero && !isIndex) continue;
+    const isHero = m.name === "HERO:HOME";
+    const rel = relFromPages(sourceFile).replace(/\\/g, "/");
+    const isRootIndex = rel.toLowerCase() === "index.html";
+    if (isHero && !isRootIndex) continue;
 
       if (!hasMarkerBlock(html, m.open, m.close)) {
         markerFailures++;

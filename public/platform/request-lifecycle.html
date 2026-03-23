@@ -13,7 +13,7 @@
 <script src="/scripts/back-to-top.js" defer></script>
 <script src="/scripts/hero-mesh-scroll.js" defer></script>
 <!-- /PARTIAL:HEAD -->
-  <title>Platform — JLT Docs</title>
+  <title>Request Lifecycle — JLT Platform</title>
 </head>
 <body>
 
@@ -112,77 +112,115 @@
 <!-- /PARTIAL:HEADER -->
 
   <main class="container">
-    <h1>JLT Platform Documentation</h1>
+    <h1>JLT Platform — Request Lifecycle</h1>
+
     <p class="lead">
-      This section documents the internal platform architecture, access-control model,
-      resource boundaries, deployment flow, and system domains of the JLT platform.
+      Every request to the JLT platform follows a defined lifecycle. This lifecycle
+      connects identity, access control, platform resources, observability, and
+      operational procedures into a single system flow.
     </p>
-    <section class="mt-4" aria-labelledby="platform-control-flow">
-      <h2 id="platform-control-flow">Platform Control Flow</h2>
-      <p class="muted">
-        Every request in the JLT platform follows a defined control flow.
-        Access decisions, system visibility, and operational procedures
-        are connected as part of one platform lifecycle.
-      </p>
 
-      <div class="control-grid">
-        <div class="control-card">
-          <strong>1. Identity</strong>
-          <p>Who is making the request (role, user, subscription tier).</p>
-        </div>
+    <h2>Request Lifecycle Overview</h2>
 
-        <div class="control-card">
-          <strong>2. Access Model</strong>
-          <p>Entitlements and policies determine what actions are allowed.</p>
-        </div>
+    <pre class="diagram">
+HTTP Request
+  ↓
+Session
+  ↓
+Identity Context
+  ↓
+Access Context
+  ↓
+Entitlement Check
+  ↓
+Resource Group Check
+  ↓
+Access Decision (Allow / Deny)
+  ↓
+API / Docs / Toolkit Response
+  ↓
+Metrics + Logs Recorded
+  ↓
+Runbook Trigger (if error or incident)
+  ↓
+Deployment / Fix / Improvement
+    </pre>
 
-        <div class="control-card">
-          <strong>3. Resource Groups</strong>
-          <p>Protected platform boundaries used for authorization decisions.</p>
-        </div>
+    <h2>Step-by-Step Explanation</h2>
 
-        <div class="control-card">
-          <strong>4. Platform Surfaces</strong>
-          <p>Docs, APIs, Automation Toolkit, Billing, and platform tools.</p>
-        </div>
+    <h3>1. HTTP Request</h3>
+    <p>
+      A user or system sends a request to a platform surface such as an API route,
+      documentation page, or toolkit endpoint.
+    </p>
 
-        <div class="control-card">
-          <strong>5. Observability</strong>
-          <p>Metrics, logs, and dashboards provide system visibility.</p>
-        </div>
+    <h3>2. Session</h3>
+    <p>
+      The platform identifies the session and determines whether the request is
+      associated with a logged-in user, contributor, subscriber, or public visitor.
+    </p>
 
-        <div class="control-card">
-          <strong>6. Runbooks</strong>
-          <p>Operational procedures for incidents, recovery, and maintenance.</p>
-        </div>
+    <h3>3. Identity Context</h3>
+    <p>
+      The system builds an identity context that includes the user role,
+      account status, and tenant type.
+    </p>
 
-        <div class="control-card">
-          <strong>7. Deployment</strong>
-          <p>CI/CD pipelines deliver and update the platform safely.</p>
-        </div>
-      </div>
-    </section>
-    <h2>Access & Security</h2>
-    <ul>
-      <li><a href="/platform/access-model.html">Access Model</a></li>
-      <li><a href="/platform/access-control.html">Access Control</a></li>
-      <li><a href="/platform/resource-groups.html">Resource Groups</a></li>
-      <li><a href="/platform/request-lifecycle.html">Request Lifecycle</a></li>
-    </ul>
+    <h3>4. Access Context</h3>
+    <p>
+      The identity context and subscription information are combined to build
+      an access context, which contains entitlements and allowed resource groups.
+    </p>
 
-    <h2>Platform Architecture</h2>
-    <ul>
-      <li><a href="/platform/architecture-map.html">Architecture Map</a></li>
-      <li><a href="/platform/domains.html">Domains</a></li>
-      <li><a href="/platform/ecosystem-map.html">Ecosystem Map</a></li>
-    </ul>
+    <h3>5. Entitlement Check</h3>
+    <p>
+      The platform verifies whether the user has the required entitlement for
+      the requested action.
+    </p>
 
-    <h2>Delivery & Operations</h2>
-    <ul>
-      <li><a href="/platform/deployment-flow.html">Deployment Flow</a></li>
-      <li><a href="/platform/change-log.html">Change Log</a></li>
-      <li><a href="/platform/navigation-rules-cheat-sheet.html">Navigation Rules Cheat Sheet</a></li>
-    </ul>
+    <h3>6. Resource Group Check</h3>
+    <p>
+      The system checks whether the requested resource belongs to a protected
+      resource group and whether access is permitted.
+    </p>
+
+    <h3>7. Access Decision</h3>
+    <p>
+      The platform returns an allow or deny decision. If denied, the request
+      returns a 403 response.
+    </p>
+
+    <h3>8. Platform Response</h3>
+    <p>
+      If access is allowed, the platform returns the requested content,
+      API response, download, or toolkit functionality.
+    </p>
+
+    <h3>9. Observability</h3>
+    <p>
+      Metrics and logs are recorded for monitoring, dashboards, and alerting.
+    </p>
+
+    <h3>10. Runbooks</h3>
+    <p>
+      If a failure, error, or abnormal behavior occurs, operational runbooks
+      are used to diagnose and resolve the issue.
+    </p>
+
+    <h3>11. Deployment & Improvement</h3>
+    <p>
+      Fixes, improvements, or policy updates are deployed through CI/CD pipelines,
+      improving the platform over time.
+    </p>
+
+    <h2>Why This Lifecycle Matters</h2>
+    <p>
+      The JLT platform is designed as an integrated system where access control,
+      observability, and operations are connected. This ensures that platform
+      security, reliability, and delivery are managed as one lifecycle rather
+      than separate systems.
+    </p>
+
   </main>
 
   <!-- PARTIAL:FOOTER -->

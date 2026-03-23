@@ -1791,3 +1791,12 @@ html:not([data-theme="light"]) .toolkit-table thead th{
     gap: 1rem;
   }
 }
+.code-block {
+  background: #0b1e3a;
+  color: #e6edf3;
+  padding: 1.2rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}

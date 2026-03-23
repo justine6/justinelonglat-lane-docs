@@ -12,147 +12,118 @@
   <!-- PARTIAL:HEADER -->
   <!-- /PARTIAL:HEADER -->
 
-  <main class="container section">
-    <h1>JLT Platform — Access Model</h1>
+<main class="container section">
+  <h1>JLT Platform — Access Model</h1>
 
-    <p>
-      The JLT Platform Access Model defines how users, contributors, subscribers,
-      and administrators interact with platform resources, APIs, documentation,
-      automation assets, and downloadable toolkits.
-    </p>
+  <p class="muted">
+    The JLT Platform Access Model defines how users, contributors, subscribers,
+    and administrators interact with platform resources, APIs, documentation,
+    automation assets, and downloadable toolkits.
+  </p>
 
-    <h2>1. Identity</h2>
-    <p>
-      Every request to the platform is associated with an identity. Identity may come
-      from Microsoft 365 (guest contributors), platform login, or internal admin accounts.
-    </p>
+  <hr />
 
-    <ul>
-      <li>Public visitor</li>
-      <li>Guest contributor</li>
-      <li>Basic member</li>
-      <li>Toolkit subscriber</li>
-      <li>Platform subscriber</li>
-      <li>Advisory client</li>
-      <li>Admin</li>
-      <li>Owner</li>
-    </ul>
-
-    <h2>2. Subscription Tiers</h2>
-    <p>
-      Subscription tiers determine what protected resources a user can access.
-      Access is not granted by login alone, but by entitlement tied to a subscription tier.
-    </p>
-
-    <ul>
-      <li>None</li>
-      <li>Starter</li>
-      <li>Toolkit</li>
-      <li>Platform</li>
-      <li>Advisory</li>
-      <li>Internal</li>
-    </ul>
-
-    <h2>3. Resource Groups</h2>
-    <p>
-      All platform resources are grouped into resource groups. Access control policies
-      are applied at the resource group level.
-    </p>
-
-    <ul>
-      <li>docs.public</li>
-      <li>docs.private</li>
-      <li>comments</li>
-      <li>contributor.protocols</li>
-      <li>downloads.starter</li>
-      <li>downloads.premium</li>
-      <li>toolkit.preview</li>
-      <li>toolkit.full</li>
-      <li>runbooks.public</li>
-      <li>runbooks.private</li>
-      <li>automation.templates.basic</li>
-      <li>automation.templates.premium</li>
-      <li>api.platform.read</li>
-      <li>api.platform.execute</li>
-      <li>api.admin</li>
-      <li>billing.customer</li>
-      <li>billing.admin</li>
-    </ul>
-
-    <h2>4. Entitlements</h2>
-    <p>
-      Entitlements are explicit permissions required to access specific routes or downloads.
-      Even if a user is authenticated, access is denied unless the required entitlement is present.
-    </p>
-
-    <p>Examples:</p>
-    <ul>
-      <li>docs.read.public</li>
-      <li>comment.submit</li>
-      <li>contributor.protocol.read</li>
-      <li>downloads.starter</li>
-      <li>downloads.premium</li>
-      <li>runbooks.read.private</li>
-      <li>api.platform.read</li>
-      <li>api.platform.execute</li>
-      <li>billing.admin</li>
-    </ul>
-
-    <h2>5. Access Control Rules</h2>
-    <ul>
-      <li>All protected routes require entitlement checks.</li>
-      <li>All premium downloads are served through protected API routes.</li>
-      <li>Direct public access to premium assets is not allowed.</li>
-      <li>Default access policy is <strong>deny</strong> unless explicitly allowed.</li>
-      <li>Access decisions are evaluated per request.</li>
-    </ul>
-
-    <h2>6. Access Flow</h2>
-    <pre>
+  <h2>Access Flow</h2>
+  <pre class="code-block">
 User → Authentication → Role → Subscription Tier → Entitlements
      → Resource Group Policy → Access Decision (Allow / Deny)
-    </pre>
+  </pre>
 
-    <h2>7. Platform Boundary Model</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>User Type</th>
-          <th>Access Level</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Public Visitor</td>
-          <td>Public docs and blog</td>
-        </tr>
-        <tr>
-          <td>Guest Contributor</td>
-          <td>Contributor protocols and collaboration areas</td>
-        </tr>
-        <tr>
-          <td>Subscriber</td>
-          <td>Premium downloads, toolkit, private runbooks</td>
-        </tr>
-        <tr>
-          <td>Advisory Client</td>
-          <td>Client-specific resources and deliverables</td>
-        </tr>
-        <tr>
-          <td>Admin</td>
-          <td>Platform management and billing</td>
-        </tr>
-      </tbody>
-    </table>
+  <h2>Identity Roles</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Role</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Public visitor</td><td>Access to public documentation and blog</td></tr>
+      <tr><td>Guest contributor</td><td>Access to contributor protocols and collaboration areas</td></tr>
+      <tr><td>Basic member</td><td>Access to basic member content</td></tr>
+      <tr><td>Toolkit subscriber</td><td>Access to toolkit downloads and previews</td></tr>
+      <tr><td>Platform subscriber</td><td>Access to platform runbooks and premium resources</td></tr>
+      <tr><td>Advisory client</td><td>Access to client-specific resources</td></tr>
+      <tr><td>Admin</td><td>Platform management and billing</td></tr>
+      <tr><td>Owner</td><td>Full platform control</td></tr>
+    </tbody>
+  </table>
 
-    <h2>8. Security Principle</h2>
-    <p>
-      The JLT Platform follows a <strong>deny-by-default</strong> access model.
-      Access is granted only when identity, subscription, entitlements, and
-      resource policy all allow the requested action.
-    </p>
+  <h2>Subscription Tiers</h2>
+  <ul>
+    <li>None</li>
+    <li>Starter</li>
+    <li>Toolkit</li>
+    <li>Platform</li>
+    <li>Advisory</li>
+    <li>Internal</li>
+  </ul>
 
-  </main>
+  <h2>Resource Groups</h2>
+  <p>All platform resources are grouped and protected by policy.</p>
+
+  <ul>
+    <li>docs.public</li>
+    <li>docs.private</li>
+    <li>comments</li>
+    <li>contributor.protocols</li>
+    <li>downloads.starter</li>
+    <li>downloads.premium</li>
+    <li>toolkit.preview</li>
+    <li>toolkit.full</li>
+    <li>runbooks.public</li>
+    <li>runbooks.private</li>
+    <li>automation.templates.basic</li>
+    <li>automation.templates.premium</li>
+    <li>api.platform.read</li>
+    <li>api.platform.execute</li>
+    <li>api.admin</li>
+    <li>billing.customer</li>
+    <li>billing.admin</li>
+  </ul>
+
+  <h2>Security Principles</h2>
+  <ul>
+    <li>Deny by default</li>
+    <li>All premium assets are API-protected</li>
+    <li>Authentication does not equal authorization</li>
+    <li>Access is evaluated per request</li>
+    <li>Downloads require entitlement checks</li>
+  </ul>
+
+  <h2>Platform Boundary Model</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>User Type</th>
+        <th>Access Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Public Visitor</td>
+        <td>Public docs and blog</td>
+      </tr>
+      <tr>
+        <td>Guest Contributor</td>
+        <td>Contributor protocols and collaboration areas</td>
+      </tr>
+      <tr>
+        <td>Subscriber</td>
+        <td>Premium downloads, toolkit, private runbooks</td>
+      </tr>
+      <tr>
+        <td>Advisory Client</td>
+        <td>Client-specific resources</td>
+      </tr>
+      <tr>
+        <td>Admin</td>
+        <td>Platform management</td>
+      </tr>
+    </tbody>
+  </table>
+
+</main>
 
   <!-- PARTIAL:FOOTER -->
   <!-- /PARTIAL:FOOTER -->

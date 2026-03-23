@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- PARTIAL:HEAD -->
+  <!-- /PARTIAL:HEAD -->
+  <title>Resource Groups · JustineLonglaT-Lane Docs</title>
+  <meta
+    name="description"
+    content="Resource groups in the JustineLonglaT-Lane access model and what each protected boundary controls."
+  />
+</head>
+<body>
+  <!-- PARTIAL:HEADER -->
+  <!-- /PARTIAL:HEADER -->
+
+  <main id="main-content" class="container doc-page">
+    <h1>JLT Platform — Resource Groups</h1>
+
+    <p class="lead">
+      Resource groups define the protected boundaries of the JLT platform.
+      They are the units used by the access-control layer to allow or deny
+      access to documents, APIs, runbooks, toolkit surfaces, and billing features.
+    </p>
+
+    <h2>Current Resource Groups</h2>
+    <ul>
+      <li><code>docs.public</code> — public documentation</li>
+      <li><code>docs.private</code> — restricted documentation</li>
+      <li><code>comments</code> — commenting and contribution surfaces</li>
+      <li><code>contributor.protocols</code> — contributor-facing protocols</li>
+      <li><code>downloads.starter</code> — starter downloads</li>
+      <li><code>downloads.premium</code> — premium downloads</li>
+      <li><code>toolkit.preview</code> — preview toolkit access</li>
+      <li><code>toolkit.full</code> — full toolkit access</li>
+      <li><code>runbooks.public</code> — public operational runbooks</li>
+      <li><code>runbooks.private</code> — private/internal runbooks</li>
+      <li><code>automation.templates.basic</code> — basic templates</li>
+      <li><code>automation.templates.premium</code> — premium templates</li>
+      <li><code>api.platform.read</code> — read-only platform API access</li>
+      <li><code>api.platform.execute</code> — execution-capable platform API access</li>
+      <li><code>api.admin</code> — administrative APIs</li>
+      <li><code>billing.customer</code> — customer billing surfaces</li>
+      <li><code>billing.admin</code> — billing administration</li>
+    </ul>
+
+    <h2>Why Resource Groups Matter</h2>
+    <p>
+      Resource groups make the authorization model explicit. Instead of protecting
+      isolated pages or endpoints one by one, the platform protects categories of
+      assets consistently through policy.
+    </p>
+
+    <h2>Typical Flow</h2>
+<pre><code>Request
+  ↓
+Session Context
+  ↓
+Access Profile
+  ↓
+Resource Group
+  ↓
+Entitlement Check
+  ↓
+Allow / Deny</code></pre>
+
+    <hr />
+    <h2>Related Pages</h2>
+    <ul>
+      <li><a href="/platform/access-model.html">Access Model</a></li>
+      <li><a href="/platform/access-control.html">Access Control</a></li>
+      <li><a href="/platform/architecture-map.html">Architecture Map</a></li>
+      <li><a href="/platform/domains.html">Domains</a></li>
+    </ul>
+  </main>
+
+  <!-- PARTIAL:FOOTER -->
+  <!-- /PARTIAL:FOOTER -->
+</body>
+</html>

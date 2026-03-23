@@ -53,3 +53,23 @@ This establishes the Docs site as the **Platform Operating Manual** for JLT-Lane
 - Static docs should use explicit `.html` routes
 
 ---
+## v1.2.0 — Docs Pipeline Refactor (2026-03-22)
+
+### Summary
+Refactored the documentation site to use a proper static build pipeline with shared layout partials and generated output.
+
+### Key Changes
+- Introduced /pages as source of truth
+- Introduced /public as generated site output
+- Implemented partial injection system (head, header, footer, hero)
+- Added platform documentation section (/platform)
+- Added validation guardrails (check-partials, inject-partials)
+- Standardized navigation across Docs platform
+- Created ecosystem, architecture, domains, deployment, and navigation documentation
+
+### Impact
+- Deterministic documentation builds
+- Safer layout management
+- Clear platform documentation structure
+- Docs site now functions as platform documentation hub
+---

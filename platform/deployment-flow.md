@@ -1,4 +1,4 @@
-@'
+@
 # JLT Platform — Deployment Flow Runbook
 
 This document describes how each surface of the JLT-Lane platform is built,

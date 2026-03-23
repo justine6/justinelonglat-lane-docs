@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- PARTIAL:HEAD -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark light" />
+
+<link rel="icon" href="/assets/img/crest.png" />
+<link rel="stylesheet" href="/styles.css" />
+
+<script src="/scripts/theme-toggle.js" defer></script>
+<script src="/scripts/back-to-top.js" defer></script>
+<script src="/scripts/hero-mesh-scroll.js" defer></script>
+<!-- /PARTIAL:HEAD -->
+</head>
+<body>
+
+  <!-- PARTIAL:HEADER -->
+<!-- PARTIAL:HEADER -->
+<header class="site-header" role="banner">
+  <div class="container navbar">
+    <a
+      class="brand"
+      href="https://www.justinelonglat-lane.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="JustineLonglaT-Lane home"
+    >
+      <img
+        class="brand-logo"
+        src="/assets/img/crest.png"
+        alt="JLT-Lane crest"
+      />
+      <div class="brand-text">
+        <div class="brand-title">JustineLonglaT-Lane</div>
+        <div class="brand-subtitle">Cloud Confidence. Delivered.</div>
+      </div>
+    </a>
+
+    <div class="nav-shell">
+      <nav class="site-nav" aria-label="Primary">
+
+        <!-- Core -->
+        <a href="/">Home</a>
+        <a href="https://www.justinelonglat-lane.com/engineering-mesh" target="_blank" rel="noopener">
+          engineering-mesh↗
+        </a>
+
+        <!-- Docs internal -->
+        <a href="/">Docs</a>
+        <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener">
+          Blog ↗
+      </a>
+        <a href="/README.html">README</a>
+
+        <!-- Platform (internal docs pages) -->
+        <a href="/architecture.html">Architecture</a>
+        <a href="/runbooks.html">Runbooks</a>
+        <a href="/platform/ecosystem-map.html">Platform</a>
+
+        <!-- CTA -->
+        <a class="is-primary" href="/toolkit.html">
+          Automation Toolkit
+        </a>
+
+        <!-- Ecosystem dropdown -->
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle">
+            Ecosystem ▾
+          </button>
+
+          <div class="nav-dropdown-menu">
+            <a href="https://www.justinelonglat-lane.com" target="_blank">Main Site ↗</a>
+            <a href="https://docs.justinelonglat-lane.com">Docs</a>
+            <a href="https://blogs.justinelonglat-lane.com">Blogs</a>
+            <a href="https://foundation.nouvoayiti2075.com">Nouvo Ayiti 2075</a>
+          </div>
+        </div>
+
+      </nav>
+
+      <div class="nav-profile" aria-label="Signature">
+        <img
+          src="/assets/img/profile.jpg"
+          alt="Justine Longla T."
+          class="nav-profile-avatar"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="nav-profile-text">
+          <span class="nav-profile-eyebrow">Built by</span>
+          <span class="nav-profile-name">Justine Longla T.</span>
+        </div>
+
+        <button
+          id="themeToggle"
+          class="nav-theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+          title="Toggle theme"
+        >
+          🌙
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- /PARTIAL:HEADER -->
+<!-- /PARTIAL:HEADER -->
+
+  <main class="container section">
+    <h1>JLT Platform — Access Model</h1>
+
+    <p>
+      The JLT Platform Access Model defines how users, contributors, subscribers,
+      and administrators interact with platform resources, APIs, documentation,
+      automation assets, and downloadable toolkits.
+    </p>
+
+    <h2>1. Identity</h2>
+    <p>
+      Every request to the platform is associated with an identity. Identity may come
+      from Microsoft 365 (guest contributors), platform login, or internal admin accounts.
+    </p>
+
+    <ul>
+      <li>Public visitor</li>
+      <li>Guest contributor</li>
+      <li>Basic member</li>
+      <li>Toolkit subscriber</li>
+      <li>Platform subscriber</li>
+      <li>Advisory client</li>
+      <li>Admin</li>
+      <li>Owner</li>
+    </ul>
+
+    <h2>2. Subscription Tiers</h2>
+    <p>
+      Subscription tiers determine what protected resources a user can access.
+      Access is not granted by login alone, but by entitlement tied to a subscription tier.
+    </p>
+
+    <ul>
+      <li>None</li>
+      <li>Starter</li>
+      <li>Toolkit</li>
+      <li>Platform</li>
+      <li>Advisory</li>
+      <li>Internal</li>
+    </ul>
+
+    <h2>3. Resource Groups</h2>
+    <p>
+      All platform resources are grouped into resource groups. Access control policies
+      are applied at the resource group level.
+    </p>
+
+    <ul>
+      <li>docs.public</li>
+      <li>docs.private</li>
+      <li>comments</li>
+      <li>contributor.protocols</li>
+      <li>downloads.starter</li>
+      <li>downloads.premium</li>
+      <li>toolkit.preview</li>
+      <li>toolkit.full</li>
+      <li>runbooks.public</li>
+      <li>runbooks.private</li>
+      <li>automation.templates.basic</li>
+      <li>automation.templates.premium</li>
+      <li>api.platform.read</li>
+      <li>api.platform.execute</li>
+      <li>api.admin</li>
+      <li>billing.customer</li>
+      <li>billing.admin</li>
+    </ul>
+
+    <h2>4. Entitlements</h2>
+    <p>
+      Entitlements are explicit permissions required to access specific routes or downloads.
+      Even if a user is authenticated, access is denied unless the required entitlement is present.
+    </p>
+
+    <p>Examples:</p>
+    <ul>
+      <li>docs.read.public</li>
+      <li>comment.submit</li>
+      <li>contributor.protocol.read</li>
+      <li>downloads.starter</li>
+      <li>downloads.premium</li>
+      <li>runbooks.read.private</li>
+      <li>api.platform.read</li>
+      <li>api.platform.execute</li>
+      <li>billing.admin</li>
+    </ul>
+
+    <h2>5. Access Control Rules</h2>
+    <ul>
+      <li>All protected routes require entitlement checks.</li>
+      <li>All premium downloads are served through protected API routes.</li>
+      <li>Direct public access to premium assets is not allowed.</li>
+      <li>Default access policy is <strong>deny</strong> unless explicitly allowed.</li>
+      <li>Access decisions are evaluated per request.</li>
+    </ul>
+
+    <h2>6. Access Flow</h2>
+    <pre>
+User → Authentication → Role → Subscription Tier → Entitlements
+     → Resource Group Policy → Access Decision (Allow / Deny)
+    </pre>
+
+    <h2>7. Platform Boundary Model</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>User Type</th>
+          <th>Access Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Public Visitor</td>
+          <td>Public docs and blog</td>
+        </tr>
+        <tr>
+          <td>Guest Contributor</td>
+          <td>Contributor protocols and collaboration areas</td>
+        </tr>
+        <tr>
+          <td>Subscriber</td>
+          <td>Premium downloads, toolkit, private runbooks</td>
+        </tr>
+        <tr>
+          <td>Advisory Client</td>
+          <td>Client-specific resources and deliverables</td>
+        </tr>
+        <tr>
+          <td>Admin</td>
+          <td>Platform management and billing</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>8. Security Principle</h2>
+    <p>
+      The JLT Platform follows a <strong>deny-by-default</strong> access model.
+      Access is granted only when identity, subscription, entitlements, and
+      resource policy all allow the requested action.
+    </p>
+
+  </main>
+
+  <!-- PARTIAL:FOOTER -->
+<!-- PARTIAL:FOOTER -->
+<footer class="site-footer site-footer--network" role="contentinfo">
+  <div class="footer-top">
+    <div class="footer-col footer-brand">
+      <h3 class="footer-brand-title">Justine Longla T.</h3>
+      <p class="footer-brand-copy">
+        Cloud Confidence. Delivered. Secure, performance-tuned solutions — built the
+        right way.
+      </p>
+
+      <div class="footer-brand-ctas">
+        <a
+          class="footer-btn footer-btn--primary"
+          href="https://consulting.justinelonglat-lane.com/intro-call"
+          aria-label="Schedule your intro call"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Schedule Your Intro Call
+        </a>
+
+        <a
+          class="footer-btn footer-btn--secondary"
+          href="https://consulting.justinelonglat-lane.com/hire-me"
+          aria-label="Hire me"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Hire Me
+        </a>
+      </div>
+    </div>
+
+    <nav class="footer-col footer-links" aria-label="Quick links">
+      <h4 class="sr-only">Quick links</h4>
+      <ul class="footer-list">
+        <li><a href="https://www.justinelonglat-lane.com/">Home</a></li>
+        <li><a href="https://www.justinelonglat-lane.com/projects">Projects</a></li>
+        <li>
+          <a href="https://blogs.justinelonglat-lane.com/" target="_blank" rel="noopener noreferrer">
+            Blog ↗
+          </a>
+        </li>
+        <li><a href="https://www.justinelonglat-lane.com/contact">Contact</a></li>
+        <li><a href="https://www.justinelonglat-lane.com/hire-me">Hire Me</a></li>
+        <li><a href="https://www.justinelonglat-lane.com/resume">Résumé</a></li>
+        <li>
+          <a
+            href="https://www.justinelonglat-lane.com/Justine-Longla-T-Lane-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download Résumé (PDF)
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.justinelonglat-lane.com/Justine-Longla-T-Lane-Brochure.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download a Brochure
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="footer-col footer-contact">
+      <h4 class="footer-heading">CONTACT</h4>
+      <ul class="footer-list">
+        <li>
+          <a href="mailto:justine@justinelonglat-lane.com">
+            justine@justinelonglat-lane.com
+          </a>
+        </li>
+        <li>
+          <a href="https://www.justinelonglat-lane.com/videos">Videos</a>
+        </li>
+        <li>
+          <a href="tel:+14059345864">+1 405.934.5864</a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/longlatjustine"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn: longlatjustine
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-meta">
+        © 2026 <span class="footer-strong">Justine Longla T-Lane.</span> · DevSecOps • Cloud • Sustainability
+      </p>
+
+      <p class="footer-submeta">
+        Operating under <span class="footer-strong">JustineLonglaT-Lane LLC.</span>
+      </p>
+
+      <nav class="footer-network" aria-label="Justine Longla T. network">
+        <a href="https://blogs.justinelonglat-lane.com/" target="_blank" rel="noopener noreferrer">Blog</a>
+        <a href="https://www.justinelonglat-lane.com/projects">Projects</a>
+        <a href="https://docs.justinelonglat-lane.com/" target="_blank" rel="noopener noreferrer">Docs</a>
+        <a href="https://docs.justinelonglat-lane.com/automation-toolkit.html" target="_blank" rel="noopener noreferrer">Automation Toolkit</a>
+      </nav>
+
+      <div class="footer-divider" aria-hidden="true"></div>
+
+      <div class="footer-version">
+        Engineering Mesh v1.2.0 — Release: runtime-stable — Verified production baseline
+      </div>
+
+      <div class="footer-utility-links">
+        <a href="/automation-toolkit.html">Automation toolkit</a>
+        <a href="/sitemap.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+
+</body>
+</html>

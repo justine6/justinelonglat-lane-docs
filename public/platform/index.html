@@ -117,46 +117,51 @@
       This section documents the internal platform architecture, access-control model,
       resource boundaries, deployment flow, and system domains of the JLT platform.
     </p>
-  <section class="mt-4">
-    <h2>Platform Control Flow</h2>
+    <section class="mt-4" aria-labelledby="platform-control-flow">
+      <h2 id="platform-control-flow">Platform Control Flow</h2>
+      <p class="muted">
+        Every request in the JLT platform follows a defined control flow.
+        Access decisions, system visibility, and operational procedures
+        are connected as part of one platform lifecycle.
+      </p>
 
-    <div class="control-grid">
-      <div class="control-card">
-        <strong>Identity</strong>
-        <p>Who is making the request (role, user, subscription).</p>
-      </div>
+      <div class="control-grid">
+        <div class="control-card">
+          <strong>1. Identity</strong>
+          <p>Who is making the request (role, user, subscription tier).</p>
+        </div>
 
-      <div class="control-card">
-        <strong>Access Model</strong>
-        <p>Entitlements and policies determine what is allowed.</p>
-      </div>
+        <div class="control-card">
+          <strong>2. Access Model</strong>
+          <p>Entitlements and policies determine what actions are allowed.</p>
+        </div>
 
-      <div class="control-card">
-        <strong>Resource Groups</strong>
-        <p>Protected platform boundaries.</p>
-      </div>
+        <div class="control-card">
+          <strong>3. Resource Groups</strong>
+          <p>Protected platform boundaries used for authorization decisions.</p>
+        </div>
 
-      <div class="control-card">
-        <strong>Platform Surfaces</strong>
-        <p>Docs, APIs, Toolkit, Billing.</p>
-      </div>
+        <div class="control-card">
+          <strong>4. Platform Surfaces</strong>
+          <p>Docs, APIs, Automation Toolkit, Billing, and platform tools.</p>
+        </div>
 
-      <div class="control-card">
-        <strong>Observability</strong>
-        <p>Metrics, logs, dashboards.</p>
-      </div>
+        <div class="control-card">
+          <strong>5. Observability</strong>
+          <p>Metrics, logs, and dashboards provide system visibility.</p>
+        </div>
 
-      <div class="control-card">
-        <strong>Runbooks</strong>
-        <p>Operational procedures.</p>
-      </div>
+        <div class="control-card">
+          <strong>6. Runbooks</strong>
+          <p>Operational procedures for incidents, recovery, and maintenance.</p>
+        </div>
 
-      <div class="control-card">
-        <strong>Deployment</strong>
-        <p>CI/CD and platform delivery.</p>
+        <div class="control-card">
+          <strong>7. Deployment</strong>
+          <p>CI/CD pipelines deliver and update the platform safely.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
     <h2>Access & Security</h2>
     <ul>
       <li><a href="/platform/access-model.html">Access Model</a></li>

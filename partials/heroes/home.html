@@ -4,8 +4,8 @@
   aria-labelledby="hero-title"
 >
   <div class="mesh-nodes" aria-hidden="true"></div>
-  <span class="mesh-node" style="top: 28%; right: 24%;" aria-hidden="true"></span>
-  <span class="mesh-node" style="bottom: 18%; left: 32%;" aria-hidden="true"></span>
+  <span class="mesh-node" style="top: 24%; right: 22%;" aria-hidden="true"></span>
+  <span class="mesh-node" style="bottom: 20%; left: 34%;" aria-hidden="true"></span>
 
   <div class="container home-hero-inner">
     <div class="hero-card mesh-card" role="region" aria-label="Docs overview">
@@ -35,28 +35,64 @@
 
       <div class="hero-inline-links" aria-label="Quick access">
         <a href="/architecture.html">Architecture</a>
+        <a href="/platform/index.html">Platform</a>
+        <a href="/platform/publishing-pipeline.html">Publishing Pipeline</a>
+        <a href="/runbooks.html">Runbooks</a>
         <a href="/automation-toolkit.html">Automation Toolkit</a>
       </div>
     </div>
 
-    <div class="home-feature-grid" aria-label="Highlights">
-      <article class="home-feature-card mesh-card">
-        <h3>Getting Started</h3>
-        <p>Local setup, repo structure, conventions, and how everything fits together.</p>
-        <a href="https://consulting.justinelonglat-lane.com/engineering-mesh" target="_blank" rel="noopener noreferrer">Read guide ↗</a>
-      </article>
+    <div class="hero-visual-stack" aria-label="Platform highlights">
+      <div class="hero-visual-panel">
+        <div class="hero-visual-content">
+          <div>
+            <p class="hero-visual-kicker">Platform entry surface</p>
+            <h2 class="hero-visual-title">From architecture to operations</h2>
+            <p class="hero-visual-copy">
+              Follow the platform lifecycle through architecture diagrams, access control,
+              request flow, runbooks, observability, and deployment guardrails.
+            </p>
+          </div>
 
-      <article class="home-feature-card mesh-card">
-        <h3>CI/CD Architecture</h3>
-        <p>Pipelines, environments, and deployment guardrails across the ecosystem.</p>
-        <a href="/cicd-pipelines.html">View pipelines →</a>
-      </article>
+          <div class="hero-visual-flow" aria-hidden="true">
+            <div class="hero-flow-row">
+              <span class="hero-flow-node">Identity</span>
+              <span class="hero-flow-arrow">→</span>
+              <span class="hero-flow-node">Access</span>
+            </div>
+            <div class="hero-flow-row">
+              <span class="hero-flow-node">Resources</span>
+              <span class="hero-flow-arrow">→</span>
+              <span class="hero-flow-node">Observability</span>
+            </div>
+            <div class="hero-flow-row">
+              <span class="hero-flow-node">Runbooks</span>
+              <span class="hero-flow-arrow">→</span>
+              <span class="hero-flow-node">Deployment</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <article class="home-feature-card mesh-card">
-        <h3>Automation Toolkit</h3>
-        <p>Scripts, helpers, and reusable automation patterns powering the platform.</p>
-        <a href="/automation-toolkit.html">Explore tools →</a>
-      </article>
+      <div class="home-feature-grid" aria-label="Highlights">
+        <article class="home-feature-card mesh-card">
+          <h3>Getting Started</h3>
+          <p>Local setup, repo structure, conventions, and how everything fits together.</p>
+          <a href="/README.html">Read guide →</a>
+        </article>
+
+        <article class="home-feature-card mesh-card">
+          <h3>CI/CD Architecture</h3>
+          <p>Pipelines, environments, and deployment guardrails across the ecosystem.</p>
+          <a href="/cicd-pipelines.html">View pipelines →</a>
+        </article>
+
+        <article class="home-feature-card mesh-card">
+          <h3>Automation Toolkit</h3>
+          <p>Scripts, helpers, and reusable automation patterns powering the platform.</p>
+          <a href="/automation-toolkit.html">Explore tools →</a>
+        </article>
+      </div>
     </div>
   </div>
 </section>

@@ -9,6 +9,7 @@ const PUBLIC_DIR = path.join(ROOT, "public");
 const HEAD_PATH = path.join(PARTIALS_DIR, "head.html");
 const HEADER_PATH = path.join(PARTIALS_DIR, "header.html");
 const FOOTER_PATH = path.join(PARTIALS_DIR, "footer.html");
+const HERO_HOME_PATH = path.join(PARTIALS_DIR, "heroes", "home.html");
 
 const MIRROR_PUBLIC_PARTIALS = process.env.MIRROR_PUBLIC_PARTIALS === "1";
 const PUBLIC_PARTIALS_DIR = path.join(PUBLIC_DIR, "_partials");
@@ -17,12 +18,12 @@ function toLF(s) {
   return s.replace(/\r\n/g, "\n");
 }
 
-function readText(p) {
-  return toLF(fs.readFileSync(p, "utf8")).trim() + "\n";
-}
-
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
+}
+
+function readText(p) {
+  return toLF(fs.readFileSync(p, "utf8")).trim() + "\n";
 }
 
 function ensurePartialsExist() {
@@ -31,6 +32,7 @@ function ensurePartialsExist() {
   if (!fs.existsSync(HEAD_PATH)) missing.push("partials/head.html");
   if (!fs.existsSync(HEADER_PATH)) missing.push("partials/header.html");
   if (!fs.existsSync(FOOTER_PATH)) missing.push("partials/footer.html");
+  if (!fs.existsSync(HERO_HOME_PATH)) missing.push("partials/heroes/home.html");
   if (!fs.existsSync(PAGES_DIR)) missing.push("pages/ directory");
 
   if (missing.length) {
@@ -47,6 +49,22 @@ function hasMarker(html, name) {
   );
 }
 
+function stripOwnMarkerBlock(content, name) {
+  const open = `<!-- PARTIAL:${name} -->`;
+  const close = `<!-- /PARTIAL:${name} -->`;
+
+  let out = content.trim();
+
+  if (out.startsWith(open)) {
+    out = out.slice(open.length).trimStart();
+  }
+  if (out.endsWith(close)) {
+    out = out.slice(0, out.length - close.length).trimEnd();
+  }
+
+  return out ? out + "\n" : "";
+}
+
 function replaceMarkerBlock(html, name, replacementHtml) {
   const open = `<!-- PARTIAL:${name} -->`;
   const close = `<!-- /PARTIAL:${name} -->`;
@@ -61,9 +79,11 @@ function replaceMarkerBlock(html, name, replacementHtml) {
   const before = html.slice(0, start);
   const after = html.slice(end + close.length);
 
+  const cleanedReplacement = stripOwnMarkerBlock(replacementHtml, name);
+
   const injected =
     `${open}\n` +
-    `${replacementHtml}` +
+    `${cleanedReplacement}` +
     `${close}`;
 
   const out = before + injected + after;
@@ -104,6 +124,7 @@ ensurePartialsExist();
 const headHtml = readText(HEAD_PATH);
 const headerHtml = readText(HEADER_PATH);
 const footerHtml = readText(FOOTER_PATH);
+const heroHomeHtml = readText(HERO_HOME_PATH);
 
 const sourceFiles = walkHtmlFiles(PAGES_DIR);
 
@@ -111,7 +132,7 @@ let changedCount = 0;
 const diagnostics = [];
 
 for (const sourceFile of sourceFiles) {
-  const rel = relativeToPages(sourceFile);
+  const rel = relativeToPages(sourceFile).replace(/\\/g, "/");
   const outputFile = path.join(PUBLIC_DIR, rel);
 
   const before = toLF(fs.readFileSync(sourceFile, "utf8"));
@@ -119,6 +140,7 @@ for (const sourceFile of sourceFiles) {
   const hasHead = hasMarker(before, "HEAD");
   const hasHeader = hasMarker(before, "HEADER");
   const hasFooter = hasMarker(before, "FOOTER");
+  const hasHeroHome = hasMarker(before, "HERO:HOME");
 
   if (!hasHead || !hasHeader || !hasFooter) {
     diagnostics.push({
@@ -126,6 +148,7 @@ for (const sourceFile of sourceFiles) {
       head: hasHead,
       header: hasHeader,
       footer: hasFooter,
+      heroHome: hasHeroHome,
     });
   }
 
@@ -134,6 +157,11 @@ for (const sourceFile of sourceFiles) {
   if (hasHead) out = replaceMarkerBlock(out, "HEAD", headHtml).html;
   if (hasHeader) out = replaceMarkerBlock(out, "HEADER", headerHtml).html;
   if (hasFooter) out = replaceMarkerBlock(out, "FOOTER", footerHtml).html;
+
+  // inject hero only on root homepage
+  if (rel.toLowerCase() === "index.html" && hasHeroHome) {
+    out = replaceMarkerBlock(out, "HERO:HOME", heroHomeHtml).html;
+  }
 
   ensureDir(path.dirname(outputFile));
 
@@ -155,7 +183,8 @@ if (diagnostics.length) {
     const hd = d.head ? "ok" : "MISSING";
     const h = d.header ? "ok" : "MISSING";
     const f = d.footer ? "ok" : "MISSING";
-    console.log(` - ${d.file}: HEAD=${hd}; HEADER=${h}; FOOTER=${f}`);
+    const hero = d.heroHome ? "ok" : "n/a";
+    console.log(` - ${d.file}: HEAD=${hd}; HEADER=${h}; FOOTER=${f}; HERO:HOME=${hero}`);
   }
 }
 

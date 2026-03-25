@@ -1,0 +1,32 @@
+name: Hero Guardrails
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  heroes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node (for hero guardrail scripts)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # 1) Validate hero markers + canonical match
+      - name: Check hero blocks (frozen)
+        run: node scripts/check-heroes.mjs
+
+      # 2) Prove hero injection causes no diff (drift detector)
+      - name: Verify hero injection is committed (no drift)
+        run: |
+          node scripts/inject-heroes.mjs
+          git diff --exit-code

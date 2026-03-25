@@ -1,0 +1,46 @@
+name: Partials Guardrails
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  partials:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node (for guardrail scripts)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Force LF in CI (avoid CRLF drift noise)
+        run: git config core.autocrlf false
+
+      # 1) Validate partials + markers
+      - name: Check partials + markers
+        run: node scripts/check-partials.mjs
+
+      # 2) Prove injection would NOT change tracked files (drift detector)
+      - name: Verify injected output is committed (no drift)
+        run: |
+          node scripts/inject-partials.mjs
+          git diff --exit-code
+
+      # 3) If it fails, print the diff so the fix is obvious in PR logs
+      - name: Show drift diff (if any)
+        if: failure()
+        run: git --no-pager diff
+        
+      - name: Assert expected HTML targets exist
+        run: |
+          test -f public/index.html
+          test -f public/toolkit.html
+

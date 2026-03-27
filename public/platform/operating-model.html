@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- PARTIAL:HEAD -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark light" />
+
+<link rel="icon" href="/assets/img/crest.png" />
+<link rel="stylesheet" href="/styles.css" />
+
+<script src="/scripts/theme-toggle.js" defer></script>
+<script src="/scripts/back-to-top.js" defer></script>
+<script src="/scripts/hero-mesh-scroll.js" defer></script>
+<!-- /PARTIAL:HEAD -->
+
+  <title>Platform Operating Model — JLT-Lane Docs</title>
+  <meta
+    name="description"
+    content="The Governed Multi-Plane Platform Operating Model — a framework for governing, delivering, operating, and improving modern digital platforms."
+  />
+</head>
+<body>
+  <!-- PARTIAL:HEADER -->
+<header class="site-header" role="banner">
+  <div class="container navbar">
+    <a
+      class="brand"
+      href="https://www.justinelonglat-lane.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="JustineLonglaT-Lane home"
+    >
+      <img
+        class="brand-logo"
+        src="/assets/img/crest.png"
+        alt="JLT-Lane crest"
+      />
+      <div class="brand-text">
+        <div class="brand-title">JustineLonglaT-Lane</div>
+        <div class="brand-subtitle">Cloud Confidence. Delivered.</div>
+      </div>
+    </a>
+
+    <div class="nav-shell">
+      <nav class="site-nav" aria-label="Primary">
+
+        <!-- Core -->
+        <a href="/">Home</a>
+        <a href="https://www.justinelonglat-lane.com/engineering-mesh" target="_blank" rel="noopener">
+          Engineering Mesh ↗
+        </a>
+
+        <!-- Docs internal -->
+        <a href="/">Docs</a>
+        <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener">
+          Blog ↗
+        </a>
+        <a href="/README.html">README</a>
+
+        <!-- Platform (internal docs pages) -->
+        <a href="/architecture.html">Architecture</a>
+        <a href="/runbooks.html">Runbooks</a>
+        <a href="/platform/index.html">Platform</a>
+
+        <a class="is-primary" href="/toolkit.html">
+          Automation Toolkit
+        </a>
+
+        <a href="/platform/access-control.html">Access Control</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle">
+            Ecosystem ▾
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="https://www.justinelonglat-lane.com" target="_blank" rel="noopener">Main Site ↗</a>
+            <a href="https://docs.justinelonglat-lane.com">Docs</a>
+            <a href="https://blogs.justinelonglat-lane.com">Blogs</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="nav-profile" aria-label="Signature">
+        <img
+          src="/assets/img/profile.jpg"
+          alt="Justine Longla T."
+          class="nav-profile-avatar"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="nav-profile-text">
+          <span class="nav-profile-eyebrow">Built by</span>
+          <span class="nav-profile-name">Justine Longla T.</span>
+        </div>
+
+        <button
+          id="themeToggle"
+          class="nav-theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+          title="Toggle theme"
+        >
+          🌙
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Platform Status Bar -->
+<div class="platform-status-bar" role="status">
+  <div class="container platform-status-inner">
+
+    <div class="platform-status-left">
+      <span class="status-item">
+        <strong>Platform:</strong> JLT-Lane Mesh
+      </span>
+      <span class="status-item">
+        <strong>Env:</strong> Production
+      </span>
+      <span class="status-item">
+        <strong>Docs:</strong> v1.2.0
+      </span>
+    </div>
+
+    <div class="platform-status-right">
+      <span class="status-item status-ok">
+        ● All Systems Operational
+      </span>
+      <span class="status-item">
+        Last Deploy: Mar 22
+      </span>
+    </div>
+
+  </div>
+</div>
+<!-- /PARTIAL:HEADER -->
+
+  <main class="docs-container">
+    <article class="docs-article">
+      <h1>The Governed Multi-Plane Platform Operating Model</h1>
+      <p class="docs-lead">
+        A framework for reducing fragmentation in modern digital systems by organizing platforms
+        into governed operational planes: Identity, Control, Knowledge, Execution, Operations,
+        Proof, and Narrative.
+      </p>
+
+      <hr />
+
+      <h2>1. Abstract</h2>
+      <p>
+        Modern organizations operate complex digital environments composed of cloud infrastructure,
+        CI/CD pipelines, identity systems, monitoring tools, documentation platforms, and applications.
+        Despite significant investment in technology, many organizations continue to struggle with
+        operational inefficiencies, security gaps, inconsistent delivery practices, and knowledge silos.
+      </p>
+      <p>
+        The root cause is not a lack of tools or infrastructure, but a lack of a governed platform
+        operating model that integrates governance, delivery, operations, documentation, and continuous
+        improvement into a single system.
+      </p>
+
+      <h2>2. The Fragmentation Problem</h2>
+      <p>
+        Most organizations today have infrastructure, tools, and cloud platforms, but these systems are
+        often managed separately, documented inconsistently, and not governed as a single platform.
+        As a result, organizations operate collections of tools rather than integrated platforms.
+      </p>
+      <p>
+        This fragmentation leads to operational inefficiencies, security risks, knowledge silos,
+        slow delivery cycles, and increased operational risk.
+      </p>
+
+      <h2>3. From Tools to Platforms</h2>
+      <p>
+        A platform is not defined by the tools it uses, but by how systems are governed, how work enters
+        the system, how services are delivered, how systems are operated, how knowledge is documented,
+        and how the system improves over time.
+      </p>
+      <p><strong>A platform is an operating model, not a toolset.</strong></p>
+
+      <h2>4. The Multi-Plane Platform Model</h2>
+      <ul>
+        <li><strong>Identity Plane</strong> — Trust, ownership, and platform authority</li>
+        <li><strong>Control Plane</strong> — Governance, access, routing, and policy</li>
+        <li><strong>Knowledge Plane</strong> — Documentation, standards, and runbooks</li>
+        <li><strong>Execution Plane</strong> — Delivery and implementation</li>
+        <li><strong>Operations Plane</strong> — Monitoring, maintenance, and lifecycle</li>
+        <li><strong>Proof Plane</strong> — Evidence of delivered work</li>
+        <li><strong>Narrative Plane</strong> — Communication and system thinking</li>
+      </ul>
+
+      <h2>5. Identity Plane — Trust and Ownership</h2>
+      <p>
+        The Identity Plane establishes platform ownership, organizational identity, and the trust
+        anchor for the platform. Identity answers the question: Who owns and is responsible for this platform?
+      </p>
+
+      <h2>6. Control Plane — Governance</h2>
+      <p>
+        The Control Plane governs how the platform operates. It includes identity and access management,
+        platform routing, policy enforcement, service access governance, and platform structure.
+      </p>
+
+      <h2>7. Knowledge Plane — Documentation and Standards</h2>
+      <p>
+        The Knowledge Plane ensures the platform can be understood and operated by others through
+        documentation, standards, runbooks, architecture documentation, and operational procedures.
+      </p>
+
+      <h2>8. Execution Plane — Delivery</h2>
+      <p>
+        The Execution Plane is where work is delivered, including infrastructure deployment,
+        CI/CD implementation, automation systems, and platform services.
+      </p>
+
+      <h2>9. Operations Plane — Runtime and Lifecycle</h2>
+      <p>
+        The Operations Plane ensures systems continue to function reliably through monitoring,
+        alerting, incident response, backups, billing systems, onboarding workflows, and lifecycle management.
+      </p>
+
+      <h2>10. Proof Plane — Evidence</h2>
+      <p>
+        The Proof Plane captures case studies, project documentation, architecture examples,
+        and delivered outcomes that demonstrate platform capabilities and results.
+      </p>
+
+      <h2>11. Narrative Plane — Communication</h2>
+      <p>
+        The Narrative Plane explains the platform through articles, architecture explanations,
+        lessons learned, and platform thinking.
+      </p>
+
+      <h2>12. The Platform Operating Loop</h2>
+      <ol>
+        <li>Governance defines how work enters the platform</li>
+        <li>Execution delivers the work</li>
+        <li>Operations runs and maintains the systems</li>
+        <li>Proof captures the results</li>
+        <li>Knowledge documents how the work was done</li>
+        <li>Narrative explains decisions and lessons learned</li>
+        <li>Governance improves the platform based on what was learned</li>
+      </ol>
+
+      <h2>13. Conclusion</h2>
+      <p>
+        Organizations do not scale by adding more tools. They scale by implementing better operating models.
+        The Governed Multi-Plane Platform Operating Model provides a framework for building governed,
+        scalable, and continuously improving digital platforms.
+      </p>
+    </article>
+  </main>
+
+  <!-- PARTIAL:FOOTER -->
+<footer class="site-footer site-footer--network" role="contentinfo">
+  <div class="footer-top">
+    <div class="footer-col footer-brand">
+      <h3 class="footer-brand-title">Justine Longla T.</h3>
+      <p class="footer-brand-copy">
+        Cloud Confidence. Delivered. Secure, performance-tuned solutions — built the
+        right way.
+      </p>
+
+      <div class="footer-brand-ctas">
+        <a
+          class="footer-btn footer-btn--primary"
+          href="https://consulting.justinelonglat-lane.com/intro-call"
+          aria-label="Schedule your intro call"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Schedule Your Intro Call
+        </a>
+
+        <a
+          class="footer-btn footer-btn--secondary"
+          href="https://consulting.justinelonglat-lane.com/hire-me"
+          aria-label="Hire me"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Hire Me
+        </a>
+      </div>
+    </div>
+
+    <nav class="footer-col footer-links" aria-label="Quick links">
+      <h4 class="sr-only">Quick links</h4>
+      <ul class="footer-list">
+        <li><a href="https://www.justinelonglat-lane.com/">Home</a></li>
+        <li><a href="https://www.justinelonglat-lane.com/projects">Projects</a></li>
+        <li>
+          <a href="https://blogs.justinelonglat-lane.com/" target="_blank" rel="noopener noreferrer">
+            Blog ↗
+          </a>
+        </li>
+        <li><a href="https://www.justinelonglat-lane.com/contact">Contact</a></li>
+        <li><a href="https://www.justinelonglat-lane.com/hire-me">Hire Me</a></li>
+        <li><a href="https://www.justinelonglat-lane.com/resume">Résumé</a></li>
+        <li>
+          <a
+            href="https://www.justinelonglat-lane.com/Justine-Longla-T-Lane-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download Résumé (PDF)
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.justinelonglat-lane.com/Justine-Longla-T-Lane-Brochure.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download a Brochure
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="footer-col footer-contact">
+      <h4 class="footer-heading">CONTACT</h4>
+      <ul class="footer-list">
+        <li>
+          <a href="mailto:justine@justinelonglat-lane.com">
+            justine@justinelonglat-lane.com
+          </a>
+        </li>
+        <li>
+          <a href="https://www.justinelonglat-lane.com/videos">Videos</a>
+        </li>
+        <li>
+          <a href="tel:+14059345864">+1 405.934.5864</a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/longlatjustine"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn: longlatjustine
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p class="footer-meta">
+        © 2026 <span class="footer-strong">Justine Longla T-Lane.</span> · DevSecOps • Cloud • Sustainability
+      </p>
+
+      <p class="footer-submeta">
+        Operating under <span class="footer-strong">JustineLonglaT-Lane LLC.</span>
+      </p>
+
+      <nav class="footer-network" aria-label="Justine Longla T. network">
+        <a href="https://blogs.justinelonglat-lane.com/" target="_blank" rel="noopener noreferrer">Blog</a>
+        <a href="https://www.justinelonglat-lane.com/projects">Projects</a>
+        <a href="https://docs.justinelonglat-lane.com/" target="_blank" rel="noopener noreferrer">Docs</a>
+        <a href="https://docs.justinelonglat-lane.com/automation-toolkit.html" target="_blank" rel="noopener noreferrer">Automation Toolkit</a>
+      </nav>
+
+      <div class="footer-divider" aria-hidden="true"></div>
+
+      <div class="footer-version">
+        Engineering Mesh v1.2.0 — Release: runtime-stable — Verified production baseline
+      </div>
+
+      <div class="footer-utility-links">
+        <a href="/automation-toolkit.html">Automation toolkit</a>
+        <a href="/sitemap.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /PARTIAL:FOOTER -->
+</body>
+</html>

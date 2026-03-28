@@ -226,3 +226,26 @@ If this documentation helps you, star the repo and share JustineLonglaT-Lane Con
 - Canonical header/nav system
 - Internal + external link architecture restored
 - Responsive + pill styling unified
+
+## JLT-Lane Platform Documentation Structure
+
+The JLT-Lane platform is organized using a multi-plane operating model:
+
+| Plane | Purpose | Location |
+|------|---------|----------|
+| Identity | Platform ownership and trust | Main site |
+| Control | Governance, access, routing | /platform |
+| Knowledge | Documentation and standards | /docs |
+| Execution | Delivered systems and projects | /projects |
+| Operations | Runbooks and procedures | /runbooks |
+| Proof | Case studies and delivered work | /projects |
+| Narrative | Blog and architecture writing | /blog |
+
+Start here if you are new to the platform:
+1. Platform Operating Model
+2. Access Model
+3. Resource Groups
+4. Access Control
+5. Request Lifecycle
+6. Architecture Map
+7. Deployment Flow

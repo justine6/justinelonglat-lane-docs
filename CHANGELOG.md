@@ -114,3 +114,23 @@ secured, and operated.
 This release formalizes the JLT Platform Engineering Model and documents
 the full platform lifecycle from identity and access control to deployment
 guardrails and reliability improvement loops.
+
+## [v1.3.0] — Platform Operating Model & Documentation Expansion
+
+### Added
+- Governed Multi-Plane Platform Operating Model whitepaper (PDF)
+- Platform Operating Model documentation page
+- Platform Control Flow documentation
+- Recommended Reading Order for platform onboarding
+- Automation Toolkit downloads section
+
+### Updated
+- Platform documentation structure reorganized to reflect the multi-plane model
+- Platform index page now aligned with Control Plane documentation
+- Docs homepage updated to reflect Knowledge Plane role
+- Navigation updated to include Operating Model
+
+### Notes
+This release formalizes the JLT platform governance model and documentation
+structure, defining the Identity, Control, Knowledge, Execution, Operations,
+Proof, and Narrative planes.

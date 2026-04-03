@@ -249,3 +249,36 @@ Start here if you are new to the platform:
 5. Request Lifecycle
 6. Architecture Map
 7. Deployment Flow
+
+---
+
+# 📊 Platform Observability & Operations
+
+The JLT Platform includes a dedicated observability layer that provides
+visibility into system health, request flow, and operational events.
+
+Observability in the JLT Platform is not only used for monitoring,
+but as a feedback system that continuously improves platform reliability,
+performance, and operational readiness over time.
+
+### Observability Stack
+- Prometheus — metrics collection
+- Grafana — dashboards and visualization
+- Alerting — operational alerts
+- Logs — system and application logs
+- Runbooks — operational procedures
+
+### Observability & Operations Loop
+
+The platform operates using a continuous improvement loop:
+
+1. Services expose metrics and logs  
+2. Prometheus collects metrics  
+3. Grafana visualizes system health  
+4. Alerts notify operators  
+5. Runbooks guide incident response  
+6. Operations resolve issues and improve the platform  
+7. Platform improvements are deployed back into the system  
+
+This loop connects the **Execution Plane**, **Observability Layer**, and **Operations**
+into a continuous platform reliability model.

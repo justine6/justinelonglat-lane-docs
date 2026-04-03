@@ -134,3 +134,25 @@ guardrails and reliability improvement loops.
 This release formalizes the JLT platform governance model and documentation
 structure, defining the Identity, Control, Knowledge, Execution, Operations,
 Proof, and Narrative planes.
+
+## [v1.5.0] — Observability & Operations Documentation
+**Release date:** 2026
+
+### Added
+- Observability documentation page
+- Platform observability architecture documentation
+- Observability & Operations loop documentation
+- Observability loop diagram
+- Observability section added to navigation
+- New repository: jlt-observability-stack
+
+### Updated
+- Documentation structure expanded to include Observability layer
+- Platform lifecycle documentation now includes monitoring, alerting, and operations feedback loop
+- README updated to include Observability & Operations model
+
+### Notes
+This update formalizes the Observability layer of the JLT Platform.
+The observability system is documented as part of the platform operating model,
+connecting monitoring, alerting, runbooks, and operations into a continuous
+platform improvement loop.

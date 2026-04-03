@@ -176,10 +176,17 @@
   <section class="mt-4">
     <h2>Observability Flow</h2>
     <p class="muted">
-      Metrics, logs, and events flow from platform services into the monitoring
-      system, where alerts and dashboards provide visibility to operators.
+      The observability system forms a continuous operations loop:
     </p>
 
+    <ul>
+      <li>Services expose metrics and logs</li>
+      <li>Prometheus collects metrics</li>
+      <li>Grafana visualizes system health</li>
+      <li>Alerts notify operators</li>
+      <li>Runbooks guide incident response</li>
+      <li>Operations resolve issues and improve the platform</li>
+    </ul>
     <div class="diagram">
       <img src="/diagrams/jlt-observability-operations-loop.png"
            alt="JLT Platform Observability Loop Diagram" />

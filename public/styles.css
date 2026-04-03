@@ -2517,3 +2517,22 @@ section[aria-labelledby="gallery"] > h3 {
 .diagram-grid + h3 {
   margin-top: 3rem;
 }
+/* Diagram container */
+.diagram-container {
+  margin: 2rem auto;
+  max-width: 900px;
+  text-align: center;
+}
+
+/* Diagram image */
+.diagram-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.diagram-caption {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}

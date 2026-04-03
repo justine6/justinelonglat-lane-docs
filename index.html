@@ -144,62 +144,85 @@
   </div>
 </header>
   <!-- ================= Main ================= -->
-  <main class="page-main">
-    <!-- ========== Single Hero ========== -->
-<section class="logo-banner hero-section" 
+<main class="page-main">
+  <!-- ========== Hero ========== -->
+  <section class="logo-banner hero-section">
+    <div class="container">
+      <h1>JustineLonglaT-Lane Docs</h1>
+      <p class="lead">
+        Production-ready documentation for the JustineLonglaT-Lane Engineering Mesh:
+        platform architecture, governance model, CI/CD pipelines, automation guardrails,
+        and runbooks for operating a multi-site platform.
+      </p>
 
-    <!-- ========== Overview ========== -->
-    <section class="container" aria-labelledby="whats-inside-heading">
-      <header class="section-header">
-        <h2 id="whats-inside-heading" class="mt-0">JustineLonglaT-Lane Docs</h2>
-        <p class="lead">
-          Concise, production-ready documentation for the JustineLonglaT-Lane
-          ecosystem: start quickly, standardize tooling, ship with robust CI/CD,
-          and understand the multi-site architecture behind the stack.
-        </p>
-      </header>
+      <div class="hero-inline-links" aria-label="Quick access">
+        <a href="/platform/operating-model.html">Operating Model</a>
+        <a href="/architecture.html">Architecture</a>
+        <a href="/platform/index.html">Platform</a>
+        <a href="/platform/access-model.html">Access Model</a>
+        <a href="/platform/publishing-pipeline.html">Publishing Pipeline</a>
+        <a href="/runbooks.html">Runbooks</a>
+        <a href="/automation-toolkit.html">Automation Toolkit</a>
+      </div>
+    </div>
+  </section>
 
-      <h3>What’s inside</h3>
-      <ul>
-        <li>
-          <strong><a href="/getting-started.html">Getting started</a></strong>
-          — local environment, first run, and how to work with this docs repo.
-        </li>
-        <li>
-          <strong><a href="/tooling-setup.html">Tooling setup</a></strong>
-          — editors, formatting, linting, and quality gates.
-        </li>
-        <li>
-          <strong><a href="/cicd-pipelines.html">CI/CD pipelines</a></strong>
-          — preview, main, and production flows wired to Vercel and GitHub Actions.
-        </li>
-        <li>
-          <strong><a href="/architecture.html">Architecture</a></strong>
-          — high-level diagrams and platform decisions.
-        </li>
-        <li>
-          <strong><a href="https://www.justinelonglat-lane.com/projects/system-design-ecosystem-b" target="_blank" rel="noreferrer noopener">System Design — Ecosystem Execution ↗</a></strong>
-          — how the JustineLonglaT-Lane ecosystem moved from architecture on paper to a living multi-site platform with repos, pipelines, DNS, and migrations.
-        </li>
-        <li>
-          <strong><a href="/toolkit.html">Automation Toolkit</a></strong>
-          — reusable CI snippets, PowerShell helpers, and guardrails.
-        </li>
-      </ul>
+  <!-- ========== Overview ========== -->
+  <section class="container" aria-labelledby="whats-inside-heading">
+    <header class="section-header">
+      <h2 id="whats-inside-heading">What This Docs Site Contains</h2>
+      <p class="lead">
+        This documentation site explains how the JustineLonglaT-Lane platform is designed,
+        built, governed, and operated. The documents here form the Knowledge Plane of the
+        platform and describe the standards, architecture, automation, and operational
+        procedures used to run the ecosystem.
+      </p>
+    </header>
 
-      <h3>Next steps</h3>
-      <ol>
-        <li><a href="/README.html">README</a></li>
-        <li><a href="/getting-started.html">Getting started</a></li>
-        <li><a href="/tooling-setup.html">Tooling setup</a></li>
-        <li><a href="/cicd-pipelines.html">CI/CD pipelines</a></li>
-        <li><a href="/architecture.html">Architecture</a></li>
-        <li><a href="https://www.justinelonglat-lane.com/projects/system-design-ecosystem-b" target="_blank" rel="noreferrer noopener">System Design — Ecosystem Execution ↗</a></li>
-        <li><a href="/toolkit.html">Automation Toolkit</a></li>
-      </ol>
-    </section>
-  </main>
+    <h3>Core Platform Documents</h3>
+    <ul>
+      <li>
+        <strong><a href="/platform/operating-model.html">Platform Operating Model</a></strong>
+        — governance model and multi-plane platform structure.
+      </li>
+      <li>
+        <strong><a href="/architecture.html">Platform Architecture</a></strong>
+        — system architecture and platform structure.
+      </li>
+      <li>
+        <strong><a href="/platform/access-model.html">Platform Access Model</a></strong>
+        — identity, access control, and platform security structure.
+      </li>
+      <li>
+        <strong><a href="/platform/publishing-pipeline.html">Publishing Pipeline</a></strong>
+        — how content moves from local development to production.
+      </li>
+      <li>
+        <strong><a href="/runbooks.html">Runbooks</a></strong>
+        — operational procedures for maintaining and recovering the platform.
+      </li>
+      <li>
+        <strong><a href="/automation-toolkit.html">Automation Toolkit</a></strong>
+        — reusable scripts, CI snippets, and guardrails.
+      </li>
+    </ul>
 
+    <h3>Start Here</h3>
+    <ol>
+      <li><a href="/README.html">README</a></li>
+      <li><a href="/getting-started.html">Getting Started</a></li>
+      <li><a href="/tooling-setup.html">Tooling Setup</a></li>
+      <li><a href="/cicd-pipelines.html">CI/CD Pipelines</a></li>
+      <li><a href="/architecture.html">Architecture</a></li>
+      <li>
+        <a href="https://www.justinelonglat-lane.com/projects/system-design-ecosystem-b"
+           target="_blank" rel="noreferrer noopener">
+           System Design — Ecosystem Execution ↗
+        </a>
+      </li>
+    </ol>
+  </section>
+</main>
   <!-- ================= Footer (self-contained) ================= -->
   <footer class="site-footer">
     <div class="container footer-grid">

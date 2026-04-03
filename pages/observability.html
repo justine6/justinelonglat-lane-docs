@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- PARTIAL:HEAD -->
+  <!-- /PARTIAL:HEAD -->
+  <title>Platform Observability Architecture — JustineLonglaT-Lane Docs</title>
+  <meta
+    name="description"
+    content="Platform observability architecture for JLT-Lane: Node.js metrics, Prometheus scraping, Grafana dashboards, and Docker-based monitoring foundations."
+  />
+  <meta
+    name="docs-version"
+    content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline"
+  />
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- PARTIAL:HEADER -->
+  <!-- /PARTIAL:HEADER -->
+
+  <main id="main" class="container">
+    <h1>JLT Platform Observability</h1>
+    <p class="lead">
+      The observability layer provides visibility into platform health, performance,
+      request flow, and operational events across the JLT Platform.
+    </p>
+
+  <section class="mt-4">
+    <h2>Observability Goals</h2>
+    <ul>
+      <li>Monitor platform health and service availability</li>
+      <li>Track request flow and system performance</li>
+      <li>Detect and alert on system failures</li>
+      <li>Support incident response and troubleshooting</li>
+      <li>Provide operational visibility across platform components</li>
+    </ul>
+  </section>
+
+  <section class="mt-4">
+    <h2>Observability Stack</h2>
+    <ul>
+      <li><strong>Prometheus</strong> — metrics collection</li>
+      <li><strong>Grafana</strong> — dashboards and visualization</li>
+      <li><strong>Alerting</strong> — operational alerts</li>
+      <li><strong>Logs</strong> — system and application logs</li>
+      <li><strong>Runbooks</strong> — operational procedures</li>
+    </ul>
+  </section>
+
+  <section class="mt-4">
+    <h2>Observability Flow</h2>
+    <p class="muted">
+      Metrics, logs, and events flow from platform services into the monitoring
+      system, where alerts and dashboards provide visibility to operators.
+    </p>
+
+    <div class="diagram">
+      <img src="/diagrams/jlt-observability-operations-loop.png"
+           alt="JLT Platform Observability Loop Diagram" />
+    </div>
+  </section>
+
+  <section class="mt-4">
+    <h2>Related Documentation</h2>
+    <ul>
+      <li><a href="/runbooks.html">Runbooks</a></li>
+      <li><a href="/architecture.html">Platform Architecture</a></li>
+      <li><a href="/platform/deployment-flow.html">Deployment Flow</a></li>
+    </ul>
+  </section>
+</main>
+
+<!-- PARTIAL:FOOTER -->
+<!-- /PARTIAL:FOOTER -->
+
+</body>
+</html

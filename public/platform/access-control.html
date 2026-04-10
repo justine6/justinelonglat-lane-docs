@@ -74,6 +74,7 @@
             <a href="https://blogs.justinelonglat-lane.com">Blogs</a>
             <a href="/platform/operating-model.html">Platform Operating Model</a>
             <a href="/platform/access-model.html">Platform Access Model</a>
+            <a href="/platform/entitlement-architecture.html">Entitlement Architecture</a>
             <a href="/platform/index.html">Platform Overview</a>
             <a href="/platform/publishing-pipeline.html">Publishing Pipeline</a>
             <a href="/architecture.html">Architecture Map</a>
@@ -147,6 +148,24 @@
       Access decisions are based on a combination of user role, subscription tier,
       and required entitlements.
     </p>
+    
+    <section class="mt-4" aria-labelledby="access-flow-diagram">
+      <h2 id="access-flow-diagram" class="sr-only">Access control flow diagram</h2>
+
+      <figure class="diagram-card featured-diagram">
+        <img
+          src="/diagrams/jlt-entitlement-driven-platform-architecture-diagram.png"
+          alt="JLT-Lane entitlement-driven access control architecture showing Clerk identity, Stripe checkout, webhook processing, and RBAC enforcement"
+        />
+        <figcaption class="muted">
+          Entitlement-driven access control flow — identity, billing, webhook automation,
+          and RBAC enforcement operating as one system.
+        </figcaption>
+      </figure>
+      <p class="muted">
+        This diagram shows how billing and access control are unified into a single platform flow.
+      </p>
+    </section>
 
     <h2>1. Identity Context</h2>
     <p>

@@ -12,124 +12,127 @@
   <!-- PARTIAL:HEADER -->
   <!-- /PARTIAL:HEADER -->
 
-<main class="container section">
-  <h1>JLT Platform — Access Model</h1>
+  <main class="container section">
+    <h1>JLT Platform — Access Model</h1>
 
-  <p class="muted">
-    The JLT Platform Access Model defines how users, contributors, subscribers,
-    and administrators interact with platform resources, APIs, documentation,
-    automation assets, and downloadable toolkits.
-  </p>
+    <p class="muted">
+      The JLT Platform Access Model defines how users, contributors, subscribers,
+      and administrators interact with platform resources, APIs, documentation,
+      automation assets, and downloadable toolkits.
+    </p>
 
-  <hr />
+    <hr />
 
-  <h2>Access Flow</h2>
-  <pre class="code-block">
+    <h2>Access Flow</h2>
+    <pre class="code-block">
 User → Authentication → Role → Subscription Tier → Entitlements
      → Resource Group Policy → Access Decision (Allow / Deny)
-  </pre>
+    </pre>
 
-  <h2>Identity Roles</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Role</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Public visitor</td><td>Access to public documentation and blog</td></tr>
-      <tr><td>Guest contributor</td><td>Access to contributor protocols and collaboration areas</td></tr>
-      <tr><td>Basic member</td><td>Access to basic member content</td></tr>
-      <tr><td>Toolkit subscriber</td><td>Access to toolkit downloads and previews</td></tr>
-      <tr><td>Platform subscriber</td><td>Access to platform runbooks and premium resources</td></tr>
-      <tr><td>Advisory client</td><td>Access to client-specific resources</td></tr>
-      <tr><td>Admin</td><td>Platform management and billing</td></tr>
-      <tr><td>Owner</td><td>Full platform control</td></tr>
-    </tbody>
-  </table>
+    <h2>Identity Roles</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Public visitor</td><td>Access to public documentation and blog</td></tr>
+        <tr><td>Guest contributor</td><td>Access to contributor protocols and collaboration areas</td></tr>
+        <tr><td>Basic member</td><td>Access to basic member content</td></tr>
+        <tr><td>Toolkit subscriber</td><td>Access to toolkit downloads and previews</td></tr>
+        <tr><td>Platform subscriber</td><td>Access to platform runbooks and premium resources</td></tr>
+        <tr><td>Advisory client</td><td>Access to client-specific resources</td></tr>
+        <tr><td>Admin</td><td>Platform management and billing</td></tr>
+        <tr><td>Owner</td><td>Full platform control</td></tr>
+      </tbody>
+    </table>
 
-  <h2>Subscription Tiers</h2>
-  <ul>
-    <li>None</li>
-    <li>Starter</li>
-    <li>Toolkit</li>
-    <li>Platform</li>
-    <li>Advisory</li>
-    <li>Internal</li>
-  </ul>
+    <h2>Subscription Tiers</h2>
+    <ul>
+      <li>None</li>
+      <li>Starter</li>
+      <li>Toolkit</li>
+      <li>Platform</li>
+      <li>Advisory</li>
+      <li>Internal</li>
+    </ul>
 
-  <h2>Resource Groups</h2>
-  <p>All platform resources are grouped and protected by policy.</p>
+    <h2>Resource Groups</h2>
+    <p>All platform resources are grouped and protected by policy.</p>
 
-  <ul>
-    <li>docs.public</li>
-    <li>docs.private</li>
-    <li>comments</li>
-    <li>contributor.protocols</li>
-    <li>downloads.starter</li>
-    <li>downloads.premium</li>
-    <li>toolkit.preview</li>
-    <li>toolkit.full</li>
-    <li>runbooks.public</li>
-    <li>runbooks.private</li>
-    <li>automation.templates.basic</li>
-    <li>automation.templates.premium</li>
-    <li>api.platform.read</li>
-    <li>api.platform.execute</li>
-    <li>api.admin</li>
-    <li>billing.customer</li>
-    <li>billing.admin</li>
-  </ul>
+    <ul>
+      <li>docs.public</li>
+      <li>docs.private</li>
+      <li>comments</li>
+      <li>contributor.protocols</li>
+      <li>downloads.starter</li>
+      <li>downloads.premium</li>
+      <li>toolkit.preview</li>
+      <li>toolkit.full</li>
+      <li>runbooks.public</li>
+      <li>runbooks.private</li>
+      <li>automation.templates.basic</li>
+      <li>automation.templates.premium</li>
+      <li>api.platform.read</li>
+      <li>api.platform.execute</li>
+      <li>api.admin</li>
+      <li>billing.customer</li>
+      <li>billing.admin</li>
+    </ul>
 
-  <h2>Security Principles</h2>
-  <ul>
-    <li>Deny by default</li>
-    <li>All premium assets are API-protected</li>
-    <li>Authentication does not equal authorization</li>
-    <li>Access is evaluated per request</li>
-    <li>Downloads require entitlement checks</li>
-  </ul>
+    <h2>Security Principles</h2>
+    <ul>
+      <li>Deny by default</li>
+      <li>All premium assets are API-protected</li>
+      <li>Authentication does not equal authorization</li>
+      <li>Access is evaluated per request</li>
+      <li>Downloads require entitlement checks</li>
+    </ul>
 
-  <h2>Platform Boundary Model</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>User Type</th>
-        <th>Access Level</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Public Visitor</td>
-        <td>Public docs and blog</td>
-      </tr>
-      <tr>
-        <td>Guest Contributor</td>
-        <td>Contributor protocols and collaboration areas</td>
-      </tr>
-      <tr>
-        <td>Subscriber</td>
-        <td>Premium downloads, toolkit, private runbooks</td>
-      </tr>
-      <tr>
-        <td>Advisory Client</td>
-        <td>Client-specific resources</td>
-      </tr>
-      <tr>
-        <td>Admin</td>
-        <td>Platform management</td>
-      </tr>
-    </tbody>
-  </table>
-<hr />
-<h2>Related Pages</h2>
-<ul>
-  <li><a href="/platform/access-control.html">Access Control</a> — Entitlements and authorization enforcement</li>
-  <li><a href="/platform/architecture-map.html">Architecture Map</a></li>
-  <li><a href="/platform/deployment-flow.html">Deployment Flow</a></li>
-</ul>
-</main>
+    <h2>Platform Boundary Model</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>User Type</th>
+          <th>Access Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Public Visitor</td>
+          <td>Public docs and blog</td>
+        </tr>
+        <tr>
+          <td>Guest Contributor</td>
+          <td>Contributor protocols and collaboration areas</td>
+        </tr>
+        <tr>
+          <td>Subscriber</td>
+          <td>Premium downloads, toolkit, private runbooks</td>
+        </tr>
+        <tr>
+          <td>Advisory Client</td>
+          <td>Client-specific resources</td>
+        </tr>
+        <tr>
+          <td>Admin</td>
+          <td>Platform management</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2>Related Pages</h2>
+    <ul>
+      <li><a href="/platform/access-control.html">Access Control</a> — Entitlements and authorization enforcement</li>
+      <li><a href="/architecture.html">Architecture Map</a></li>
+      <li><a href="/platform/deployment-flow.html">Deployment Flow</a></li>
+      <li><a href="/platform/entitlement-architecture.html">Entitlement Architecture</a></li>
+    </ul>
+  </main>
 
   <!-- PARTIAL:FOOTER -->
   <!-- /PARTIAL:FOOTER -->

@@ -12,13 +12,237 @@
   <!-- PARTIAL:HEADER -->
   <!-- /PARTIAL:HEADER -->
 
-  <main class="container section">
+<main class="container section">
+  <header class="section-header">
     <h1>JLT Platform — Ecosystem Map</h1>
-    <p>
-      This page documents the canonical routes and surfaces across the
-      JustineLonglaT-Lane ecosystem.
+    <p class="lead">
+      This page documents the canonical routes and documentation surfaces across the
+      JustineLonglaT-Lane ecosystem, from architecture and platform control flows
+      to observability, runbooks, and automation.
     </p>
-  </main>
+  </header>
+
+  <section class="mt-4" aria-labelledby="ecosystem-lifecycle">
+    <h2 id="ecosystem-lifecycle" class="sr-only">Platform lifecycle</h2>
+    <p class="muted">
+      The JLT platform follows a structured lifecycle:
+      <strong>Architecture → Access → Entitlements → Delivery → Operations</strong>.
+      Each section below represents a surface in that lifecycle.
+    </p>
+  </section>
+
+  <section class="mt-4" aria-labelledby="ecosystem-hero">
+    <h2 id="ecosystem-hero">Platform Ecosystem Lifecycle</h2>
+    <p class="muted">
+      This visual map shows how the documentation system moves from architecture
+      and access design into entitlement-driven control flows, delivery systems,
+      and platform operations.
+    </p>
+
+    <figure class="diagram-card diagram-card-hero">
+      <img
+        src="/diagrams/jlt-platform-ecosystem-lifecycle-diagram.png"
+        alt="JLT-Lane platform ecosystem lifecycle diagram showing architecture, access, entitlements, delivery, and operations"
+        class="diagram-image"
+      />
+      <figcaption class="muted">
+        JLT-Lane platform ecosystem lifecycle across architecture, access,
+        entitlements, delivery, and operations.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="mt-4" aria-labelledby="ecosystem-core">
+    <h2 id="ecosystem-core">Core Documentation Surfaces</h2>
+    <p class="muted">
+      Key entry points into the platform documentation, covering architecture,
+      control flows, and operational systems.
+    </p>
+
+    <div class="info-grid">
+      <article class="info-card info-card-featured">
+        <h3>Entitlement Architecture</h3>
+        <p>
+          A core platform flow connecting identity, billing, webhook automation,
+          and RBAC into one governed control-plane system.
+        </p>
+        <p class="muted">
+          Payment → Identity → Entitlement → Access
+        </p>
+        <p>
+          <a href="/platform/entitlement-architecture.html">Explore architecture →</a>
+        </p>
+      </article>
+
+      <article class="info-card">
+        <h3>Architecture Map</h3>
+        <p>
+          Browse platform diagrams, engineering flows, and system relationships.
+        </p>
+        <p><a href="/architecture.html">View architecture →</a></p>
+      </article>
+
+      <article class="info-card">
+        <h3>Platform Overview</h3>
+        <p>
+          Explore platform documentation, access design, resource groups,
+          request lifecycle, and publishing patterns.
+        </p>
+        <p><a href="/platform/index.html">Explore platform →</a></p>
+      </article>
+
+      <article class="info-card">
+        <h3>Docs Index</h3>
+        <p>
+          The curated entry point into the documentation set.
+        </p>
+        <p><a href="/docs.html">Browse docs →</a></p>
+      </article>
+
+      <article class="info-card">
+        <h3>Runbooks</h3>
+        <p>
+          Operational procedures for debugging, recovery, and repeatable platform actions.
+        </p>
+        <p><a href="/runbooks.html">View runbooks →</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="mt-4" aria-labelledby="ecosystem-control-plane">
+    <h2 id="ecosystem-control-plane">Control Plane &amp; Access Architecture</h2>
+    <p class="muted">
+      Identity, access control, and entitlement-driven authorization across the platform.
+    </p>
+
+    <div class="info-grid">
+      <article class="info-card">
+        <h3>Platform Access Model</h3>
+        <p>
+          Review the platform access model, identity roles, subscription tiers,
+          protected resource groups, and boundary definitions.
+        </p>
+        <p><a href="/platform/access-model.html">View access model →</a></p>
+      </article>
+
+      <article class="info-card">
+        <h3>Access Control</h3>
+        <p>
+          Understand how access decisions are enforced across routes, APIs,
+          resources, and platform boundaries.
+        </p>
+        <p><a href="/platform/access-control.html">View access control →</a></p>
+      </article>
+
+      <article class="info-card info-card-featured">
+        <h3>Entitlement Architecture</h3>
+        <p>
+          A core platform flow connecting identity, billing, webhook automation,
+          and RBAC into one governed control-plane system.
+        </p>
+        <p class="muted">
+          Payment → Identity → Entitlement → Access
+        </p>
+        <p><a href="/platform/entitlement-architecture.html">Explore architecture →</a></p>
+      </article>
+
+      <article class="info-card">
+        <h3>Platform Operating Model</h3>
+        <p>
+          Explore the multi-plane operating model behind the JLT-Lane platform,
+          including identity, control, execution, and operations.
+        </p>
+        <p><a href="/platform/operating-model.html">View operating model →</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="mt-4" aria-labelledby="ecosystem-delivery">
+    <h2 id="ecosystem-delivery">Delivery, Automation &amp; Publishing</h2>
+    <p class="muted">
+      Automation, pipelines, release workflows, and publishing guardrails across the ecosystem.
+    </p>
+
+    <div class="info-grid">
+      <article class="info-card">
+        <h3>Automation Toolkit</h3>
+        <p>
+          Reusable scripts, helpers, and automation patterns supporting delivery,
+          validation, preview, release, deployment, and recovery.
+        </p>
+        <p><a href="/automation-toolkit.html">Open toolkit →</a></p>
+      </article>
+
+      <article class="info-card">
+        <h3>Publishing Pipeline</h3>
+        <p>
+          Understand how content moves from editing and validation through release
+          control and deployment.
+        </p>
+        <p><a href="/platform/publishing-pipeline.html">View publishing pipeline →</a></p>
+      </article>
+
+      <article class="info-card">
+        <h3>CI/CD Pipelines</h3>
+        <p>
+          Review environments, deployment workflows, and delivery guardrails used
+          across the documentation and platform ecosystem.
+        </p>
+        <p><a href="/cicd-pipelines.html">View CI/CD pipelines →</a></p>
+      </article>
+
+      <article class="info-card">
+        <h3>Technical README</h3>
+        <p>
+          Start with repository structure, conventions, setup expectations,
+          and platform orientation.
+        </p>
+        <p><a href="/README.html">Read technical README →</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="mt-4" aria-labelledby="ecosystem-operations">
+    <h2 id="ecosystem-operations">Observability &amp; Operations</h2>
+    <p class="muted">
+      Monitoring, telemetry, dashboards, runbooks, and operational visibility across the platform.
+    </p>
+
+    <div class="info-grid">
+      <article class="info-card">
+        <h3>Observability</h3>
+        <p>
+          Monitoring, telemetry, dashboards, and operational visibility across the platform.
+        </p>
+        <p><a href="/observability.html">Open observability →</a></p>
+      </article>
+
+      <article class="info-card">
+        <h3>Observability Architecture</h3>
+        <p>
+          Review the Node.js → Prometheus → Grafana observability architecture used in the sandbox stack.
+        </p>
+        <p><a href="/observability-architecture.html">View observability architecture →</a></p>
+      </article>
+
+      <article class="info-card">
+        <h3>Deployment Flow</h3>
+        <p>
+          Follow how platform changes move from controlled release steps into production.
+        </p>
+        <p><a href="/platform/deployment-flow.html">View deployment flow →</a></p>
+      </article>
+
+      <article class="info-card">
+        <h3>Change Log</h3>
+        <p>
+          Review platform updates, documentation changes, and tracked evolution over time.
+        </p>
+        <p><a href="/platform/change-log.html">Open change log →</a></p>
+      </article>
+    </div>
+  </section>
+</main>
 
   <!-- PARTIAL:FOOTER -->
   <!-- /PARTIAL:FOOTER -->

@@ -71,6 +71,7 @@
             <a href="https://blogs.justinelonglat-lane.com">Blogs</a>
             <a href="/platform/operating-model.html">Platform Operating Model</a>
             <a href="/platform/access-model.html">Platform Access Model</a>
+            <a href="/platform/entitlement-architecture.html">Entitlement Architecture</a>
             <a href="/platform/index.html">Platform Overview</a>
             <a href="/platform/publishing-pipeline.html">Publishing Pipeline</a>
             <a href="/architecture.html">Architecture Map</a>
@@ -163,19 +164,21 @@
       <h2 class="home-section-title">Platform Entry Points</h2>
       <p class="muted">
         Choose a starting point depending on your role — architecture, operations,
-        security, or automation — and follow the platform lifecycle from design to deployment.
+        security, or automation — and follow the platform lifecycle from design,
+        to delivery, to operations.
       </p>
       <div class="home-cta-row">
         <a href="/architecture.html" class="btn btn-primary">Start with Architecture</a>
         <a href="/platform/index.html" class="btn btn-secondary">Explore the Platform</a>
       </div>
       
-      <p class="home-hero-support">
-        For the monitoring side of the platform, see the
-        <a href="/observability-architecture.html">Platform Observability Architecture</a>
-        for the Node.js → Prometheus → Grafana stack used in the JLT-Lane sandbox environment.
-      </p>
-
+        <p class="home-hero-support">
+          For deeper platform flows, see the
+          <a href="/platform/entitlement-architecture.html">Entitlement Architecture</a>
+          for identity, billing, and RBAC design, and the
+          <a href="/observability-architecture.html">Platform Observability Architecture</a>
+          for the Node.js → Prometheus → Grafana stack used in the JLT-Lane sandbox environment.
+        </p>
       <div class="hero-card-links" aria-label="Hero actions">
         <a class="mesh-btn-primary" href="/docs.html">Docs Index</a>
         <a class="mesh-btn-secondary" href="/README.html">Technical README</a>
@@ -183,7 +186,8 @@
 
       <div class="shortcut-pills" aria-label="Explore platform sections">
         <a href="/architecture.html">Architecture</a>
-        <a href="/platform/access-model.html">Access Control</a>
+        <a href="/platform/access-model.html">Access Model</a>
+        <a href="/platform/entitlement-architecture.html">Entitlements</a>
         <a href="/runbooks.html">Runbooks</a>
         <a href="/automation-toolkit.html">Automation Toolkit</a>
         <a href="/observability.html">Observability</a>
@@ -233,6 +237,12 @@
           <h3>CI/CD Architecture</h3>
           <p>Pipelines, environments, and deployment guardrails across the ecosystem.</p>
           <a href="/cicd-pipelines.html">View pipelines →</a>
+        </article>
+
+        <article class="home-feature-card mesh-card feature-card-elevated">
+          <h3>Entitlement Architecture</h3>
+          <p>See how identity, billing, webhook automation, and RBAC work together as one governed flow.</p>
+          <a href="/platform/entitlement-architecture.html">Explore architecture →</a>
         </article>
 
         <article class="home-feature-card mesh-card feature-card-elevated">

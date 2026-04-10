@@ -1,18 +1,6 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Architecture — JustineLonglaT-Lane Docs</title>
-  <meta
-    name="description"
-    content="Architecture diagrams and platform decisions for JustineLonglaT-Lane Docs."
-  />
-  <meta
-    name="docs-version"
-    content="Docs v1.2.0 — Release: docs-runtime-stable — Verified production baseline"
-  />
-
   <!-- PARTIAL:HEAD -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -83,6 +71,7 @@
             <a href="https://blogs.justinelonglat-lane.com">Blogs</a>
             <a href="/platform/operating-model.html">Platform Operating Model</a>
             <a href="/platform/access-model.html">Platform Access Model</a>
+            <a href="/platform/entitlement-architecture.html">Entitlement Architecture</a>
             <a href="/platform/index.html">Platform Overview</a>
             <a href="/platform/publishing-pipeline.html">Publishing Pipeline</a>
             <a href="/architecture.html">Architecture Map</a>
@@ -146,7 +135,6 @@
   </div>
 </div>
 <!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
 
   <main id="main" class="page-main">
     <section class="container">
@@ -175,189 +163,246 @@
         <p class="muted">Click any diagram to open full-size.</p>
 
         <!-- Featured diagram / hero -->
-        <div class="gallery-hero">
-          <div class="gallery-hero__inner">
+        <div class="gallery-hero ecosystem-hero ecosystem-hero-animated">
+          <div class="gallery-hero__inner ecosystem-hero-inner">
+
+            <!-- LEFT: COPY -->
             <div class="gallery-hero__copy">
-              <p class="gallery-hero__eyebrow">Engineering Mesh</p>
-              <h3 class="gallery-hero__title">JLT-Lane Platform Model</h3>
+              <p class="gallery-hero__eyebrow">Platform lifecycle</p>
+
+              <h3 id="ecosystem-title" class="gallery-hero__title">
+                JLT-Lane Platform Ecosystem
+              </h3>
+
               <p class="gallery-hero__lead">
-                The Engineering Mesh is a five-layer platform engineering model connecting
-                architecture, sandbox environments, observability, runbooks, and delivery.
-                These diagrams together document how the platform is designed, operated,
-                and evolved.
+                This diagram represents the JLT-Lane platform as a governed lifecycle —
+                connecting architecture, access control, entitlements, delivery, and operations
+                into a single operating system for the platform.
+              </p>
+
+              <p class="muted lifecycle-flow-hint">
+                Architecture → Access → Entitlements → Delivery → Operations
+              </p>
+
+              <p class="hero-index-statement">
+                This diagram is the index of the platform —
+                every system, flow, and control surface expands from here.
               </p>
             </div>
 
-            <figure class="gallery-hero__figure">
-              <a href="/diagrams/JLT-Lane Engineering Mesh Platform Model.png" target="_blank" rel="noopener">
+            <!-- RIGHT: IMAGE -->
+            <figure class="gallery-hero__figure ecosystem-hero-image full-width">
+              <a
+                href="/diagrams/jlt-platform-ecosystem-lifecycle-diagram.png"
+                target="_blank"
+                rel="noopener"
+                aria-label="Open full-size platform ecosystem diagram"
+              >
                 <img
-                  src="/diagrams/JLT-Lane Engineering Mesh Platform Model.png"
-                  alt="JLT-Lane Engineering Mesh five-layer platform engineering framework"
+                  src="/diagrams/jlt-platform-ecosystem-lifecycle-diagram.png"
+                  alt="JLT-Lane platform ecosystem lifecycle diagram showing architecture, access, entitlements, delivery, and operations"
+                  loading="lazy"
                 />
               </a>
+
               <figcaption>
-                JLT-Lane Engineering Mesh — a five-layer platform engineering model connecting architecture, sandbox, observability, runbooks, and monetization.
+                JLT-Lane platform ecosystem lifecycle — this diagram maps the entire platform system.
+
+                <p class="lifecycle-connector">
+                  Each layer builds on the previous one — forming a governed platform system.
+                </p>
               </figcaption>
             </figure>
+
           </div>
         </div>
-      <!-- Rest of gallery -->
 
-      <h3>Platform Architecture</h3>
-      <p class="muted">
-        Core platform structure including the control plane, platform surfaces, and service ecosystem.
-      </p>
-      <div class="diagram-grid">
-        <figure>
-          <a href="/diagrams/platform-architecture.png" target="_blank" rel="noopener">
-            <img
-              src="/diagrams/platform-architecture.png"
-              alt="JLT platform architecture"
-            />
-          </a>
-          <figcaption>
-            Platform architecture — control plane, platform surfaces, operations, and delivery.
-          </figcaption>
-        </figure>
+        <hr class="section-divider" />
 
-        <figure>
-          <a href="/diagrams/jlt-platform-control-flow.png" target="_blank" rel="noopener">
-            <img
-              src="/diagrams/jlt-platform-control-flow.png"
-              alt="Platform control flow"
-            />
-          </a>
-          <figcaption>
-            Platform control flow — how identity, access, resources, and platform services connect.
-          </figcaption>
-        </figure>
+        <section class="mt-4 ecosystem-index" aria-labelledby="ecosystem-index">
+          <h2 id="ecosystem-index">Platform lifecycle breakdown</h2>
 
-        <figure>
-          <a href="/diagrams/service-flow.svg" target="_blank" rel="noopener">
-            <img
-              src="/diagrams/service-flow.svg"
-              alt="JLT-Lane platform control plane and service ecosystem"
-            />
-          </a>
-          <figcaption>
-            Platform control plane and service ecosystem.
-          </figcaption>
-        </figure>
-      </div>
+          <p class="muted">
+            The diagram above represents the full platform lifecycle.
+            Each section below expands one part of that system —
+            from architecture and access control, to entitlements,
+            delivery, and operations.
+          </p>
 
-      <h3>Identity &amp; Access Flow</h3>
-      <p class="muted">
-        How identity, entitlements, access decisions, and request lifecycles move through the platform.
-      </p>
-      <div class="diagram-grid">
-        <figure>
-          <a href="/diagrams/jlt-platform-authorization-architecture.png" target="_blank" rel="noopener">
-            <img
-              src="/diagrams/jlt-platform-authorization-architecture.png"
-              alt="Access control architecture"
-            />
-          </a>
-          <figcaption>
-            Entitlement-based access control architecture.
-          </figcaption>
-        </figure>
+          <div class="lifecycle-grid">
 
-        <figure>
-          <a href="/diagrams/jlt-request-lifecycle.png" target="_blank" rel="noopener">
-            <img
-              src="/diagrams/jlt-request-lifecycle.png"
-              alt="Request lifecycle"
-            />
-          </a>
-          <figcaption>
-            Request lifecycle — from identity to access decision to observability and deployment.
-          </figcaption>
-        </figure>
-      </div>
+            <div class="lifecycle-item">
+              <strong>Architecture</strong>
+              <p>Platform structure, control plane, and service ecosystem.</p>
+            </div>
 
-      <h3>Platform Toolkit &amp; Delivery</h3>
-      <p class="muted">
-        Automation toolkit, validation pipelines, deployment guardrails, and release safety mechanisms.
-      </p>
-      <div class="diagram-grid">
-        <figure>
-          <a href="/diagrams/jlt-toolkit-api-processflows.png" target="_blank" rel="noopener">
-            <img
-              src="/diagrams/jlt-toolkit-api-processflows.png"
-              alt="Toolkit API process flow"
-            />
-          </a>
-          <figcaption>
-            Toolkit API process flow — inputs, operations, and platform outputs.
-          </figcaption>
-        </figure>
+            <div class="lifecycle-item">
+              <strong>Access</strong>
+              <p>Identity roles, access models, and authorization boundaries.</p>
+            </div>
 
-        <figure>
-          <a href="/diagrams/jlt-deployment-guardrails.png" target="_blank" rel="noopener">
-            <img
-              src="/diagrams/jlt-deployment-guardrails.png"
-              alt="Deployment guardrails"
-            />
-          </a>
-          <figcaption>
-            Deployment guardrails — safe releases, rollbacks, and production protection.
-          </figcaption>
-        </figure>
-      </div>
+            <div class="lifecycle-item highlight">
+              <strong>Entitlements</strong>
+              <p>Clerk identity, Stripe billing, webhook processing, and RBAC enforcement.</p>
+            </div>
 
-      <h3>Operations, Observability &amp; Reliability</h3>
-      <p class="muted">
-        Metrics, dashboards, runbooks, incident response, and continuous platform improvement loops.
-      </p>
-      <div class="diagram-grid">
-        <figure>
-          <a href="/diagrams/jlt-observability-operations-loop.png" target="_blank" rel="noopener">
-            <img
-              src="/diagrams/jlt-observability-operations-loop.png"
-              alt="Observability and operations loop"
-            />
-          </a>
-          <figcaption>
-            Observability and operations loop — metrics, dashboards, runbooks, and fixes.
-          </figcaption>
-        </figure>
+            <div class="lifecycle-item">
+              <strong>Delivery</strong>
+              <p>Automation toolkit, pipelines, and deployment guardrails.</p>
+            </div>
 
-        <figure>
-          <a href="/diagrams/platform-reliability-flow.png" target="_blank" rel="noopener">
-            <img
-              src="/diagrams/platform-reliability-flow.png"
-              alt="Platform reliability flow"
-            />
-          </a>
-          <figcaption>
-            Reliability loop — architecture, observability, operations, and performance optimization.
-          </figcaption>
-        </figure>
+            <div class="lifecycle-item">
+              <strong>Operations</strong>
+              <p>Observability, runbooks, monitoring, and platform reliability.</p>
+            </div>
+          </div>
+        </section>
 
-        <figure>
-          <a href="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png" target="_blank" rel="noopener">
-            <img
-              src="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png"
-              alt="JLT-Lane Sandbox Suite Architecture"
-            />
-          </a>
-          <figcaption>
-            Sandbox Suite architecture — developer laptop, Docker Compose, services, metrics, dashboards, and runbooks.
-          </figcaption>
-        </figure>
+        <h3>Platform Architecture</h3>
+        <p class="muted">
+          Core platform structure including the control plane, platform surfaces, and service ecosystem.
+        </p>
+        <div class="diagram-grid">
+          <figure>
+            <a href="/diagrams/platform-architecture.png" target="_blank" rel="noopener">
+              <img
+                src="/diagrams/platform-architecture.png"
+                alt="JLT platform architecture"
+              />
+            </a>
+            <figcaption>
+              Platform architecture — control plane, platform surfaces, operations, and delivery.
+            </figcaption>
+          </figure>
+          <figure>
+  <a href="/diagrams/jlt-entitlement-driven-platform-architecture-diagram.png" target="_blank" rel="noopener">
+    <img
+      src="/diagrams/jlt-entitlement-driven-platform-architecture-diagram.png"
+      alt="JLT-Lane entitlement-driven platform architecture diagram showing execution, operations, and control planes"
+    />
+  </a>
+  <figcaption>
+    Entitlement-driven platform architecture — connects execution, operations,
+    and control planes through identity, billing, webhook processing, and RBAC.
+  </figcaption>
+</figure>
 
-        <figure>
-          <a href="/observability-architecture.html">
-            <img
-              src="/diagrams/JLT-Lane_Observability_Architecture.PNG"
-              alt="JLT-Lane platform observability architecture"
-            />
-          </a>
-          <figcaption>
-            Platform observability architecture — Node.js metrics, Prometheus, and Grafana dashboards.
-          </figcaption>
-        </figure>
-      </div>
+          <figure>
+            <a href="/diagrams/jlt-platform-control-flow.png" target="_blank" rel="noopener">
+              <img
+                src="/diagrams/jlt-platform-control-flow.png"
+                alt="Platform control flow"
+              />
+            </a>
+            <figcaption>
+              Platform control flow — how identity, access, resources, and platform services connect.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a href="/diagrams/service-flow.svg" target="_blank" rel="noopener">
+              <img
+                src="/diagrams/service-flow.svg"
+                alt="JLT-Lane platform control plane and service ecosystem"
+              />
+            </a>
+            <figcaption>
+              Platform control plane and service ecosystem.
+            </figcaption>
+          </figure>
+        </div>
+
+        <h3>Identity &amp; Access Flow</h3>
+        <p class="muted">
+          How identity, entitlements, access decisions, and request lifecycles move through the platform.
+        </p>
+        <div class="diagram-grid">
+          <figure>
+            <a href="/diagrams/jlt-platform-authorization-architecture.png" target="_blank" rel="noopener">
+              <img
+                src="/diagrams/jlt-platform-authorization-architecture.png"
+                alt="Access control architecture"
+              />
+            </a>
+            <figcaption>
+              Entitlement-based access control architecture.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a href="/diagrams/jlt-request-lifecycle.png" target="_blank" rel="noopener">
+              <img
+                src="/diagrams/jlt-request-lifecycle.png"
+                alt="Request lifecycle"
+              />
+            </a>
+            <figcaption>
+              Request lifecycle — from identity to access decision to observability and deployment.
+            </figcaption>
+          </figure>
+        </div>
+
+        <h3>Platform Toolkit &amp; Delivery</h3>
+        <p class="muted">
+          Automation toolkit, validation pipelines, deployment guardrails, and release safety mechanisms.
+        </p>
+        <div class="diagram-grid">
+          <figure>
+            <a href="/diagrams/jlt-toolkit-api-processflows.png" target="_blank" rel="noopener">
+              <img
+                src="/diagrams/jlt-toolkit-api-processflows.png"
+                alt="Toolkit API process flow"
+              />
+            </a>
+            <figcaption>
+              Toolkit API process flow — inputs, operations, and platform outputs.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a href="/diagrams/jlt-deployment-guardrails.png" target="_blank" rel="noopener">
+              <img
+                src="/diagrams/jlt-deployment-guardrails.png"
+                alt="Deployment guardrails"
+              />
+            </a>
+            <figcaption>
+              Deployment guardrails — safe releases, rollbacks, and production protection.
+            </figcaption>
+          </figure>
+        </div>
+
+        <h3>Operations, Observability &amp; Reliability</h3>
+        <p class="muted">
+          Metrics, dashboards, runbooks, incident response, and continuous platform improvement loops.
+        </p>
+        <div class="diagram-grid">
+          <figure>
+            <a href="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png" target="_blank" rel="noopener">
+              <img
+                src="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png"
+                alt="JLT-Lane Sandbox Suite Architecture"
+              />
+            </a>
+            <figcaption>
+              Sandbox Suite architecture — developer laptop, Docker Compose, services, metrics,
+              dashboards, and runbooks.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a href="/diagrams/JLT-Lane_Observability_Architecture.PNG" target="_blank" rel="noopener">
+              <img
+                src="/diagrams/JLT-Lane_Observability_Architecture.PNG"
+                alt="JLT-Lane platform observability architecture"
+              />
+            </a>
+            <figcaption>
+              Platform observability architecture — Node.js metrics, Prometheus, and Grafana dashboards.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
     </section>
   </main>
 
@@ -485,7 +530,6 @@
     </div>
   </div>
 </footer>
-<!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
 </body>
 </html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Entitlement Architecture | JLT Platform Documentation</title>
+  <meta
+    name="description"
+    content="JLT-Lane entitlement-driven platform architecture connecting identity, billing, and access control across the execution, operations, and control planes."
+  />
+  <link rel="icon" href="/assets/css/favicon.ico" sizes="any" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="page-hero">
+      <p class="eyebrow">Platform Architecture</p>
+      <h1>Entitlement-Driven Platform Architecture</h1>
+      <p class="lead">
+        Connecting identity, billing, and access control as one governed platform flow.
+      </p>
+      <blockquote class="feature-quote">
+        <p>
+          “I stopped treating billing and access control as separate systems.
+          I designed them as one.”
+        </p>
+      </blockquote>
+      <p class="muted">
+        This page documents how JLT-Lane connects Clerk identity, Stripe checkout,
+        webhook automation, role metadata, and RBAC enforcement into one clear system model.
+      </p>
+    </header>
+
+    <section class="mt-4" aria-labelledby="architecture-diagram">
+      <h2 id="architecture-diagram">Architecture Diagram</h2>
+      <p class="muted">
+        The entitlement flow spans three platform planes: execution, operations, and control.
+        The execution plane captures user and payment actions, the operations plane processes
+        webhook automation and synchronization, and the control plane maps entitlements to
+        access decisions enforced across the platform.
+      </p>
+      <blockquote class="feature-quote">
+        <p>
+            “I stopped treating billing and access control as separate systems.
+            I designed them as one.”
+        </p>
+        </blockquote>
+
+        <figure class="diagram-card diagram-card-hero">
+        <img
+            src="/diagrams/jlt-entitlement-driven-platform-architecture-diagram.png"
+            alt="JLT-Lane entitlement-driven platform architecture diagram showing execution, operations, and control planes"
+            class="diagram-image"
+        />
+        <figcaption class="muted">
+            JLT-Lane entitlement-driven platform architecture across the execution,
+            operations, and control planes.
+        </figcaption>
+        </figure>
+    </section>
+
+    <section class="mt-4" aria-labelledby="core-flow">
+      <h2 id="core-flow">Core Flow</h2>
+      <p class="muted">
+        At a high level, the system turns a payment event into an access-control event.
+      </p>
+
+      <div class="flow-card">
+        <ol class="flow-list">
+          <li>Signed-in Clerk user starts checkout</li>
+          <li>Stripe creates the checkout session and carries identity-linked metadata</li>
+          <li>Stripe webhook receives the event and validates it</li>
+          <li>Membership state and entitlement data are updated</li>
+          <li>Clerk user role metadata is synchronized</li>
+          <li>RBAC guards evaluate permissions</li>
+          <li>Role-aware UI and protected routes update automatically</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="mt-4" aria-labelledby="why-it-matters">
+      <h2 id="why-it-matters">Why It Matters</h2>
+      <div class="info-grid">
+        <article class="info-card">
+          <h3>One System, Not Two</h3>
+          <p>
+            Instead of handling billing and authorization as separate concerns,
+            this architecture treats payment as part of the platform control path.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Faster Access Changes</h3>
+          <p>
+            When the payment state changes, the platform can update roles and
+            access automatically without manual provisioning.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Governed Access Control</h3>
+          <p>
+            Entitlements are enforced through role metadata and RBAC guards,
+            making platform access structured, auditable, and easier to reason about.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-4" aria-labelledby="plane-breakdown">
+      <h2 id="plane-breakdown">Plane-by-Plane Breakdown</h2>
+
+      <div class="plane-grid">
+        <article class="plane-card plane-card-execution">
+          <h3>Execution Plane</h3>
+          <p class="muted">User &amp; Payment Flow</p>
+          <p>
+            The execution plane captures the user-facing flow. A signed-in Clerk user
+            begins checkout, Stripe creates a secure checkout session, and the platform
+            associates the payment action with user identity.
+          </p>
+          <ul class="compact-list">
+            <li>Signed-in user context</li>
+            <li>Stripe checkout session creation</li>
+            <li>Role-aware UI behavior</li>
+            <li>Protected page and route entry points</li>
+          </ul>
+        </article>
+
+        <article class="plane-card plane-card-operations">
+          <h3>Operations Plane</h3>
+          <p class="muted">Automation &amp; Sync</p>
+          <p>
+            The operations plane receives and processes Stripe events. It persists
+            membership and entitlement state, then synchronizes user role changes
+            back into the identity layer.
+          </p>
+          <ul class="compact-list">
+            <li>Webhook validation and event handling</li>
+            <li>Membership persistence</li>
+            <li>Role synchronization</li>
+            <li>Automated entitlement updates</li>
+          </ul>
+        </article>
+
+        <article class="plane-card plane-card-control">
+          <h3>Control Plane</h3>
+          <p class="muted">Identity &amp; Authorization</p>
+          <p>
+            The control plane holds the identity and authorization model. Clerk
+            remains the source of truth for users, role metadata maps plans to
+            permissions, and RBAC guards enforce access across the platform.
+          </p>
+          <ul class="compact-list">
+            <li>Clerk identity context</li>
+            <li>Role metadata mapping</li>
+            <li>RBAC enforcement</li>
+            <li>Protected resources and route access</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-4" aria-labelledby="design-principles">
+      <h2 id="design-principles">Design Principles</h2>
+      <div class="info-grid">
+        <article class="info-card">
+          <h3>Identity-Linked Billing</h3>
+          <p>
+            Payment actions are associated with user identity early in the flow so
+            downstream systems can update the correct account with confidence.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Metadata-Driven Entitlements</h3>
+          <p>
+            Plan and role information flows through controlled metadata rather than
+            manual after-the-fact access changes.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Automatic Access Enforcement</h3>
+          <p>
+            The platform responds to entitlement changes through role-aware UI
+            behavior and protected route enforcement.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-4" aria-labelledby="closing-note">
+      <h2 id="closing-note">Closing Note</h2>
+      <p>
+        This architecture reflects a platform mindset: identity, payment, automation,
+        and authorization should not behave like disconnected systems. They should
+        work together as one governed flow that is easier to operate, secure, and scale.
+      </p>
+      <p class="muted">
+        In this model, billing is not only a financial event. It is also a platform
+        control event that directly shapes user access.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

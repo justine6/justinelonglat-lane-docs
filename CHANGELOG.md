@@ -156,3 +156,22 @@ This update formalizes the Observability layer of the JLT Platform.
 The observability system is documented as part of the platform operating model,
 connecting monitoring, alerting, runbooks, and operations into a continuous
 platform improvement loop.
+
+## [Unreleased]
+
+### ✨ Added
+- Dynamic header-aware hero layout using CSS variables (`--site-header-height`)
+- Automatic header height detection using `ResizeObserver`
+
+### 🛠️ Fixed
+- Hero overlap issue caused by sticky multi-row header
+- Incorrect script execution timing (moved from `<head>` to `<body>`)
+- Duplicate `</header>` tag causing invalid DOM structure
+
+### ♻️ Refactored
+- Simplified hero behavior by removing unnecessary mouse/scroll motion logic
+- Hero spacing now driven by runtime layout instead of hardcoded values
+
+### Notes
+This update introduces a **layout synchronization mechanism** between the header and hero sections.  
+The hero now adapts automatically to header height changes across breakpoints and content variations, improving reliability and visual consistency.

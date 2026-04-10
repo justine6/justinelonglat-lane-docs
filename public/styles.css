@@ -22,8 +22,30 @@
     rgba(7, 24, 61, 0.97),
     rgba(6, 20, 50, 0.95)
   );
+
+  --site-header-height: 0px;
+  --hero-header-offset: 24px;
 }
 
+.home-hero {
+  position: relative;
+  z-index: 1;
+  padding-top: calc(var(--site-header-height) + var(--hero-header-offset));
+}
+
+.home-hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-card {
+  position: relative;
+  z-index: 3;
+}
+
+[id] {
+  scroll-margin-top: calc(var(--site-header-height) + 16px);
+}
 .site-header {
   position: sticky;
   top: 0;
@@ -2826,6 +2848,27 @@ section[aria-labelledby="gallery"] > h3 {
 .home-hero .container {
   max-width: 1140px;
 }
+/* Home hero: push content below the sticky header stack */
+.home-hero,
+.docs-home-hero,
+.hero-shell,
+.hero-surface {
+  padding-top: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+/* If the cards are inside a grid/card rail, give that block breathing room too */
+.home-hero .hero-grid,
+.home-hero .entry-grid,
+.docs-home-hero .hero-grid,
+.docs-home-hero .entry-grid {
+  margin-top: 1rem;
+}
+
+/* Anchor scrolling: prevent section titles from hiding under sticky header */
+[id] {
+  scroll-margin-top: 7rem;
+}
+
 .ecosystem-hero {
   margin: 2rem 0 3rem;
   border-radius: 28px;
@@ -3129,7 +3172,12 @@ section[aria-labelledby="gallery"] > h3 {
   );
   animation: dividerSweep 5s linear infinite;
 }
-
+.home-hero,
+.docs-home-hero,
+.hero-shell,
+.hero-surface {
+  padding-top: 6rem;
+}
 /* Keyframes */
 @keyframes ecosystemAmbientShift {
   0% {
@@ -3224,4 +3272,115 @@ section[aria-labelledby="gallery"] > h3 {
   font-weight: 600;
   color: var(--accent, #8eb8ff);
 }
+/* FIX: lifecycle cards readability */
+.lifecycle-item {
+  display: block;
+  padding: 1.2rem;
+  border-radius: 18px;
+  text-decoration: none;
 
+  background: linear-gradient(
+    180deg,
+    rgba(20, 30, 60, 0.95),
+    rgba(10, 15, 35, 0.95)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* 👇 THIS IS THE KEY FIX */
+  color: #e6ecff;
+
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+}
+
+/* Title */
+.lifecycle-item strong {
+  display: block;
+  font-size: 1.05rem;
+  color: #ffffff; /* force visible */
+}
+
+/* Description */
+.lifecycle-item p {
+  margin-top: 0.4rem;
+  color: rgba(230, 236, 255, 0.75);
+}
+
+/* Hover effect (your current glow but clearer) */
+.lifecycle-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(120, 170, 255, 0.45);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Highlight card (Entitlements) */
+.lifecycle-item.highlight {
+  border-color: rgba(160, 120, 255, 0.6);
+  box-shadow: 0 0 18px rgba(160, 120, 255, 0.25);
+}
+.lifecycle-item::after {
+  content: "→";
+  float: right;
+  opacity: 0.6;
+  transition: transform 120ms ease;
+}
+
+.lifecycle-item:hover::after {
+  transform: translateX(4px);
+  opacity: 1;
+}
+.home-hero {
+  padding-top: 7.5rem; /* increase slightly */
+}
+/* Your header (likely already set, but ensure this) */
+.site-header,
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.home-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 20, 50, 0.6),
+    transparent
+  );
+
+  pointer-events: none;
+}
+.home-hero {
+  position: relative;
+  padding-top: 7.5rem;
+  z-index: 1;
+}
+
+.hero-card,
+.hero-visual-stack {
+  position: relative;
+  z-index: 2;
+}
+.home-hero {
+  position: relative;
+  z-index: 1;
+  padding-top: calc(var(--site-header-height) + var(--hero-header-offset));
+}
+
+.hero-card,
+.hero-visual-stack {
+  position: relative;
+  z-index: 2;
+}
+
+[id] {
+  scroll-margin-top: calc(var(--site-header-height) + 16px);
+}

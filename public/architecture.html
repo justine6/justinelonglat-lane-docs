@@ -160,7 +160,7 @@
 
       <section class="mt-4" aria-labelledby="gallery">
         <h2 id="gallery">Diagram gallery</h2>
-        <p class="muted">Click any diagram to open full-size.</p>
+        <p class="muted">Click any diagram to open the related architecture page.</p>
 
         <!-- Featured diagram / hero -->
         <div class="gallery-hero ecosystem-hero ecosystem-hero-animated">
@@ -188,15 +188,19 @@
                 This diagram is the index of the platform —
                 every system, flow, and control surface expands from here.
               </p>
+
+              <p class="mt-3">
+                <a class="button button-secondary" href="/platform/ecosystem-map.html">
+                  Open ecosystem map
+                </a>
+              </p>
             </div>
 
             <!-- RIGHT: IMAGE -->
             <figure class="gallery-hero__figure ecosystem-hero-image full-width">
               <a
-                href="/diagrams/jlt-platform-ecosystem-lifecycle-diagram.png"
-                target="_blank"
-                rel="noopener"
-                aria-label="Open full-size platform ecosystem diagram"
+                href="/platform/ecosystem-map.html"
+                aria-label="Open platform ecosystem map page"
               >
                 <img
                   src="/diagrams/jlt-platform-ecosystem-lifecycle-diagram.png"
@@ -206,7 +210,9 @@
               </a>
 
               <figcaption>
-                JLT-Lane platform ecosystem lifecycle — this diagram maps the entire platform system.
+                <a href="/platform/ecosystem-map.html">
+                  JLT-Lane platform ecosystem lifecycle — this diagram maps the entire platform system.
+                </a>
 
                 <p class="lifecycle-connector">
                   Each layer builds on the previous one — forming a governed platform system.
@@ -231,30 +237,30 @@
 
           <div class="lifecycle-grid">
 
-            <div class="lifecycle-item">
+            <a class="lifecycle-item" href="/architecture.html">
               <strong>Architecture</strong>
               <p>Platform structure, control plane, and service ecosystem.</p>
-            </div>
+            </a>
 
-            <div class="lifecycle-item">
+            <a class="lifecycle-item" href="/platform/access-control.html">
               <strong>Access</strong>
               <p>Identity roles, access models, and authorization boundaries.</p>
-            </div>
+            </a>
 
-            <div class="lifecycle-item highlight">
+            <a class="lifecycle-item highlight" href="/platform/entitlement-architecture.html">
               <strong>Entitlements</strong>
               <p>Clerk identity, Stripe billing, webhook processing, and RBAC enforcement.</p>
-            </div>
+            </a>
 
-            <div class="lifecycle-item">
+            <a class="lifecycle-item" href="/automation-toolkit.html">
               <strong>Delivery</strong>
               <p>Automation toolkit, pipelines, and deployment guardrails.</p>
-            </div>
+            </a>
 
-            <div class="lifecycle-item">
+            <a class="lifecycle-item" href="/runbooks/index.html">
               <strong>Operations</strong>
               <p>Observability, runbooks, monitoring, and platform reliability.</p>
-            </div>
+            </a>
           </div>
         </section>
 
@@ -264,50 +270,59 @@
         </p>
         <div class="diagram-grid">
           <figure>
-            <a href="/diagrams/platform-architecture.png" target="_blank" rel="noopener">
+            <a href="/architecture.html">
               <img
                 src="/diagrams/platform-architecture.png"
                 alt="JLT platform architecture"
               />
             </a>
             <figcaption>
-              Platform architecture — control plane, platform surfaces, operations, and delivery.
+              <a href="/architecture.html">
+                Platform architecture — control plane, platform surfaces, operations, and delivery.
+              </a>
             </figcaption>
           </figure>
-          <figure>
-  <a href="/diagrams/jlt-entitlement-driven-platform-architecture-diagram.png" target="_blank" rel="noopener">
-    <img
-      src="/diagrams/jlt-entitlement-driven-platform-architecture-diagram.png"
-      alt="JLT-Lane entitlement-driven platform architecture diagram showing execution, operations, and control planes"
-    />
-  </a>
-  <figcaption>
-    Entitlement-driven platform architecture — connects execution, operations,
-    and control planes through identity, billing, webhook processing, and RBAC.
-  </figcaption>
-</figure>
 
           <figure>
-            <a href="/diagrams/jlt-platform-control-flow.png" target="_blank" rel="noopener">
+            <a href="/platform/entitlement-architecture.html">
+              <img
+                src="/diagrams/jlt-entitlement-driven-platform-architecture-diagram.png"
+                alt="JLT-Lane entitlement-driven platform architecture diagram showing execution, operations, and control planes"
+              />
+            </a>
+            <figcaption>
+              <a href="/platform/entitlement-architecture.html">
+                Entitlement-driven platform architecture — connects execution, operations,
+                and control planes through identity, billing, webhook processing, and RBAC.
+              </a>
+            </figcaption>
+          </figure>
+
+          <figure>
+            <a href="/platform/access-model.html">
               <img
                 src="/diagrams/jlt-platform-control-flow.png"
                 alt="Platform control flow"
               />
             </a>
             <figcaption>
-              Platform control flow — how identity, access, resources, and platform services connect.
+              <a href="/platform/access-model.html">
+                Platform control flow — how identity, access, resources, and platform services connect.
+              </a>
             </figcaption>
           </figure>
 
           <figure>
-            <a href="/diagrams/service-flow.svg" target="_blank" rel="noopener">
+            <a href="/platform/ecosystem-map.html">
               <img
                 src="/diagrams/service-flow.svg"
                 alt="JLT-Lane platform control plane and service ecosystem"
               />
             </a>
             <figcaption>
-              Platform control plane and service ecosystem.
+              <a href="/platform/ecosystem-map.html">
+                Platform control plane and service ecosystem.
+              </a>
             </figcaption>
           </figure>
         </div>
@@ -318,26 +333,30 @@
         </p>
         <div class="diagram-grid">
           <figure>
-            <a href="/diagrams/jlt-platform-authorization-architecture.png" target="_blank" rel="noopener">
+            <a href="/platform/access-control.html">
               <img
                 src="/diagrams/jlt-platform-authorization-architecture.png"
                 alt="Access control architecture"
               />
             </a>
             <figcaption>
-              Entitlement-based access control architecture.
+              <a href="/platform/access-control.html">
+                Entitlement-based access control architecture.
+              </a>
             </figcaption>
           </figure>
 
           <figure>
-            <a href="/diagrams/jlt-request-lifecycle.png" target="_blank" rel="noopener">
+            <a href="/platform/access-model.html">
               <img
                 src="/diagrams/jlt-request-lifecycle.png"
                 alt="Request lifecycle"
               />
             </a>
             <figcaption>
-              Request lifecycle — from identity to access decision to observability and deployment.
+              <a href="/platform/access-model.html">
+                Request lifecycle — from identity to access decision to observability and deployment.
+              </a>
             </figcaption>
           </figure>
         </div>
@@ -348,26 +367,30 @@
         </p>
         <div class="diagram-grid">
           <figure>
-            <a href="/diagrams/jlt-toolkit-api-processflows.png" target="_blank" rel="noopener">
+            <a href="/automation-toolkit.html">
               <img
                 src="/diagrams/jlt-toolkit-api-processflows.png"
                 alt="Toolkit API process flow"
               />
             </a>
             <figcaption>
-              Toolkit API process flow — inputs, operations, and platform outputs.
+              <a href="/automation-toolkit.html">
+                Toolkit API process flow — inputs, operations, and platform outputs.
+              </a>
             </figcaption>
           </figure>
 
           <figure>
-            <a href="/diagrams/jlt-deployment-guardrails.png" target="_blank" rel="noopener">
+            <a href="/automation-toolkit.html">
               <img
                 src="/diagrams/jlt-deployment-guardrails.png"
                 alt="Deployment guardrails"
               />
             </a>
             <figcaption>
-              Deployment guardrails — safe releases, rollbacks, and production protection.
+              <a href="/automation-toolkit.html">
+                Deployment guardrails — safe releases, rollbacks, and production protection.
+              </a>
             </figcaption>
           </figure>
         </div>
@@ -378,27 +401,31 @@
         </p>
         <div class="diagram-grid">
           <figure>
-            <a href="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png" target="_blank" rel="noopener">
+            <a href="/runbooks/index.html">
               <img
                 src="/diagrams/JLT-Lane_Sandbox_Suite_Architecture.png"
                 alt="JLT-Lane Sandbox Suite Architecture"
               />
             </a>
             <figcaption>
-              Sandbox Suite architecture — developer laptop, Docker Compose, services, metrics,
-              dashboards, and runbooks.
+              <a href="/runbooks/index.html">
+                Sandbox Suite architecture — developer laptop, Docker Compose, services, metrics,
+                dashboards, and runbooks.
+              </a>
             </figcaption>
           </figure>
 
           <figure>
-            <a href="/diagrams/JLT-Lane_Observability_Architecture.PNG" target="_blank" rel="noopener">
+            <a href="/observability.html">
               <img
                 src="/diagrams/JLT-Lane_Observability_Architecture.PNG"
                 alt="JLT-Lane platform observability architecture"
               />
             </a>
             <figcaption>
-              Platform observability architecture — Node.js metrics, Prometheus, and Grafana dashboards.
+              <a href="/observability.html">
+                Platform observability architecture — Node.js metrics, Prometheus, and Grafana dashboards.
+              </a>
             </figcaption>
           </figure>
         </div>

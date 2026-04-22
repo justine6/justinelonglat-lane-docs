@@ -12,6 +12,16 @@
 <script src="/scripts/theme-toggle.js" defer></script>
 <script src="/scripts/back-to-top.js" defer></script>
 <script src="/scripts/hero-mesh-scroll.js" defer></script>
+<script>
+(function () {
+  try {
+    const saved = localStorage.getItem("jlt-docs-theme");
+    if (saved === "dark" || saved === "light") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) {}
+})();
+</script>
 <!-- /PARTIAL:HEAD -->
 
   <title>Access Control Model · JustineLonglaT-Lane Docs</title>

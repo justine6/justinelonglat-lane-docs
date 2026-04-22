@@ -1,31 +1,54 @@
 (function () {
-  const KEY = "jlt_theme";
+  const STORAGE_KEY = "jlt-docs-theme";
   const root = document.documentElement;
-  const btn = document.getElementById("themeToggle");
 
-  function apply(theme) {
+  function getPreferredTheme() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === "dark" || saved === "light") return saved;
+
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    return prefersDark ? "dark" : "light";
+  }
+
+  function applyTheme(theme) {
     root.setAttribute("data-theme", theme);
-    try { localStorage.setItem(KEY, theme); } catch {}
+
+    const toggle = document.getElementById("themeToggle");
+    if (toggle) {
+      toggle.textContent = theme === "dark" ? "☀️" : "🌙";
+      toggle.setAttribute(
+        "aria-label",
+        theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+      );
+      toggle.setAttribute(
+        "title",
+        theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+      );
+    }
   }
 
-  function getPreferred() {
-    try {
-      const saved = localStorage.getItem(KEY);
-      if (saved === "light" || saved === "dark") return saved;
-    } catch {}
-    return window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: light)").matches
-      ? "light"
-      : "dark";
+  function toggleTheme() {
+    const current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    const next = current === "dark" ? "light" : "dark";
+    localStorage.setItem(STORAGE_KEY, next);
+    applyTheme(next);
   }
 
-  // init
-  apply(getPreferred());
+  function initThemeToggle() {
+    applyTheme(getPreferredTheme());
 
-  if (btn) {
-    btn.addEventListener("click", () => {
-      const current = root.getAttribute("data-theme") || "dark";
-      apply(current === "dark" ? "light" : "dark");
-    });
+    const toggle = document.getElementById("themeToggle");
+    if (!toggle) return;
+
+    toggle.addEventListener("click", toggleTheme);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initThemeToggle);
+  } else {
+    initThemeToggle();
   }
 })();

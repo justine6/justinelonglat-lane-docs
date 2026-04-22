@@ -17,6 +17,16 @@
 <script src="/scripts/theme-toggle.js" defer></script>
 <script src="/scripts/back-to-top.js" defer></script>
 <script src="/scripts/hero-mesh-scroll.js" defer></script>
+<script>
+(function () {
+  try {
+    const saved = localStorage.getItem("jlt-docs-theme");
+    if (saved === "dark" || saved === "light") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) {}
+})();
+</script>
 <!-- /PARTIAL:HEAD -->
 </head>
 <body>
@@ -139,26 +149,6 @@
   </div>
 </div>
 <!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
 
   <main id="main" class="container page" role="main" data-page="automation-toolkit">
 
@@ -167,36 +157,66 @@
       <!-- LEFT: deep content -->
       <div class="toolkit-left">
 
-        <header class="section-header">
+        <header class="section-header toolkit-hero">
+          <div class="toolkit-hero__eyebrow">Execution Layer</div>
+
           <h1 id="toolkit-api-model" class="mt-0">Automation Toolkit</h1>
-          <p class="lead">
-            The execution layer of JLT-Lane — a reusable automation system for validating,
-            previewing, releasing, deploying, and recovering platform work with consistency.
+
+          <p class="lead toolkit-hero__lead">
+            A controlled execution surface for validation, preview, release, deployment,
+            and recovery across the JLT platform ecosystem.
           </p>
         </header>
 
-        <p>
-          The Automation Toolkit is designed as an internal engineering API for the
-          JustineLonglaT-Lane ecosystem: a stable interface that standardizes how work is
-          requested, validated, executed, and released across repositories, sites, and environments.
-        </p>
+        <section class="toolkit-intro" aria-labelledby="toolkit-intro-title">
+          <h2 id="toolkit-intro-title" class="sr-only">Toolkit introduction</h2>
 
-        <p class="muted">
-          In the broader Engineering Mesh, this page represents the execution layer —
-          the place where platform logic becomes repeatable tooling, guarded workflows,
-          and operational discipline.
-        </p>
+          <p>
+            The Automation Toolkit acts as the execution layer of JLT-Lane: a stable interface
+            that standardizes how platform work is requested, validated, executed, and released
+            across repositories, sites, and environments.
+          </p>
 
-        <figure class="toolkit-diagram">
+          <p class="muted">
+            This page is intentionally public as an overview. Execution-level assets such as
+            reusable scripts, starter packs, runbooks, and operational procedures are available
+            through controlled toolkit access.
+          </p>
+        </section>
+
+        <section class="toolkit-summary-grid" aria-label="Toolkit overview summary">
+          <article class="toolkit-summary-card">
+            <h3>What it is</h3>
+            <p class="muted">
+              A reusable execution model for platform delivery.
+            </p>
+          </article>
+
+          <article class="toolkit-summary-card">
+            <h3>What stays public</h3>
+            <p class="muted">
+              Workflow, architecture, guardrails, and overview documentation.
+            </p>
+          </article>
+
+          <article class="toolkit-summary-card">
+            <h3>What is controlled</h3>
+            <p class="muted">
+              Script packs, starter kits, runbook assets, and execution-grade procedures.
+            </p>
+          </article>
+        </section>
+
+        <figure class="toolkit-diagram toolkit-diagram--hero">
           <div class="toolkit-diagram__top">
             <span class="badge badge--info" aria-label="Diagram badge">API Diagram</span>
 
             <div class="toolkit-diagram__actions">
-              <a class="btn btn--sm" href="/diagrams/Toolkit-API-ProcessFlows.PNG" download>
-                Download PNG
+              <a class="btn btn--sm" href="/diagrams/Toolkit-API-ProcessFlows.PNG" target="_blank" rel="noopener noreferrer">
+                View PNG
               </a>
-              <a class="btn btn--sm btn--primary" href="/downloads/Toolkit-API-ProcessFlows.pdf" download>
-                Download PDF
+              <a class="btn btn--sm btn--primary" href="/downloads/Toolkit-API-ProcessFlows.pdf" target="_blank" rel="noopener noreferrer">
+                View PDF
               </a>
             </div>
           </div>
@@ -211,8 +231,8 @@
 
           <figcaption>
             <strong>JTL Automation API Model.</strong>
-            A single orchestrator that bundles validation, preview discipline,
-            safe deployment, and rollback into one repeatable execution system.
+            A unified execution flow that bundles validation, preview discipline,
+            safe deployment, and rollback into one repeatable system.
             <span class="muted">(Click to zoom)</span>
           </figcaption>
         </figure>
@@ -227,12 +247,12 @@
           </p>
 
           <p class="muted">
-            Think of this page as both documentation and control surface for the execution
+            Think of this page as both documentation and preview surface for the execution
             layer of the platform.
           </p>
 
           <ul>
-            <li><strong>Fast:</strong> lightweight commands you can use daily.</li>
+            <li><strong>Fast:</strong> lightweight commands and workflows for daily execution.</li>
             <li><strong>Safe:</strong> guardrails around risky operations.</li>
             <li><strong>Reproducible:</strong> one workflow across multiple surfaces.</li>
             <li><strong>Explainable:</strong> every tool has a clear role in the pipeline.</li>
@@ -253,6 +273,21 @@
             <li><strong>Shared contracts:</strong> templates, patterns, and workflow conventions that keep the platform coherent.</li>
             <li><strong>Recovery paths:</strong> release discipline, rollback logic, and runbook-aligned operating procedures.</li>
           </ul>
+        </section>
+
+        <section aria-labelledby="access-model">
+          <h2 id="access-model">Access model</h2>
+          <p>
+            The toolkit follows a layered exposure model:
+          </p>
+          <ul>
+            <li><strong>Public:</strong> architecture, workflow, diagrams, and overview documentation.</li>
+            <li><strong>Controlled:</strong> scripts, starter packs, runbooks, and reusable operational assets.</li>
+            <li><strong>Internal:</strong> execution-grade procedures, recovery assets, and platform-sensitive materials.</li>
+          </ul>
+          <p class="muted">
+            This preserves trust-building visibility while protecting execution-level value.
+          </p>
         </section>
 
         <section aria-labelledby="workflow">
@@ -292,20 +327,53 @@
         <hr class="section-divider" />
 
         <section aria-labelledby="downloads" data-section="downloads">
-          <h2 id="downloads">Downloads</h2>
+          <h2 id="downloads">Toolkit access</h2>
           <p class="muted">
-            These are the reusable artifacts produced by the toolkit: stable, versioned
-            outputs you can use across projects.
+            The toolkit includes reusable artifacts and execution assets. Public overview materials
+            remain visible here. Downloadable operational assets are made available through
+            controlled toolkit access.
           </p>
-          <ul>
-            <li><a href="/docs/automation-toolkit-overview.pdf">Toolkit API Overview (PDF)</a></li>
-            <li><a href="/docs/powershell-starter-pack.zip">PowerShell SDK (Starter Pack)</a></li>
-            <li><a href="/downloads/validate-site.mjs">validate-site.mjs (API validator)</a></li>
-            <li><a href="/downloads/Tag-Release.ps1">Tag-Release.ps1 (release controller)</a></li>
-            <li><a href="/downloads/bust-styles.ps1">bust-styles.ps1 (style normalizer)</a></li>
-          </ul>
+
+          <div class="tool-index">
+            <article class="tool-card">
+              <h3>Toolkit API Overview (PDF)</h3>
+              <p class="muted">
+                Public overview of the toolkit execution model and process flow.
+              </p>
+              <p><strong>Access:</strong> <a href="/docs/automation-toolkit-overview.pdf" target="_blank" rel="noopener noreferrer">Read overview</a></p>
+            </article>
+
+            <article class="tool-card">
+              <h3>PowerShell Starter Pack</h3>
+              <p class="muted">
+                Reusable starter kit for execution workflows and automation helpers.
+              </p>
+              <p><strong>Status:</strong> 🔒 Available in Toolkit</p>
+              <p><a href="/toolkit.html">Open Toolkit</a></p>
+            </article>
+
+            <article class="tool-card">
+              <h3>Operational Script Pack</h3>
+              <p class="muted">
+                Validation, release, and cleanup helpers used in the platform execution layer.
+              </p>
+              <p><strong>Status:</strong> 🔒 Available in Toolkit</p>
+              <p><a href="/toolkit.html">Open Toolkit</a></p>
+            </article>
+
+            <article class="tool-card">
+              <h3>Runbook Assets</h3>
+              <p class="muted">
+                Recovery, rollback, and incident-aligned operating procedures.
+              </p>
+              <p><strong>Status:</strong> 🔒 Available in Toolkit</p>
+              <p><a href="/toolkit.html">Open Toolkit</a></p>
+            </article>
+          </div>
+
           <p class="muted">
-            Future improvement: publish SHA256 checksums for artifact integrity.
+            Future improvement: controlled downloads may include versioning, integrity checks,
+            and entitlement-aware access.
           </p>
         </section>
 
@@ -316,36 +384,39 @@
 
           <p>
             Each tool below represents a focused capability in the toolkit lifecycle.
+            Publicly visible entries describe the surface area of the toolkit without
+            exposing all execution assets directly.
           </p>
 
           <div class="tool-index">
             <article class="tool-card">
               <h3>validate-site.mjs</h3>
               <p class="muted"><strong>When to use:</strong> before tagging a release or merging routing/layout changes.</p>
-              <p><strong>Download:</strong> <a href="/downloads/validate-site.mjs">/downloads/validate-site.mjs</a></p>
+              <p><strong>Status:</strong> 🔒 Available in Toolkit</p>
             </article>
 
             <article class="tool-card">
               <h3>bust-styles.ps1</h3>
               <p class="muted"><strong>When to use:</strong> after refactors when CSS/formatting gets noisy.</p>
-              <p><strong>Download:</strong> <a href="/downloads/bust-styles.ps1">/downloads/bust-styles.ps1</a></p>
+              <p><strong>Status:</strong> 🔒 Available in Toolkit</p>
             </article>
 
             <article class="tool-card">
               <h3>Tag-Release.ps1</h3>
               <p class="muted"><strong>When to use:</strong> when you want a clean freeze point / release tag.</p>
-              <p><strong>Download:</strong> <a href="/downloads/Tag-Release.ps1">/downloads/Tag-Release.ps1</a></p>
+              <p><strong>Status:</strong> 🔒 Available in Toolkit</p>
             </article>
 
             <article class="tool-card">
               <h3>Templates</h3>
               <p class="muted"><strong>When to use:</strong> restore known-good layout blocks (hero/header/index variations).</p>
-              <p><strong>Path:</strong> <code>/templates/</code></p>
+              <p><strong>Status:</strong> Managed within the toolkit workflow.</p>
             </article>
           </div>
 
           <p class="muted">
-            Tip: publish new helpers under <code>/public/downloads</code>, then add them here so links stay stable.
+            The public index explains the toolkit surface. Access to execution-ready assets
+            is controlled through the toolkit boundary.
           </p>
         </section>
 
@@ -365,7 +436,7 @@
                   <th>Tool</th>
                   <th>Purpose</th>
                   <th>When to use</th>
-                  <th>Command</th>
+                  <th>Access</th>
                 </tr>
               </thead>
               <tbody>
@@ -373,56 +444,57 @@
                   <td><strong>inject-partials.mjs</strong></td>
                   <td>Rebuilds header/footer across all pages.</td>
                   <td>After editing partials or page layout.</td>
-                  <td><code>node ./scripts/inject-partials.mjs</code></td>
+                  <td>Toolkit-managed</td>
                 </tr>
                 <tr>
                   <td><strong>check-partials.mjs</strong></td>
                   <td>Validates partial markers exist and match.</td>
                   <td>Before merge or release tag.</td>
-                  <td><code>node ./scripts/check-partials.mjs</code></td>
+                  <td>Toolkit-managed</td>
                 </tr>
                 <tr>
                   <td><strong>check-heroes.mjs</strong></td>
                   <td>Ensures hero blocks are consistent.</td>
                   <td>When editing home/landing layouts.</td>
-                  <td><code>node ./scripts/check-heroes.mjs</code></td>
+                  <td>Toolkit-managed</td>
                 </tr>
                 <tr>
                   <td><strong>partials-guardrails.yml</strong></td>
                   <td>CI guardrails for partial safety.</td>
                   <td>Used in GitHub Actions.</td>
-                  <td><code>runs automatically in CI</code></td>
+                  <td>Platform internal</td>
                 </tr>
                 <tr>
                   <td><strong>hero-guardrails.yml</strong></td>
                   <td>CI guardrails for hero consistency.</td>
                   <td>Used in GitHub Actions.</td>
-                  <td><code>runs automatically in CI</code></td>
+                  <td>Platform internal</td>
                 </tr>
                 <tr>
                   <td><strong>validate-site.mjs</strong></td>
                   <td>Checks internal links and anchor drift.</td>
                   <td>Before tagging a release.</td>
-                  <td><code>node ./downloads/validate-site.mjs</code></td>
+                  <td>🔒 Available in Toolkit</td>
                 </tr>
                 <tr>
                   <td><strong>Tag-Release.ps1</strong></td>
                   <td>Canonical release tagging helper.</td>
                   <td>When freezing a milestone.</td>
-                  <td><code>./downloads/Tag-Release.ps1</code></td>
+                  <td>🔒 Available in Toolkit</td>
                 </tr>
                 <tr>
                   <td><strong>bust-styles.ps1</strong></td>
                   <td>Cleans noisy CSS diffs.</td>
                   <td>After big refactors.</td>
-                  <td><code>./downloads/bust-styles.ps1</code></td>
+                  <td>🔒 Available in Toolkit</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <p class="muted">
-            Tip: when you add a new tool, add it to <code>/public/downloads</code>, then register it here so links stay stable.
+            This public catalog explains the execution surface without exposing all
+            operational assets directly.
           </p>
         </section>
 
@@ -502,7 +574,7 @@ Delivery</code></pre>
             <li><strong>Local sanity:</strong> home, README, and toolkit layout are centered and consistent.</li>
             <li><strong>Link validation:</strong> header/footer links return 200.</li>
             <li><strong>Clean diff:</strong> separate refactors from content changes.</li>
-            <li><strong>Freeze point:</strong> tag a stable release with Tag-Release.ps1.</li>
+            <li><strong>Freeze point:</strong> tag a stable release.</li>
             <li><strong>Deploy:</strong> confirm Vercel builds the correct branch.</li>
             <li><strong>Post-deploy verify:</strong> test in incognito; theme toggle + nav must work.</li>
           </ol>
@@ -517,9 +589,10 @@ Delivery</code></pre>
           <ul class="panel-list">
             <li><a href="#why">Why this page exists <span class="api-label">intent</span></a></li>
             <li><a href="#included">What the toolkit provides <span class="api-label">surface</span></a></li>
+            <li><a href="#access-model">Access model <span class="api-label">boundary</span></a></li>
             <li><a href="#workflow">Workflow <span class="api-label">pipeline</span></a></li>
             <li><a href="#guardrails">Guardrails <span class="api-label">policy</span></a></li>
-            <li><a href="#downloads">Downloads <span class="api-label">artifacts</span></a></li>
+            <li><a href="#downloads">Toolkit access <span class="api-label">artifacts</span></a></li>
             <li><a href="#tool-index">Tool index <span class="api-label">catalog</span></a></li>
             <li><a href="#tool-table">Tool table <span class="api-label">reference</span></a></li>
             <li><a href="#rollback">Rollback <span class="api-label">recovery</span></a></li>
@@ -527,18 +600,31 @@ Delivery</code></pre>
           </ul>
         </div>
 
-        <div class="panel" aria-label="Downloads panel">
-          <h3>Downloads</h3>
+        <div class="panel" aria-label="Toolkit resources panel">
+          <h3>Public resources</h3>
           <ul class="panel-list">
-            <li><a href="/docs/automation-toolkit-overview.pdf">Toolkit Overview (PDF)</a></li>
+            <li><a href="/docs/automation-toolkit-overview.pdf" target="_blank" rel="noopener noreferrer">Toolkit Overview (PDF)</a></li>
             <li>
-              <a href="/files/governed-multi-plane-platform-operating-model.pdf" target="_blank">
-                Platform Operating Model (Whitepaper)
+              <a href="/files/jlt-platform-operating-model-whitepaper-v1.1.0.pdf" target="_blank" rel="noopener noreferrer">
+                Platform Whitepaper
               </a>
             </li>
-            <li><a href="/docs/powershell-starter-pack.zip">Starter Pack (ZIP)</a></li>
-            <li><a href="/downloads/validate-site.mjs">validate-site.mjs</a></li>
-            <li><a href="/downloads/Tag-Release.ps1">Tag-Release.ps1</a></li>
+            <li>
+              <a href="/files/jlt-platform-operating-model-multiplane-architecture-v1.0.0.pdf" target="_blank" rel="noopener noreferrer">
+                Multi-Plane Architecture
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel" aria-label="Controlled access panel">
+          <h3>Controlled toolkit access</h3>
+          <ul class="panel-list">
+            <li>🔒 Script packs</li>
+            <li>🔒 Starter packs</li>
+            <li>🔒 Runbook assets</li>
+            <li>🔒 Operational workflows</li>
+            <li><a href="/toolkit.html">Open Toolkit</a></li>
           </ul>
         </div>
 
@@ -691,28 +777,6 @@ Delivery</code></pre>
     </div>
   </div>
 </footer>
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
 
   <div class="img-modal" id="imgModal" aria-hidden="true" role="dialog" aria-label="Diagram preview">

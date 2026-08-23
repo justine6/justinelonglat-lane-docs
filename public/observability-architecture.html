@@ -1,7 +1,7 @@
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
   <title>Platform Observability Architecture — JustineLonglaT-Lane Docs</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
     content="Platform observability architecture for JLT-Lane: Node.js metrics, Prometheus scraping, Grafana dashboards, and Docker-based monitoring foundations."
@@ -22,73 +22,65 @@
 <script src="/scripts/theme-toggle.js" defer></script>
 <script src="/scripts/back-to-top.js" defer></script>
 <script src="/scripts/hero-mesh-scroll.js" defer></script>
+<script>
+(function () {
+  try {
+    const saved = localStorage.getItem("jlt-docs-theme");
+    if (saved === "dark" || saved === "light") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) {}
+})();
+</script>
 <!-- /PARTIAL:HEAD -->
 </head>
-
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
   <!-- PARTIAL:HEADER -->
-<!-- PARTIAL:HEADER -->
 <header class="site-header" role="banner">
   <div class="container navbar">
     <a
       class="brand"
-      href="https://www.justinelonglat-lane.com/"
+      href="https://www.jlt-lane.com/documentation"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="JustineLonglaT-Lane home"
+      aria-label="JLT-LANE Factory Documentation"
     >
-      <img
-        class="brand-logo"
-        src="/assets/img/crest.png"
-        alt="JLT-Lane crest"
-      />
-      <div class="brand-text">
-        <div class="brand-title">JustineLonglaT-Lane</div>
-        <div class="brand-subtitle">Cloud Confidence. Delivered.</div>
-      </div>
+    <img
+      src="/assets/img/logo-shield.png"
+      alt="JLT-LANE Factory Documentation"
+      class="brand-logo"
+    />
+
+    <div class="brand-text">
+      <div class="brand-title">Factory Documentation</div>
+      <div class="brand-subtitle">Cloud Confidence. Delivered.</div>
+    </div>
     </a>
 
     <div class="nav-shell">
       <nav class="site-nav" aria-label="Primary">
-
-        <!-- Core -->
         <a href="/">Home</a>
-        <a href="https://www.justinelonglat-lane.com/engineering-mesh" target="_blank" rel="noopener">
-          engineering-mesh↗
-        </a>
-
-        <!-- Docs internal -->
-        <a href="/">Docs</a>
-        <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener">
-          Blog ↗
-      </a>
-        <a href="/README.html">README</a>
-
-        <!-- Platform (internal docs pages) -->
         <a href="/architecture.html">Architecture</a>
-        <a href="/runbooks.html">Runbooks</a>
+        <a href="/platform/index.html">Platform Operating Model</a>
+        <a class="is-primary" href="/toolkit.html">Automation Toolkit</a>
 
-        <!-- CTA -->
-        <a class="is-primary" href="/toolkit.html">
-          Automation Toolkit
-        </a>
-
-        <!-- Ecosystem dropdown -->
         <div class="nav-dropdown">
           <button class="nav-dropdown-toggle">
             Ecosystem ▾
           </button>
-
           <div class="nav-dropdown-menu">
-            <a href="https://www.justinelonglat-lane.com" target="_blank">Main Site ↗</a>
-            <a href="https://docs.justinelonglat-lane.com">Docs</a>
-            <a href="https://blogs.justinelonglat-lane.com">Blogs</a>
-            <a href="https://foundation.nouvoayiti2075.com">Nouvo Ayiti 2075</a>
+            <a href="https://www.justinelonglat-lane.com" target="_blank" rel="noopener">Main Hub ↗</a>
+            <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener">Blog ↗</a>
+            <a href="https://www.justinelonglat-lane.com/engineering-mesh" target="_blank" rel="noopener">Engineering Mesh ↗</a>
+            <hr class="dropdown-divider"/>
+            <a href="/README.html">README</a>
+            <a href="/platform/access-control.html">Access Control</a>
+            <a href="/observability.html">Observability</a>
+            <a href="/runbooks.html">Runbooks</a>
+            <a href="/platform/entitlement-architecture.html">Entitlement Architecture</a>
+            <a href="/platform/publishing-pipeline.html">Publishing Pipeline</a>
           </div>
         </div>
-
       </nav>
 
       <div class="nav-profile" aria-label="Signature">
@@ -100,7 +92,7 @@
           decoding="async"
         />
         <div class="nav-profile-text">
-          <span class="nav-profile-eyebrow">Built by</span>
+          <span class="nav-profile-eyebrow">Curated by</span>
           <span class="nav-profile-name">Justine Longla T.</span>
         </div>
 
@@ -117,26 +109,6 @@
     </div>
   </div>
 </header>
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
-<!-- /PARTIAL:HEADER -->
 <!-- /PARTIAL:HEADER -->
 
 <main id="main" class="page-main">
@@ -333,7 +305,6 @@ Delivery</code></pre>
 </main>
 
   <!-- PARTIAL:FOOTER -->
-<!-- PARTIAL:FOOTER -->
 <footer class="site-footer site-footer--network" role="contentinfo">
   <div class="footer-top">
     <div class="footer-col footer-brand">
@@ -408,12 +379,23 @@ Delivery</code></pre>
             justine@justinelonglat-lane.com
           </a>
         </li>
+
+        <li>
+          <a href="tel:+14054374528">+1 405.437-4528</a>
+        </li>
+
+        <li>
+          <strong>JLT-Lane — Platform Engineering & DevSecOps</strong>
+        </li>
+
+        <li>128 W I-240 Service Rd, PMB [###]</li>
+        <li>Oklahoma City, OK 73139</li>
+        <li>United States</li>
+
         <li>
           <a href="https://www.justinelonglat-lane.com/videos">Videos</a>
         </li>
-        <li>
-          <a href="tel:+14059345864">+1 405.934.5864</a>
-        </li>
+
         <li>
           <a
             href="https://www.linkedin.com/in/longlatjustine"
@@ -422,6 +404,10 @@ Delivery</code></pre>
           >
             LinkedIn: longlatjustine
           </a>
+        </li>
+
+        <li class="footer-tagline">
+          Secure Cloud Platforms • DevSecOps • Automation
         </li>
       </ul>
     </div>
@@ -434,20 +420,20 @@ Delivery</code></pre>
       </p>
 
       <p class="footer-submeta">
-        Operating under <span class="footer-strong">JustineLonglaT-Lane LLC.</span>
+        Operating under <span class="footer-strong">Justine Longla T-Lane LLC</span> · JLT-Lane
       </p>
 
       <nav class="footer-network" aria-label="Justine Longla T. network">
         <a href="https://blogs.justinelonglat-lane.com/" target="_blank" rel="noopener noreferrer">Blog</a>
         <a href="https://www.justinelonglat-lane.com/projects">Projects</a>
-        <a href="https://docs.justinelonglat-lane.com/" target="_blank" rel="noopener noreferrer">Docs</a>
+        <a href="https://docs.justinelonglat-lane.com/" aria-current="page">Docs</a>
         <a href="https://docs.justinelonglat-lane.com/automation-toolkit.html" target="_blank" rel="noopener noreferrer">Automation Toolkit</a>
       </nav>
 
       <div class="footer-divider" aria-hidden="true"></div>
 
       <div class="footer-version">
-        Engineering Mesh v1.2.0 — Release: runtime-stable — Verified production baseline
+        Engineering Mesh v1.2.0 — Docs surface — Verified production baseline
       </div>
 
       <div class="footer-utility-links">
@@ -457,28 +443,6 @@ Delivery</code></pre>
     </div>
   </div>
 </footer>
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
-<!-- /PARTIAL:FOOTER -->
 <!-- /PARTIAL:FOOTER -->
 </body>
 </html>

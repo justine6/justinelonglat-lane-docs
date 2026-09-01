@@ -38,6 +38,39 @@ function readUtf8(p) {
   return fs.readFileSync(p, "utf8");
 }
 
+function assertPageOwnedMetadataOutsideHeadPartial(html, relDisplay) {
+  const open = "<!-- PARTIAL:HEAD -->";
+  const close = "<!-- /PARTIAL:HEAD -->";
+
+  const start = html.indexOf(open);
+  const end = html.indexOf(close);
+
+  if (start === -1 || end === -1 || end <= start) return;
+
+  const region = html.slice(start + open.length, end);
+  const violations = [];
+
+  if (/<title\b[\s\S]*?<\/title>/i.test(region)) {
+    violations.push("<title>");
+  }
+
+  if (/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*>/i.test(region)) {
+    violations.push('meta[name="description"]');
+  }
+
+  if (/<meta\b(?=[^>]*\bname\s*=\s*["']docs-version["'])[^>]*>/i.test(region)) {
+    violations.push('meta[name="docs-version"]');
+  }
+
+  if (violations.length > 0) {
+    fail(
+      `Page-owned metadata found inside PARTIAL:HEAD in ${relDisplay}:\n` +
+        `  ${violations.join(", ")}\n` +
+        `Move page-owned metadata outside the shared replacement boundary.`
+    );
+  }
+}
+
 function hasMarkerBlock(html, open, close) {
   const start = html.indexOf(open);
   const end = html.indexOf(close);
@@ -188,6 +221,8 @@ if (sourceFiles.length === 0) {
     const rel = relFromPages(sourceFile);
     const relDisplay = path.relative(ROOT, sourceFile);
     const outputFile = path.join(PUBLIC_DIR, rel);
+
+    assertPageOwnedMetadataOutsideHeadPartial(html, relDisplay);
 
     for (const m of MARKERS) {
     const isHero = m.name === "HERO:HOME";

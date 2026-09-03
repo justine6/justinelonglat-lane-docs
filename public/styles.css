@@ -778,8 +778,8 @@ html[data-theme="dark"] .nav-dropdown-menu a {
 
 .hero-card-crest img{
   display:block;
-  width:56px;
-  height:56px;
+  width:clamp(112px, 10vw, 160px);
+  height:auto;
   object-fit:contain;
 }
 
@@ -1150,8 +1150,8 @@ html[data-theme="dark"] .nav-dropdown-menu a {
   opacity: 0.82;
 }
   .hero-card-crest img{
-    width:40px;
-    height:40px;
+    width:clamp(96px, 28vw, 128px);
+    height:auto;
   }
 
   .home-hero-title{

@@ -1,175 +1,73 @@
-<!-- PARTIAL:HEADER -->
 <header class="site-header" role="banner">
   <div class="container navbar">
-
-    <!-- Brand -->
     <a
       class="brand"
-      href="https://www.justinelonglat-lane.com/"
+      href="https://www.jlt-lane.com/documentation"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="JustineLonglaT-Lane home"
+      aria-label="JLT-LANE Factory Documentation"
     >
-      <img
-        class="brand-logo"
-        src="/assets/img/logo-shield.png"
-        alt="JLT-Lane crest"
-      />
-      <div class="brand-text">
-        <div class="brand-title">JustineLonglaT-Lane</div>
-        <div class="brand-subtitle">Cloud Confidence. Delivered.</div>
-      </div>
+    <img
+      src="/assets/img/logo-shield.png"
+      alt="JLT-LANE Factory Documentation"
+      class="brand-logo"
+    />
+
+    <div class="brand-text">
+      <div class="brand-title">Factory Documentation</div>
+      <div class="brand-subtitle">Cloud Confidence. Delivered.</div>
+    </div>
     </a>
 
     <div class="nav-shell">
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/architecture.html">Architecture</a>
+        <a href="/platform/index.html">Platform Operating Model</a>
+        <a class="is-primary" href="/toolkit.html">Automation Toolkit</a>
 
-      <!-- Top ecosystem / mesh rail -->
-      <div class="nav-top-row" aria-label="Ecosystem surfaces">
-        <a
-          class="nav-chip"
-          href="https://www.justinelonglat-lane.com/engineering-mesh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          engineering-mesh↗
-        </a>
-
-        <a
-          class="nav-chip"
-          href="https://docs.justinelonglat-lane.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Docs
-        </a>
-
-        <a
-          class="nav-chip"
-          href="https://blogs.justinelonglat-lane.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Blog ↗
-        </a>
-
-        <a
-          class="nav-chip"
-          href="/README.html"
-        >
-          README
-        </a>
-
-        <a
-          class="nav-chip"
-          href="/architecture.html"
-        >
-          Architecture
-        </a>
-
-        <a
-          class="nav-chip"
-          href="/platform.html"
-        >
-          Platform
-        </a>
-
-        <a
-          class="nav-chip"
-          href="/access-control.html"
-        >
-          Access Control
-        </a>
-      </div>
-
-      <!-- Second row -->
-      <div class="nav-bottom-row">
-        <nav class="site-nav" aria-label="Primary">
-          <a class="nav-pill" href="/observability.html">Observability</a>
-          <a class="nav-pill" href="/runbooks.html">Runbooks</a>
-          <a class="nav-pill nav-pill--active" href="/automation-toolkit.html">Automation Toolkit</a>
-
-          <div class="nav-dropdown">
-            <button
-              class="nav-dropdown-toggle nav-pill"
-              type="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Ecosystem <span class="caret">▾</span>
-            </button>
-
-            <div class="nav-dropdown-menu" role="menu">
-              <a
-                href="https://www.justinelonglat-lane.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                role="menuitem"
-              >
-                Main Site ↗
-              </a>
-              <a
-                href="https://docs.justinelonglat-lane.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                role="menuitem"
-              >
-                Docs
-              </a>
-              <a
-                href="https://blogs.justinelonglat-lane.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                role="menuitem"
-              >
-                Blog ↗
-              </a>
-              <a
-                href="https://consulting.justinelonglat-lane.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                role="menuitem"
-              >
-                Consulting ↗
-              </a>
-              <a
-                href="https://www.justinelonglat-lane.com/projects"
-                target="_blank"
-                rel="noopener noreferrer"
-                role="menuitem"
-              >
-                Projects ↗
-              </a>
-            </div>
-          </div>
-        </nav>
-
-        <!-- Signature / Identity -->
-        <div class="nav-profile" aria-label="Signature">
-          <img
-            src="/assets/img/profile.jpg"
-            alt="Justine Longla T."
-            class="nav-profile-avatar"
-            loading="lazy"
-            decoding="async"
-          />
-
-          <div class="nav-profile-text">
-            <span class="nav-profile-eyebrow">Built by</span>
-            <span class="nav-profile-name">Justine Longla T.</span>
-          </div>
-
-          <button
-            id="themeToggle"
-            class="nav-theme-toggle"
-            type="button"
-            aria-label="Toggle theme"
-            title="Toggle theme"
-          >
-            🌙
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle">
+            Ecosystem ▾
           </button>
+          <div class="nav-dropdown-menu">
+            <a href="https://www.justinelonglat-lane.com" target="_blank" rel="noopener">Main Hub ↗</a>
+            <a href="https://blogs.justinelonglat-lane.com" target="_blank" rel="noopener">Blog ↗</a>
+            <a href="https://www.justinelonglat-lane.com/engineering-mesh" target="_blank" rel="noopener">Engineering Mesh ↗</a>
+            <hr class="dropdown-divider"/>
+            <a href="/README.html">README</a>
+            <a href="/platform/access-control.html">Access Control</a>
+            <a href="/observability.html">Observability</a>
+            <a href="/runbooks.html">Runbooks</a>
+            <a href="/platform/entitlement-architecture.html">Entitlement Architecture</a>
+            <a href="/platform/publishing-pipeline.html">Publishing Pipeline</a>
+          </div>
         </div>
+      </nav>
+
+      <div class="nav-profile" aria-label="Signature">
+        <img
+          src="/assets/img/profile.jpg"
+          alt="Justine Longla T."
+          class="nav-profile-avatar"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="nav-profile-text">
+          <span class="nav-profile-eyebrow">Curated by</span>
+          <span class="nav-profile-name">Justine Longla T.</span>
+        </div>
+
+        <button
+          id="themeToggle"
+          class="nav-theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+          title="Toggle theme"
+        >
+          🌙
+        </button>
       </div>
     </div>
   </div>
 </header>
-<!-- /PARTIAL:HEADER -->
